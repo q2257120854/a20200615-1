@@ -1,0 +1,1403 @@
+/*---------------------- 样式重置 ---------------------------*/
+html {
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+    background: #f8f8f8;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 0.625rem;
+    font-family: "Microsoft Yahei", 'Arial', sans-serif;
+    word-break: break-all;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    color: #333;
+}
+
+b, dd, div, dl, dt, form, img, input, li, p, select, span, ul, textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Safari */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: normal;
+    font-size: 0.75rem;
+}
+
+em, i {
+    font-style: normal
+}
+
+.fll {
+    float: left
+}
+
+.frr {
+    float: right
+}
+
+img {
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/*table表格重置*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea {
+    font-family: Verdana, Arial, "Microsoft Yahei" !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    resize: none;
+}
+
+/*兼容苹果手机UI按钮元素*/
+input[type="submit"], input[type="reset"], input[type="button"], input[type="file"], input[type='checkbox'] button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/*头部*/
+.header {
+    width: 100%;
+    float: left;
+    height: 2rem;
+    text-align: center;
+    background: url("../img/header.png") no-repeat center center / cover;
+    position: relative;
+    line-height: 2rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.header h3 {
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.header .go_black {
+    width: 2rem;
+    background: url("../img/goblack.png") no-repeat left center / 0.5rem auto;
+    float: left;
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+}
+
+/*轮播图*/
+.bannerbg {
+    width: 100%;
+    float: left;
+    height: 13rem;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+    padding:3rem .75rem 0 .75rem;
+}
+
+.bannerslider {
+    width: 100%;
+    float: left;
+    height: 100%;
+}
+
+.bannerslider .swiper-container {
+    width: 100%;
+    float: left;
+    height: 100%;
+    border-radius: 0.625rem;
+}
+
+.bannerslider .swiper-container .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.bannerslider .swiper-container .swiper-slide.swiper-slide-active img {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+}
+.bannerslider .swiper-pagination .swiper-pagination-bullet {
+    border: 1px solid #fff;
+    background: none;
+    opacity: .8;
+}
+
+.bannerslider .swiper-pagination .swiper-pagination-bullet-active {
+    background: #fff;
+    opacity: 1;
+}
+
+#bannerbgslider{
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: 1;
+    width: 100%;
+    height: 10rem;
+    float: left;
+}
+
+#bannerbgslider .swiper-wrapper{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+#bannerbgslider .swiper-wrapper .swiper-slide{
+    width: 100%;
+    float: left;
+    height: 100%;
+}
+
+#bannerbgslider .swiper-wrapper .swiper-slide img{
+    width: 100%;
+}
+#bannerslider{
+    position: relative;
+    z-index: 99;
+}
+.indexbg{
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg22.png")no-repeat  center center / 100% 100%;
+    float: left;
+    position: relative;
+    margin-top: -34%;
+    z-index: 9;
+}
+
+.headrTitle{
+    width: 100%;
+    height: 2.75rem;
+    float: left;
+    position: absolute;
+    left: 0;
+    top:0;
+    z-index: 9999;
+    font-size: 0.875rem;
+    line-height: 2.75rem;
+    color: #fff;
+    text-align: center;
+}
+
+/*导航*/
+.navbar {
+    width: 100%;
+    float: left;
+    margin-top:38%;
+    padding: 0 .75rem;
+}
+
+.navbox {
+    width: 100%;
+    border-radius: 0.625rem;
+    float: left;
+    background: #fff;
+    padding-bottom: 0.625rem;
+}
+
+.navbox ul li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin-top: 0.625rem;
+}
+
+.navbox ul li a {
+    display: block;
+}
+
+.navbox ul li span {
+    width: 3.25rem;
+    height: 3.625rem;
+    display: inline-block;
+}
+
+.navbox ul li span img {
+    width: 3.25rem;
+}
+
+.navbox ul li span.icon2 {
+    width: 3.3125rem;
+}
+
+.navbox ul li span.icon2 img {
+    width: 3.3125rem;
+}
+
+.navbox ul li span.icon3 {
+    width: 3.625rem;
+}
+
+.navbox ul li span.icon3 img {
+    width: 3.625rem;
+}
+
+.navbox ul li span.icon5 img {
+    width: 3.375rem;
+}
+
+.navbox ul li h3 {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+}
+
+/*!*最新资讯**/
+.NewNews {
+    width: 100%;
+    float: left;
+    padding: 1.25rem .75rem 3.4375rem .75rem;
+}
+
+.NewNews h3 {
+    font-size: 0.8125rem;
+    line-height:  0.8125rem;
+    padding-left: 0.625rem;
+    margin-bottom: 0.75rem;
+}
+
+.NewNews ul li {
+    width: 100%;
+    float: left;
+    border-radius: 5px;
+    background: #fff;
+    padding: .75rem;
+    min-height: 3.6875rem;
+    position: relative;
+    margin-bottom: 0.625rem;
+}
+
+.NewNews ul li p {
+    font-size: 0.75rem;
+}
+
+.NewNews ul li span {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    color: #959595;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    font-family: Arial;
+}
+
+/*尾部*/
+.footer {
+    width: 100%;
+    float: left;
+    height: 3rem;
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.footer ul li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    padding-top: 0.32rem;
+}
+
+.footer ul li span {
+    display: inline-block;
+    height: 1.46875rem;
+}
+
+.footer ul li .icn1 {
+    width: 1.1875rem;
+    background: url("../img/fotricn1.png") no-repeat;
+    background-size: 1.1875rem;
+}
+
+.footer ul li .icn2 {
+    width: 1.8125rem;
+    background: url("../img/fotricn2.png") no-repeat;
+    background-size: 1.8125rem;
+}
+
+.footer ul li.active .icn2 {
+    background: url("../img/fotricn2-2.png") no-repeat;
+    background-size: 1.8125rem;
+}
+
+.footer ul li .icn3 {
+    width: 1.1875rem;
+    background: url("../img/fotricn3.png") no-repeat;
+    background-size: 1.1875rem;
+}
+
+.footer ul li.active .icn3 {
+    background: url("../img/fotricn3-3.png") no-repeat;
+    background-size: 1.1875rem;
+}
+
+.footer ul li .icn4 {
+    width: 1rem;
+    background: url("../img/fotricn4.png") no-repeat;
+    background-size: 1rem;
+}
+
+.footer ul li.active .icn4 {
+    background: url("../img/fotricn4-4.png") no-repeat;
+    background-size: 1rem;
+}
+
+.footer ul li p {
+    font-size: 0.5625rem;
+    line-height: 0.5625rem;
+}
+
+.footer ul li.active .icn1 {
+    background: url("../img/fotricn1-1.png") no-repeat;
+    background-size: 1.1875rem;
+}
+
+.footer ul li.active p {
+    color: #ff8567;
+}
+
+/*矿机商城*/
+.MinerMall {
+    width: 100%;
+    float: left;
+    padding: 0 0.75rem;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+
+}
+
+.MinerMall ul li {
+    width: 100%;
+    float: left;
+    margin-top: 1rem;
+    height: 7.6875rem;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.75rem;
+    position: relative;
+    padding-left: 7.1875rem;
+}
+
+.Minerimg {
+    width: 5.5625rem;
+    height: 6.125rem;
+    border: 1px solid #d9d9d9;
+    background: #f1f1f1;
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+}
+
+.MinerMall ul li h3 {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    margin: 0.5rem 0;
+}
+
+.MinerMall ul li p {
+    font-size: 0.6875rem;
+    line-height: 0.6875rem;
+    color: #747474;
+    margin-bottom: 0.32rem;
+}
+
+.MinerMall ul li .more {
+    width: 3.3125rem;
+    height: 1.25rem;
+    background: url("../img/more.png") no-repeat center center / cover;
+    line-height: 1.25rem;
+    text-align: center;
+    position: absolute;
+    font-size: 0.875rem;
+    color: #fff;
+    right: 1.1875rem;
+    bottom: 1.25rem;
+}
+
+/*兑换矿机*/
+.exchange {
+    width: 100%;
+    float: left;
+    padding: 0 .75rem;
+    margin-top: 2rem;
+}
+
+.exchange h3 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    margin: 0.8125rem 0;
+}
+
+.formtemplate {
+    width: 100%;
+    float: left;
+    height: 7.6875rem;
+    border-radius: 0.625rem;
+    background: #fff;
+    padding: 0.75rem 1rem;
+}
+
+.formtemplate p {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.formtemplate textarea {
+    width: 100%;
+    height: 100%;
+    font-size: 0.8125rem;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    float: left;
+    margin-top: 1.3125rem;
+    padding: 0 1rem;
+}
+
+.btn span {
+    width: 100%;
+    height: 1.75rem;
+    background: url("../img/btn2.png") no-repeat center center /cover;
+    float: left;
+    border-radius: 0.32rem;
+    text-align: center;
+    line-height: 1.75rem;
+    font-size: 0.8125rem;
+    color: #fff;
+}
+
+/*登录样式*/
+.loginbg {
+    width: 100%;
+    height: 18.75rem;
+    background: url("../img/loginbg.png") no-repeat center center /cover;
+    float: left;
+    position: relative;
+    z-index: 1;
+    padding-top: 2.1875rem;
+}
+
+.loginbg .title {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: PingFangSC-Regular Arial, sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    letter-spacing: 1.01px;
+    line-height: 2.6875rem;
+}
+
+.loginbg .title span {
+    display: inline-block;
+    width: 8.1875rem;
+    margin-right: 0.9rem;
+}
+
+.loginbg .title span img {
+    width: 8.1875rem;
+}
+
+/*登录框*/
+.loginbord {
+    width: 84%;
+    position: relative;
+    margin-top: -11.125rem;
+    float: left;
+    z-index: 33;
+    margin-left: 8%;
+}
+
+.loginbox {
+    width: 100%;
+    float: left;
+    height: 20.9375rem;
+    background: #fff;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.login-inpt {
+    width: 100%;
+    float: left;
+    padding: 0.32rem 1.375rem;
+}
+
+.login-inpt ul li {
+    width: 100%;
+    float: left;
+    margin-top: 1.5625rem;
+    border-bottom: 1px solid #efefef;
+}
+
+.login-inpt ul li label {
+    font-size: 0.8125rem;
+    line-height: 0.8125rem;
+    color: #9b9b9b;
+    letter-spacing: 1px;
+}
+
+.login-inpt ul li .inpt-lit {
+    width: 100%;
+    float: left;
+    height: 2.4375rem;
+}
+
+.login-inpt ul li .inpt-lit input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.8125rem;
+}
+
+.login-inpt ul li .inpt-lit input::-webkit-input-placeholder {
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+.login-inpt ul li .inpt-lit input::-moz-placeholder {
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+.login-inpt ul li .Veroficationcode {
+    padding-right: 6rem;
+    position: relative;
+}
+
+.login-inpt ul li .Veroficationcode i {
+    width: 4.6875rem;
+    height: 1.5625rem;
+    border: 1px solid #979797;
+    background: #d8d8d8;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.78125rem;
+}
+
+.RememberPassword {
+    width: 100%;
+    float: left;
+    margin-top: 0.9375rem;
+    font-size: 0.8125rem;
+    line-height: 0.8125rem;
+    color: #9b9b9b;
+}
+
+.RememberPassword .checkicon {
+    float: left;
+    margin-right: 0.32rem;
+}
+
+.RememberPassword .checkicon input[type=checkbox] {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    border-radius: 0.32rem;
+    border: 1px solid #979797;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.RememberPassword .checkicon input[type=checkbox]:checked {
+    background: #ff62a4;
+    border: 1px solid #ff62a4;
+    background-image: url("../img/icon_checked.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 0.625rem;
+}
+
+.loginbtn {
+    width: 100%;
+    float: left;
+    border-top: 1px solid #ff62a4;
+    margin-top: 0.9375rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.loginbtn button {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 0.9375rem;
+    color: #ff62a4;
+    line-height: 0.9375rem;
+    letter-spacing: 1px;
+}
+
+.login-btom {
+    width: 100%;
+    float: left;
+    margin-top: 1.5rem;
+}
+
+.login-btom a {
+    font-size: 0.9375rem;
+    line-height: 1rem;
+}
+
+.login-btom p {
+    width: 100%;
+    float: left;
+    margin-top: 2.8125rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    line-height: 1rem;
+    color: #9b9b9b;
+    padding-bottom: 1.5rem;
+}
+
+.login-btom p .linkregister {
+    color: #333;
+}
+
+/*忘记密码操作*/
+.ForgetPassword ul li {
+    margin-top: 0.875rem;
+}
+
+.ForgetPassword ul li .inpt-lit {
+    height: 2.2rem;
+}
+
+.ForgetPassword ul li .Veroficationcode .getcode {
+    width: 5.625rem;
+    height: 1.5625rem;
+    border-radius: 0.625rem;
+    background: #23d41e;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    font-size: 0.8125rem;
+}
+
+/*注册*/
+.Registerbox {
+    height: 27.1875rem;
+}
+
+.Register-inpt ul li {
+    margin-top: 0;
+    position: relative;
+}
+
+.Register-inpt ul li.phone .inpt-lit {
+    padding-left: 3.6rem;
+}
+
+.Register-inpt ul li.GraphicVerificationCode .inpt-lit {
+    padding-left: 5rem;
+    padding-right: 4rem;
+}
+
+.Register-inpt ul li.GraphicVerificationCode .inpt-lit i {
+    width: 3.875rem;
+    height: 1.5rem;
+    border: 1px solid #979797;
+    background: #d8d8d8;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.75rem;
+}
+
+.Register-inpt ul li.Vercode .inpt-lit {
+    padding: 0 6rem 0 3.6875rem;
+}
+
+.Register-inpt ul li label {
+    position: absolute;
+    left: .1rem;
+    line-height: 2.4375rem;
+    font-size: 0.8125rem;
+}
+
+.Register-inpt ul li.Vercode .getcode {
+    width: 5.625rem;
+    height: 1.5625rem;
+    border-radius: 0.625rem;
+    background: #23d41e;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    color: #fff;
+    font-size: 0.8125rem;
+}
+
+.Register-inpt ul li.AlipayAccount .inpt-lit {
+    padding-left: 4.875rem;
+}
+
+.Register-inpt ul li.wechat .inpt-lit {
+    padding-left: 3.6rem;
+}
+
+.Register-inpt ul li.password .inpt-lit {
+    padding-left: 4.125rem;
+}
+
+.Register-btom p {
+    margin-top: 0rem;
+    padding-bottom: 1.5rem;
+}
+
+/*报错弹出位置显示*/
+body .layui-m-layer .layui-m-layer-msg {
+    bottom: 0;
+}
+
+/*个人中心头*/
+.PersonalHeadr {
+    width: 100%;
+    height: 9.375rem;
+    background: url("../img/Prenbg.png") no-repeat center center / cover;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+.PersonalTopbox {
+    width: 88%;
+    float: left;
+    margin-left: 6%;
+    position: relative;
+    z-index: 33;
+    height: 10.625rem;
+    border-radius: 0.625rem;
+    background: #fff;
+    margin-top: -7.1875rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+.PersonaId {
+    width: 100%;
+    float: left;
+    height: 7.21875rem;
+    border-bottom: 1px solid #f6f6f6;
+    padding: 1.875rem 0 0 2.8125rem;
+}
+
+.PersonaId .Idimg {
+    float: left;
+    width: 2.8125rem;
+    height: 4.25rem;
+    margin-right: 1.375rem;
+}
+
+.PersonaId .Idimg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.PersonaId .Idcont {
+    float: left;
+}
+
+.PersonaId .Idcont h3 {
+    font-size: 1.125rem;
+    line-height: 1.2rem;
+}
+
+.PersonaId .Idcont p {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+    color: #9b9b9b;
+    margin-top: 0.5rem;
+}
+
+.PersonaNumbar {
+    width: 100%;
+    float: left;
+}
+
+.PersonaNumbar ul {
+    padding-top: 0.8125rem;
+    width: 100%;
+    float: left;
+}
+
+.PersonaNumbar ul li {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+.PersonaNumbar ul li label {
+    font-size: 0.6875rem;
+    line-height: 0.6875rem;
+    color: #c2c4ca;
+}
+
+.PersonaNumbar ul li h3 {
+    font-size: 1rem;
+}
+
+.PersonalCenterItem {
+    width: 100%;
+    float: left;
+    padding: 0 5%;
+    padding-top: 0.32rem;
+    padding-bottom: 5.4375rem;
+}
+
+.PersonalCenterlist {
+    width: 100%;
+    float: left;
+    background: #fff;
+    margin-top: 0.625rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 0.625rem;
+}
+
+.PersonalCenterlist ul li {
+    width: 100%;
+    float: left;
+    height: 3rem;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.PersonalCenterlist ul li:last-child {
+    border-bottom: none;
+}
+
+.PersonalCenterlist ul li a {
+    width: 100%;
+    height: 100%;
+    display: table;
+    float: left;
+    line-height: 3rem;
+    font-size: 0.875rem;
+}
+
+.PersonalCenterlist ul li a i {
+    width: 2.125rem;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.PersonalCenterlist ul li a b {
+    font-weight: normal;
+    color: #4a4a4a;
+}
+
+.PersonalCenterlist ul li img {
+    vertical-align: middle;
+}
+
+.PersonalCenterlist ul li .icon1 img {
+    width: 1.5rem;
+    margin-left: -0.1rem;
+}
+
+.PersonalCenterlist ul li .rtjt {
+    width: 0.5rem;
+    float: right;
+    height: 3rem;
+    vertical-align: middle;
+    background: url("../img/rtjt.png") no-repeat right center / 0.5rem;
+}
+
+.PersonalCenterlist ul li .rtjt img {
+    width: 0.5rem;
+}
+
+.PersonalCenterlist ul li .icon2 img {
+    width: 1.25rem;
+}
+
+.PersonalCenterlist ul li em {
+    float: right;
+    font-size: 0.8125rem;
+    margin-right: .75rem;
+    line-height: 3rem;
+    color: #9c9c9c;
+}
+
+.PersonalCenterlist ul li .icon3 img {
+    width: 1rem;
+    margin-left: 0.2rem;
+}
+
+.PersonalCenterlist ul li .icon4 img {
+    margin-left: -0.2rem;
+    width: 1.625rem;
+}
+
+.Moneyreward {
+    float: right;
+    height: 3rem;
+    vertical-align: middle;
+    background: url("../img/hongb.png") no-repeat right center / 1rem;
+    padding-right: 1.2rem;
+    font-size: 0.75rem;
+    color: #ff8665;
+    margin-right: 0.32rem;
+}
+
+/*保证金提现*/
+.Putforwardbox {
+    width: 100%;
+    float: left;
+    border-radius: 0.32rem;
+    padding: 1rem;
+    background: #fff;
+    margin-top: 0.75rem;
+}
+
+.Putforwardbox p {
+    padding-left: 3.1875rem;
+    font-size: 0.625rem;
+    line-height: 1.125rem;
+    position: relative;
+    width: 100%;
+    float: left;
+}
+
+.Putforwardbox span {
+    position: absolute;
+    left: 0;
+}
+
+.Putforwardbox h1 {
+    font-size: 0.625rem;
+    line-height: 1.125rem;
+    margin-top: 0.4rem;
+    float: left;
+    width: 100%;
+}
+
+.Putforwardbtn {
+    position: absolute;
+    bottom: 4.5rem;
+    width: 100%;
+    float: left;
+    text-align: center;
+    left: 0;
+}
+
+.Putforwardbtn .btn {
+    width: 88%;
+    float: left;
+    margin-left: 6%;
+    height: 2.4375rem;
+    background: url("../img/btn2.png") no-repeat center center /cover;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 0.625rem;
+    font-size: 0.8125rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/*保证金支付*/
+.PaymentTop {
+    width: 100%;
+    float: left;
+    padding: 0.625rem 0.32rem;
+}
+
+.PaymentTop ul li {
+    width: 48%;
+    border: 1px solid #d5d5d5;
+    border-radius: 0.32rem;
+}
+
+.PaymentTop ul li.fll.active {
+    border: 1px solid #55aaff;
+}
+
+.PaymentTop ul li.frr.active {
+    border: 1px solid #00c800;
+}
+
+.PaymentTop ul li .PaymentPrice {
+    width: 100%;
+    height: 3.875rem;
+    float: left;
+    border-radius: 0.32rem;
+    display: table;
+    vertical-align: middle;
+}
+
+.PaymentPrice span {
+    width: 3.125rem;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.PaymentPrice span img {
+    width: 2.5rem;
+}
+
+.PaymentPrice h1 {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0.875rem 0 0.625rem 0;
+    color: #8b8b8b;
+}
+
+.PaymentPrice p {
+    font-size: 0.4375rem;
+    line-height: 0.4375rem;
+    color: #9c9c9c;
+}
+
+/*实名认证*/
+.RealNamebox {
+    width: 100%;
+    float: left;
+}
+
+.RealNamebox ul li {
+    width: 100%;
+    float: left;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #a1a1a1;
+    position: relative;
+    line-height: 1rem;
+    border-bottom: 1px solid #979797;
+    padding-bottom: 0.2rem;
+}
+
+.RealNamebox ul li label {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.RealNamebox ul li .inpt1 {
+    width: 100%;
+    height: 1rem;
+    float: left;
+    padding-left: 4.5rem;
+    background: none;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.RealNamebox ul li .inpt2 {
+    padding-left: 3rem;
+}
+
+.RealNamebox ul li .inpt3 {
+    padding-left: 3.5rem;
+}
+
+.RealNamebox ul li input::-webkit-input-placeholder {
+    font-size: 0.8125rem;
+    color: #ccc;
+}
+
+.RealNamebox ul li input::-moz-placeholder {
+    font-size: 0.8125rem;
+    color: #ccc;
+}
+
+.uploadImg {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin: 0.32rem 0 0 0;
+}
+
+.uploadImg h1 {
+    font-size: 0.875rem;
+    color: #a1a1a1;
+    line-height: 0.875rem;
+    margin-top: 0.625rem;
+}
+
+.Imgbox {
+    width: 100%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.Imgbox span {
+    width: 8.75rem;
+    min-height: 8.75rem;
+    border: 1px solid #c2c4ca;
+    display: table;
+    margin-top: 1.2rem;
+    padding: 0.5rem;
+    background: #fff;
+}
+
+.Imgbox span img{
+    width: 100%;
+    vertical-align: middle;
+}
+.Imgbox span i{
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 7.75rem;
+    font-size: 1rem;
+}
+.Imgbox .Uploadbtn input {
+    width: 8.75rem;
+    height: 8.75rem;
+    float: left;
+    position: absolute;
+    left: 0;
+    top:1.2rem;
+    border: none;
+    background: none;
+    opacity: 0;
+}
+.Realbtn {
+    position: relative;
+    bottom: 0;
+    padding-bottom: 4.375rem;
+}
+
+.Realbtn .btn {
+    margin-left: 0;
+    line-height: 2.4375rem;
+}
+
+
+/*记录盒子*/
+.recordbox {
+    width: 100%;
+    float: left;
+    margin-top: 2rem;
+}
+
+.recordTop {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.recordTop span {
+    width: 25%;
+    float: left;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #717171;
+}
+
+.Putflist {
+    width: 100%;
+    float: left;
+}
+
+.Putflist li {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #ecebeb;
+}
+
+.Putflist li span {
+    float: left;
+    width: 25%;
+    text-align: center;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    color: #a8a3a3;
+}
+
+/*提现申请*/
+.ApplicationBox {
+    width: 100%;
+    float: left;
+    padding: 0 5%;
+    margin-top: 2rem;
+}
+
+.ApplicationTop {
+    width: 100%;
+    float: left;
+    margin: 1.375rem 0 0 0;
+    height: 3.75rem;
+    border: 1px solid #d5d5d5;
+}
+
+.ApplicationTop .Imglt {
+    float: left;
+}
+
+.ApplicationTop .Imglt img {
+    width: 2.5rem;
+    margin: 0.6rem 0.75rem;
+}
+
+.ApplicationTop h3 {
+    float: left;
+    line-height: 3.75rem;
+    font-size: 1rem;
+    color: #8b8b8b;
+}
+
+.ApplicationTop small {
+    font-size: 0.625rem;
+    margin-left: 0.625rem;
+}
+
+.Applicationitem {
+    width: 100%;
+    float: left;
+    margin-top: 1.5rem;
+}
+
+.Applicationlist {
+    width: 100%;
+    float: left;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #a1a1a1;
+    position: relative;
+    line-height: 1rem;
+    border-bottom: 1px solid #979797;
+    padding-bottom: 0.2rem;
+}
+
+.Applicationlist label {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.Applicationlist input {
+    width: 100%;
+    height: 1rem;
+    float: left;
+    padding-left: 3rem;
+    background: none;
+    outline: none;
+    font-size: 0.875rem;
+}
+
+.Applicationlist .Appipnt2 {
+    padding-left: 4rem;
+}
+
+.Applicationlist .Appipnt3 {
+    padding-left: 4.5rem;
+}
+
+.Applicbtn {
+    width: 100%;
+    float: left;
+    margin-top: 1.5rem;
+}
+
+.Applicbtn .btn {
+    width: 100%;
+    float: left;
+    height: 2.4375rem;
+    background: url(../img/btn2.png) no-repeat center center /cover;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 0.625rem;
+    font-size: 0.8125rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.Applicationlist input::-webkit-input-placeholder {
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+.Applicationlist input::-moz-placeholder {
+    font-size: 0.75rem;
+    color: #ccc;
+}

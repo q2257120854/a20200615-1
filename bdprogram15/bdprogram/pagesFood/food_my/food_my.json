@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的餐饮订单",
+  "component": true,
+  "usingComponents": {
+    "copyright": "/components/copyright/copyright",
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

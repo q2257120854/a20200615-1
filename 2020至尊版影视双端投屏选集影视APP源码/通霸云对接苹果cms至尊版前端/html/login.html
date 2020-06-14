@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link href="../css/stylezc.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../js/jquery.minzc.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
+		<script src="../js/sweet-alert.min.js"></script>
+		<style media="screen">
+		</style>
+
+	</head>
+	<body>
+		<header class="ui_button"></header>
+		<section class="aui-flexView">
+			<header class="aui-navBar aui-navBar-fixed b-line">
+				<a onclick="closeWin()" class="aui-navBar-item">
+					<i class="icon icon-return"></i>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title">登录</span>
+				</div>
+				<a tapmode onclick="openWin('reg_frm')" class="aui-navBar-item">
+					<i class="icon icon-sys"></i>注册
+				</a>
+			</header>
+			<section class="aui-scrollView">
+				<div class="aui-code-box">
+					<form action="">
+						<p class="aui-code-line">
+							<input type="text" class="aui-code-line-input" name="search" value="" id="username" autocomplete="off"
+							 placeholder="手机号" />
+						</p>
+						<p class="aui-code-line aui-code-line-clear">
+							<i class="aui-show  operate-eye-open"></i>
+							<input id="password" type="password" class="aui-code-line-input password" placeholder="密码" value="">
+						</p>
+						<div class="aui-flex-links">
+							<a href="javascript:;">
+
+							</a>
+							<a tapmode onclick="openWin('repass')">忘记密码?</a>
+						</div>
+						<div class="aui-code-btn">
+
+							<button type="button" name="button" onclick="loginTo()">马上登录</button>
+						</div>
+					</form>
+				</div>
+				<!--div class="aui-login-line">
+					<h2>合作账号登录</h2>
+				</div>
+				<div class="aui-login-armor">
+
+					<a tapmode onclick="QQ_login()" class="aui-tabBar-item">
+						<img src="../image/app/login/QQ.png" alt="">
+					</a>
+					<a tapmode onclick="WX_login()" class="aui-tabBar-item">
+						<img src="../image/app/login/wx.png" alt="">
+					</a>
+
+				</div-->
+
+			</section>
+		</section>
+		<script type="text/javascript">
+			$('.aui-show').click(function() {
+				let pass_type = $('input.password').attr('type');
+
+				if (pass_type === 'password') {
+					$('input.password').attr('type', 'text');
+					$('.aui-show').removeClass('operate-eye-open').addClass('operate-eye-close');
+				} else {
+					$('input.password').attr('type', 'password');
+					$('.aui-show').removeClass('operate-eye-close').addClass('operate-eye-open');
+				}
+			})
+		</script>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+
+		apiready = function() {
+			qq = api.require('QQPlus');
+			wx = api.require('wx');
+			$api.fixIos7Bar($api.dom("header"));
+
+		};
+
+		function loginTo() {
+			var username = $api.val($api.byId('username'));
+			var password = $api.val($api.byId('password'));
+			if (username == '') {
+				swal("操作失败", "调皮~   账号都没输入", "error");
+				// 	$.gDialog.prompt("请输入激活码", "", {
+				// 	title: "激活码充值",
+				// 	required: true,
+				// 	animateIn : "rollIn",
+				// 	animateOut: "rollOut",
+				//     },
+				//     function(){
+				//   alert('12');
+				//     }
+				// 	);
+				//
+				return;
+			}
+			if (password == '') {
+				swal("操作失败", "哎呀~   密码还没输入", "error");
+
+				return;
+			}
+			api.toast({
+				msg: 'ヾ(◍°∇°◍)ﾉﾞ 努力验证中……',
+				duration: 5000
+			});
+
+			api.closeWin({
+				name: 'reg_frm'
+			});
+			api.ajax({
+				url: api_url + 'login/login/logo.html',
+				method: 'get',
+				data: {
+					values: {
+						username: username,
+						passwd: password,
+						imei: api.deviceId,
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					if (ret.code == 0) {
+						swal("操作失败", "(ｷ｀ﾟДﾟ´)!! 账号或密码不正确", "error");
+
+						return;
+					} else if (ret.code == 1) {
+						console.log(JSON.stringify(ret));
+						if (ret.msg['status'] != 1) {
+							swal("操作失败", "(ｷ｀ﾟДﾟ´)!! 账号被禁用！", "error");
+
+							//alert( JSON.stringify( err ) );
+							return;
+						}
+						api.toast({
+							msg: '(#^.^#) 登陆成功！',
+							duration: 5000
+						});
+
+						//alert( JSON.stringify( ret ) );
+						localStorage.setItem('accountLogin', 0);
+						localStorage.setItem('user_id', ret.msg['id']);
+						localStorage.setItem('user_name', username);
+						localStorage.setItem('password', password);
+						localStorage.setItem('kjdl', 0);
+						localStorage.setItem('user_time', ret.msg['time']);
+						localStorage.setItem('user_share', ret.msg['share']);
+						localStorage.setItem('user_advert', ret.msg['advert']);
+						localStorage.setItem('user_code', ret.msg['code']);
+						localStorage.setItem('power', ret.msg['power']);
+						localStorage.setItem('url', ret.msg['url']);
+						localStorage.setItem('url1', ret.msg['url1']);
+						localStorage.setItem('url2', ret.msg['url2']);
+						localStorage.setItem('url3', ret.msg['url3']);
+						localStorage.setItem('url4', ret.msg['url4']);
+						localStorage.setItem('url5', ret.msg['url5']);
+						localStorage.setItem('url6', ret.msg['url6']);
+						localStorage.setItem('url7', ret.msg['url7']);
+						localStorage.setItem('user_nickname', ret.msg['nick_name']);
+						localStorage.setItem('tjryqma', ret.msg['sjyqma']);
+						localStorage.setItem('stdejb', ret.msg['stjb']);
+						localStorage.setItem('user_zfb', ret.msg['zfb']);
+						localStorage.setItem('user_weichat', ret.msg['weichat']);
+						localStorage.setItem('user_sharema', ret.msg['share_ma']);
+						localStorage.setItem('user_img', ret.msg['userimg']);
+						localStorage.setItem('rj_yyms',ret.msg['yyms']);
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+
+						api.closeWin({});
+
+
+					}
+				} else {
+
+					api.toast({
+						msg: '(ｷ｀ﾟДﾟ´)!!  网络错误 请检查！',
+						duration: 5000
+					});
+
+					//alert( JSON.stringify( err ) );
+					return;
+				}
+			});
+
+		}
+		//QQ登陆
+		function QQ_login() {
+
+			qq.login(function(ret, err) {
+				if (ret.status) {
+					Other_type = 'QQ';
+					QQ_getUserInfo(ret.openId);
+
+				} else {
+					//alert(JSON.stringify(err))
+					alert('QQ授权失败，请尝试重新登陆！')
+				}
+			});
+		}
+
+		//获取qq信息
+		function QQ_getUserInfo(QID) {
+			// city ：用户所在城市
+			// figureurl_qq_2   ：用户大头像（100）地址
+			// gender        ：用户性别
+			// is_yellow_vip  ：是否为黄钻用户
+			// level         ：用户账号级别
+			// nickname  ：用户昵称
+			// province    ：用户所在省份
+			// yellow_vip_level   ：用户账户黄钻等级
+			qq.getUserInfo(function(ret, err) {
+				if (ret.status) {
+					//alert(JSON.stringify(ret));
+					ret.info = JSON.parse(ret.info)
+					localStorage.setItem('Other_name', ret.info.nickname); // nickname  ：用户昵称
+					localStorage.setItem('qq_city', ret.info.city); // city ：用户所在城市
+					localStorage.setItem('Other_img', ret.info.figureurl_qq_1); // figureurl_qq_2   ：用户大头像（100）地址
+					localStorage.setItem('Other_openid', QID); // openid ：用户openid
+
+					Other_Reg();
+				} else {
+					//alert(JSON.stringify(err))
+					alert('用户信息获取失败，请尝试重新登陆！')
+				}
+			});
+		}
+
+		function Other_Reg() {
+			var user = localStorage.getItem('Other_openid');
+			var name = localStorage.getItem('Other_name');
+			var img1 = localStorage.getItem('Other_img');
+			var reg = /&/g;
+			var img = img1.replace(reg, '%26');
+
+			api.ajax({
+				url: api_url + 'login/login/logoqq.html',
+				method: 'get',
+				data: {
+					values: {
+						username: user,
+						imei: api.deviceId,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					if (ret.code == 2) {
+						api.openWin({
+							name: 'bd_loginqq',
+							url: './bd_loginqq.html',
+							pageParam: {
+								kjdl: user,
+								dlname: name,
+								img1: img,
+							}
+						});
+
+					} else if (ret.code == 0) {
+						api.toast({
+							msg: '(ｷ｀ﾟДﾟ´)!! 账号或密码不正确',
+							duration: 5000
+						});
+						//alert( JSON.stringify( err ) );
+						return;
+					} else if (ret.code == 1) {
+						console.log(JSON.stringify(ret));
+						if (ret.msg['status'] != 1) {
+							api.toast({
+								msg: '(ｷ｀ﾟДﾟ´)!! 账号被禁用！',
+								duration: 5000
+							});
+
+							//alert( JSON.stringify( err ) );
+							return;
+						}
+						api.toast({
+							msg: '(#^.^#) 登陆成功！',
+							duration: 5000
+						});
+						//alert( JSON.stringify( ret ) );
+						console.log(JSON.stringify(ret));
+						localStorage.setItem('accountLogin', 0);
+						localStorage.setItem('user_id', ret.msg['id']);
+						localStorage.setItem('user_name', ret.msg['user']);
+						localStorage.setItem('password', ret.msg['password']);
+						localStorage.setItem('kjdl', ret.msg['kjdl']);
+						localStorage.setItem('user_time', ret.msg['time']);
+						localStorage.setItem('user_share', ret.msg['share']);
+						localStorage.setItem('user_advert', ret.msg['advert']);
+						localStorage.setItem('user_code', ret.msg['code']);
+						localStorage.setItem('power', ret.msg['power']);
+						localStorage.setItem('url', ret.msg['url']);
+						localStorage.setItem('url1', ret.msg['url1']);
+						localStorage.setItem('url2', ret.msg['url2']);
+						localStorage.setItem('url3', ret.msg['url3']);
+						localStorage.setItem('url4', ret.msg['url4']);
+						localStorage.setItem('url5', ret.msg['url5']);
+						localStorage.setItem('url6', ret.msg['url6']);
+						localStorage.setItem('url7', ret.msg['url7']);
+						localStorage.setItem('user_nickname', ret.msg['nick_name']);
+						localStorage.setItem('tjryqma', ret.msg['sjyqma']);
+						localStorage.setItem('stdejb', ret.msg['stjb']);
+						localStorage.setItem('user_zfb', ret.msg['zfb']);
+						localStorage.setItem('user_weichat', ret.msg['weichat']);
+						localStorage.setItem('user_sharema', ret.msg['share_ma']);
+						localStorage.setItem('user_img', ret.msg['userimg']);
+						localStorage.setItem('rj_yyms',ret.msg['yyms']);
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+						api.closeWin({});
+
+
+
+					}
+
+				}
+			});
+		}
+
+		//微信调用登陆
+		function WX_login() {
+			wx.auth(function(ret, err) {
+				if (ret.status) {
+					//alert(JSON.stringify(ret));
+					WX_auth(ret.code)
+				} else {
+					if (err.code == 1) {
+						alert('微信授权失败！请稍后重试！');
+					}
+				}
+			});
+		}
+
+		function WX_auth(code) {
+			var auth_code = code;
+			wx.getToken({
+				apiKey: '',
+				apiSecret: '',
+				code: auth_code
+			}, function(ret, err) {
+				if (ret.status) {
+					//alert(JSON.stringify(ret));
+					Other_type = '微信';
+					localStorage.setItem('Other_accessToken', ret.accessToken); // openid ：用户openid
+					var openId = ret.openId;
+					var accessToken = ret.accessToken;
+					WX_getUserInfo(openId, accessToken);
+				} else {
+					alert(err.code);
+				}
+			});
+		}
+		//获取微信信息
+		function WX_getUserInfo(Other_openid, Other_accessToken) {
+			//布尔型；true||false
+			//openid: '',        //字符串类型；普通用户的标识，对当前开发者帐号唯一
+			//nickname: '',      //字符串类型；普通用户昵称
+			//sex: 1,            //数字类型；普通用户性别，1为男性，2为女性
+			//headimgurl: '',    //字符串类型；用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空
+			//privilege: [],     //数组类型；用户特权信息，如微信沃卡用户为（chinaunicom）
+			//unionid: ''        //字符串类型；用户统一标识。针对一个微信开放平台帐号下的应用，同一用户的unionid是唯一的。
+			var accessToken = Other_accessToken;
+			var openId = Other_openid;
+			wx.getUserInfo({
+				accessToken: accessToken,
+				openId: openId
+			}, function(ret, err) {
+				if (ret.status) {
+					//alert(JSON.stringify(ret));
+					localStorage.setItem('Other_name', ret.nickname); // nickname  ：用户昵称
+					localStorage.setItem('Other_img', ret.headimgurl); // figureurl_qq_2   ：用户大头像（100）地址
+					localStorage.setItem('Other_openid', openId); // openid ：用户openid
+
+					var user = localStorage.getItem('Other_openid');
+					var name = localStorage.getItem('Other_name');
+					var img1 = localStorage.getItem('Other_img');
+					var reg = /&/g;
+					var img = img1.replace(reg, '%26');
+
+					api.ajax({
+						url: api_url + 'login/login/logowx.html',
+						method: 'get',
+						data: {
+							values: {
+								username: user,
+								imei: api.deviceId,
+							}
+						}
+					}, function(ret, err) {
+						if (ret) {
+							if (ret.code == 2) {
+								api.openWin({
+									name: 'bd_loginwx',
+									url: './bd_loginwx.html',
+									pageParam: {
+										kjdl: user,
+										dlname: name,
+										img1: img,
+									}
+								});
+							} else if (ret.code == 0) {
+								api.toast({
+									msg: '(ｷ｀ﾟДﾟ´)!! 账号或密码不正确',
+									duration: 5000
+								});
+								//alert( JSON.stringify( err ) );
+								return;
+							} else if (ret.code == 1) {
+								console.log(JSON.stringify(ret));
+								if (ret.msg['status'] != 1) {
+									api.toast({
+										msg: '(ｷ｀ﾟДﾟ´)!! 账号被禁用！',
+										duration: 5000
+									});
+
+									//alert( JSON.stringify( err ) );
+									return;
+								}
+								api.toast({
+									msg: '(#^.^#) 登陆成功！',
+									duration: 5000
+								});
+								//alert( JSON.stringify( ret ) );
+								console.log(JSON.stringify(ret));
+								localStorage.setItem('accountLogin', 0);
+								localStorage.setItem('user_id', ret.msg['id']);
+								localStorage.setItem('user_name', ret.msg['user']);
+								localStorage.setItem('password', ret.msg['password']);
+								localStorage.setItem('kjdl', ret.msg['kjdl']);
+								localStorage.setItem('user_time', ret.msg['time']);
+								localStorage.setItem('user_share', ret.msg['share']);
+								localStorage.setItem('user_advert', ret.msg['advert']);
+								localStorage.setItem('user_code', ret.msg['code']);
+								localStorage.setItem('power', ret.msg['power']);
+								localStorage.setItem('url', ret.msg['url']);
+								localStorage.setItem('url1', ret.msg['url1']);
+								localStorage.setItem('url2', ret.msg['url2']);
+								localStorage.setItem('url3', ret.msg['url3']);
+								localStorage.setItem('url4', ret.msg['url4']);
+								localStorage.setItem('url5', ret.msg['url5']);
+								localStorage.setItem('url6', ret.msg['url6']);
+								localStorage.setItem('url7', ret.msg['url7']);
+								localStorage.setItem('user_nickname', ret.msg['nick_name']);
+								localStorage.setItem('tjryqma', ret.msg['sjyqma']);
+								localStorage.setItem('stdejb', ret.msg['stjb']);
+								localStorage.setItem('user_zfb', ret.msg['zfb']);
+								localStorage.setItem('user_weichat', ret.msg['weichat']);
+								localStorage.setItem('user_sharema', ret.msg['share_ma']);
+								localStorage.setItem('user_img', ret.msg['userimg']);
+								localStorage.setItem('rj_yyms',ret.msg['yyms']);
+								api.sendEvent({
+									name: 'newLoingdata',
+									extra: {}
+								});
+								api.closeWin({});
+
+							}
+						}
+					});
+
+
+
+
+				} else {
+					alert(err.code);
+				}
+			});
+		}
+
+		function closeWin() {
+			api.closeWin({});
+		}
+
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: name,
+				url: name + '.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				bgColor: '#000',
+				animation: {
+					type: "reveal", //动画类型（详见动画类型常量）
+					subType: "from_bottom", //动画子类型（详见动画子类型常量）
+					duration: 400
+				},
+				vScrollBarEnabled: false
+			});
+		}
+	</script>
+</html>

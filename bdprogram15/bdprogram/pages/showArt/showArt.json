@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "文章详情页",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "myfooter": "/components/myfooter/myfooter",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

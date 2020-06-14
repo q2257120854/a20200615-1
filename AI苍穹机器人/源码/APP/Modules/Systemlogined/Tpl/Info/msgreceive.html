@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>BBC Admin</title>
+
+		<meta name="description" content="Static &amp; Dynamic Tables" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="__PUBLIC__/css/custom.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+
+		<!--inline styles if any-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="#">Home</a>
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+						<li class="active">信息交流</li>
+					</ul><!--.breadcrumb-->
+
+					<div id="nav-search">
+						<form class="form-search">
+							<span class="input-icon">
+								<input type="text" placeholder="Search ..." class="input-small search-query" id="nav-search-input" autocomplete="off" />
+								<i class="icon-search" id="nav-search-icon"></i>
+							</span>
+						</form>
+					</div><!--#nav-search-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+					<!--PAGE CONTENT BEGINS HERE-->
+					<form action="{:U(GROUP_NAME .'/Info/addMessage')}" method="POST" class="form-inline well well-small">
+						<div class="row-fluid">
+							<input type="text" class="input-small" name="content" value="" style="width: 600px">
+							&nbsp;&nbsp;
+							<button type="submit" class="btn btn-small no-border"  type="button"><i class="icon-search"></i>发送信息</button>
+						</div>
+					</form>
+
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE-->
+
+						<div class="row-fluid">
+							<!--回复信息-->
+							<div id="compose-mail" class="modal mail-modal fade hide" data-backdrop="false">
+                                        <div class="modal-header">
+                                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                                            发送信息
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row-fluid">
+                                                <form class="form-vertical span12">
+                                                    <div class="control-group">
+                                                        <label class="control-label">收件人:</label>
+                                                        <div class="controls">
+                                                            <input type="text" id="addressee" class="sapan5">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="control-group">
+                                                        <label class="control-label">内容:</label><div class="controls">
+                                                            <textarea id="content" class="span12" rows="6"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a id="replysubmit" class="btn btn-primary no-border">发送</a>
+                                            <a href="#" class="btn no-border" data-dismiss="modal">取消</a>
+                                        </div>
+                                    </div>
+							<table id="table_reportaaa" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="center">ID</th>
+										<th>发件人</th>
+                                        <th>内容</th>
+										<th class="hidden-480">
+											<i class="icon-time hidden-phone"></i>留言时间</th>
+
+										<th>操作</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<foreach name="msg" item="v">
+										<tr>
+											<td class="center">{$v.id}</td>
+											<td><a target="_blank" href="{:U('Member/inMember',array('u'=>$v['from']))}">{$v.from}</a></td>
+                                            <td><a target="_blank" href="{:U('Member/inMember',array('u'=>$v['from']))}">{$v.content}</a></td>
+											<td class="hidden-480">{$v.addtime|date='Y-m-d H:i',###}</td>
+
+											<td class="td-actions">
+												<div class="hidden-phone visible-desktop btn-group">
+													<!--删除按钮-->
+													<button aid="{$v.id}" class="btn btn-mini btn-danger">
+														<i class="icon-trash bigger-120"></i>
+													</button>
+
+												</div>
+											</td>
+										</tr>
+									</foreach>
+                                    <tr>
+										<td colspan="7" style="text-align:center;padding:10px;">{$page}</td>
+									</tr>
+                                    
+								</tbody>
+							</table>
+						</div>
+
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+
+				<div id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+						<i class="icon-cog"></i>
+					</div>
+
+					<div id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hidden">
+									<option data-class="default" value="#438EB9">#438EB9</option>
+									<option data-class="skin-1" value="#222A2D">#222A2D</option>
+									<option data-class="skin-2" value="#C6487E">#C6487E</option>
+									<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+							</div>
+							<span>&nbsp; Choose Skin</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts-->
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+
+		<!--inline scripts related to this page-->
+
+		<script type="text/javascript">
+			$(function() {
+
+				$('.btn-danger,#mdelete').click(function(){
+					var aid = $(this).attr('aid');
+					bootbox.confirm("确认删除吗?", function(result) {
+						if(result) {
+							var url = '{:U(GROUP_NAME .'/Info/deleteMessage')}'+'/id/'+ aid;
+							window.location = url;
+						}
+					});
+					
+				});
+
+		
+			})
+		</script>
+	</body>
+</html>

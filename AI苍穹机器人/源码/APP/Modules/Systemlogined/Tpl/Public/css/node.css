@@ -1,0 +1,61 @@
+#wrap{
+	width: 94%;
+	height: auto;
+	overflow: hidden;
+	padding: 10px 20px;
+}
+
+#wrap .add-app{
+	display:  block;
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #670768;
+	color: #fff;
+	border-radius: 4px;
+}
+
+#wrap .app{
+	padding: 10px;
+	margin-top: 20px;
+	border: 1px solid #f6f6f6;
+	border-radius: 4px;
+}
+
+#wrap .app p{
+	height: 30px;
+	line-height: 30px;
+}
+
+#wrap .app p strong{
+	font-size: 20px;
+	color: #0b99d8;
+}
+
+#wrap .app dl{
+	margin: 10px 0;
+	border: 1px solid #dcdcdc;
+	height: auto;
+	overflow: hidden;
+}
+
+
+#wrap .app dl dt{
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	background: #e6e6fa;
+	text-indent: 10px;
+
+}
+
+#wrap .app dl dt strong{
+	font-size: 16px;
+	color: #61a1fa;
+}
+
+#wrap .app dl dd{
+	padding: 10px;
+	float: left;
+}

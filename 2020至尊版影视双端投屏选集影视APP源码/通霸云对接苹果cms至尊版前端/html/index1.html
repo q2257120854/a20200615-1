@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>文档</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link type="text/css" href="../css/h5-aura.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/auislide.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+	<style>
+	body{
+		background: white
+	}
+		.list-title-l{
+            float: left;
+			padding: 0px 0px 0px 0.05rem;
+        }
+
+		.gonggao {
+  height: 28px;background-color: rgba(0,0,0,0);
+}
+.gonggao marquee{
+  font-size: 0rem;color: #fff;
+}
+.gonggao{
+  width: 100%;
+  height: 0.26rem;
+  background-color: #fff;
+  background: linear-gradient(to right, #ff6144, #ff0072);
+  -webkit-background-clip: text;
+  color: transparent;
+
+
+}
+.gonggao li{
+	margin: 10px;
+}
+
+	</style>
+	<body>
+		<div class="piao">
+
+		</div>
+		<div class="" >
+			<div id="aui-slide" class="fx-box" style="margin:10px;opacity:1 !important;border:none;z-index:2">
+				<div id="slidebox" class="aui-slide-wrap" style="background-color:#489bfc00 !important;border:none">
+					<!--顶部横幅未加载完成时的提示-->
+					<img width="100%" height="100%"    id="bpic" src="../image/default_picture/default_banner.png" onClick="UnloadedCompleted()">
+					<!--顶部横幅未加载完成时的提示-->
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+
+
+			<div class="gonggao" style=" border-radius: 0px 0px 10px 10px; box-shadow: 0.01rem 0.15rem 0.1rem rgba(0, 0, 0, 0.05); ">
+				<div class="list-title-l" style="z-index:999">
+					<i class="iconfont icon-xitonggonggao" style="background: linear-gradient(to right, #00ffe7, #d800ff); -webkit-background-clip: text; color: transparent;font-size: 0.25rem"></i>
+				</div>
+				<div class="gonggao-r" style="float:right;width: 89%;z-index:999">
+					<marquee scrollamount="2">
+						<span id="gonggao" style="background: linear-gradient(to right, #00e7ff, #d800ff); -webkit-background-clip: text; color: transparent;font-size: 0.15rem;padding-top:0.04rem;">121312</span>
+					</marquee>
+				</div>
+			</div>
+
+			<!--------------------------------------广告------------------------------------->
+			<div class="m-box-items m-box-items-full" style="z-index:9" >
+				<section class="m-business-list m-sliding">
+					<ul id="guangg" class="list-item m-sliding-list">
+
+						<script type="text/x-dot-template" id="tubiaotpl">
+							{{~ it.data : value : index }}
+								<li style="pointer-events: auto;">
+								<a tapmode onclick="openLive('{{= value. linkurl }}')"  target="_blank" class="linkImgIcon">
+								<i class="c-icon" style="background-image: url(&quot;http://tongbav5.tongbayun.cn/{{= value. picurl }}&quot;);"></i>
+								<em class="c-title">{{= value. name }}</em>
+								</a>
+							</li>
+							{{~}}
+						</script>
+					</ul>
+				</section>
+			</div>
+
+			<!--------------------------------------电视剧------------------------------------->
+			<div class="m-box-items m-box-items-full">
+				<section class="m-title">
+					<a class="">
+						<i class="c-channelicon c-channel-dianshiju"></i>
+						<h3 class="c-title-des"> 电视剧 </h3>
+
+					</a>
+					<p style="float:right;margin-top:10px;" onclick="openddj(2)"><strong>查看更多</strong></p>
+				</section>
+
+			</div>
+			<div class="m-box-items m-box-items-full">
+				<section class="m-pic m-pic-vertical">
+					<ul id="div_list_f" class="m-pic-list m-sliding-list" style="margin-left:10px;margin-right:10px">
+						<!--电视剧-->
+						<script type="text/x-dot-template" id="navcattpl">
+
+							{{~ it.data : value : index }}
+								<li style="margin:5px">
+								<div tapmode onclick="bofang('{{= value. vod_id }}')" class="piclist-img">
+										<a  class="piclist-link" style='border-radius:5px; background-image: url("{{= value. vod_pic }}");'>
+											<div class="c-rt">
+												<i class="c-picicon c-picicon-self"></i>
+											</div>
+											<div class="c-lb"><!----></div>
+											<div class="c-rb">
+												<span class="c-date">{{= value. vod_remarks }}</span>
+											</div>
+											<div class="c-lt"></div>
+											<div class="c-lrb"><!----></div>
+										</a>
+									</div>
+									<div class="piclist-title">
+										<div class="c-title">
+											<a onclick="">{{= value. vod_name }}</a>
+										</div>
+									</div>
+						</li>
+								{{~}}
+
+						</script>
+					</ul>
+				</section>
+			</div>
+			<!-- <div class="m-box-items m-box-items-full">
+		<section class="m-linkMore">
+			<a onclick="" class="m-link">
+				<i class="c-glyphicon c-glyphicon-morevideo"></i>更多电视剧
+			</a>
+		</section>
+	</div> -->
+			<div id="aui-slide1" class="fx-box">
+				<div id="slidebox1" class="aui-slide-wrap">
+					<script type="text/x-dot-template" id="bannertpl">
+						{{~ it.data : value : index }}
+							<div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. linkurl }}')">
+									<img width="100%" height="100%" src="http://tongbav5.tongbayun.cn/{{= value. picurl }}" />
+							</div>
+						{{~}}
+					</script>
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+			</div>
+			<!--------------------------------------电影------------------------------------->
+			<div class="m-box-items m-box-items-full">
+				<section class="m-title">
+					<a class="">
+						<i class="c-channelicon c-channel-dianying"></i>
+						<h3 class="c-title-des"> 电影 </h3>
+					</a>
+					<p style="float:right;margin-top:10px;" onclick="openddj(1)"><strong>查看更多</strong></p>
+				</section>
+			</div>
+			<div class="m-box-items m-box-items-full">
+				<section class="m-pic m-pic-vertical">
+					<ul id="div_dy" class="m-pic-list m-sliding-list" style="margin-left:10px;margin-right:10px">
+						<!--电影-->
+
+						<script type="text/x-dot-template" id="navdy">
+							{{~ it.data : value : index }}
+								 <li style="margin:5px">
+								<div tapmode onclick="bofang('{{= value. vod_id }}')" class="piclist-img">
+										<a  class="piclist-link" style='border-radius:5px; background-image: url("{{= value. vod_pic }}");'>
+											<div class="c-rt">
+												<i class="c-picicon c-picicon-self"></i>
+											</div>
+											<div class="c-lb"><!----></div>
+											<div class="c-rb">
+												<span class="c-date">{{= value. vod_remarks }}</span>
+											</div>
+											<div class="c-lt"></div>
+											<div class="c-lrb"><!----></div>
+										</a>
+									</div>
+									<div class="piclist-title">
+										<div class="c-title">
+											<a onclick="">{{= value. vod_name }}</a>
+										</div>
+									</div>
+						</li>
+								{{~}}
+						</script>
+					</ul>
+				</section>
+			</div>
+			<!-- <div class="m-box-items m-box-items-full">
+		<section class="m-linkMore">
+			<a onclick="" class="m-link">
+				<i class="c-glyphicon c-glyphicon-morevideo"></i>更多电影
+			</a>
+		</section>
+	</div> -->
+			<div id="aui-slide2" class="fx-box">
+				<div id="slidebox2" class="aui-slide-wrap">
+
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+			</div>
+			<!--------------------------------------动漫------------------------------------->
+			<div class="m-box-items m-box-items-full">
+				<section class="m-title">
+					<a class="">
+						<i class="c-channelicon c-channel-dongman"></i>
+						<h3 class="c-title-des"> 动漫 </h3>
+					</a>
+					<p style="float:right;margin-top:10px;" onclick="openddj(4)"><strong>查看更多</strong></p>
+				</section>
+			</div>
+			<div class="m-box-items m-box-items-full">
+				<section class="m-pic m-pic-vertical">
+					<ul id="div_dm" class="m-pic-list m-sliding-list" style="margin-left:10px;margin-right:10px">
+						<!--动漫-->
+						<script type="text/x-dot-template" id="navdm">
+							{{~ it.data : value : index }}
+								 <li style="margin:5px">
+								<div tapmode onclick="bofang('{{= value. vod_id }}')" class="piclist-img">
+										<a  class="piclist-link" style='border-radius:5px; background-image: url("{{= value. vod_pic }}");'>
+											<div class="c-rt">
+												<i class="c-picicon c-picicon-self"></i>
+											</div>
+											<div class="c-lb"><!----></div>
+											<div class="c-rb">
+												<span class="c-date">{{= value. vod_remarks }}</span>
+											</div>
+											<div class="c-lt"></div>
+											<div class="c-lrb"><!----></div>
+										</a>
+									</div>
+									<div class="piclist-title">
+										<div class="c-title">
+											<a onclick="">{{= value. vod_name }}</a>
+										</div>
+									</div>
+						</li>
+								{{~}}
+						</script>
+					</ul>
+				</section>
+			</div>
+
+			<!-- <div class="m-box-items m-box-items-full">
+		<section class="m-linkMore">
+			<a onclick="" class="m-link">
+				<i class="c-glyphicon c-glyphicon-morevideo"></i>更多动漫
+			</a>
+		</section>
+	</div> -->
+			<div id="aui-slide3" class="fx-box">
+				<div id="slidebox3" class="aui-slide-wrap">
+
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+			</div>
+			<!--------------------------------------综艺------------------------------------->
+			<div class="m-box-items m-box-items-full">
+				<section class="m-title">
+					<a class="">
+						<i class="c-channelicon c-channel-zongyi"></i>
+						<h3 class="c-title-des"> 综艺 </h3>
+					</a>
+					<p style="float:right;margin-top:10px;" onclick="openddj(3)"><strong>查看更多</strong></p>
+				</section>
+			</div>
+			<div class="m-box-items m-box-items-full">
+				<section class="m-pic m-pic-horizontal">
+					<ul id="div_zy" class="m-pic-list m-sliding-list" style="margin-left:10px;margin-right:10px">
+						<!--综艺-->
+						<script type="text/x-dot-template" id="navzy">
+							{{~ it.data : value : index }}
+								 <li style="margin:5px">
+								<div tapmode onclick="bofang('{{= value. vod_id }}')" class="piclist-img">
+										<a  class="piclist-link" style='border-radius:5px;  background-image: url("{{= value. vod_pic }}");'>
+											<div class="c-rt">
+												<i class="c-picicon c-picicon-self"></i>
+											</div>
+											<div class="c-lb"><!----></div>
+											<div class="c-rb">
+												<span class="c-date">{{= value. vod_remarks }}</span>
+											</div>
+											<div class="c-lt"></div>
+											<div class="c-lrb"><!----></div>
+										</a>
+									</div>
+									<div class="piclist-title">
+										<div class="c-title">
+											<a onclick="">{{= value. vod_name }}</a>
+										</div>
+									</div>
+						</li>
+								{{~}}
+						</script>
+					</ul>
+				</section>
+			</div>
+			<!-- <div class="m-box-items m-box-items-full">
+		<section class="m-linkMore">
+			<a onclick="" class="m-link">
+				<i class="c-glyphicon c-glyphicon-morevideo"></i>更多综艺
+			</a>
+		</section>
+	</div> -->
+			<div id="aui-slide4" class="fx-box">
+				<div id="slidebox4" class="aui-slide-wrap">
+
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+			</div>
+		</div>
+		<!--------------------------------------头部轮播------------------------------------->
+
+
+
+	</body>
+
+	<script type="text/x-dot-template" id="lrtpl">
+		<img width="100%" height="100%" id="bpic" src="http://tongbav5.tongbayun.cn/{{=it.picurl}}" style="border-radius:0.5rem;box-shadow:0.1rem 0.1rem 0.4rem rgba(99, 99, 99, 0.3);" onclick="toBanner('{{=it.linkurl}}')">
+</script>
+
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript" src="../script/auipullrefresh.js"></script>
+	<script type="text/javascript" src="../script/auislide.js"></script>
+	<script type="text/javascript" src="../script/auilazyload.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var djapi_url = localStorage.getItem('djapi_url');
+		var yj_yyms = localStorage.getItem('rj_yyms');
+
+
+		setInterval(function() {
+
+		}, 100);
+		apiready = function() {
+
+
+			//下拉刷新
+			api.setCustomRefreshHeaderInfo({
+				bgColor: '#fff',
+				images: [
+					'widget://image/app/xiala/1.png',
+					'widget://image/app/xiala/2.png',
+					'widget://image/app/xiala/3.png',
+					'widget://image/app/xiala/4.png',
+					'widget://image/app/xiala/5.png',
+					'widget://image/app/xiala/6.png',
+					'widget://image/app/xiala/7.png',
+					'widget://image/app/xiala/8.png',
+				],
+				tips: {
+					pull: '下拉刷新！',
+					threshold: '松开立即刷新！',
+					load: '正在刷新'
+				}
+
+			}, function() {
+				hqpldz();
+				hqdy();
+				getBanner();
+				//下拉刷新被触发，自动进入加载状态，使用 api.refreshHeaderLoadDone() 手动结束加载中状态
+				setTimeout(function() {
+					api.refreshHeaderLoadDone()
+				}, 3000);
+			});
+			//下拉刷新
+			hqpldz();
+			hqdy();
+			getBanner();
+		}
+
+		function closeFrame() {
+			api.closeWin({});
+		}
+		function openddj(page) {
+			api.setFrameGroupIndex({
+				name: 'message',
+				index: page,
+				scroll: true
+			});
+		}
+		function hqpldz() {
+			api.ajax({
+				url: api_url + '/login/login/banben.html',
+				method: 'get',
+				data: {
+					values: {
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+
+					var advert = $api.byId('gonggao');
+                    advert.innerHTML = ret.advert;
+					localStorage.setItem('djapi_url', ret.url);
+					localStorage.setItem('play_url1', ret.url1);
+					localStorage.setItem('play_url2', ret.url2);
+					localStorage.setItem('play_url3', ret.url3);
+					localStorage.setItem('play_url4', ret.url4);
+					localStorage.setItem('play_url5', ret.url5);
+					localStorage.setItem('play_url6', ret.url6);
+					localStorage.setItem('play_url7', ret.url7);
+					localStorage.setItem('play_url8', ret.url8);
+				}
+
+			});
+		}
+
+		function getBanner() {
+			var bannerid = $api.byId('slidebox');
+			var bannerid1 = $api.byId('slidebox1');
+			var bannerid2 = $api.byId('slidebox2');
+			var bannerid3 = $api.byId('slidebox3');
+			var bannerid4 = $api.byId('slidebox4');
+
+
+			var bannertpl = $api.byId('bannertpl');
+
+			var guangg = $api.byId('guangg');
+			var tubiaotpl = $api.byId('tubiaotpl');
+
+			// 添加广告
+			var uid = 0;
+			if (localStorage.getItem('user_id') > 1) {
+				uid = localStorage.getItem('user_id');
+			}
+			// end
+			api.ajax({
+				url: api_url + '/app/nav/index?uid=' + uid,
+				method: 'get',
+			}, function(ret, err) {
+				if (ret) {
+
+					//渲染模板
+					var pagefn = doT.template(bannertpl.text);
+					bannerid.innerHTML = pagefn(ret.banner);
+
+					var sd = ret.banner1.data;
+					if (sd.length > 0) {
+						bannerid1.innerHTML = pagefn(ret.banner1);
+						banNer1();
+					}
+					sd = ret.banner2.data;
+					if (sd.length > 0) {
+						bannerid2.innerHTML = pagefn(ret.banner2);
+						banNer2();
+					}
+					sd = ret.banner3.data;
+					if (sd.length > 0) {
+						bannerid3.innerHTML = pagefn(ret.banner3);
+						banNer3();
+					}
+					sd = ret.banner4.data;
+					if (sd.length > 0) {
+						bannerid4.innerHTML = pagefn(ret.banner4);
+						banNer4();
+					}
+
+					var pagefn1 = doT.template(tubiaotpl.text);
+					guangg.innerHTML = pagefn1(ret.vip);
+					//      alert( JSON.stringify( ret.banner ) );
+					banNer();
+
+
+
+
+
+				}
+
+			});
+		}
+		//顶部轮播
+		function banNer() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+		//电视剧轮播
+		function banNer1() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide1"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+		//电影剧轮播
+		function banNer2() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide2"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+		//动漫剧轮播
+		function banNer3() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide3"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+		//综艺剧轮播
+		function banNer4() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide4"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+
+
+		function hqdy() {
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			var navddy = $api.byId('div_dy');
+			var navdy = $api.byId('navdy');
+			var navddm = $api.byId('div_dm');
+			var navdm = $api.byId('navdm');
+			var navdzy = $api.byId('div_zy');
+			var navzy = $api.byId('navzy');
+			// 获取视频
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/shouye',
+				method: 'get',
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					//电视剧
+					// alert( JSON.stringify( ret.dsj ) );
+					var pagefn = doT.template(navtpl.text);
+					navid.innerHTML = pagefn(ret.dsj);
+					//电影
+					var pagefn1 = doT.template(navdy.text);
+					navddy.innerHTML = pagefn1(ret.dy);
+					//动漫
+					var pagefn2 = doT.template(navdm.text);
+					navddm.innerHTML = pagefn2(ret.dm);
+					//综艺
+					var pagefn3 = doT.template(navzy.text);
+					navdzy.innerHTML = pagefn3(ret.zy);
+					//      alert( JSON.stringify( ret ) );
+				}
+
+
+			});
+
+
+		}
+
+		function bofang(url) {
+			var time = localStorage.getItem('user_time');
+			var user_id = localStorage.getItem('user_id');
+			var username = localStorage.getItem('user_name');
+			var timestamp = Date.parse(new Date()) / 1000;
+
+			if (user_id < 1) {
+				api.toast({
+					msg: '通霸云影视提醒！你还没登陆！',
+					duration: 5000
+				});
+				api.openWin({
+					name: 'login',
+					url: './login.html',
+					delay: 2000
+				});
+				return;
+			}
+			if(yj_yyms=='0'){
+				api.openWin({
+					name: 'play',
+					url: './play.html',
+					pageParam: {
+						id: url
+					}
+				});
+				return;
+			}
+			if (time > timestamp) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: 'VIP登录'
+						});
+						setTimeout("playRadio();", 1000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: url
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time == -1) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: '永久VIP登录'
+						});
+						setTimeout("playRadio();", 2000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: url
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time < timestamp) {
+				VipExpiredHint();
+			}
+
+		}
+
+		function toBanner(url) {
+			if (url == '') {
+				api.toast({
+					msg: '暂无详情'
+				});
+			} else {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: '加载中'
+						});
+						api.openWin({
+							name: 'h5',
+							url: './h5.html',
+							pageParam: {
+								url: url
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			}
+		}
+
+
+		    function openLive(url) {
+		    var time = localStorage.getItem('user_time');
+		    var user_id = localStorage.getItem('user_id');
+		    var username = localStorage.getItem('user_name');
+		    var timestamp = Date.parse(new Date()) / 1000;
+
+		    if (user_id < 1) {
+		        api.toast({
+		            msg: '通霸云影视提醒！你还没登陆！',
+		            duration: 5000
+		        });
+		        api.openWin({
+		            name: 'login',
+		            url: './login.html',
+		            delay: 2000
+		        });
+		        return;
+
+		    }
+
+			if(yj_yyms=='0'){
+				api.openWin({
+				    name: 'video_win',
+				    url: './video_win.html',
+				    delay: 800,
+				    pageParam: {
+				        url: url
+				    },
+				    bgColor: '#000000'
+				});
+				return;
+			}
+
+		    if (time > timestamp) {
+
+
+		        api.ajax({
+		            url: api_url + '/login/login/banben.html',
+		            method: 'get'
+		        }, function(ret, err) {
+		            if (ret) {
+
+
+		                api.toast({
+		                    msg: 'VIP登录'
+		                });
+
+		                setTimeout("playRadio();", 1000);
+		                var delay = 0;
+		                if (api.systemType != 'ios') {
+		                    delay = 300;
+		                }
+		                api.openWin({
+		                    name: 'video_win',
+		                    url: './video_win.html',
+		                    delay: 800,
+		                    pageParam: {
+		                        url: url
+		                    },
+		                    bgColor: 'rgba(0,0,0,0)'
+		                });
+		            } else {
+
+
+		                api.toast({
+		                    msg: '请检查网络是否畅通'
+		                });
+		            }
+		        });
+		    } else if (time == -1) {
+		        api.ajax({
+		            url: api_url + '/login/login/banben.html',
+		            method: 'get'
+		        }, function(ret, err) {
+		            if (ret) {
+		                api.toast({
+		                    msg: '永久VIP登录'
+		                });
+
+		                setTimeout("playRadio();", 2000);
+		                var delay = 0;
+		                if (api.systemType != 'ios') {
+		                    delay = 300;
+		                }
+		                api.openWin({
+		                    name: 'video_win',
+		                    url: './video_win.html',
+		                    delay: 800,
+		                    pageParam: {
+		                        url: url
+		                    },
+		                    bgColor: '#000000'
+		                });
+		            } else {
+		                api.toast({
+		                    msg: '请检查网络是否畅通'
+		                });
+		            }
+		        });
+		    } else if (time < timestamp) {
+		        VipExpiredHint();
+		    }
+		}
+
+
+		function VipExpiredHint() {
+			var dialogBox = api.require('dialogBox');
+			dialogBox.alert({
+				tapClose: true,
+				texts: {
+					content: '超级视频VIP已过期',
+					leftBtnTitle: '在想想',
+					rightBtnTitle: '去续费'
+				},
+				styles: {
+					bg: '#fff',
+					corner: 10,
+					w: 300,
+					title: {
+						marginT: 20,
+						icon: 'widget://image/app/VipExpiredTisi.png',
+						iconSize: 80,
+						titleSize: 14,
+						titleColor: '#000'
+					},
+					content: {
+						marginT: 20,
+						marginB: 40,
+						color: '#ff0072',
+						size: 12
+					},
+					left: {
+						marginB: 30,
+						marginL: 30,
+						w: 100,
+						h: 40,
+						corner: 10,
+						bg: '#3d3d3d',
+						color: '#fff',
+						size: 12
+					},
+					right: {
+						marginB: 30,
+						marginL: 40,
+						w: 100,
+						h: 40,
+						corner: 10,
+						bg: '#ff0072',
+						color: '#fff',
+						size: 12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				} else if (ret.eventType == 'right') {
+					api.openWin({
+						name: 'open_vip',
+						url: './open_vip.html',
+						delay: 300
+					});
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				}
+			});
+
+		}
+	</script>
+
+</html>

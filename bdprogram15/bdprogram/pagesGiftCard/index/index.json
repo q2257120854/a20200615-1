@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "礼品卡",
+  "component": true,
+  "usingComponents": {
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

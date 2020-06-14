@@ -1,0 +1,131 @@
+{include file="block/layui" /}
+<table class="layui-hide" id="bank" lay-filter="bank"></table>
+<script type="text/html" id="buttonTpl">
+    <div class="layui-btn-group">
+        <a href="javascript:bank_del({{d.id }});" style="margin-left: 10px !important;" class="layui-btn layui-btn-warm layui-btn-xs">删除</a>
+    </div>
+</script>
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#bank'
+            ,url:'{:url('pinduoduo/bank')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,cols: [[
+            {field:'id', title: 'ID',width: 80, sort: true}
+            ,{field:'title', title: '机构名称',edit:'text'}
+            ,{field:'name', title: '收款姓名',edit:'text'}
+            ,{field:'address', title: '收款地址',edit:'text'}
+            ,{field:'nick', title: '代理商'}
+            ,{title: '操作',width: 150, templet: '#buttonTpl'}
+        ]]
+    });
+        var tip_index = 0;
+        $(document).on('mouseenter', 'td[data-field="title"]', function(){
+            console.log(this);
+            tip_index = layer.tips('点击机构名称可以修改', this, {time: 1000});
+        }).on('mouseleave', this, function(){
+            layer.close(tip_index);
+        });
+
+        var tip_index = 0;
+        $(document).on('mouseenter', 'td[data-field="name"]', function(){
+            console.log(this);
+            tip_index = layer.tips('点击收款姓名可以修改', this, {time: 1000});
+        }).on('mouseleave', this, function(){
+            layer.close(tip_index);
+        });
+
+        var tip_index = 0;
+        $(document).on('mouseenter', 'td[data-field="address"]', function(){
+            console.log(this);
+            tip_index = layer.tips('点击收款地址可以修改', this, {time: 1000});
+        }).on('mouseleave', this, function(){
+            layer.close(tip_index);
+        });
+        //监听单元格编辑
+        table.on('edit(bank)', function(obj){
+            var value = obj.value //得到修改后的值
+                ,data = obj.data //得到所在行所有键值
+                ,field = obj.field; //得到字段
+            if (field=='title'){
+                var id=data.id;
+                var title=value;
+                var flag=true;
+                if (!title){
+                    layer.msg("机构名称不能为空");
+                    flag = false;
+                    return;
+                }
+                if (flag) {
+                    $.ajax({
+                        type:"POST",
+                        url: "{:url('pinduoduo/bank_retitle')}",
+                        data:{
+                            id:id
+                            ,title:title
+                        },
+                        success: function(res){
+                            layer.msg(res.msg);
+                            if (res.status){
+                                self.location.reload();
+                            }
+                        }
+                    });
+                }
+            }
+            if (field=='name') {
+                let id = data.id;
+                let name = value;
+                let flag = true;
+                if (!name){
+                    layer.msg("收款姓名不能为空");
+                    flag = false;
+                    return;
+                }
+                if (flag) {
+                    $.post('{:url('pinduoduo/bank_rename')}', {
+                        id: id,
+                        name: name
+                    }, function (res) {
+                        console.log(res);
+                        layer.msg(res.msg, {
+                            time: 2000,
+                            closeBtn: 0
+                        });
+                    })
+                }
+            }
+            if (field=='address') {
+                let id = data.id;
+                let address = value;
+                let flag = true;
+                if (!address){
+                    layer.msg("收款账号不能为空");
+                    flag = false;
+                    return;
+                }
+                if (flag) {
+                    $.post('{:url('pinduoduo/bank_readdress')}', {
+                        id: id,
+                        address: address
+                    }, function (res) {
+                        console.log(res);
+                        layer.msg(res.msg, {
+                            time: 2000,
+                            closeBtn: 0
+                        });
+                    })
+                }
+            }
+        });
+    });
+    function bank_del(id)
+    {
+        location.href = '{:url('bank_del')}?id=' + id
+    }
+</script>

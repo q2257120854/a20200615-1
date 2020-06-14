@@ -1,0 +1,56 @@
+.chat-message{
+
+}
+.time{
+    color:#999;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+.send:after,.show:after,.msg:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.msg>img{
+    width: 2rem;
+    height: 2rem;
+    float: left;
+}
+.msg>p{
+    float: left;
+    padding: 0.5rem;
+    position: relative;
+    border-radius: 0.5rem;
+    max-width:15rem ;
+    box-sizing: border-box;
+    margin: 0 0.45rem;
+    color: #fff;
+}
+
+.msg_input{
+    position: absolute;
+    background: url(../img/bg/msg-input.png) no-repeat;
+    background-size: 1.5rem auto;
+    width: 1.5rem;
+    height: 1.2rem;
+    left: -1.45rem;
+    top: 0.45rem;
+}
+.show .msg img,.show .msg p,.show .msg{
+    float: right;
+}
+
+
+.show .msg_input{
+    left: auto;
+    right: -1.45rem;
+    transform:rotate(180deg);
+    -ms-transform:rotate(180deg); 	/* IE 9 */
+    -moz-transform:rotate(180deg); 	/* Firefox */
+    -webkit-transform:rotate(180deg); /* Safari 鍜� Chrome */
+    -o-transform:rotate(180deg); 	/* Opera */
+}
+.send,.show{
+    padding-bottom: 0.8rem;
+}

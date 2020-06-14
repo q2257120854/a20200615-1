@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html style="font-size: 50px;">
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/myui1.css" />
+	</head>
+	
+	<body >
+
+		<div style="padding-top: 1.0rem;text-align: center; width: 100%;font-size: 0.9rem;">
+			<a style="color: #FFFFFF;">最新片源 抢先看</a><br />
+		</div>
+
+		<div class="fenx" style="text-align: center; width: 100%;">
+			<a>邀请码</a>
+			<b><a id="yqm" style="color: #EA0000;">----</a></b>
+			<button onclick="copyyqm()">复制</button>
+		</div>
+
+		<div style="text-align: center;">
+			<img id="tup" src="../image/share_bg.png" style="margin: 0 auto;" />
+		</div>
+
+		<div style="text-align: center; width: 100%;font-size: .25rem;">
+			<a style="color: #FFFFFF;">扫描上方二维码,下载通霸云影视</a><br />
+		</div>
+
+		<div class="sp-content">
+			<div class="bigImg">
+				<div class="getVip" style="text-align: center; width: 100%;">
+					<button onclick="erweima()">保存二维码</button>
+					<button onclick="copySet()">复制邀请链接</button>
+				</div>
+			</div>
+
+			<div class="rule">
+				<ul>
+					<li>保存这张图到本地,如遇到app无法打开时请扫描二维码或者输入官网地址重新下载APP即可,邀请好友注册,双方都可获得奖励哦！</li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var copy = '';
+		var shama = '';
+
+		apiready = function() {
+			api.parseTapmode();
+			api.showProgress({
+				title: '加载中...',
+				text: '请稍等...',
+				modal: false
+			});
+
+
+			api.ajax({
+				url: api_url + '/login/login/share1.html',
+				method: 'get',
+				data: {
+					values: {
+						uid: localStorage.getItem('user_id')
+					}
+				}
+			}, function(ret, err) {
+				api.hideProgress();
+				if (ret) {
+					copy = ret.sign;
+					shama = ret.share;
+					var url = $api.byId('tup');
+					var share = $api.byId('yqm');
+					url.src = 'http://qr.liantu.com/api.php?text=' + ret.msg;
+					share.innerHTML = ret.share;
+				} else {
+					alert('获取链接失败');
+				}
+			});
+
+		}
+
+		function copyyqm() {
+			var yqm = $api.byId('yqm');
+
+			var clipBoard = api.require('clipBoard');
+			clipBoard.set({
+				value: yqm.innerText
+			}, function(ret, err) {
+				if (ret) {
+					api.toast({
+						msg: '已复制到剪切板',
+						duration: 2000
+					});
+				} else {}
+			});
+		}
+		//////////二维码//////////
+		function erweima() {
+			var dialogBox = api.require('dialogBox');
+			dialogBox.webView({
+				tapClose: false,
+				path: 'http://qr.liantu.com/api.php?text=' + copy,
+				texts: {
+					title: '专属二维码',
+					leftBtnTitle: '关闭',
+					rightBtnTitle: '分享'
+				},
+				styles: {
+					bg: '#fff',
+					corner: 5,
+					w: 300,
+					h: 380,
+					title: {
+						h: 44,
+						size: 14,
+						color: '#000'
+					},
+					upDividingLine: {
+						width: 0.2,
+						color: '#696969'
+					},
+					webView: {
+						h: 300,
+						bg: '#fff',
+					},
+					downDividingLine: {
+						width: 0.2,
+						color: '#696969'
+					},
+					left: {
+						bg: 'rgba(0,0,0,0)',
+						color: '#007FFF',
+						size: 12
+					},
+					right: {
+						bg: 'rgba(0,0,0,0)',
+						color: '#007FFF',
+						size: 12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'webView'
+					});
+				} else {
+
+					alert('请截屏后分享');
+				}
+			});
+		}
+		//////////二维码 //////////
+
+
+
+		//////////复制分享链接 //////////
+		function copySet() {
+			
+			api.ajax({
+				//url: 'http://api.ft12.com/api.php?format=json&url=' + escape(copy) + '&apikey=Nq7oZEG9mo82JQhWbB@ddd',
+				url: 'https://www.xyixy.com/api/?key=xv3eB0GSbL9r&url=' + copy + '&format=json',
+				method: 'get'
+			}, function(ret, err) {
+				if (ret.error=='0') {
+					var clipBoard = api.require('clipBoard');
+					clipBoard.set({
+						value: '【通霸云影视】全网VIP视频免费看，高清无广告，再也不用充值会员啦！APP下载地址：' + ret.short+'，邀请码：'+shama
+					}, function(ret, err) {
+						if (ret) {
+							api.toast({
+								msg: '已复制到剪切板',
+								duration: 2000
+							});
+						} else {}
+					});
+				} else {
+					var clipBoard = api.require('clipBoard');
+					clipBoard.set({
+						value: '【通霸云影视】全网VIP视频免费看，高清无广告，再也不用充值会员啦！APP下载地址：' + copy+'，邀请码：'+shama
+					}, function(ret, err) {
+						if (ret) {
+							api.toast({
+								msg: '已复制到剪切板',
+								duration: 2000
+							});
+						} else {
+
+						}
+					});
+
+				}
+
+
+			});
+
+
+		}
+		//////////复制分享链接 //////////
+
+
+
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: '' + name + '',
+				url: '' + name + '.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false
+			});
+		}
+	</script>
+</html>

@@ -1,0 +1,136 @@
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="format-detection" content="telephone=yes"/>
+<meta content="telephone=no" name="format-detection" />
+<title>cmscs1.jc3c.cn手机客户端下载</title>
+<link rel="stylesheet" type="text/css" href="../../../../css/bese1.css" />
+<style>
+/*样式直接写在这里
+    设置从内容到屏幕最顶，就用百分比
+	
+	
+	
+	
+*/
+
+body {
+	font-family: "微软雅黑";
+}
+html {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.top {
+	text-align: center;
+	background: #ffd634;
+}
+.p5 {
+	padding: 0px 5%;
+}
+.p6 {
+	padding: 6% 0;
+}
+.nm1 {
+	background: url(../images/mm11.png) no-repeat;
+	height: 100%;
+	width: 100%;
+}
+.main {
+	background: #eeeeee;
+	text-align: center;
+}
+.footer {
+	background: #ffd634;
+	height: 10%;
+	margin-top: -0.15rem;
+}
+.footer ul li {
+	margin-top: 10%;
+}
+.footer ul li a {
+	font-size: 30px;
+	color: #000;
+}
+.asize img {
+	width: 9rem;
+}
+/*.bgg{background:url(../img/mh1.png) no-repeat center top;height:701px;}*/
+.bgg img {
+	text-align: center;
+}
+.sec_pt {
+	padding-bottom: 2rem;
+}
+.f30 {
+	font-size: 1.0375rem;
+	color: #000;
+}
+.pp {
+	padding-top: 1.225rem;
+}
+.p6 {
+	padding: 10% 2%;
+}
+.icontop {
+	margin-right: 0.55rem;
+}
+/*重写*/
+a:visited {
+	color: #000;
+}
+.main img{ display: block;  margin: auto;}
+#open{ display:none; width:80%; background-color:#fff; position:absolute; top:0px; left:10%; z-index:1; padding:20px 0; text-align:center; font-size:14px; }
+#openbg{ display:none; height:100%; width:100%; background-color:rgba(49, 48, 48, 0.68); position:fixed; top:0px;left:0px; }
+.w50{ width: 50%; }
+</style>
+</head>
+
+<body>
+<div class="top">
+  <div class="bgg"> <img src="../../../../images/mhead.png">
+    <div class="sec_pt">
+      <div class="flex-p p5 tac">
+          <a href="{:advert('30')}" class="flex-c w50">
+            <img src="../../../../images/btp.png" />
+          </a>
+          <a class="flex-c w50" onClick="window.location.href='{:advert('30')}'">
+            <img src="../../../../images/bta.png" class="ml10" />
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main"><img src="../../../../images/w-1.jpg"></div>
+<div class="main"><img src="../../../../images/w-3.jpg"></div>
+<div class="main"><img src="../../../../images/w-4.jpg"></div>
+<div class="footer">
+  <section class="pp">
+    <div class="flex-p tac"> <a href="{:advert('30')}" class="flex-c f30 ">cmscs1.jc3c.cn客户端</a> <a class="ml10 flex-c f30 "  href="javascript:scroll(0,0)" title="返回顶部"><img src="../../../../images/trangle.png" class="icontop">回到顶部</a> </div>
+  </section>
+</div>
+<script>
+function is_weixin(){
+    var ua = navigator.userAgent.toLowerCase();
+    var qq=ua.match(/MQQBrowser/i)=="mqqbrowser";
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    }else if(ua.indexOf('mobile mqqbrowser')>-1){
+        return true;
+    }
+    else if(ua.match(/QQ/i) == "qq"&&qq==false){
+        return true;
+    }else if (ua.match(/WeiBo/i) == "weibo") {
+        return true;
+    }else if(ua.match(/Alipay/i)=="alipay"){
+        return true;
+    }else {
+        return false;
+    }
+}
+</script>
+</body>
+</html>
+

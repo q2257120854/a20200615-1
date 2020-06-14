@@ -1,0 +1,880 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+img {
+    outline-width:0px;
+    vertical-align:top;
+}
+.clear {
+    zoom: 1;
+}
+input,button {
+    font-family: "Microsoft YaHei", "Helvetica";
+    outline: none;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+button {
+    cursor: pointer;
+}
+.clear:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+a {
+    text-decoration: none;
+}
+body {
+    font-family: "Microsoft YaHei", "Helvetica";
+    background-color:#fff;
+}
+.icoBg {
+    background-image: url("/Public/theme/KyCard-1/images/icon_bg.png");
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/iconfont.eot?oql0ly');
+    src:  url('../fonts/iconfont.eot?oql0ly#iefix') format('embedded-opentype'),
+    url('../fonts/iconfont.ttf?oql0ly') format('truetype'),
+    url('../fonts/iconfont.woff?oql0ly') format('woff'),
+    url('../fonts/iconfont.svg?oql0ly#iconfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-qq:before { content: "\e606"; }
+
+.icon-qq1:before { content: "\e616"; }
+
+.icon-weixin:before { content: "\e71d"; }
+
+.icon-weixin1:before { content: "\e728"; }
+
+.wrap {
+    margin: 0 auto;
+}
+.btn-yellow {
+    background: #ff8800;
+    border: 1px solid #ff8800;
+    color: #fefefe;
+}
+.btn-yellow:hover {
+    background: #f9951d;
+    border: 1px solid #f9951d;
+}
+.btn-white {
+    background: #fff;
+    color: #2f82ff;
+    border: 1px solid #2f82ff;
+}
+
+/* 取消number上下箭头*/
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+
+/*  register  */
+.register-header {
+    padding: 14px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+.left-logo {
+    float: left;
+    margin-left: 12px;
+}
+.left-logo li {
+    float: left;
+    line-height: 42px;
+}
+.left-logo .welcome-reg {
+    font-size: 18px;
+    color: #666;
+    margin-left: 16px;
+    margin-top: 14px;
+}
+
+.right-login {
+    float: right;
+    margin-top: 26px;
+    margin-right: 12px;
+}
+.right-login p {
+    font-size: 14px;
+    color: #323232;
+}
+.right-login p a {
+    color: #2f82ff;
+    margin-left: 4px;
+    padding: 3px 10px;
+    display: inline-block;
+}
+.right-login p a:hover {
+    color: #0066ff;
+}
+.r-bg {
+    background: #fcfcfc;
+}
+
+
+.register-content {
+
+    padding: 42px 0 52px;
+    background: #ffffff;
+}
+.input-groups {
+    width: 436px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 24px;
+}
+.input-groups .denger {
+    border: 1px solid #db0113;
+}
+.label-groups {
+    border: 1px solid #ddd;
+}
+.label-groups .left-name {
+    padding-left: 20px;
+    text-align: left;
+    width: 100px;
+    display: inline-block;
+    font-size: 14px;
+    color: #454545;
+}
+.label-groups .left-name span {
+    color: #fe1919;
+    margin-left: 6px;
+    font-weight: bold;
+}
+.label-groups .input-right {
+    display: inline-block;
+}
+.label-groups .input-right input {
+    width: 309px;
+    padding: 14px 0 15px;
+    border: none;
+    color: #010101;
+    font-size: 14px;
+}
+.label-groups .input-right input:focus {
+    border: 0;
+}
+.label-groups .input-right input.denger {
+    border: 1px solid #ff3b30;
+}
+.register-biref {
+    display: none;
+    width: 436px;
+    font-size: 12px;
+    color: #ff3b30;
+    text-align: left;
+    margin: 0 auto;
+    position: absolute;
+    top: 53px;
+}
+.register-biref .biref-x {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    background-position: 0px 0;
+    width: 16px;
+    height: 16px;
+}
+.register-biref p {
+    padding-left: 24px;
+    line-height: 18px;
+}
+.label-groups .input-right .Rg_phoneCode {
+    width: 234px;
+}
+
+.icon-yes-color {
+    position: absolute;
+    right: -13px;
+    top: 12px;
+    color: #6bc827;
+    font-size: 18px;
+    display: none;
+}
+.slide-check 
+{
+    width:436px;
+    margin:0 auto;
+    position:relative;
+    margin-bottom: 16px;
+}
+.slide-check .left-name {
+    font-size: 14px;
+    color: #454545;
+    left: 0;
+    top: -4px;
+    position: relative;
+    text-align: left;
+    width: 50px;
+    display: inline-block;
+}
+.slide-check .input-right {
+    display: inline-block;
+}
+.slide-Ver {
+    height: 40px;
+    display: inline-block;
+    width: 330px;
+
+}
+.icon_lock {
+    position: relative;
+    top: -4px;
+    right: -6px;
+    width: 32px;
+    height: 32px;
+    background-position: 0 -16px;
+}
+.checkbox-wrap {
+    width: 436px;
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    padding:16px 0;
+    font-size: 12px;
+}
+.checkbox-wrap input[type=checkbox]{
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+}
+.checkbox-wrap a {
+    color: #1374ce;
+}
+.red {
+    color: #ff0000;
+}
+.red a {
+    color: #ff0000;
+}
+.register-btn {
+    width: 436px;
+    margin: 0 auto;
+}
+.register-btn button {
+    height: 46px;
+    padding: 12px 0;
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.register-btn p {
+    margin: 7px 0;
+    color: #bebebe;
+    font-size: 12px;
+    line-height: 25px;
+}
+.register-btn p a {
+    color: #2f82ff;
+}
+.register-btn p a:hover {
+    text-decoration: underline;
+}
+.party {
+    padding: 18px 0 0 ;
+    width: 436px;
+    margin: 0 auto;
+}
+.party p {
+    color: #333;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.party p span {
+    display: inline-block;
+    width: 168px;
+    height: 1px;
+    background: #ddd;
+    position: relative;
+    top: -4px;
+}
+.party p span.left{
+    margin-right: 15px;
+}
+.party p span.right{
+    margin-left: 15px;
+}
+.party ul {
+    height: 54px;
+}
+.party li {
+    float: left;
+    width: 190px;
+}
+.party  .QQ {
+    text-align: right;
+    padding-right: 25px;
+}
+
+.party .WX {
+    text-align: left;
+    padding-left: 25px;
+}
+.party i {
+    cursor: pointer;
+}
+.party .icon-qq {
+    font-size: 54px;
+    color: #59aef2;
+}
+.party .icon-qq1 {
+    position: relative;
+    top: 4px;
+    left: -2px;
+    font-size: 48px;
+    color: #59aef2;
+}
+.party .icon-weixin {
+    position: relative;
+    top: 2px;
+    font-size: 50px;
+    color: #32c000;
+}
+.party .icon-weixin1 {
+    position: relative;
+    top: 4px;
+    left: -3px;
+    font-size: 56px;
+    color: #32c000;
+}
+.register-footer {
+    width: 100%;
+    text-align: center;
+    padding: 26px 0;
+    background: #f5f5f6;
+}
+.register-footer p {
+    color: #87888d;
+    font-size: 12px;
+    line-height: 30px;
+}
+.register-footer p span {
+    margin: 0 10px;
+}
+
+
+.ing {
+    padding-top: 20px;
+    text-align: center;
+}
+.aff {
+    padding: 180px 0 200px;
+}
+.aff-left {
+    float: left;
+    width: 66px;
+    margin: 0 30px 0 44px;
+}
+.aff-left span {
+    color: #4ebd23;
+    font-size: 66px;
+}
+.aff-left .icon-uniE8A3 {
+    color: #f62524;
+}
+.aff-right {
+    float: left;
+}
+.aff-right h2 {
+    font-family: "microsoft yahei", sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    color: #333;
+}
+.aff-right p {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #439ce8;
+    line-height: 24px;
+}
+.end {
+    display: none;
+    text-align: center;
+    width: 530px;
+    margin: 0 auto;
+    padding-top: 154px;
+}
+.end_left {
+
+}
+.end_left i {
+    width: 56px;
+    height: 56px;
+}
+.end_left .icon-yes {
+    background-position: 0 -48px;
+}
+.end_left .icon-no {
+    background-position: 0 -104px;
+}
+.end_right {
+
+}
+
+.end_right p {
+    margin-top: 24px;
+    color: #444;
+    font-size: 14px;
+}
+.end_right p a {
+    margin-left: 10px;
+    color: #2f82ff;
+}
+/*   end  */
+.revise-padding {
+    padding: 70px 0 32px;
+}
+#form-container {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+.form-wraps {
+    position: relative;
+    margin: 0 auto;
+    width: 600px;
+    overflow: hidden;
+}
+#form-container .page-header {
+
+    text-align: center;
+}
+#status-buttons a {
+    position: relative;
+    color: #c0c0c0;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 114px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#status-buttons a:first-child {
+    margin-left: 0;
+}
+#status-buttons .points {
+    position: absolute;
+    top: 15px;
+    left: -120px;
+    width: 111px;
+    height: 2px;
+    display: inline-block;
+    background: url("../images/revice_bg.png") no-repeat;
+}
+.form-group {
+    text-align: center;
+}
+#status-buttons a:hover {
+    text-decoration: none;
+}
+#status-buttons span {
+    background: #f2f2f2;
+    color: #ccccd6;
+    display: block;
+    font-size: 14px;
+    line-height: 30px;
+    height: 30px;
+    margin: 0 auto 10px;
+    width: 30px;
+    border-radius: 50%;
+}
+#status-buttons a.active span {
+    background: #ff7001;
+    color: #fff;
+}
+#status-buttons a.active {
+    color: #ff7001;
+}
+#signup-form {
+    padding-top: 70px;
+    position: relative;
+    height: 300px;
+    /* overflow:hidden;*/
+}
+.view-wrap {
+    width: auto;
+}
+.label-groups .input-right .Re_PWcode,
+.label-groups .input-right .Re_PWcodeT {
+    width: 198px;
+}
+.btn-profile, .btn-interest,.btn-Password {
+    height: 46px;
+    display: inline-block;
+    padding: 10px 0;
+    width: 436px;
+    text-align: center;
+    background: #ff8800;
+    color: #fff;
+    border: 1px solid #ff8800;
+    font-size: 14px;
+}
+.second {
+    display: none;
+}
+.second .input-groups {
+    text-align: center;
+}
+.second .title {
+    color: #454545;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+.third {
+    display: none;
+}
+.fourth {
+    display: none;
+}
+#signup-form .slide-check {
+    width: 436px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+.chcek-ID .label-groups {
+    width: 304px;
+    float: left;
+}
+.slide-check .register-biref  {
+    top: 40px;
+ }
+.chcek-ID .left-name {
+    width: 80px;
+}
+.btn-time {
+    float: left;
+    margin-left: 12px;
+}
+.btn-time #Revise-code{
+    height: 50px;
+    width: 118px;
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+    background: #f3f3f3;
+}
+
+.view-wrap .input-groups .text {
+    margin-left: 88px;
+}
+.finished {
+    margin-top: 30px;
+}
+.finished .input-groups {
+    text-align: center;
+}
+.view-wrap.ng-enter {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+}
+.view-wrap.ng-leave {
+    position: absolute;
+    left: -100px;
+    right: 0px;
+    transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+}
+/* enter animation */
+.view-wrap.ng-enter {
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
+}
+/* leave animation */
+.view-wrap.ng-leave {
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
+}
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-200%);
+    }
+}
+@-moz-keyframes slideOutLeft {
+    to {
+        -moz-transform: translateX(-200%);
+    }
+}
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-200%);
+    }
+}
+/* slide in from the right */
+@keyframes slideInRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@-moz-keyframes slideInRight {
+    from {
+        -moz-transform: translateX(200%);
+    }
+    to {
+        -moz-transform: translateX(0);
+    }
+}
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(200%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+    }
+}
+/*  end  revise  */
+
+
+.thirdLogin {
+    padding-top: 100px;
+}
+/*  login  */
+.lg-bg {
+    background: #f8f8f8;
+}
+.login-wrap {
+    padding-top: 18px;
+    width: 1203px;
+    margin: 0 auto;
+}
+.login-left {
+    float: left;
+    margin:0 118px 0 140px;
+}
+.login-right {
+    position: relative;
+    float: left;
+    padding:22px 30px;
+    border: 1px solid #e7e7e7;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.welcome-login {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 32px;
+    color: #333;
+}
+
+.input-wrap {
+    position: relative;
+    margin-top: 29px;
+}
+.input-wrap input {
+    padding:6px 0 6px 37px;
+    width: 291px;
+    color: #010101;
+    font-size: 14px;
+    line-height: 26px;
+    border: 1px solid #d9dee0;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.input-wrap input:focus {
+    border: 1px solid #439ce8;
+}
+.login-btn {
+
+}
+.input-wrap .icon-bg {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 14px;
+    height: 16px;
+    display: inline-block;
+    background: url("../img/icon_bg.png") no-repeat;
+}
+.input-wrap .user {
+    background-position: 0 0;
+}
+.input-wrap .pass {
+    background-position: 0 -16px;
+}
+.login-btn li {
+    float: right;
+    font-size: 12px;
+    color: #323232;
+    margin-bottom: 8px;
+}
+.login-btn li:hover {
+    text-decoration:underline;
+}
+.login-btn .go-register {
+    float: left;
+    color: #2f82ff;
+}
+.login-btn button {
+    width: 100%;
+    padding: 7px 0;
+    background: #2f82ff;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid #439ce8;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.joint {
+    margin-top: 6px;
+    padding-bottom: 8px;
+}
+.joint p {
+    line-height: 21px;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.joint a {
+    color: #2f82ff;
+    font-size: 28px;
+}
+
+/*   滑块  */
+#slider {
+    width: 275px;
+    height: 28px;
+    position: relative;
+    border-radius: 14px;
+    background-color: #ede5dd;
+    text-align: center;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#slider_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 28px;
+    background-color: #ede5dd;
+    z-index: 1;
+    border-radius: 14px;
+}
+#label {
+    width: 36px;
+    position: absolute;
+    left: 0;
+    top: -4px;
+    height: 36px;
+    border-radius: 18px;
+    line-height: 36px;
+    border: 1px solid #dbdbdb;
+    background: #f7f5f1;
+    z-index: 3;
+    cursor: move;
+    color: #6a9b52;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+#labelTip {
+    padding-left: 12px;
+    position: absolute;
+    left: 0;
+    border-radius: 14px;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei', serif;
+    color: #828282;
+    line-height: 28px;
+    text-align: center;
+    z-index: 2;
+}
+
+.lock {
+    position: absolute;
+    right: -46px;
+    top: 2px;
+    font-size: 25px;
+    color: #2f82ff;
+}
+.Bomb {
+    display: none;
+    width: 282px;
+    padding: 3px 10px 3px 36px;
+    position: absolute;
+    top: 24px;
+    left: 30px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.red-style{
+    background: #fff0f0;
+    color: #323232;
+    border: 1px solid #ff5555;
+}
+.Bomb p {
+    font-size: 12px;
+    line-height: 22px;
+}
+.Bomb p a {
+    color: #2f82ff;
+}
+.Bomb p a:hover {
+    text-decoration: underline;
+}
+.Bomb span {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    color: #f42828;
+    font-weight: bold;
+}
+/*   end   */
+
+
+@media screen and (min-width: 1203px) {
+    .wrap {
+        width: 1186px;
+    }
+}

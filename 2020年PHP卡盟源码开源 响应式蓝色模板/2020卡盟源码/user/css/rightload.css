@@ -1,0 +1,10 @@
+#index-rightBox {display:block;bottom:0px;right:1px!important;right:18px;width:282px;position:fixed;text-align:center;}
+.index-rightBox .BoxPart{border:1px solid #ffb915; margin:1px; background:#fffcf0;}
+.index-rightBox .BoxPartMenu{height:27px;line-height:27px;color:#7c5700; font-weight:bold; background:#ffd87c;}
+.index-rightBox .BoxPartMenu .MenuTxt{float:left;width:60px;height:27px; text-align:left; padding-left:10px;}
+.index-rightBox .BoxPartMenu .Close{float:right; background:#ffb915; text-align:center; padding:0 10px; cursor:pointer;}
+.index-rightBox .BoxContent{width:240px; margin:0 auto; padding:11px 0 16px 0; color:#322300; }
+.index-rightBox .BoxContent .ContentTitle{font-weight:bold; height:30px; line-height:30px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.index-rightBox .BoxContent p{line-height:27px;}
+.index-rightBox .BoxContent p a{color:#0474ff; padding-left:10px;}
+.index-rightBox .BoxContent p a:hover{ text-decoration:underline;}

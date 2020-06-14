@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商户平台",
+  "navigationBarBackgroundColor": "#3960D1",
+  "navigationBarTextStyle": "white",
+  "component": true,
+  "usingComponents": {
+    "bsfooter": "/components/bsfooter/bsfooter"
+  }
+}

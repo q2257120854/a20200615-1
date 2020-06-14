@@ -1,0 +1,13 @@
+/*×ó±ß*/ 
+.leftz{width:184px; height:auto; padding-left:10px;float:left;}
+.left-1{width:184px; height:auto;}
+.left-2{width:184px; height:auto; margin-top:10px; }
+.left-1-title{width:184px; height:23px; background:url(left/l01.jpg);}
+.left-2-title{width:184px; height:20px; background:url(left/l02.jpg);}
+.left-1-main{width:162px;  height:auto; background:#edf1fa; border:1px #9fd6ff solid; padding:0px 10px; border-top:none;  color:#747474;}
+.left-1-main dl dt a{height:24px;line-height:24px;overflow:hidden;color:#4682a7;font-weight:800;}
+.left-1-main dd li a{ color:#747474;}
+.left-1-main dd li{ padding-left:16px; line-height:210%;}
+.left-1-main dl dt a span{display:inline-block;width:13px;height:18px;overflow:hidden;float:left;margin:0 5px 0 0; }
+.left-1-main dl dt a.minus span{background:url(left/-.jpg) 0px 7px no-repeat;}
+.left-1-main dl dt a.plus  span{background:url(left/+.jpg) 0px 7px no-repeat;}

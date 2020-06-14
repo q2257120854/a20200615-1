@@ -1,0 +1,1 @@
+<view class="_div"><web-view webview-styles="{{webviewStyles}}" src="{{'https://'+host+'/h5/alipay/wappay/pay.php?id='+id+'&uniacid='+uniacid+'&type='+type}}"></web-view></view>

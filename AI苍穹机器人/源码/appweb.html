@@ -1,0 +1,244 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=320,  maximum-scale=1, user-scalable=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>APP</title>
+    <link rel="icon" href="http://img.wezhan.us/1018949_favicon.ico?t=201707011512041962">
+    <link rel="shortcut icon" href="http://img.wezhan.us/1018949_favicon.ico?t=201707011512041962">
+    <link rel="bookmark" href="http://img.wezhan.us/1018949_favicon.ico?t=201707011512041962">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="./appweb_files/base.mobile.css" type="text/css">
+    <link rel="stylesheet" href="./appweb_files/RenderRunTime.css" type="text/css">
+
+    
+    <script type="text/javascript" src="./appweb_files/jquery-1.9.1.min.js"></script>
+	    <script type="text/javascript" src="./appweb_files/wx.js"></script>
+    <script type="text/javascript" src="./appweb_files/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./appweb_files/public.common.min.js"></script>
+    <script type="text/javascript" src="./appweb_files/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" src="./appweb_files/underscore-min.js"></script>
+    <link href="./appweb_files/iconfontV2.css" rel="stylesheet">
+    <link href="./appweb_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./appweb_files/iconfont.css" rel="stylesheet">
+    <link href="./appweb_files/iconfont(1).css" rel="stylesheet">
+    <script type="text/javascript" src="./appweb_files/YM.Animation.mobile.min.js"></script>
+
+    
+    <script language="javascript" type="text/javascript" id="yibuHeaderScript">
+</script>
+
+        <script type="text/javascript" src="./appweb_files/jquery.validatestar.min.js"></script>
+
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #EEE;
+            -webkit-border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:vertical {
+            height: 3px;
+            background-color: #BBBBBB;
+            -webkit-border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:horizontal {
+            width: 3px;
+            background-color: #EEE;
+            -webkit-border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            height: 3px;
+            background-color: #AAAAAA;
+            -webkit-border-radius: 4px;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+		
+		
+		
+#weixin-tip{display:none;position:fixed;left:0;top:0;background:rgba(0,0,0,0.8);filter:alpha(opacity=80);width:100%;height:100%;z-index:100;}
+#weixin-tip p{text-align:center;margin-top:10%;padding:0 5%;position:relative;}
+#weixin-tip .close{color:#fff;padding:5px;font:bold 20px/24px simsun;text-shadow:0 1px 0 #ddd;position:absolute;top:0;left:5%;}
+		
+		
+    </style>
+<div id="weixin-tip"><p><img src="./appweb_files/wx.png" style="width:100%;"alt="微信打开"/><span id="close" title="关闭" class="close">×</span></p></div>
+
+<link rel="stylesheet" href="./appweb_files/layer.css" id="CTK-layui_layer_skinlayercss" style=""></head>
+<body style="overflow-x: hidden;">
+    <input type="hidden" id="hid_siteId" value="1018949">
+    <input type="hidden" id="hid_pageId">
+    <input type="hidden" id="hid_pageType" value="0">
+    <input type="hidden" id="pageinfo" value="277576770" data-type="" data-device="mobile" data-entityid="">
+<div id="view_main_1_277576770" class="mainSamrtView yibuSmartViewMargin">
+<div class="yibuFrameContent main__Item0" style="height:439px;width:100%;"><div class="runTimeflowsmartView"><div id="view_v2image_3_277576770" class="yibuSmartViewMargin absPos" oldbottom="167">
+<div class="yibuFrameContent overflow_hidden v2image_Style1_Item0 view_v2image_3_277576770_Style1_Item0" style="height:167px;width:320px;"><div class="mw-img" style="height:100%; width:100%;">
+    <a id="autosize_view_v2image_3_277576770" href="javascript:void(0);" data-width="655" data-height="385">
+            <img src="./appweb_files/beijin.png">
+        
+        <div class="mw-img-title"></div>
+    </a>
+</div></div></div>
+
+
+
+
+<div id="view_v2text_4_277576770" class="yibuSmartViewMargin absPos" oldbottom="289">
+<div class="yibuFrameContent overflow_hidden v2text_Style1_Item0 view_v2text_4_277576770_Style1_Item0" style="height:28px;width:133px;">
+<style type="text/css">
+    #view_v2text_4_277576770_txt ul{ list-style-position:inside;}
+</style>
+<div id="view_v2text_4_277576770_txt" style="cursor:default; min-height:100%; width:100%;overflow-x:hidden;">
+    <div class="editableContent ">
+        <p style="text-align: center;"><span style="font-size: 14px;"><strong>APP下载</strong></span></p>
+    </div>
+</div>
+<script>
+    $(function () {
+        Pagination('view_v2text_4_277576770_txt', "|<<", ">>|", "<", ">", Paginationview_v2text_4_277576770_txt);
+        Paginationview_v2text_4_277576770_txt();
+        var categoryName = $("#txtCategoryName").val()
+        if (categoryName && categoryName != "") {
+            $("#view_v2text_50_" + '277576770' + " p span").text(categoryName);
+        }
+    });
+    function Paginationview_v2text_4_277576770_txt() {
+        $('#view_v2text_4_277576770_txt').find('img').each(function () {
+            var $img = $(this);
+            var $parentWidth = $('#view_v2text_4_277576770_txt').width();
+            $img.css({ 'max-width': $parentWidth + 'px' });
+        })
+    }
+</script>
+</div></div><div id="view_v2image_5_277576770" class="yibuSmartViewMargin absPos" oldbottom="250">
+<div class="yibuFrameContent overflow_hidden v2image_Style1_Item0 view_v2image_5_277576770_Style1_Item0" style="height:70px;width:70px;"><div class="mw-img" style="height:100%; width:100%;">
+    <a id="autosize_view_v2image_5_277576770" href="javascript:void(0);" data-width="128" data-height="128">
+            <img src="../appweb_files/downlogo.png">
+        
+        <div class="mw-img-title"></div>
+    </a>
+</div></div></div>
+
+<div id="J_weixin" >
+<div id="view_v2button_6_277576770" class="yibuSmartViewMargin absPos" oldbottom="86">
+    <div class="yibuFrameContent overflow_hidden v2button_Style2_Item0 view_v2button_6_277576770_Style2_Item0" style="height:35px;width:185px;">
+    <a href="https://app.tensuyun.cn/app.php/546"   class="android-btn" style="width: 185px; height: 35px; line-height: 35px;">
+        <i class="mw-iconfont mw-button-icon"></i>
+        <span class="mw-button-text">苹果下载</span>
+    </a>
+    <script>
+        $(function () {
+            var sv = $("#view_v2button_6_277576770");
+            var dw = sv.width() - (sv.find("div").outerWidth(true) - sv.find("div").width());
+            var dh = sv.height() - (sv.find("div").outerHeight(true) - sv.find("div").height());
+            sv.find("div").width(dw).height(dh);
+            sv.find("a").width(dw).height(dh).css('line-height', dh + "px");
+        });
+    </script></div>
+</div>
+
+<div id="view_v2button_8_277576770" class="yibuSmartViewMargin absPos" oldbottom="141">
+    <div class="yibuFrameContent overflow_hidden v2button_Style2_Item0 view_v2button_8_277576770_Style2_Item0" style="height:35px;width:185px;">
+    <a href="https://app.tensuyun.cn/app.php/419"   class="android-btn"  style="width: 185px; height: 35px; line-height: 35px;">
+        <i class="mw-iconfont mw-button-icon"></i>
+        <span class="mw-button-text">安卓下载</span>
+    </a>
+
+    <script>
+        $(function () {
+            var sv = $("#view_v2button_8_277576770");
+            var dw = sv.width() - (sv.find("div").outerWidth(true) - sv.find("div").width());
+            var dh = sv.height() - (sv.find("div").outerHeight(true) - sv.find("div").height());
+            sv.find("div").width(dw).height(dh);
+            sv.find("a").width(dw).height(dh).css('line-height', dh + "px");
+        });
+    </script></div>
+</div>
+</div>
+
+
+</div></div></div>    <script src="./appweb_files/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var cookieKey = '';
+            var visitedCookie = $.cookie(cookieKey);
+            var ajaxUrl = "/Runtime/NewcomevVisits";
+            var countText = $("div[class~='VisitCount']");
+            if (!visitedCookie || countText.length > 0) {
+                var isAdd = "off";
+                if (!visitedCookie) {
+                    isAdd = "on"
+                }
+                $.ajax({
+                    url: ajaxUrl,
+                    type: 'post',
+                    dataType: "json",
+                    data: { entityId: '0', entityType: '', isAdd: isAdd },
+                    success: function (data) {
+                        if (!data.error) {
+                            $.cookie(cookieKey, "true", { expires: 1 });
+                            countText.each(function () {
+                                //去掉富文本编辑带来的影响
+                                var thishtml = $(this).html();
+                                var thistext = $(this).text();
+                                //获取匹配index
+                                var replaceIndex = thishtml.lastIndexOf($.trim(thistext));
+                                //匹配项之后的
+                                var afterIndex = thishtml.substring(replaceIndex);
+                                //匹配项之前的
+                                var beforeIndex = thishtml.substring(0, replaceIndex);
+                                afterIndex = afterIndex.replace($.trim(thistext), data.totalCount);
+                                //拼接
+                                $(this).html(beforeIndex + afterIndex);
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script type="text/javascript" src="./appweb_files/mobileAdapter.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            mobileUtil.fixScreen();
+            mobileUtil.formatUcBrowser();
+            window.addEventListener("orientationchange", function (event) {
+                mobileUtil.fixScreen(true);
+            });
+            $('.yibuAnimate').smanimate();
+            $("img.lazyload").lazyload({ skip_invisible: false, effect: "fadeIn", failure_limit: 15, threshold: 100 });
+            if ("True" == "False") {
+                $(document.body).bind('contextmenu', function () { return false; });
+            }
+            var $sm_all_imgs = $('.mainSamrtView img').filter(function () {
+                return !$(this).hasClass('lazyload');
+            });
+            if ($sm_all_imgs.length > 0) {
+                $sm_all_imgs.each(function () {
+                    var $this = $(this);
+                    $this.bind("load", function () {
+                        ReComputeVisibleSmartViewTop();
+                    });
+                });
+            }
+            ReComputeVisibleSmartViewTop();
+        });
+    </script>
+    <script src="./appweb_files/jweixin-1.0.0.js"></script>
+    <script src="./appweb_files/WechatStatistics.js"></script>
+
+
+</body></html>

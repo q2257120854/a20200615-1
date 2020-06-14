@@ -1,0 +1,1 @@
+<view><navigator url="{{'/pages/'+type+'/'+type+'?'+idt+'='+item.id}}"><view class="dot"></view><view class="title">{{item.title}}</view></navigator></view>

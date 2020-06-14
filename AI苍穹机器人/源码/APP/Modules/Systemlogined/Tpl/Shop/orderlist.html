@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>会员机器人列表</title>
+
+		<meta name="description" content="Static &amp; Dynamic Tables" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/animate.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+		<!-- 分页样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/css/page.css" />
+
+		<style type="text/css" title="currentStyle">
+			@import "__PUBLIC__/css/TableTools.css";
+		</style>
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+		<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+
+		<!--inline styles if any-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							Home
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+						<li class="active">会员机器人列表</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+                       
+					<div class="row-fluid">
+			
+
+						<div class="row-fluid">
+							<table id="table_report" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+								
+                                            <th>ID</th>
+											<th>机器人编号</th>
+								            <th>会员</th>
+											<th>机器人名称</th>
+                                            <th>已发放收益</th>
+                                            <th>收益/每小时</th>
+                                            <th>购买价格</th>
+											<th>购买时间</th>
+											<th>运行时间</th>
+                                            <th>状态</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    <foreach name='orders' item='v'>
+									<tbody> 
+										<tr>
+										<td>{$v.id}</td>
+										<td>{$v.kjbh}</td>
+									    <td class="hidden-480">{$v.user}</td>
+                                        <td class="hidden-480">{$v.project}</td>
+                                        <td>{$v.already_profit}</td>
+                                        <td>{$v.shouyi}</td>
+                                        <td class="hidden-480">{$v.sumprice}</td>
+									    <td class="hidden-480">{$v.addtime}</td>
+										<td class="hidden-480"><if condition = "$v['zt'] eq 0">未运行<else/>{$v.UG_getTime|date='Y-m-d H:i:s',###}</if></td>
+										<td class="hidden-480"><if condition = "$v['zt'] eq 0">未运行<elseif condition = "$v['zt'] eq 1" />运行中<else/>已到期</if>				</td>
+
+                                        </tr>
+                                    </foreach>
+									<tr>
+										<td colspan="11" style="text-align:center;"><div class="page">{$page}</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts-->
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>
+		<script src="__PUBLIC__/js/TableTools.min.js"></script>
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.notification.js"></script>
+		<script src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
+		<!--inline scripts related to this page-->
+	</body>
+</html>

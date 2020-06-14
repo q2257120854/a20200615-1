@@ -1,0 +1,15 @@
+ul, ol { list-style-type:none;}
+body {background-color: #ecf5ff; background-image: url(body.gif); background-repeat: repeat-x; font:12px Arial, "ËÎÌו", Verdana, sans-serif;}
+#enter {width: 380px; margin:0px auto ; padding-left: 70px;  }
+.validates {position: absolute; top: 96px; +top: 100px; left: 390px;}
+.text {border: 1px solid #2888cf; background: url(input.gif) repeat-x; height: 17px; width: 143px; padding: 1px 0 0 2px; font:12px Arial, "ËÎÌו", Verdana, sans-serif; color: #555;}
+.text2 {border: 1px solid #2888cf; background: url(input.gif) repeat-x; height: 17px; width: 56px; padding: 1px 0 0 2px; font:12px Arial, "ËÎÌו", Verdana, sans-serif; color: #555;}
+table {margin: 14px 0 0 0; display:inline}
+td {color: #fff; padding: 0 0 8px 0;}
+.width160 {width: 160px;}
+.validate {position: relative; top: 5px; +top: 3px;}
+th {text-align: left; padding-top: 25px;}
+.btnEnter {border: 0; width: 63px; height: 23px; background: url(enter.gif);}
+.btnBack {border: 0; width: 89px; height: 23px; background: url(back.gif); }
+.btnBorget {border: 0; width: 89px; height: 23px; background: url(forget.gif);}
+p {color: #999; margin-top: 25px; font-weight: normal;}

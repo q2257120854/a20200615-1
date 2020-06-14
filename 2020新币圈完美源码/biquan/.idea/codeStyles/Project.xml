@@ -1,0 +1,12 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <PHPCodeStyleSettings>
+      <option name="FIELDS_DEFAULT_VISIBILITY" value="public" />
+    </PHPCodeStyleSettings>
+    <codeStyleSettings language="PHP">
+      <arrangement>
+        <groups />
+      </arrangement>
+    </codeStyleSettings>
+  </code_scheme>
+</component>

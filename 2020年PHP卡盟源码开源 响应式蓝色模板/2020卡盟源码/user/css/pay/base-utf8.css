@@ -1,0 +1,45 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px "Microsoft yahei",Arial,Helvetica,sans-serif,"宋体";color:#888}
+h1,h2,h3,h4,h5,h6{font-size:12px; font-weight:normal}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+ul,ol,li{list-style:none}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%;outline-style:none}
+button,input{*overflow:visible;vertical-align:middle;outline:none;border:none}
+table{border-collapse:collapse;border-spacing:0}
+img{vertical-align:top;display:inline-block;background-color:#fff}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{display:block;margin:0;padding:0}
+object,embed{outline:0}
+p{line-height:1.8}
+i{font-style: normal}
+button::-moz-focus-inner{border:0;padding:0;margin:0}
+a{text-decoration:none;outline:none;blr:expression(this.onFocus=this.blur())}
+a:hover{text-decoration:none}
+.fl{float:left;display:inline}
+.fr{float:right;display:inline}
+.fn{ float: none!important;}
+.clr{clear:both}
+.clear_in{overflow:hidden;zoom:1}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:".";clear:both;height:0;line-height:0;overflow:hidden}
+.clearfix{*zoom:1}
+.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}
+.inb{display:inline-block;_display:inline;*zoom:1;overflow:hidden}
+.z1{_zoom:1}
+.disn{display:none}
+.disb{display:block}
+.fb{font-weight:bold}
+.fyah{font-family:"Microsoft yahei","Microsoft JhengHei","SimHei"}
+.velm{vertical-align:middle}
+.tl {text-align:left!important}
+.tc{text-align:center}
+.tr {text-align: right!important}
+.ind2{text-indent:2em}
+.ht1{overflow: hidden; text-indent: -999em;}
+.ofh{white-space:nowrap;word-wrap:normal;word-break:normal;text-overflow:ellipsis;overflow:hidden}
+.backToTop{width:18px;line-height:1.2;padding:5px 0;background-color:#000;color:#fff;font-size:12px;text-align:center;position:fixed;margin-left:960px;_margin-left:200px;bottom:100px;cursor:pointer;opacity:.6;filter:Alpha(opacity=60);z-index:9;_position:absolute;_bottom:"auto";}
+.none {display: none}

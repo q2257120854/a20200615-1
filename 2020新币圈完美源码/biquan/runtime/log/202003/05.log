@@ -1,0 +1,815 @@
+---------------------------------------------------------------
+[ 2020-03-05T09:01:19+08:00 ] 171.114.143.17 GET 45.114.10.1/
+[运行时间：0.040667s] [吞吐率：24.59req/s] [内存消耗：1,623.55kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000052s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:01:21+08:00 ] 171.114.143.17 GET 45.114.10.1/
+[运行时间：0.049384s] [吞吐率：20.25req/s] [内存消耗：1,623.56kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000058s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:12:26+08:00 ] 106.11.222.150 GET 45.114.10.1/
+[运行时间：0.041094s] [吞吐率：24.33req/s] [内存消耗：1,623.56kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000089s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:13:00+08:00 ] 171.114.143.17 GET 45.114.10.1/
+[运行时间：0.041044s] [吞吐率：24.36req/s] [内存消耗：1,623.56kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000051s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:13:27+08:00 ] 171.114.143.17 GET 45.114.10.1/admin
+[运行时间：0.045489s] [吞吐率：21.98req/s] [内存消耗：1,623.88kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000056s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:15:12+08:00 ] 171.114.143.17 GET 45.114.10.1/admin
+[运行时间：0.043392s] [吞吐率：23.05req/s] [内存消耗：1,623.88kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000052s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:15:14+08:00 ] 171.114.143.17 GET 45.114.10.1/admin
+[运行时间：0.044554s] [吞吐率：22.44req/s] [内存消耗：1,623.88kb] [文件加载：45]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000053s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ LOG ] INIT File
+[ error ] [0]not support: redis[/www/wwwroot/bayebiquan/thinkphp/library/think/cache/driver/Redis.php:44]
+---------------------------------------------------------------
+[ 2020-03-05T09:18:08+08:00 ] 171.114.143.17 GET 45.114.10.1/admin
+[运行时间：0.077020s] [吞吐率：12.98req/s] [内存消耗：2,592.77kb] [文件加载：68]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000371s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004515s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003767s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/common/view/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000194s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:08+08:00 ] 106.11.222.125 GET 45.114.10.1/
+[运行时间：0.097526s] [吞吐率：10.25req/s] [内存消耗：2,693.49kb] [文件加载：65]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000389s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004045s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '45.114.10.1',
+  'accept-language' => 'zh-CN,en,*',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'Keep-Alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G6100 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/38.0.2125.102 Mobile Safari/537.36',
+  'referer' => 'http://45.114.10.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.005460s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/bayebiquan/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:11+08:00 ] 171.114.143.17 GET 45.114.10.1/admin/index/login?url=%2Fadmin
+[运行时间：0.099956s] [吞吐率：10.00req/s] [内存消耗：2,956.28kb] [文件加载：71]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000478s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004761s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/admin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/admin',
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003960s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ /www/wwwroot/bayebiquan/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/admin/view/index/login.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'background',
+  6 => 'title',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000200s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:15+08:00 ] 171.114.143.17 GET 45.114.10.1/admin/ajax/lang?callback=define&controllername=index&v=1583371091
+[运行时间：0.084896s] [吞吐率：11.78req/s] [内存消耗：2,747.95kb] [文件加载：69]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000348s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003886s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/admin/index/login?url=%2Fadmin',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'index',
+  'v' => '1583371091',
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.004543s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/bayebiquan/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001447s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:20+08:00 ] 171.114.143.17 POST 45.114.10.1/admin/index/login?url=%2Fadmin
+[运行时间：0.114284s] [吞吐率：8.75req/s] [内存消耗：3,518.77kb] [文件加载：77]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000353s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003857s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/admin/index/login?url=%2Fadmin',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://45.114.10.1',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '73',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+)
+[ info ] [ PARAM ] array (
+  'url' => '/admin',
+  '__token__' => '17e94e6d05050e87c223f259d03fbd68',
+  'username' => 'admin',
+  'password' => '123456',
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003928s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/admin/lang/zh-cn/index.php
+[ info ] [ RUN ] app\admin\controller\Index->login[ /www/wwwroot/bayebiquan/application/admin/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.007797s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:38+08:00 ] 171.114.143.17 GET 45.114.10.1/
+[运行时间：0.074130s] [吞吐率：13.49req/s] [内存消耗：2,554.52kb] [文件加载：63]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000076s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003252s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1:8888/site',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003270s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/bayebiquan/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:45+08:00 ] 171.114.143.17 GET 45.114.10.1/index
+[运行时间：0.065989s] [吞吐率：15.15req/s] [内存消耗：2,557.72kb] [文件加载：63]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000051s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003803s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003170s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/bayebiquan/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:55+08:00 ] 171.114.143.17 GET 45.114.10.1/index/biquan
+[运行时间：0.128518s] [吞吐率：7.78req/s] [内存消耗：3,392.30kb] [文件加载：70]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000077s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.009931s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'biquan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.005250s ]
+[ info ] [ TOKEN ] INIT Mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/common/view/tpl/dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:58+08:00 ] 171.114.143.17 GET 45.114.10.1/index/user/login.html
+[运行时间：0.079339s] [吞吐率：12.60req/s] [内存消耗：2,956.14kb] [文件加载：66]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000062s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003806s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/biquan',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003481s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/user.php
+[ info ] [ RUN ] app\index\controller\User->login[ /www/wwwroot/bayebiquan/application/index/controller/User.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/user/login.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+  3 => 'url',
+  4 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:18:59+08:00 ] 171.114.143.17 GET 45.114.10.1/captcha.html
+[运行时间：0.037450s] [吞吐率：26.70req/s] [内存消耗：1,585.36kb] [文件加载：44]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000050s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002564s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/user/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/bayebiquan/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:02+08:00 ] 171.114.143.17 GET 45.114.10.1/index/user/login.html
+[运行时间：0.080490s] [吞吐率：12.42req/s] [内存消耗：2,808.51kb] [文件加载：64]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000055s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004166s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/biquan',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003446s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/user.php
+[ info ] [ RUN ] app\index\controller\User->login[ /www/wwwroot/bayebiquan/application/index/controller/User.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/user/login.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+  3 => 'url',
+  4 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:02+08:00 ] 171.114.143.17 GET 45.114.10.1/captcha.html
+[运行时间：0.047797s] [吞吐率：20.92req/s] [内存消耗：1,585.36kb] [文件加载：44]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000053s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003590s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/user/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/bayebiquan/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:04+08:00 ] 171.114.143.17 GET 45.114.10.1/captcha.html?r=0.7412402971250229
+[运行时间：0.046033s] [吞吐率：21.72req/s] [内存消耗：1,585.42kb] [文件加载：44]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000049s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003757s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/user/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'r' => '0.7412402971250229',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/bayebiquan/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:04+08:00 ] 171.114.143.17 GET 45.114.10.1/captcha.html?r=0.05276028551935963
+[运行时间：0.040796s] [吞吐率：24.51req/s] [内存消耗：1,585.42kb] [文件加载：44]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000327s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003716s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/user/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'r' => '0.05276028551935963',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/bayebiquan/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:05+08:00 ] 171.114.143.17 GET 45.114.10.1/captcha.html?r=0.5871908415175775
+[运行时间：0.040589s] [吞吐率：24.64req/s] [内存消耗：1,585.42kb] [文件加载：44]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000049s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003453s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/user/login.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'r' => '0.5871908415175775',
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ /www/wwwroot/bayebiquan/vendor/topthink/think-captcha/src/CaptchaController.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:19:12+08:00 ] 171.114.143.17 GET 45.114.10.1/index/user/login.html
+[运行时间：0.086187s] [吞吐率：11.60req/s] [内存消耗：2,808.47kb] [文件加载：64]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000085s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003620s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'request_token=fjTXqg1xc2UFmWcR0Z0bdgw6Q6e3Oqbh5zYjwj32ogSVhTSD; memSize=3785; rank=a; layers=3; SetName=; ChangePath=4; backup_path=/www/backup; aceEditor=%7B%22fontSize%22%3A%2213px%22%2C%22theme%22%3A%22monokai%22%7D; uploadSize=1073741824; Path=/www/wwwroot/bayebiquan/public; softType=-1; force=0; ltd_end=-1; pro_end=-1; load_page=null; load_type=-1; load_search=undefined; PHPSESSID=5hr3cqejtf5gcqsjtfiigli744; sites_path=/www/wwwroot; serverType=nginx; order=id%20desc; BT_PANEL_6=244b5ce6-ad91-4b5b-9bc0-c9b00d7b6036.gmKdTdqwK04W4AA5OJupmCOyYMU',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://45.114.10.1/index/biquan',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4098.3 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => '45.114.10.1',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.009009s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/user.php
+[ info ] [ RUN ] app\index\controller\User->login[ /www/wwwroot/bayebiquan/application/index/controller/User.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/user/login.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+  3 => 'url',
+  4 => 'title',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:29:06+08:00 ] 185.82.137.120 GET 45.114.10.1/
+[运行时间：0.066398s] [吞吐率：15.06req/s] [内存消耗：2,551.23kb] [文件加载：63]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000052s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002658s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'host' => '45.114.10.1',
+  'content-length' => '0',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003385s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/bayebiquan/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-03-05T09:35:25+08:00 ] 106.11.222.181 GET 45.114.10.1/
+[运行时间：0.069383s] [吞吐率：14.41req/s] [内存消耗：2,552.18kb] [文件加载：63]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000046s ]
+[ info ] [ CACHE ] INIT Redis
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003196s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '45.114.10.1',
+  'accept-language' => 'zh-CN,en,*',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'Keep-Alive',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0.1; SM-N9100 Build/LRX22C  ) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13A404 Tx(Tx/6.0.0) WindVane/8.1.0 1242x2208',
+  'referer' => 'http://45.114.10.1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.004697s ]
+[ info ] [ LANG ] /www/wwwroot/bayebiquan/public/../application/index/lang/zh-cn/index.php
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/bayebiquan/application/index/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/bayebiquan/public/../application/index/view/index/index.html [ array (
+  0 => 'user',
+  1 => 'site',
+  2 => 'config',
+) ]
+[ info ] [ LOG ] INIT File

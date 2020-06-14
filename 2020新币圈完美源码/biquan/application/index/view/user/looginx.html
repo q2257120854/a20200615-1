@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+	</head>
+	<style type="text/css">
+		body {
+			height: auto;
+		}
+
+		.login {}
+
+		.login .tts {
+			width: 80%;
+			display: block;
+			padding-top: 10%;
+			padding-left: 30px;
+              padding-bottom: 10%;
+		}
+
+		.form {
+			padding: 20px 30px;
+		}
+
+		.form input {
+			border: none;
+			font-size: .3rem;
+			padding: 12px 15px;
+			margin-bottom: 17px;
+		}
+
+		.btn {
+          	background: #03c160;
+			width: 80%;
+			display: block;
+			margin: 10% auto 0;
+			border-radius: 100px;
+			border: none;
+			color: white;
+			box-shadow: 0 0 10px #e5e5e5;
+			padding: 14px 0;
+			font-size: .3rem;
+		}
+	</style>
+	<body>
+		<div class="content">
+			<div class="login">
+				<img class="tts" src="{$site.site_url}/game/xxx/img/title_l.png">
+				<div class="form">
+					<input class="input phone" type="number" pattern="[0-9]*" maxlength="11" placeholder="请输入手机号" />
+					<input class="input password" type="password" maxlength="11" placeholder="请输入密码" />
+				</div>
+				<button class="btn" type="button">登录</button>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			mui(".content").on('tap', '.btn', function(e) {
+
+				var phone = $('.phone').val();
+				var password = $('.password').val();
+
+				if (!phone) {
+					mui.toast("请输入手机号!");
+					return false;
+				}
+				if (!password) {
+					mui.toast("请输入密码!");
+					return false;
+				}
+				var host = window.location.origin;
+				// host + "/index.php";
+				$.ajax({
+					type: 'POST',
+					url: 'http://baidu.baijiahao.tke3l.cn/index.php/index/user/loginxxx',
+					// data to be added to query string:
+					data: {
+						phone: phone,
+						password: password
+					},dataType: 'json',
+					// type of data we are expecting in return:
+					// dataType: 'json',
+					timeout: 100000,
+					success: function(res) {
+                      console.log(res)					
+						if (res.status == 0) {
+                          mui.toast(res.msg);
+                          }else{
+                           mui.toast(res.msg);
+                        window.location.href = res.url;
+                          }
+                                        },
+					error: function(xhr, type) {
+						alert('Ajax error!')
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

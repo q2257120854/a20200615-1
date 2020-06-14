@@ -1,0 +1,33 @@
+﻿*{ margin:0; padding:0;}
+body{ font-family:Arial,"����"; font-size:12px; color:#444; line-height:1.6em;}
+h1{line-height:1.3em;}
+a:hover img,img{ border:none;}
+ul{ list-style:none;}
+input,button,select,textarea{outline:none;font-family:Arial,"����"; font-size:12px;}
+table input,table button,table select,table textarea{ vertical-align:middle;}
+textarea{resize:none}
+table{ border-collapse:collapse;}
+a{ text-decoration:none; color:#444;}
+a:hover{ text-decoration:underline; color:#ff6600;}
+/*-------------------------����������ʽ--------------------------*/
+.clear_div { overflow:hidden; zoom:1;}
+.clear_div2{zoom: 1;}
+.clear_div2:after {content: ""; display: block;height: 0;clear: both;}
+input.checlass{ margin:0 5px; margin-left:0;vertical-align:middle; _vertical-align:baseline;}
+/*--------------star���ֵ���ʽ*/
+/*�绰*/
+.tel{ color:#cc0000; font-size:28px; vertical-align:middle; line-height:1.3em;font-family:Constantia,Georgia;}
+/*����*/
+.date{ float:right; color:#999; font-size:12px; font-weight:normal;}
+/*��������*/
+.th{ font-family:"΢���ź�";}
+/*���Ҷ���*/
+.r{ float:right;}
+.l{ float:left;}
+/*�ٺ�*/
+.orange_a,.orange_link a,.orange_b{ color:#ff6600;}
+.orange_b{ font-weight:bold;}
+.orange_a:hover,.orange_link a:hover{ color:#cc3300;}
+/*��ɫ*/
+.blue_text,.blue_link a{ color:#0278c3;}
+.blue_link a:hover{ color:#ff6600;}

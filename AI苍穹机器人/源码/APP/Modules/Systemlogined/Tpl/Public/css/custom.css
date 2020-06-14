@@ -1,0 +1,24 @@
+/*****jQuery Validate 错误信息*****/
+input.error{
+	border:1px solid red;
+}
+input.valid {
+	border:1px solid #1d95f6;
+}
+span.error{
+	background : url(../Images/unchecked.gif) no-repeat 0 0;
+	padding-left: 16px;
+	color: #f00;
+}
+span.success{
+	background : url(../Images/checked.gif) no-repeat 0 0;
+	padding-left: 16px;
+}
+/*邮件顶部图片*/
+.mail-modal
+{
+    background: #fff url(../images/mail-stripes.png) repeat-x left top;
+    background-size: 45px 6px;
+    border-top: 0;
+    padding-top: 6px;
+}

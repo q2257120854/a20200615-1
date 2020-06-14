@@ -1,0 +1,341 @@
+{include file="block/layui" /}
+<div class="layui-tab layui-tab-brief" lay-filter="user_add">
+    <ul class="layui-tab-title">
+        <li class="layui-this" lay-id="1">添加手机号码</li>
+        <li lay-id="2">填写收货地址</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">第一步：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="qq"  placeholder="请填写QQ号码"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">第二步：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="uid"  placeholder="请填写uid"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">第三步：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="token"  placeholder="请填写token"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"> </label>
+                <div class="layui-input-block">
+                    <button type="button" id="nextForm" class="layui-btn tab-btn-active" >保存QQ，下一步：填写收货地址</button>
+                </div>
+            </div>
+        </div>
+        <div class="layui-tab-item layui-form" lay-filter="address_form">
+            <fieldset class="layui-elem-field" style="margin-top: -20px;margin-bottom: 20px;">
+                <legend>提醒</legend>
+                <div class="layui-field-box" style="color: red;">一、收货地址不要选偏远地区，如新疆、西藏、内蒙、甘肃、宁夏、青海</div>
+                <div class="layui-field-box" style="color: red;">二、刚添加的号码要1分钟后才会被调用到</div>
+            </fieldset>
+            <div class="layui-form-item">
+                <label class="layui-form-label">收货人：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="address_name"  placeholder="请填写收货人姓名"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">收货地址：</label>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <select name="address_province" lay-filter="address_province">
+                        <option value="">请选择省</option>
+                        <option value="2" >北京市</option>
+                        <option value="27" >天津市</option>
+                        <option value="10" >河北省</option>
+                        <option value="23" >山西省</option>
+                        <option value="19" >内蒙古自治区</option>
+                        <option value="18" >辽宁省</option>
+                        <option value="15" >吉林省</option>
+                        <option value="12" >黑龙江省</option>
+                        <option value="25" >上海市</option>
+                        <option value="16" >江苏省</option>
+                        <option value="31">浙江省</option>
+                        <option value="3">安徽省</option>
+                        <option value="4" >福建省</option>
+                        <option value="17" >江西省</option>
+                        <option value="22" >山东省</option>
+                        <option value="11" >河南省</option>
+                        <option value="13" >湖北省</option>
+                        <option value="14" >湖南省</option>
+                        <option value="6" >广东省</option>
+                        <option value="7" >广西壮族自治区</option>
+                        <option value="9" >海南省</option>
+                        <option value="32" >重庆市</option>
+                        <option value="26" >四川省</option>
+                        <option value="8" >贵州省</option>
+                        <option value="30" >云南省</option>
+                        <option value="28" >西藏自治区</option>
+                        <option value="24" >陕西省</option>
+                        <option value="5" >甘肃省</option>
+                        <option value="21" >青海省</option>
+                        <option value="20" >宁夏回族自治区</option>
+                        <option value="29" >新疆维吾尔自治区</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <select name="address_city">
+                        <option value="">请选择市</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <select name="address_district">
+                        <option value="">请选择县/区</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="address_concret"  placeholder="请填写楼栋或小区具体位置"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"> </label>
+                <div class="layui-input-block">
+                    <button type="button" id="submitForm" class="layui-btn tab-btn-active" >保存收货地址</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['jquery','layer','element','form'], function() {
+        var $ = layui.$;
+        var element = layui.element;
+        var form = layui.form;
+        // layer.open({
+        //     type: 1
+        //     ,title: '特别提醒' //不显示标题栏
+        //     ,closeBtn: false
+        //     ,area: '300px;'
+        //     ,shade: 0.8
+        //     ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        //     ,btn: ['确定']
+        //     ,btnAlign: 'c'
+        //     ,moveType: 1 //拖拽模式，0或者1
+        //     ,content: '<div style="padding: 20px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">一、拼多多上收货地址是否填写完整;</div>'
+        //     ,success: function(layero){
+        //
+        //     }
+        // });
+        $("#sendCode").on('click',function () {
+            let phone=$("input[name='phone']").val();
+            if (!phone) {
+                layer.msg('请填写手机号码！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            var msg =layer.msg('发送中...', {
+                time: 10000,
+                closeBtn: 0
+            });
+            $.post('{:url('pinduoduo/send_code')}',{
+                phone:phone
+            },function (res) {
+                layer.close(msg);
+                console.log(res);
+                if (res.status){
+                    layer.msg('请查看短信', {
+                        time: 2000,
+                        closeBtn: 0
+                    });
+                }else{
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        btn: ['知道了'],
+                        btnAlign: 'c',
+                        anim: 6
+                    });
+                }
+            })
+        });
+        $("#nextForm").on('click',function () {
+            let qq=$("input[name='qq']").val();
+            let token=$("input[name='token']").val();
+            let uid=$("input[name='uid']").val();
+            if (!qq) {
+                layer.msg('请填写QQ号码！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            if (!token) {
+                layer.msg('请填写token！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            if (!uid) {
+                layer.msg('请填写uid！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            var msg =layer.msg('模拟登陆中...', {
+                time: 10000,
+                closeBtn: 0
+            });
+            $.post('{:url('pinduoduo/qq_add')}',{
+                qq:qq,
+                token:token,
+                uid:uid
+            },function (res) {
+                layer.close(msg);
+                console.log(res);
+                if (res.status){
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        closeBtn: 0
+                    });
+                    element.tabChange('user_add', '2');
+                }else{
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        btn: ['知道了'],
+                        btnAlign: 'c',
+                        anim: 6
+                    });
+                }
+            })
+        });
+        form.on('select', function(data){
+            var select_name=data.elem.name;
+            var phone=$("input[name='qq']").val();
+            if (select_name=='address_province'){
+                $("select[name='address_city']").html('');
+            }
+            if (select_name=='address_city'){
+                $("select[name='address_district']").html('');
+            }
+            if (phone){
+                var region_id=data.value;
+                if (region_id){
+                    $.ajax({
+                        type:"POST",
+                        url: "{:url('pinduoduo/getaddresstpl')}",
+                        data:{
+                            phone:phone
+                            ,region_id:region_id
+                        },
+                        success: function(res){
+                            if (res.status){
+                                var regions=res.data.regions;
+                                if (regions){
+                                    var html='';
+                                    if (select_name=='address_province'){
+                                        html+='<option value="">请选择市</option>';
+                                    }
+                                    if (select_name=='address_city'){
+                                        html+='<option value="">请选择区域</option>';
+                                    }
+                                    regions.forEach(function (val,key) {
+                                        html+='<option value="'+val.region_id+'">'+val.region_name+'</option>';
+                                    });
+                                    if (select_name=='address_province'){
+                                        $("select[name='address_city']").html(html);
+                                    }
+                                    if (select_name=='address_city'){
+                                        $("select[name='address_district']").html(html);
+                                    }
+                                    form.render('select','address_form');
+                                }
+                            }else{
+                                layer.msg(res.msg);
+                            }
+                        }
+                    });
+                }
+            } else{
+                layer.msg('请先填写手机');
+            }
+        });
+        $("#submitForm").on('click',function () {
+            var address_name=$("input[name='address_name']").val();
+            var phone=$("input[name='qq']").val();
+            var address_province=$("select[name='address_province']").val();
+            var address_city=$("select[name='address_city']").val();
+            var address_district=$("select[name='address_district']").val();
+            var address_concret=$("input[name='address_concret']").val();
+
+            var flag=true;
+            if (!phone) {
+                layer.msg('手机号不能为空');
+                flag=false;
+                return;
+            }
+            if (!address_name) {
+                layer.msg('收货人不能为空');
+                flag=false;
+                return;
+            }
+            if (!address_province) {
+                layer.msg('请选择省份');
+                flag=false;
+                return;
+            }
+            if (!address_city) {
+                layer.msg('请选择城市');
+                flag=false;
+                return;
+            }
+            if (!address_district) {
+                layer.msg('请选择县/区');
+                flag=false;
+                return;
+            }
+            if (!address_concret) {
+                layer.msg('具体位置不能为空');
+                flag=false;
+                return;
+            }
+            if (flag) {
+                layer.msg('提交中...',{time:10000});
+                $.ajax({
+                    type:"POST",
+                    url: "{:url('pinduoduo/saveaddress')}",
+                    data:{
+                        phone:phone
+                        ,address_name:address_name
+                        ,address_province:address_province
+                        ,address_city:address_city
+                        ,address_district:address_district
+                        ,address_concret:address_concret
+                    },
+                    success: function(res){
+                        layer.msg(res.msg);
+                        if (res.status){
+                            self.location='{:url('pinduoduo/users')}';
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+<style>
+    .layui-form{
+        padding-top: 15px;
+    }
+    .layui-form-item .layui-input-inline{
+        width:300px;
+    }
+</style>

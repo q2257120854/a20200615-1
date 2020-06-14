@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "component": true,
+  "usingComponents": {
+    "copyright": "/components/copyright/copyright",
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

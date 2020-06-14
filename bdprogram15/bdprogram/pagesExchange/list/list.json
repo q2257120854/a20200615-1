@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "copyright": "/components/copyright/copyright",
+    "myfooter": "/components/myfooter/myfooter",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

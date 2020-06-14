@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+
+            <!--标题-->
+
+            <div class="panel-heading">
+
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> APP设置
+                </div>
+
+            </div>
+
+
+            <!--标题-->
+
+
+            <div class="panel-body">
+
+                <form role="form" id="form1" method="post" action="{:url('user/pass')}" class="validate">
+
+
+
+                    <div class="form-group">
+                        <label class="control-label">客服微信(会显示在属于你用户的APP中)</label>
+
+                        <input type="text" class="form-control" id="weichat" name="weichat" value="{$weichat}"  placeholder="微信" />
+                    </div>
+                    <!--
+                        <div class="form-group">
+                          <label class="control-label">APP提示语(比如：购卡请联系QQ/微信：)</label>
+
+                          <input type="text" class="form-control"  name="url" value="{:sname(session('usershshefsdf'),'url')}"  placeholder="比如：购卡请联系QQ/微信：" />
+                      </div>
+                    -->
+
+                    <div class="form-group">
+                        <label class="control-label">七天购买链接(如不填写，会默认弹出联系方式)</label>
+
+                        <input type="text" class="form-control"  name="url5" value="{:sname(session('usershshefsdf'),'url5')}"  placeholder="七天购买链接,请以http://开头" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label">一个月购买链接(如不填写，会默认弹出联系方式)</label>
+                        <input type="text" class="form-control"  name="url1" value="{:sname(session('usershshefsdf'),'url1')}"  placeholder="一个月购买链接,请以http://开头" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">三个月购买链接(如不填写，会默认弹出联系方式)</label>
+
+                        <input type="text" class="form-control"  name="url2" value="{:sname(session('usershshefsdf'),'url2')}"  placeholder="三个月购买链接,请以http://开头" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">六个月购买链接(如不填写，会默认弹出联系方式)</label>
+
+                        <input type="text" class="form-control"  name="url6" value="{:sname(session('usershshefsdf'),'url6')}"  placeholder="六个月购买链接,请以http://开头" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">一年购买链接(如不填写，会默认弹出联系方式)</label>
+
+                        <input type="text" class="form-control" name="url3" value="{:sname(session('usershshefsdf'),'url3')}"  placeholder="一年购买链接,请以http://开头" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">永久购买链接(如不填写，会默认弹出联系方式)</label>
+
+                        <input type="text" class="form-control"  name="url4" value="{:sname(session('usershshefsdf'),'url4')}"  placeholder="永久购买链接,请以http://开头" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">提交</button>
+                        <button type="reset" class="btn btn-white">重置</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+{$code=='2'?'
+<div class="col-md-6">
+    <div class="alert alert-danger" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <strong> 糟糕 !</strong> 修改失败
+
+    </div>
+</div>
+
+':''}
+
+{$code=='1'?'<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 !</strong> 修改成功.
+    </div>
+</div>
+
+':''}
+<script>
+    setTimeout("$('#alert').fadeOut(1000)",2000)
+</script>

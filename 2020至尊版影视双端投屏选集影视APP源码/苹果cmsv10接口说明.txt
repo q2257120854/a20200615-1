@@ -1,0 +1,2 @@
+Ysapp.php放到苹果cms目录/application/index/controller
+

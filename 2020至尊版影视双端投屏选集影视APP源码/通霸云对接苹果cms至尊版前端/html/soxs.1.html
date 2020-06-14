@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link type="text/css" href="../css/h5-search.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" type="text/css" href="../css/aui.css" />-->
+	</head>
+	<body>
+
+		<section class="m-header-search m-search-page">
+			<hgroup class="fixed_top">
+				<div class="m-search-full-bgfff">
+					<div class="header-search-box">
+						<a title="爱奇艺" class="logo-iqiyi"></a>
+						<div class="header-searchInput">
+							<form action="javascript:void(0);">
+								<input id="ff_wd" placeholder="" type="search" autovalue="" autocomplete="off" class="search-input">
+								<i class="c-glyphicon c-glyphicon-search"></i>
+								<i class="c-glyphicon c-glyphicon-close" style="display: none;"></i>
+							</form>
+						</div>
+						<div class="header-searchBtn">
+							<a id="soid" onclick="sosuo()" class="c-btn btn-search">搜索</a>
+							<div>
+								<a id="qxid" onclick="closeWin()" class="c-btn btn-search">取消</a>
+							</div>
+						</div>
+					</div>
+			</hgroup>
+		</section>
+
+
+		<div>
+
+			<div>
+				<div>
+					<div>
+						<div class="">
+							<nav class="g-nav-head">
+								<div class="m-nav-head m-sliding">
+									<ul class="m-nav-head-list m-sliding-list" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px) scale(1);">
+										<li>
+											<a class="c-linkChannel selected">
+												视频
+											</a>
+										</li>
+										<li>
+											<a class="c-linkChannel">
+												待开发
+											</a>
+										</li>
+
+									</ul>
+								</div>
+							</nav>
+						</div>
+					</div>
+					<!---->
+					<div>
+						<div label="全部">
+							<div id="div_list_f">
+
+								<div class='m-box m-box-top'>
+									<div class='m-box-items m-box-items-full'>
+										<div class='m-pic-text'>
+											<div class='piclist-img'>
+												<a target='_self' class='piclist-link' style='background-image: url(&quot;"+item.tp +"&quot;);'>
+													<div class='c-rb'>
+														<span class='c-date'>"+item.js+"</span></div>
+													<div class='c-lt'></div>
+												</a></div>
+											<div class='piclist-title'><a target='_self' class='piclist-title-link'>
+													<div class='c-title'>"+item.name+"</div>
+													<div class='c-info'>
+														<div>"+item.nd+" "+item.fl+" "+item.dq+"</div>
+													</div>
+													<div class='c-info'>
+														<div>主演："+ item.zy+"</div>
+													</div>
+													<div class='c-info'>
+														<div>介绍：" +item.jies+"</div>
+													</div>
+												</a>
+												<div class='pic-btn'>
+													<div class='piclist-btn'>
+														<a onclick="bofang('" + item.id + "')" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="m-box-items m-box-items-full" id="gengduo">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+	</body>
+	<script type="text/x-dot-template" id="navcattpl">
+	    {{~ it.data : value : index }}
+	    <li>
+	    <div tapmode onclick="bofang('{{= value. name }}')" class="piclist-img">
+					<a  class="piclist-link" style='background-image: url("{{= value. tp }}");'>
+						<div class="c-rt">
+							<i class="c-picicon c-picicon-pay"></i>
+						</div>
+						<div class="c-lb"><!----></div>
+						<div class="c-rb">
+							<span class="c-date">{{= value. js }}</span>
+						</div>
+						<div class="c-lt"></div>
+						<div class="c-lrb"><!----></div>
+					</a>
+				</div>
+				<div class="piclist-title">
+					<div class="c-title">
+						<a onclick="">{{= value. name }}</a>
+					</div>
+				</div>
+	</li>
+	
+	
+	<div class='m-box m-box-top'>
+		<div class='m-box-items m-box-items-full'>
+			<div class='m-pic-text'>
+				<div class='piclist-img'>
+					<a target='_self' class='piclist-link' style='background-image: url("{{= value. tp }}");'>
+						<div class='c-rb'>
+							<span class='c-date'>{{= value. js }}</span></div>
+						<div class='c-lt'></div>
+					</a></div>
+				<div class='piclist-title'><a target='_self' class='piclist-title-link'>
+						<div class='c-title'>{{= value. name }}</div>
+						<div class='c-info'>
+							<div>{{= value. nd }} {{= value. fl }} {{= value. dq }}</div>
+						</div>
+						<div class='c-info'>
+							<div>主演：{{= value. zy }}</div>
+						</div>
+						<div class='c-info'>
+							<div>介绍：{{= value. jies }}</div>
+						</div>
+					</a>
+					<div class='pic-btn'>
+						<div class='piclist-btn'>
+							<a onclick="bofang('{{= value. id }}')" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	    {{~}}
+	
+	</script>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var sjgs;
+
+		setInterval(function() {
+			var so = $api.byId('soid');
+			var qx = $api.byId('qxid');
+
+			var myval = document.getElementById('ff_wd').value;
+			if (myval == api.pageParam.name) {
+				$api.attr(so, 'style', 'display: none;');
+				$api.attr(qx, 'style', '');
+			} else {
+				$api.attr(so, 'style', '');
+				$api.attr(qx, 'style', 'display: none;');
+
+			}
+		}, 100);
+		apiready = function() {
+			var div_list = $api.byId('xuanji');
+			var gengduo = $api.byId('gengduo')
+			document.getElementById('ff_wd').value = api.pageParam.name;
+			api.ajax({
+				url: api_url + '/login/login/sosuo',
+				data: {
+					values: {
+						name: document.getElementById('ff_wd').value,
+					}
+				}
+			}, function(ret, err) {
+				//alert( JSON.stringify( ret) );
+				sjgs = ret.length;
+				if (sjgs < 6) {
+					var html = "";
+					var banner = ret;
+					for (ii = 1; ii <= sjgs; ii++) {
+						var i1 = ii - 1;
+						item = banner[i1];
+						html +=
+							"<div class='m-box m-box-top'><div class='m-box-items m-box-items-full'><div class='m-pic-text'><div class='piclist-img'>";
+						html += "<a target='_self' class='piclist-link' style='background-image: url(&quot;" + item.tp +
+							"&quot;);'><div class='c-rb'>";
+						html += "<span class='c-date'>" + item.js + "</span></div>";
+						html +=
+							"<div class='c-lt'></div></a></div><div class='piclist-title'><a target='_self' class='piclist-title-link'>";
+						html += "<div class='c-title'>" + item.name + "</div><div class='c-info'><div>" + item.nd + " " + item.fl +
+							" " + item.dq + "</div></div><div class='c-info'>";
+						html += "<div>主演：" + item.zy + "</div></div><div class='c-info'>";
+						html += "<div>介绍：" + item.jies + "</div></div></a><div class='pic-btn'><div class='piclist-btn'>";
+						html += "<a onclick=\"bofang('" + item.id +
+							"')\" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>";
+						html += "</div></div></div></div></div>";
+					}
+					div_list.innerHTML = html;
+
+				} else {
+					//			gengduo.innerHTML='<section class="m-loading-info"><div onclick="gengd()" class="c-info">点击加载更多... </div></section>';
+
+					var html = "";
+					var banner = ret;
+					for (ii = 1; ii <= sjgs; ii++) {
+						var i1 = ii - 1;
+						item = banner[i1];
+						html +=
+							"<div class='m-box m-box-top'><div class='m-box-items m-box-items-full'><div class='m-pic-text'><div class='piclist-img'>";
+						html += "<a target='_self' class='piclist-link' style='background-image: url(&quot;" + item.tp +
+							"&quot;);'><div class='c-rb'>";
+						html += "<span class='c-date'>" + item.js + "</span></div>";
+						html +=
+							"<div class='c-lt'></div></a></div><div class='piclist-title'><a target='_self' class='piclist-title-link'>";
+						html += "<div class='c-title'>" + item.name + "</div><div class='c-info'><div>" + item.nd + " " + item.fl +
+							" " + item.dq + "</div></div><div class='c-info'>";
+						html += "<div>主演：" + item.zy + "</div></div><div class='c-info'>";
+						html += "<div>介绍：" + item.jies + "</div></div></a><div class='pic-btn'><div class='piclist-btn'>";
+						html += "<a onclick=\"bofang('" + item.id +
+							"')\" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>";
+						html += "</div></div></div></div></div>";
+					}
+					div_list.innerHTML = html;
+
+				}
+
+
+			});
+		};
+
+		function sosuo() {
+			var div_list = $api.byId('xuanji');
+			var gengduo = $api.byId('gengduo')
+			api.ajax({
+				url: api_url + '/login/login/sosuo',
+				data: {
+					values: {
+						name: document.getElementById('ff_wd').value,
+					}
+				}
+			}, function(ret, err) {
+				//alert( JSON.stringify( ret) );
+				sjgs = ret.length;
+				if (sjgs < 6) {
+					var html = "";
+					var banner = ret;
+					for (ii = 1; ii <= sjgs; ii++) {
+						var i1 = ii - 1;
+						item = banner[i1];
+						html +=
+							"<div class='m-box m-box-top'><div class='m-box-items m-box-items-full'><div class='m-pic-text'><div class='piclist-img'>";
+						html += "<a target='_self' class='piclist-link' style='background-image: url(&quot;" + item.tp +
+							"&quot;);'><div class='c-rb'>";
+						html += "<span class='c-date'>" + item.js + "</span></div>";
+						html +=
+							"<div class='c-lt'></div></a></div><div class='piclist-title'><a target='_self' class='piclist-title-link'>";
+						html += "<div class='c-title'>" + item.name + "</div><div class='c-info'><div>" + item.nd + " " + item.fl + " " +
+							item.dq + "</div></div><div class='c-info'>";
+						html += "<div>主演：" + item.zy + "</div></div><div class='c-info'>";
+						html += "<div>介绍：" + item.jies + "</div></div></a><div class='pic-btn'><div class='piclist-btn'>";
+						html += "<a onclick=\"bofang('" + item.id +
+							"')\" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>";
+						html += "</div></div></div></div></div>";
+					}
+					div_list.innerHTML = html;
+
+				} else {
+					//			gengduo.innerHTML='<section class="m-loading-info"><div onclick="gengd()" class="c-info">点击加载更多... </div></section>';
+
+					var html = "";
+					var banner = ret;
+					for (ii = 1; ii <= sjgs; ii++) {
+						var i1 = ii - 1;
+						item = banner[i1];
+						html +=
+							"<div class='m-box m-box-top'><div class='m-box-items m-box-items-full'><div class='m-pic-text'><div class='piclist-img'>";
+						html += "<a target='_self' class='piclist-link' style='background-image: url(&quot;" + item.tp +
+							"&quot;);'><div class='c-rb'>";
+						html += "<span class='c-date'>" + item.js + "</span></div>";
+						html +=
+							"<div class='c-lt'></div></a></div><div class='piclist-title'><a target='_self' class='piclist-title-link'>";
+						html += "<div class='c-title'>" + item.name + "</div><div class='c-info'><div>" + item.nd + " " + item.fl + " " +
+							item.dq + "</div></div><div class='c-info'>";
+						html += "<div>主演：" + item.zy + "</div></div><div class='c-info'>";
+						html += "<div>介绍：" + item.jies + "</div></div></a><div class='pic-btn'><div class='piclist-btn'>";
+						html += "<a onclick=\"bofang('" + item.id +
+							"')\" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>";
+						html += "</div></div></div></div></div>";
+					}
+					div_list.innerHTML = html;
+
+				}
+
+
+			});
+		}
+
+		function bofang(id) {
+			api.openWin({
+				name: 'play',
+				url: './play.html',
+				pageParam: {
+					id: id
+				}
+			});
+		}
+
+		function toSearch() {
+			var myval = document.getElementById('ff_wd').value;
+			// alert(myval);
+			// alert(112);
+			api.ajax({
+				url: api_url + '/login/login/sosuo',
+				data: {
+					values: {
+						name: api.pageParam.name,
+					}
+				}
+			}, function(ret, err) {
+
+			});
+
+		}
+
+		function closeWin() {
+			api.closeWin();
+		}
+	</script>
+</html>

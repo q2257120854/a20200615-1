@@ -1,0 +1,59 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">手机号：</label>
+        <div class="layui-input-inline">
+            <select name="phone" lay-filter="phone"  lay-search>
+                <option value="">选择或搜索手机</option>
+                <option value="">全部</option>
+                <?php foreach($phoneList as $k=>$v):?>
+                <option value="{$k}">{$v}</option>
+                <?php endforeach;?>
+            </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+<table class="layui-hide" id="users_public" lay-filter="users_public"></table>
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#users_public'
+            ,url:'{:url('pinduoduo/users_public')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'id', title: 'ID',width: 80, sort: true}
+                ,{field:'phone', title: '手机号码'}
+                ,{field:'admin_name', title: '代理商'}
+                ,{field:'expired_limit_noaddr', title: '状态'}
+                ,{field:'ctime', title: '分配时间', sort: true}
+            ]]
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('users_public', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        phone: $("select[name=phone]").val(),
+                        agent: $("select[name=agent]").val()
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            ids=new Array();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>

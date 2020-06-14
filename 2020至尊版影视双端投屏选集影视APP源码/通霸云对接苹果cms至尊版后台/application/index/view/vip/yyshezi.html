@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>系统设置</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/css/public.css" media="all">
+    <style>
+        .layui-form-item .layui-input-company {width: auto;padding-right: 10px;line-height: 38px;}
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <div class="layui-form layuimini-form">
+          <form role="form" id="form1" method="post" action="{:url('vip/yyshezi')}" class="validate">
+            {volist name="list" id="vo"}
+             <div class="layui-form-item">
+                <label class="layui-form-label required">运营模式</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.yyms}"  name="yyms"  class="layui-input">
+                    <tip>填写0为免费模式，1为收费模式。</tip>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">注册限制</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.zcxz}"  name="zcxz"  class="layui-input">
+                    <tip>一部手机最多注册几个账号。</tip>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">搜索推荐</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.sotuij}"  name="sotuij" class="layui-input">
+                    <tip>搜索界面推荐影片名，最多6个（用英文,分割）。</tip>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">操作安全码</label>
+                <div class="layui-input-block">
+                    <input value="{$vo.ydkey}"  name="ydkey"class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">提现限制</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.txxz}  name="txxz"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">天</div>
+                <div class="layui-form-mid layui-word-aux">提现需要会员有效期在多少天以上。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">开通代理的价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.daili}  name="daili" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">体验卡购买价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.tiyan} name="tiyan"  class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">月卡购买价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.yueka} name="yueka" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">季度卡购买价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.jika} name="jika" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">半年卡购买价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.bannian} name="bannian" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">年卡购买价格</label>
+                <div class="layui-input-block">
+                    <input  value={$vo.nianka} name="nianka" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">永久卡购买价格</label>
+                <div class="layui-input-block">
+                    <input value={$vo.yongjiu} name="yongjiu" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">金币兑换现金比率</label>
+                <div class="layui-input-inline">
+                    <input value={$vo.jbmoney} name="jbmoney" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">100的整倍数</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">金币兑换会员天数比率</label>
+                <div class="layui-input-inline">
+                    <input value={$vo.jbday}  name="jbday" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">10的整倍数</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">新号注册送钱</label>
+                <div class="layui-input-inline">
+                    <input value={$vo.zcmoney} name="zcmoney" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">不送填写0即可</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">新号注册送金币</label>
+                <div class="layui-input-inline">
+                    <input value={$vo.zcjb} name="zcjb" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">不送填写0即可</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">分享注册送金币</label>
+                <div class="layui-input-inline">
+                    <input value={$vo.sharefjb} name="sharefjb" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">10的整倍数</div>
+            </div>
+            <!--div class="layui-form-item">
+                <label class="layui-form-label">徒弟充值代理</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.fdljb} name="fdljb"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                
+            </div-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">一级代理返佣</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.dljba} name="dljba"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">二级代理返佣</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.dljbb} name="dljbb"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">三级代理返佣</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.dljbc} name="dljbc"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+            </div>
+            <!--<div class="layui-form-item">
+                <label class="layui-form-label">四级代理返佣</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.dljbd} name="dljbd" class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">五级代理返佣</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.dljbe} name="dljbe"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+            </div>-->
+            
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值体验卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckfa} name="ckfa"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给师傅返钱。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值月卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckfb} name="ckfb"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给师傅返钱。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值季卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckfc} name="ckfc"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给师傅返钱。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值半年卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckfd} name="ckfd"  class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给师傅返钱。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值年卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckfe} name="ckfe" class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给上级返钱。</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值永久卡</label>
+                <div class="layui-input-inline" style="width: 80px;">
+                    <input value={$vo.ckff} name="ckff" class="layui-input">
+                </div>
+                <div class="layui-input-inline layui-input-company">元</div>
+                <div class="layui-form-mid layui-word-aux">给上级返钱。</div>
+            </div>
+            <font color="#F5611A" size="3"><b>支付接口配置</b></font>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">支付网关</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.apiurl}" name="apiurl"  class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">商户ID</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.partner}" name="partner"  class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">商户key</label>
+                <div class="layui-input-block">
+                    <input lay-verify="required" value="{$vo.key}" name="key"  class="layui-input">
+                </div>
+            </div>
+            
+            {/volist}
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="submit">确认保存</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+
+</body>
+</html>

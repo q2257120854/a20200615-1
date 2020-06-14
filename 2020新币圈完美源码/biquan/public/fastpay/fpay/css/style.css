@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document
+ * Author: qq249189520
+ * Update: 2010-04-06
+ @import "/Member/Css/style.css";
+ @import "/Css/user.css";
+*/
+
+
+
+/*公用*/
+
+ol, ul {list-style: none;}
+img{max-width: 100%}
+body a{outline:none;blr:expression(this.onFocus=this.blur());text-decoration:none;}
+body{background-color: #F5F5F5;font-size: 16px;font-family: "微软雅黑";}
+
+/*充值*/
+.url_pay{background-color: #fff;max-width: 640px;margin:0 auto;text-align: center;}
+.url_pay h2{ no-repeat;display: block;text-align: center;padding: 15px;border-bottom: 1px solid #ddd;margin-bottom: 10px;}
+.url_pay h2 img{ max-height: 40px;}
+.url_pay h3{font-size: 25px;color: #fb8000}
+
+.qr{width: 60%;margin: 0 auto;}
+.qr img{max-width: 100%}

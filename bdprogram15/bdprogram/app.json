@@ -1,0 +1,260 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/usercenter/usercenter",
+    "pages/main_shop_order/main_shop_order",
+    "pages/order_more_list/order_more_list",
+    "pages/orderDetails/orderDetails",
+    "pages/orderDetail/orderDetail",
+    "pages/applyAfterSales/applyAfterSales",
+    "pages/orderAftersale_list/orderAftersale_list",
+    "pages/orderAftersale/orderAftersale",
+    "pages/address/address",
+    "pages/showProMore/showProMore",
+    "pages/order_down/order_down",
+    "pages/chooseStore/chooseStore",
+    "pages/collect/collect",
+    "pages/mycoupon/mycoupon",
+    "pages/coupon/coupon",
+    "pages/aliH5pay/aliH5pay",
+    "pages/wxH5pay/wxH5pay",
+    "pages/gwc/gwc",
+    "pages/showArt/showArt",
+    "pages/order_art/order_art",
+    "pages/recharge/recharge",
+    "pages/showPic/showPic",
+    "pages/showPiclist/showPiclist",
+    "pages/listPic/listPic",
+    "pages/search/search",
+    "pages/diypage/diypage",
+    "pages/webpage/webpage",
+    "pages/shoppay/shoppay",
+    "pages/scorelist/scorelist",
+    "pages/store/store",
+    "pages/equity_show/equity_show",
+    "pages/open1/open1",
+    "pages/register/register",
+    "pages/form_list/form_list",
+    "pages/formcon/formcon",
+    "pages/catelist/catelist",
+    "pages/checkPro/checkPro"
+  ],
+  "subPackages": [
+    {
+      "root": "pagesFlashSale",
+      "pages": [
+        "showPro/showPro",
+        "order_dan/order_dan",
+        "orderlist_dan/orderlist_dan",
+        "orderDetail_dan/orderDetail_dan"
+      ]
+    },
+    {
+      "root": "pagesPt",
+      "pages": [
+        "products/products",
+        "order/order",
+        "pt/pt",
+        "orderlist/orderlist",
+        "index/index"
+      ]
+    },
+    {
+      "root": "pagesReserve",
+      "pages": [
+        "orderList/orderList",
+        "proBuy/proBuy",
+        "proDetail/proDetail",
+        "appointPage/appointPage",
+        "orderDetail/orderDetail"
+      ]
+    },
+    {
+      "root": "pagesSign",
+      "pages": [
+        "index/index",
+        "new/new",
+        "ranking/ranking"
+      ]
+    },
+    {
+      "root": "pagesExchange",
+      "pages": [
+        "list/list",
+        "show/show",
+        "order/order"
+      ]
+    },
+    {
+      "root": "pagesCards",
+      "pages": [
+        "card_info/card_info",
+        "card_list/card_list"
+      ]
+    },
+    {
+      "root": "pagesShake",
+      "pages": [
+        "index/index",
+        "integral_collect/integral_collect",
+        "prize/prize",
+        "win_prize/win_prize"
+      ]
+    },
+    {
+      "root": "pagesFood",
+      "pages": [
+        "food/food",
+        "food_my/food_my",
+        "food_order/food_order",
+        "food_detail/food_detail"
+      ]
+    },
+    {
+      "root": "pagesBargain",
+      "pages": [
+        "bargain/bargain",
+        "bargain_activity/bargain_activity",
+        "bargain_order/bargain_order",
+        "bargain_pro/bargain_pro",
+        "my_bargain/my_bargain",
+        "orderDetail/orderDetail",
+        "orderlist/orderlist"
+      ]
+    },
+    {
+      "root": "pagesPluginForum",
+      "pages": [
+        "collect/collect",
+        "forum/forum",
+        "forum_page/forum_page",
+        "index/index",
+        "release/release",
+        "set_top/set_top"
+      ]
+    },
+    {
+      "root": "pagesPluginShop",
+      "pages": [
+        "goods_buy/goods_buy",
+        "goods_detail/goods_detail",
+        "goods_list/goods_list",
+        "list/list",
+        "manage_gotixian/manage_gotixian",
+        "manage_index/manage_index",
+        "manage_order/manage_order",
+        "manage_pro/manage_pro",
+        "manage_prolist/manage_prolist",
+        "manage_shop/manage_shop",
+        "manage_szjl/manage_szjl",
+        "manage_tixian/manage_tixian",
+        "manage_txjl/manage_txjl",
+        "register/register",
+        "shop/shop"
+      ]
+    },
+    {
+      "root": "pagesPluginSupply",
+      "pages": [
+        "collect/collect",
+        "page/page",
+        "release/release",
+        "set_top/set_top",
+        "supply/supply"
+      ]
+    },
+    {
+      "root": "pagesExternal",
+      "pages": [
+        "jdGoods/jdGoods",
+        "pddGoods/pddGoods"
+      ]
+    },
+    {
+      "root": "pagesActive",
+      "pages": [
+        "active_info/active_info",
+        "apply/apply",
+        "apply_collect/apply_collect",
+        "apply_list/apply_list",
+        "index/index"
+      ]
+    },
+    {
+      "root": "pagesFenxiao",
+      "pages": [
+        "fenxiao_account/fenxiao_account",
+        "fenxiao_apply/fenxiao_apply",
+        "fenxiao_center/fenxiao_center",
+        "fenxiao_order/fenxiao_order",
+        "fenxiao_s/fenxiao_s",
+        "fenxiao_team/fenxiao_team",
+        "fenxiao_tixian/fenxiao_tixian",
+        "fenxiao_tixian_do/fenxiao_tixian_do",
+        "fenxiao_hb/fenxiao_hb"
+      ]
+    },
+    {
+      "root": "pagesOther",
+      "pages": [
+        "evaluate/evaluate",
+        "evaluate_list/evaluate_list",
+        "evaluate_detail/evaluate_detail",
+        "evaluate_pro/evaluate_pro",
+        "logistics_information/logistics_information",
+        "logistics_state/logistics_state",
+        "liveshow_list/liveshow_list"
+      ]
+    },
+    {
+      "root": "pagesGiftCard",
+      "pages": [
+        "index/index",
+        "my_giftcard/my_giftcard",
+        "card_detail/card_detail",
+        "card_order/card_order",
+        "card_getPro/card_getPro",
+        "order_list/order_list",
+        "order_detail/order_detail"
+      ]
+    },
+    {
+      "root": "pagesBackStage",
+      "pages": [
+        "index/index",
+        "order_tip/order_tip",
+        "setting/setting",
+        "pro_manage/pro_manage",
+        "pro_edit/pro_edit",
+        "pro_comment/pro_comment",
+        "comment_detail/comment_detail",
+        "content_manage/content_manage",
+        "art_edit/art_edit",
+        "pic_edit/pic_edit",
+        "art_comment/art_comment",
+        "sh_manage/sh_manage",
+        "sh_detail/sh_detail",
+        "money_apply/money_apply",
+        "money_detail/money_detail",
+        "user_manage/user_manage",
+        "order_list/order_list",
+        "order_detail/order_detail",
+        "order_aftersale/order_aftersale"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": true
+  },
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bind-phone": "/components/bindPhone/bindPhone",
+    "myfooter": "/components/myfooter/myfooter",
+    "copyright": "/components/copyright/copyright",
+    "bsfooter": "/components/bsfooter/bsfooter"
+  }
+}

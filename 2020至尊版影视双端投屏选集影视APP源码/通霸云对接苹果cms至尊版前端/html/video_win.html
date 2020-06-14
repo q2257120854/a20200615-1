@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+<style>
+  .error{
+  	padding-top:4rem;
+  	font-size: 0.7rem;
+      margin: 1.1rem 0 0;
+      color: #666666;
+      font: 20px/1.5 'Microsoft YaHei',arial,tahoma,\5b8b\4f53,sans-serif;
+      text-align:center;
+  }
+  .error i{
+    	font-size:6rem;
+    }
+	.vip{
+    height: 54px;
+    background-color: #3c3c3c;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+	.vip1{
+    width: 70%;
+    color: #fff;
+    vertical-align: middle;
+    line-height: 54px;
+    background-image: url(../image/d_08.png);
+    background-repeat: no-repeat;
+    background-size: 30px 26px;
+    background-position: 10px;
+    font-size: 14px;
+    padding-left: 50px;
+    position: absolute;
+  }
+	.vip2{
+    width: 30%;
+    background-color: #1b7eff;
+    line-height: 54px;
+    float: right;
+    font-size: 15px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <header class="aui-bar aui-bar-nav" id="header" style="position: relative;background: #1b7eff;color:#fff;position: relative;padding-top:25px;">
+    <span  onclick="ios_inwin('historyBack')" tapmode style="position: absolute;left:10px;">
+      <i class="aui-iconfont aui-icon-left" style="color:#fff"></i>返回
+    </span>
+    平台浏览
+    <span style="position: absolute;right: 10px;color:#ffffff;" class="shuaxin" onclick="ios_inwin('tuichu')" tapmode >关闭</span>
+  </header>
+	<footer class="vip" id="footer">
+    <div class="vip1" id="o">选集之后请点击"开始播放"按钮</div>
+    <div class="vip2" id="bf" onclick="getFrameUrl()">开始播放</div>
+  </footer>
+    <div id="err"></div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  //定义页面全局变量
+  var api_url = localStorage.getItem('api_url');
+  var user_id = localStorage.getItem('user_id');
+	var pageUrl = "";
+	var parseUrl = "";
+  var title = "";
+  var jiekou = "";
+  apiready = function(){
+    if (user_id>1) {
+      api.ajax({
+          url: api_url+'/login/login/imei.html',
+          method: 'get',
+          data: {
+              values: {
+                  uid: user_id,
+    			  key:localStorage.getItem('anq_key'),
+              }
+          }
+      },function(ret, err){
+          if (ret) {
+    		  localStorage.setItem('play_url1', ret.msg.url3);
+    		  localStorage.setItem('play_url2', ret.msg.url4);
+    		  localStorage.setItem('play_url3', ret.msg.url5);
+    		  localStorage.setItem('play_url4', ret.msg.url6);
+    		  localStorage.setItem('play_url5', ret.msg.url7);
+    		  localStorage.setItem('play_url6', ret.msg.url8);
+    		  localStorage.setItem('play_url7', ret.msg.url9);
+          jiekou = ret.msg.url3;
+              if (ret.msg.imei!=api.deviceId) {
+                localStorage.setItem('user_id','');
+                localStorage.setItem('user_name','');
+                localStorage.setItem('user_time','');
+                api.sendEvent({
+                  name: 'newLoingdata',
+                  extra: {
+                  }
+                });
+
+                api.closeWin({
+                });
+
+                api.alert({
+                    title: '您已在其他设备登陆！账号已强制下线',
+                    msg: '请重新登陆',
+                });
+                return;
+              }
+          } else {
+
+
+
+          }
+      });
+    }
+		var header = $api.byId("header");
+		$api.fixIos7Bar(header);
+    var headerPos = $api.offset(header);
+		api.addEventListener({
+    	name: 'getUrl'
+    }, function(ret, err) {
+			var url = "";
+      if(ret && ret.value){
+      	var value = ret.value;
+				pageUrl = value.href;
+				if(pageUrl.indexOf("v.qq.com") != -1){
+					tengxun();
+				}else if(pageUrl.indexOf("iqiyi.com") != -1){
+					iqiyi();
+				}else if(pageUrl.indexOf("youku.com") != -1){
+					youku();
+				}else if(pageUrl.indexOf("mgtv.com") != -1){
+          mgtv();
+        }else if(pageUrl.indexOf("sohu.com") != -1){
+          sohu();
+        }else if(pageUrl.indexOf("pptv.com") != -1){
+          pptv();
+        }else if(pageUrl.indexOf("1905.com") != -1){
+          one905();
+        }else if(pageUrl.indexOf("miguvideo.com") != -1){
+          migu();
+        }else if(pageUrl.indexOf("le.com") != -1){
+          leshi();
+        }else if(pageUrl.indexOf("bilibili.com") != -1){
+          bilibili();
+        }else if(pageUrl.indexOf("fun.tv") != -1){
+          fengxing();
+        }else{
+          zonghe();
+        }
+
+				bofang();
+       }
+    });
+		api.openFrame({
+	    name: 'yingshi',
+	    url: api.pageParam.url,
+      progress:{
+        type:"page",
+        color:"#6dd26d"
+      },
+      bgColor:'widget://icon/an.png',
+      softInputMode:'pan',
+	    rect: {
+        x: 0,
+        y: headerPos.h,
+        w: 'auto',
+        h: api.winHeight - $api.offset($api.byId('header')).h - $api.offset($api.byId('footer')).h
+	    }
+		});
+	};
+	function getFrameUrl() {
+		var script = "api.sendEvent({name: 'getUrl', extra: {href: window.location.href,title: document.title}});";
+		api.execScript({
+			frameName: 'yingshi',
+			script: script
+		});
+	}
+	function bofang(){
+		if(parseUrl == ""){
+			alert("解析失败，请选择正确的资源！");
+			return false;
+		}
+
+    api.openWin({
+      name: 'play_win',
+      url: './play_win.html',
+      delay: 300,
+      pageParam:{
+        url:parseUrl,
+        srcUrl:srcUrl,
+        title:title,
+       	needRecordHistory: true
+       },
+      bgColor: '#000000'
+     });
+	}
+	function ios_inwin(n){
+		if(n=='historyBack'){
+			api.historyBack({frameName: 'yingshi'}, function(ret, err) {
+				if (!ret.status) {
+					api.closeWin({name: 'video_win'});
+				}
+			});
+		}else if(n=='tuichu'){
+			api.closeWin({name: 'video_win'});
+		}
+	};
+
+function tengxun(){
+		if(pageUrl.indexOf("/cover") != -1){
+			parseUrl = jiekou + pageUrl;
+      srcUrl = pageUrl;
+		}else if(pageUrl.indexOf("/x/m/play?cid") != -1){
+			var tempurl = pageUrl.split("?");
+			var cid = tempurl[1].slice(4,19);
+			var vid = tempurl[1].slice(24,35);
+			parseUrl = jiekou + "https://v.qq.com/x/cover/" + cid + "/" + vid + ".html";
+      srcUrl = "https://v.qq.com/x/cover/" + cid + "/" + vid + ".html";
+		}else{
+			alert("亲！你好调皮奥，还没有选中哪个资源呢？");
+      return false;
+		}
+    title = "腾讯视频";
+  }
+
+  function iqiyi(){
+		if(pageUrl.indexOf(".html") != -1){
+			var tempurl = pageUrl.split(".html");
+			if(tempurl[0].length <33){
+				parseUrl = jiekou + tempurl[0] + ".html";
+        srcUrl = tempurl[0] + ".html";
+			}
+		}
+    title = "爱奇艺视频";
+  }
+
+  function youku(){
+		if(pageUrl.indexOf(".html?spm") != -1){
+			var tempurl = pageUrl.split(".html?");
+			if(tempurl[0].length <= 56){
+				parseUrl = jiekou + tempurl[0] + ".html";
+        srcUrl = tempurl[0] + ".html";
+			}else if(pageUrl.indexOf("==.html?spm") != -1){
+					var tempurl = pageUrl.split("==.html");
+					if(tempurl[0].length <= 51){
+						parseUrl = jiekou + tempurl[0] + "==.html";
+            srcUrl = tempurl[0] + ".html";
+					}
+			}else{
+				alert("亲！你好调皮奥，还没有选中哪个资源呢？");
+			}
+		}
+    title = "优酷视频";
+  }
+  function mgtv(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function sohu(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function pptv(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function one905(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function migu(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function leshi(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function bilibili(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function fengxing(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+  function zonghe(){
+    parseUrl = jiekou + pageUrl;
+    srcUrl = pageUrl;
+  }
+
+</script>
+</html>

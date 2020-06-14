@@ -1,0 +1,464 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="copyright" content="www.apicloud.com" />
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>window</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link type="text/css" href="../css/h5-aura.css" rel="stylesheet" />
+	<link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet" />
+	<style media="screen">
+		#main {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-flex-flow: column;
+			flex-flow: column;
+		}
+
+		.logo {
+			position: absolute;
+			left: 20px;
+			bottom: 13px;
+			height: 25px;
+		}
+
+		h1 {
+			height: 50px;
+			line-height: 50px;
+			font-size: 20px;
+			color: #000;
+			font-weight: normal;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.navbar {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			position: relative;
+			height: 50px;
+			box-sizing: border-box;
+			background: #fff;
+			border-bottom: 1px solid #e0e0e0;
+		}
+
+		.navbar-item {
+			display: block;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			flex: 1;
+			width: 100%;
+			line-height: 50px;
+			font-size: 18px;
+			text-align: center;
+			color: #9B9C9C;
+		}
+
+		.navbar-item-hov {
+			background-color: rgba(254, 242, 228, 0.7);
+		}
+
+		.navbar-item-active {
+			color: #6ab494;
+		}
+
+		#navmark {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			-webkit-transition: 300ms;
+		}
+
+		#navmark img {
+			position: absolute;
+			bottom: 0;
+			height: 8px;
+		}
+		.sea{
+			width: 68%;
+			margin: a auto;
+			height: 25px;
+			background: linear-gradient(to left, #43a59e 20%,#213d5f 100%);
+			padding-left: 20px;
+			margin-top: 20px;
+			margin-left: 10px;
+			border: 1px solid white !important;
+			border-radius: 20px;
+		}
+		.seaimg{
+			display: inline-block;
+			width: 25px;
+			margin-left: 10px;
+			margin-top: 20px;
+
+		}
+
+	</style>
+</head>
+<!--通霸云2020对接苹果cms至尊版 免费分享 乐檬团队官网：http://sansuib.com/ 致力于影视APP行业 分享各类精品源码！ 三岁半资源网 源码仅供大家学习分享，出现任何问题与乐檬团队无关！ 感谢大家支持！ -->
+<body>
+	<div id="main">
+		<div channelid="0" class="m-header-only">
+			<header id="header" class="m-header header-fixed m-header-channelHome" style="background:3f45ff">
+				<i class="army-icon"></i>
+				<div class="m-user" style="margin-top:30px;	">
+					<div class="" style="width:100%;margin-top:0">
+						<input type="text" class="sea" onclick="sosuo()" name="" value="" placeholder="搜一搜">
+						<img src="../image/sea.png" class="seaimg" onclick="sosuo()" alt="">
+						<img src="../image/history.png" class="seaimg" onclick="lishi()" alt="">
+						<!-- <a onclick="sosuo()" class="c-glyphicon c-glyphicon-searchfine"></a> -->
+					</div>
+
+					<div class="header-recorder">
+						<a onclick="lishi()" class="c-glyphicon c-glyphicon-recorder"></a>
+					</div>
+					<!-- <div class="header-login">
+							<a class="link-login">我的</a>
+						</div> -->
+
+
+					<div>
+						<div>
+							<!--更多资源请关注：三岁半资源网:sansuib.com-->
+							<!---->
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+
+		<div fixed="true" class="m-nav-head-only">
+			<div  id="header2" class="nav-head-fixed">
+				<nav class="g-nav-head">
+					<div class="m-nav-head m-sliding m-header-channelHome">
+						<ul id="fenleis" class="m-nav-head-list m-sliding-list">
+							<li selected="selected">
+								<a id="navbar-item-recommend" onclick="setFrameGroupIndex(0);" class="c-linkChannel selected">精选</a>
+							</li>
+
+							<!-- <li>
+									<a id="navbar-item-rank" onclick="setFrameGroupIndex(1);" class="c-linkChannel">电视剧</a>
+								</li>
+								<li>
+									<a id="navbar-item-favorite" onclick="setFrameGroupIndex(2);" class="c-linkChannel">电影</a>
+								</li>
+								<li>
+									<a id="navbar-item-favorite1" onclick="setFrameGroupIndex(3);" class="c-linkChannel">动漫</a>
+								</li>
+								<li>
+									<a id="navbar-item-favorite2" onclick="setFrameGroupIndex(4);" class="c-linkChannel">综艺</a>
+								</li> -->
+						</ul>
+					</div>
+					<!-- <a onclick="daohang()" href="javascript:void(0)" class="c-menu-linkmore">
+							<i class="menu-more-icon"></i>
+						</a> -->
+
+				</nav>
+			</div>
+		</div>
+	</div>
+	<section id="content"></section>
+	</div>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+
+	function setFrameGroupIndex(frameIndex) {
+		api.setFrameGroupIndex({
+			name: 'message',
+			index: frameIndex,
+			scroll: true
+		});
+	}
+
+	function setFrameGroupStatus(frameIndex) {
+		var recommend = $api.byId('navbar-item-recommend');
+		var rank = $api.byId('navbar-item-rank1');
+		var favorite = $api.byId('navbar-item-rank2');
+		var favorite1 = $api.byId('navbar-item-rank3');
+		var favorite2 = $api.byId('navbar-item-rank4');
+
+		switch (frameIndex) {
+			case 0:
+				{
+
+					recommend.className = "c-linkChannel selected";
+					rank.className = "c-linkChannel";
+					favorite.className = "c-linkChannel";
+					favorite1.className = "c-linkChannel";
+					favorite2.className = "c-linkChannel";
+
+					break;
+				}
+			case 1:
+				{
+
+					recommend.className = "c-linkChannel";
+					rank.className = "c-linkChannel selected";
+					favorite.className = "c-linkChannel";
+					favorite1.className = "c-linkChannel";
+					favorite2.className = "c-linkChannel";
+
+					break;
+				}
+			case 2:
+				{
+
+					recommend.className = "c-linkChannel";
+					rank.className = "c-linkChannel";
+					favorite.className = "c-linkChannel selected";
+					favorite1.className = "c-linkChannel";
+					favorite2.className = "c-linkChannel";
+
+					break;
+				}
+			case 3:
+				{
+
+					recommend.className = "c-linkChannel";
+					rank.className = "c-linkChannel";
+					favorite.className = "c-linkChannel";
+					favorite1.className = "c-linkChannel selected";
+					favorite2.className = "c-linkChannel";
+
+					break;
+				}
+			case 4:
+				{
+
+					recommend.className = "c-linkChannel";
+					rank.className = "c-linkChannel";
+					favorite.className = "c-linkChannel";
+					favorite1.className = "c-linkChannel";
+					favorite2.className = "c-linkChannel selected";
+
+					break;
+				}
+			default:
+				break;
+		}
+	}
+
+	function closeFrame() {
+		api.execScript({
+			name: 'index1',
+			script: 'closeFrame();'
+		});
+
+	}
+	apiready = function() {
+		api.ajax({
+			url: localStorage.getItem('djapi_url') + 'index.php/ysapp/fenl',
+			method: 'get',
+		}, function(ret, err) {
+			if (ret) {
+
+				var ss = $api.byId('fenleis');
+				var sl = ret.length;
+				for (var i = 0; i < sl; i++) {
+					var i1 = i + 1;
+					ss.innerHTML += '<li><a id="navbar-item-rank' + i1 + '" onclick="setFrameGroupIndex(' + i1 + ');" class="c-linkChannel">' + ret[i].type_name + '</a></li>';
+
+				}
+			}
+
+		});
+
+
+
+
+
+
+		var header = $api.byId('header');
+		var headerHeight = $api.byId('header').offsetHeight;
+		var scrollHeight = $api.dom('.m-nav-head-only').offsetHeight;
+
+		api.openFrameGroup({
+			name: 'message',
+			background: '#FFF',
+			rect: {
+				x: 0,
+				y: headerHeight + scrollHeight,
+				w: "auto",
+				h: api.pageParam.hd - (headerHeight + scrollHeight)
+			},
+			index: 0,
+			frames: [{
+				name: 'index1',
+				url: 'index1.html',
+				bounces: false,
+			}, {
+				name: 'index2',
+				url: 'index2.html',
+				bounces: false,
+			}, {
+				name: 'index3',
+				url: 'index3.html',
+				bounces: false,
+			}, {
+				name: 'index4',
+				url: 'index4.html',
+				bounces: false,
+			}, {
+				name: 'index5',
+				url: 'index5.html',
+				bounces: false,
+			}]
+		}, function(ret) {
+			setFrameGroupStatus(ret.index);
+
+		});
+
+		api.ajax({
+			url: api_url + 'index/send/tc',
+			method: 'post',
+			dataType: 'json',
+			data: {}
+		}, function(ret1, err) {
+			//	alert(JSON.stringify(ret1));
+			//判断是否弹窗
+			if (ret1.msg.show == 1) {
+				//进行弹窗
+				var tc = localStorage.getItem('tcshow');
+				if (!tc || 1) {
+					localStorage.setItem('tcshow', 1);
+					setTimeout(function(){
+						showMessage(ret1.msg.remark, ret1.msg.title, ret1.msg.url);
+					},2000);
+				}
+
+			}
+		});
+
+	};
+
+	function showMessage(content, title, url) {
+		var dialogBox = api.require('dialogBox');
+		var te = {
+			content: content,
+			title: title,
+			leftBtnTitle: '朕已阅',
+
+		}
+		var st = {
+			bg: '#fff',
+			w: 300,
+			title: { //（可选项）JSON对象；弹窗标题栏样式配置，不传则不显示标题区域
+				marginT: 20, //（可选项）数字类型；标题栏与对话框顶端间距；默认：20
+				//	 icon: 'widget://image/app/molisos.png',          //（可选项）字符串类型；标题前面的图标路径，要求本地路径（widget://、fs://）；图片为正方形的，如：50*50、100*100，建议开发者传大小合适的图片以适配高分辨率手机屏幕，不传则不显示
+				iconSize: 80, //（可选项）数字类型；icon 图标边长大小,若 icon 不存在则此参数无效；默认：24
+				titleSize: 14, //（可选项）数字类型；标题字体大小；默认：14
+				titleColor: '#000' //（可选项）字符串类型；标题字体颜色，支持#、rgb、rgba；默认：#fff
+			},
+			content: {
+				color: '#000',
+				size: 16
+			},
+			left: { //（可选项）JSON 对象；左边按钮样式配置，不传则不显示左边按钮
+				marginB: 30, //（可选项）数字类型；左边按钮的下边距；默认：7
+				marginL: 30, //（可选项）数字类型；左边按钮的左边距；默认：20
+				w: 100, //（可选项）数字类型；左边按钮的宽；默认：130
+				h: 40, //（可选项）数字类型；左边按钮的高；默认：35
+				corner: 10, //（可选项）数字类型；左边按钮圆角半径；默认：0.0
+				bg: '#3d3d3d', //（可选项）字符串类型；左边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+				color: '#fff', //（可选项）字符串类型；左边按钮标题字体颜色，支持rgb，rgba、#；默认：'#007FFF'
+				size: 12 //（可选项）数字类型；左边按钮标题字体大小；默认：12
+			},
+
+		}
+		if (url != undefined) {
+			te.rightBtnTitle = '朕去看看';
+			st.right = { //（可选项）JSON 对象；右边按钮样式配置，不传则不显示右边按钮
+				marginB: 30, //（可选项）数字类型；右边按钮的下边距；默认：7
+				marginL: 40, //（可选项）数字类型；右边按钮左边距；默认：10
+				w: 100, //（可选项）数字类型；右边按钮的宽；默认：130
+				h: 40, //（可选项）数字类型；右边按钮的高；默认：35
+				corner: 10, //（可选项）数字类型；右边按钮圆角半径；默认：0.0
+				bg: '#ff0103', //（可选项）字符串类型；右边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+				color: '#fff', //（可选项）字符串类型；右边按钮标题字体颜色，支持rgb、rgba、#；默认：'#007FFF'
+				size: 12 //（可选项）数字类型；右边按钮标题字体大小；默认：12
+			};
+		} else {
+			st.left.w = 240;
+		}
+		dialogBox.alert({
+			texts: te,
+			styles: st
+		}, function(ret) {
+			if (ret.eventType == 'left') {
+				var dialogBox = api.require('dialogBox');
+				dialogBox.close({
+					dialogName: 'alert'
+				});
+			} else if (ret.eventType == 'right') {
+				//自己定的地址
+				if (url != undefined) {
+					api.openWin({
+						name: 'h5',
+						url: url
+					});
+				}
+				var dialogBox = api.require('dialogBox');
+				dialogBox.close({
+					dialogName: 'alert'
+				});
+
+			}
+		});
+	}
+
+	function sosuo() {
+		api.openWin({
+			name: 'so',
+			url: './so.html',
+			pageParam: {
+
+			}
+		});
+
+	}
+
+	function lishi() {
+		api.openWin({
+			name: 'lishijl',
+			url: './lishijl.html',
+			pageParam: {
+
+			}
+		});
+
+	}
+
+	function daohang() {
+		// 	api.openFrame({
+		//     name: 'daohang',
+		//     url: './daohang.html',
+		//     pageParam:{
+		//
+		//     },
+		//     bounces: true,
+		//     rect: {
+		//         x: 0,
+		//         y: 0,
+		//         //   $api.dom('header').offsetHeight
+		//         w: 'auto',
+		//         h: $api.dom('#main').offsetHeight-46
+		//       }
+		//
+		//
+		// });
+	}
+</script>
+
+</html>

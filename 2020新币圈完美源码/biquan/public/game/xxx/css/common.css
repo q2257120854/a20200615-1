@@ -1,0 +1,323 @@
+@charset "utf-8";
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td,
+th,
+input,
+select,
+textarea,
+form {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+li,
+ol {
+	list-style: none;
+}
+
+img {
+	border: none;
+}
+
+input[type="radio"],
+input[type="text"],
+input[type="checkbox"],
+input[type="button"],
+input[type="password"],
+input[type="reset"],
+input[type="submit"],
+input[type="number"],
+input[type="tel"],
+select,
+textarea,
+button,
+a {
+	outline: none;
+	border: none;
+	background-color: transparent;
+}
+
+textarea {
+	resize: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 1em;
+	font-weight: 400;
+}
+
+em {
+	font-style: normal;
+}
+
+
+/*浮动*/
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix:after,
+.clearfix:before {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+/*单行文本溢出*/
+
+.inaline {
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
+
+
+/*多行文本溢出*/
+
+.intwoline {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+}
+
+
+/*1px*/
+
+.borderT1px:before {
+	top: 0;
+	content: '';
+	position: absolute;
+	left: 0;
+	background: #e8e8e8;
+	width: 100%;
+	height: 1px;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+
+.borderB1px:before {
+	bottom: 0;
+	content: '';
+	position: absolute;
+	left: 0;
+	background: #e8e8e8;
+	width: 100%;
+	height: 1px;
+	-webkit-transform: scaleY(0.5);
+	transform: scaleY(0.5);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	    opacity: .6;
+}
+
+
+/*盒子内边框自适应*/
+
+*,
+*::after,
+*::before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	/*font-family: "微软雅黑";*/
+}
+
+
+/*取消input,button,select默认样式*/
+
+input,
+button,
+select {
+	-webkit-appearance: none;
+}
+
+a {
+	color: #000;
+}
+
+b {
+	font-weight: 400;
+}
+
+i {
+	font-style: normal;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+	/*取消移动端点击瞬间背景*/
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	color: #4d4d4d;
+	font-size: 47px;
+	line-height: .4rem;
+	font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+
+.container {
+	width: 100%;
+	max-width: 640px;
+	margin: 0 auto;
+	height: 100%;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	background: #F5F5F5;
+	position: relative;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+}
+
+
+/*公用头部*/
+
+.bjj-head {
+	/*background: #00baff;
+	background: -webkit-linear-gradient(top left, #00baff 1rem, #00bbff ,  #00feb3 8rem);
+	background: linear-gradient( top left, #00baff 1rem, #00bbff ,  #00feb3 8rem);*/
+	
+	background: #2269d4;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-ms-touch-action: none;
+	z-index: 9999;
+}
+
+
+/*颜色覆盖   月光白盒头部两个颜色 公用 */
+
+.bjj-headt {
+	background: #2b70fc;
+}
+
+
+/*导航栏距离高度*/
+
+.headTop {
+	padding-top: 20px;
+	height: 62px;
+	line-height: 62px;
+}
+
+.webkit-box {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+
+/*盒子距离高度*/
+
+.bodyTop {
+	padding-top: 62px !important;
+}
+
+
+/*导航栏白色*/
+
+.headfff {
+	background: #FFFFFF;
+	-webkit-box-shadow: 0 1px 6px #ccc;
+	box-shadow: 0 1px 6px #ccc;
+}
+
+.bjj-head h1 {
+	color: #FFFFFF;
+	font-size: .3rem;
+	line-height: 42px;
+}
+
+.bjj-head a.mui-icon-left-nav {
+	color: #FFFFFF;
+	padding-top: 8px;
+}
+
+.bjj-head a {
+	color: #FFFFFF;
+}
+
+
+/*内容区域*/
+
+.mui-content {
+	width: 100%;
+	height: 100%;
+	font-size: .28rem;
+	background: #eeeeee;
+}
+.content {
+	width: 100%;
+	height: 100%;
+	font-size: .28rem;
+	background: #eeeeee;
+	font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
+.bjj-tab .mui-tab-item .mui-icon{
+	/*top: 2px !important;*/
+}
+.mui-backfff {
+	background: #FFFFFF !important;
+}
+.bjj-tab{
+	/*height: 56px!important;*/
+	-webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.bjj-tab .mui-tab-item .mui-icon~.mui-tab-label {
+    font-size: 11px !important; 
+    font-weight: bold;
+   font-family: "微软雅黑";
+    /*padding-bottom: 4px !important;*/
+}
+/*消息框*/
+
+.mui-toast-container {
+	bottom: 50% !important;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #2269d4;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "编辑",
+  "navigationBarBackgroundColor": "#ffffff",
+  "component": true,
+  "usingComponents": {
+    "datetime": "/components/datetime/datetime"
+  }
+}

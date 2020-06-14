@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+body{border:0;margin:0;background:#ebebeb;}
+html{font-family:'黑体 ';font-family:'微软雅黑';}	
+ul,li{padding: 0;margin: 0;list-style:none;}
+dl,dd,dt{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6,label,p{margin:0;}
+img{display:block;}
+input,textarea{border:0;outline:none;padding:0;margin:0;}
+*{margin:0; padding:0; list-style:none; border:0; text-decoration:none;}		
+body,html{moz-user-select:-moz-none;-moz-user-select: none;-o-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;}
+/*占固定定位的块*/
+.occupy_f{width:100%;height:44px;overflow:hidden;}
+.occupy_f2{width:100%;height:42px;overflow:hidden;}
+/*底部导航栏*/
+.footerdhl_f{width:100%;height:52px;background:#fff;border-top:1px solid #3DB1FA;position:fixed;bottom:0;left:0;overflow:hidden}
+.footerdhl_f a{display:block; width:25%;height:46px;float:left; margin-top:6px;}
+.footerdhl_f a b{display:block; width:22px;height:22px;overflow:hidden; margin:0 auto;}
+.footerdhl_f a b img{display:block; width:22px;height:44px;}
+.footerdhl_f a b.movek_f img{ margin-top:-22px;}
+.footerdhl_f a p{display:block; width:100%;height:24px; line-height:24px; font-size:14px; text-align:center;color:#868689;}
+/*关于上面图片的遮罩层*/
+.mask_f{width:100%;height:100%;position:fixed;top:0;left:0;background:rgba(0,0,0,0.8);z-index:110;display:none}				
+.mask_f_t{width:100%;height:42px;background:#ebebeb;overflow:hidden;}	
+.mask_f_t ul{width:100%;height:42px;overflow:hidden;}	
+.mask_f_t ul li{ width:50%;height:42px;float:left; text-align:center; line-height:42px; font-size:16px; color:#333;}	
+.mask_f_c{width:100%;overflow:hidden;}
+.mask_f_c img{display:block;width:100%;height:auto;overflow:hidden; margin-top:}
+.mask_f_b{display:block; width:100%;height:44px;background:#3DB1FA; line-height:44px; text-align:center; font-size:16px;color:#fff}	
+/*视频播放页*/	
+.videosg_f{width:100%; height:auto; overflow:hidden;}
+/*名字*/
+.class_name_f{width:100%;height:40px;overflow:hidden;background:#fff;}	
+.class_name_f_in{width:94%;height:40px;overflow:hidden; margin:0 auto; font-size:16px; text-align:center; line-height:40px;}	
+
+	
+	
+
+	
+	
+	
+	
+	

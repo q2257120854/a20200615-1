@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>系统自定义配置</title>
+
+		<meta name="description" content="Static &amp; Dynamic Tables" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/animate.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+
+		<style type="text/css" title="currentStyle">
+			@import "__PUBLIC__/css/TableTools.css";
+		</style>
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+
+		<!--inline styles if any-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="#">Home</a>
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+						<li class="active">系统设置</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+					<div class="page-header position-relative">
+						<h1> 自定义配置 </h1>
+					</div><!--/.page-header-->
+
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE-->
+							<div class="row-fluid">
+							<div class="span10">
+								<div class="tabbable">
+									<ul class="nav nav-tabs" id="myTab">
+										<li class="active">
+											<a data-toggle="tab" href="#home">
+												<i class="green icon-cogs bigger-110"></i>
+												系统参数设置
+											</a>
+										</li>
+
+
+									<li>
+											<a data-toggle="tab" href="#withdrawconf">
+												<i class="green icon-credit-card bigger-110"></i>
+												货币提现设置
+											</a>
+										</li>
+										
+										<li>
+											<a data-toggle="tab" href="#memberconf">
+												<i class="green icon-user  bigger-110"></i>
+												短信接口设置
+											</a>
+										</li>
+										
+									</ul>
+									<!--奖金配置-->
+									<div class="tab-content">
+										<div id="home" class="tab-pane in active">
+											<form class="form-horizontal" action="{:U(GROUP_NAME.'/System/bonusConf')}" method="post">
+
+                                            <div class="control-group" >
+														<label class="control-label" for="goumai">购买奖励</label>
+
+														<div class="controls">
+															已购一代<input type="text" id="one" name="ONE" value="{$config.ONE}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+                                                            已购二代<input type="text" id="two" name="TWO" value="{$config.TWO}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+                                                            已购三代<input type="text" id="two" name="THREE" value="{$config.THREE}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+															<font color="red">已购--此处设置推荐别人购买机器人时，自己已持有机器人，获得奖励多。</font>
+                                                        </div>
+												<div style="height: 20px;"></div>
+														<div class="controls">
+															未购一代<input type="text" id="ones" name="ONES" value="{$config.ONES}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+                                                            未购二代<input type="text" id="twos" name="TWOS" value="{$config.TWOS}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+                                                            未购三代<input type="text" id="threes" name="THREES" value="{$config.THREES}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+															<font color="red">未购--此处设置推荐别人购买机器人时，自己未持有机器人，获得奖励少。</font>
+                                                        </div>
+											</div>
+												<div class="control-group" >
+													<label class="control-label" for="shouyi">收益奖励</label>
+
+													<div class="controls">
+														一代<input type="text" id="shou1" name="shou1" value="{$config.shou1}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+														二代<input type="text" id="shou2" name="shou2" value="{$config.shou2}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+														三代<input type="text" id="shou3" name="shou3" value="{$config.shou3}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+													</div>
+												</div>
+												<div class="control-group" >
+													<label class="control-label" for="chengzhu">领袖设置</label>
+
+													<div class="controls">
+														直推机器人数量<input type="text" id="chengzhu" name="chengzhu" value="{$config.chengzhu}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">设置直推拥有多少机器人可以升级为城主。</font>
+														奖励代数<input type="text" id="daishu" name="daishu" value="{$config.daishu}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">设置奖励的代数，建议设置小一些。</font>
+													</div>
+													<div style="height: 20px;"></div>
+													<div class="controls">
+														购买奖励<input type="text" id="buyjj" name="buyjj" value="{$config.buyjj}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">领袖享受直推的购买奖励，直接设置金额。</font>
+														收益奖励<input type="text" id="shoujj" name="shoujj" value="{$config.shoujj}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">领袖享受直推的收益奖励，例如：0.02元。</font>
+													</div>
+												</div>
+												<div class="control-group" >
+													<label class="control-label" for="kefu">客服编号</label>
+
+													<div class="controls">
+														QQ客服-001<input type="text" id="kefu1" name="kefu1" value="{$config.kefu1}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+														QQ客服-002<input type="text" id="kefu2" name="kefu2" value="{$config.kefu2}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+														QQ客服-003<input type="text" id="kefu3" name="kefu3" value="{$config.kefu3}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="faquan">发圈赠送机器人编号</label>
+													<div class="controls">
+														<input type="text" id="faquan" name="faquan" value="{$config.faquan}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">此处修改金币兑换机器人的编号。</font>&nbsp;&nbsp;
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="hongbao">注册赠送红包金额</label>
+													<div class="controls">
+														<input type="text" id="hongbao" name="hongbao" value="{$config.hongbao}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">此处修改注册赠送红包的金额。</font>&nbsp;&nbsp;
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="mrkd">每日客单数量</label>
+													<div class="controls">
+														<input type="text" id="mrkd" name="mrkd" value="{$config.mrkd}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">每日客单数量可以直接在此处修改。</font>
+													</div>
+												</div>
+
+												<div class="control-group">
+													<label class="control-label" for="jiangli">发圈奖励金币数量</label>
+													<div class="controls">
+														发圈奖励<input type="text" id="jinbi" name="jinbi" value="{$config.jinbi}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">发圈奖励金币的数量。</font>
+														金币兑换<input type="text" id="duihuan" name="duihuan" value="{$config.duihuan}" style=" width: 100px;" class="span3"/>&nbsp;&nbsp;<font color="red">设置兑换机器人需要的金币数量。</font>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="rwsm">今日客单说明</label>
+													<div class="controls">
+														<textarea name="rwsm" style="width:500px; height:80px;">{$config.rwsm}</textarea><font color="red">今日客单界面内容可以直接在此处修改。</font>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="gonggao">首页滚动公告</label>
+													<div class="controls">
+														<textarea name="gonggao" style="width:500px; height:80px;">{$config.gonggao}</textarea><font color="red">首页滚动公告内容可以直接在此处修改。</font>
+													</div>
+												</div>
+                                            
+                                            <div class="control-group">
+														<label class="control-label" for="open_web">是否开启网站</label>
+
+														<div class="controls">
+                                                        	<select name="open_web" style=" width:100px;">
+                                                            	<option value="1" <if condition="$config['open_web'] eq 1"> selected="selected"</if>>开启</option>
+                                                                <option value="0" <if condition="$config['open_web'] eq 0"> selected="selected"</if>>关闭</option>
+                                                            </select>
+                                                        
+															
+                                                            
+														</div>
+													</div>
+                                            
+                                            
+                                             <div class="control-group">
+														<label class="control-label" for="open_web_notice">网站关闭提示语</label>
+
+														<div class="controls">
+															<input type="text" id="open_web_notice" name="open_web_notice" value="{$config.open_web_notice}"  class="span3"/> 
+														</div>
+											</div>
+                                            
+                                            
+                                            <div class="control-group">
+														<label class="control-label" for="jiesuan_time">机器人结算时间间隔</label>
+
+														<div class="controls">
+															<input type="text" id="jiesuan_time" name="jiesuan_time" value="{$config.jiesuan_time}"  class="span3"/> 
+														</div>
+											</div>
+
+													<div class="form-actions">
+														<button type="submit" class="btn btn-info no-border">
+															<i class="icon-ok bigger-110"></i>
+															保存设置
+														</button>
+													</div>
+												</form>
+										</div>
+
+										<div id="withdrawconf" class="tab-pane">
+											<p>
+												<form class="form-horizontal" action="{:U(GROUP_NAME.'/System/withdrawConf')}" method="post">
+
+													<div class="control-group">
+														<label class="control-label" for="withdraw_in_day_num">每天最多提现的次数</label>
+
+														<div class="controls">
+															<input type="text" id="withdraw_in_day_num" name="withdraw_in_day_num" value="{$config.WITHDRAW_IN_DAY_NUM}" class="span3"/><span class="help-inline">每天可以申请体现的最大次数，0为不限制</span>
+														</div>
+													</div>
+											<div class="control-group">
+												<label class="control-label" for="tx_time">提现每日开启时间段</label>
+
+												<div class="controls">
+													<input type="text" id="tx_time" name="tx_time" value="{$config.tx_time}"  class="span3"/> (如：08:30-17:40 )
+												</div>
+											</div>
+											<div class="control-group">
+														<label class="control-label" for="withdraw_tax">提现手续费点位</label>
+
+														<div class="controls">
+															<input type="text" id="withdraw_tax" name="withdraw_tax" value="{$config.WITHDRAW_TAX}" class="span3"/><span class="help-inline">设置提现的时候要扣除的手续费即x%</span>
+														</div>
+													</div>
+
+
+													<div class="control-group">
+														<label class="control-label" for="withdraw_min">最小提现额</label>
+
+														<div class="controls">
+															<input type="text" id="withdraw_min" name="withdraw_min" value="{$config.WITHDRAW_MIN}" class="span3"  /><span class="help-inline"> 	一次性提现最少额度</span>
+														</div>
+													</div>
+
+													<div class="control-group">
+														<label class="control-label" for="withdraw_int">设置提现整数倍</label>
+
+														<div class="controls">
+															<input type="text" id="withdraw_int" name="withdraw_int" value="{$config.WITHDRAW_INT}" class="span3"  /><span class="help-inline"> 	 	如设置100.只能申请提现100的整数，如100、200、300...</span>
+														</div>
+													</div>
+
+													<div class="control-group">
+														<label class="control-label" for="withdraw_status">现金提现功能</label>
+
+														<div class="controls">
+															<label>
+																<input type="checkbox" id="withdraw_status" class="ace-switch ace-switch-6" name="withdraw_status" <if condition="$config['WITHDRAW_STATUS'] == 'on'">checked="checked"</if>>
+																<span class="lbl">  &nbsp;开启或关闭现金提现</span>
+															</label>
+														</div>
+													</div>
+													<div class="form-actions">
+														<button type="submit" class="btn btn-info no-border">
+															<i class="icon-ok bigger-110"></i>
+															保存设置
+														</button>
+													</div>
+												</form>
+											</p>
+										</div>
+										<!--会员配置-->
+										<div id="memberconf" class="tab-pane">
+											<p>
+											<form class="form-horizontal" action="{:U(GROUP_NAME.'/System/memberConf')}" method="post">
+												<div class="control-group">
+													<label class="control-label" for="code_account">短信宝账号</label>
+
+													<div class="controls">
+														<input type="text" id="code_account" name="code_account" value="{$config.CODE_ACCOUNT}" class="span3"/><span class="help-inline"></span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="code_password">短信宝KEY</label>
+
+													<div class="controls">
+														<input type="text" id="code_password" name="code_password" value="{$config.CODE_PASSWORD}" class="span3"/><span class="help-inline"></span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="code_cf">短信禁止重复发送时间</label>
+
+													<div class="controls">
+														<input type="text" id="code_cf" name="code_cf" value="{$config.CODE_CF}" class="span3"/><span class="help-inline">秒</span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="code_gq">短信验证过期时间</label>
+
+													<div class="controls">
+														<input type="text" id="code_gq" name="code_gq" value="{$config.CODE_GQ}" class="span3"/><span class="help-inline">秒</span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label" for="memberlogin">是否允许会员登入</label>
+
+													<div class="controls">
+														<input type="radio" value="on" <if condition="$config['MEMBER_LOGIN'] == 'on'">checked="checked"</if> name="memberlogin">
+														<span class="lbl">允许</span>
+														&nbsp;
+														<input type="radio" value="off" <if condition="$config['MEMBER_LOGIN'] == 'off'">checked="checked"</if> name="memberlogin">
+														<span class="lbl">禁止</span>
+													</div>
+												</div>
+												<hr>
+
+
+												<div class="form-actions">
+													<button type="submit" class="btn btn-info no-border">
+														<i class="icon-ok bigger-110"></i>
+														保存设置
+													</button>
+												</div>
+											</form>
+											</p>
+										</div>
+										
+									</div>
+								</div>
+							</div><!--/span-->
+						</div><!--/row-->
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts-->
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>.
+		<script src="__PUBLIC__/js/TableTools.min.js"></script>
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.notification.js"></script>
+		<script src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
+		<!--inline scripts related to this page-->
+	</body>
+</html>

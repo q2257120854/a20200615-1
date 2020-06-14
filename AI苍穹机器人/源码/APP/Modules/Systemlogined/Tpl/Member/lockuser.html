@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>已封停会员</title>
+
+		<meta name="description" content="Static &amp; Dynamic Tables" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/animate.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+		<!-- 分页样式 -->
+		<link rel="stylesheet" href="__PUBLIC__/css/page.css" />
+
+		<style type="text/css" title="currentStyle">
+			@import "__PUBLIC__/css/TableTools.css";
+		</style>
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+		<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+
+		<!--inline styles if any-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							Home
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+						<li class="active">会员管理</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE-->
+						<form id="table-searchbar" method="POST" class="form-inline well well-small">
+							<div class="row-fluid">&nbsp;&nbsp;<select class="span3" name="type" style="width: 100px;">
+								<option value="1" selected="selected">会员编号</option>
+								<option value="2">真实姓名</option>
+																
+															</select>
+				                <input type="text" class="input-small" name="typename" value="">    
+		                        &nbsp;&nbsp;
+								<button type="submit" class="btn btn-small no-border" id="btn-query" type="button"><i class="icon-search"></i>查询</button>
+							<!--	&nbsp;&nbsp;
+								<button type="button"  onclick="return clear1()" class="btn btn-success btn-small no-border" id="btn-compute" type="button">导出会员报表</button>	-->
+							</div>
+						</form>
+
+						<div class="row-fluid">
+							<table id="table_report" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>序号</th>
+										<th>姓名</th>
+										<th>会员等级</th>
+										<th>手机号码</th>
+										<th>推荐人</th>
+										<th><a href="{:U('Systemlogined/Member/check',array('_order'=>'parentcount','_sort'=>0))}">直推人数↑</a></th>
+										<th>注册时间</th>
+										<th>注册IP</th>
+										<th>最后登陆时间</th>
+										<th><a href="{:U('Systemlogined/Member/check',array('_order'=>'money','_sort'=>0))}">钱包结余↑</a></th>
+										<th><a href="{:U('Systemlogined/Member/check',array('_order'=>'dongjie','_sort'=>0))}">冻结钱包↑</a></th>
+										<th>状态</th>
+										<th>在线状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<foreach name="list" item="v">
+										<tr>
+											<td>{$v.id}</td>
+											<td>{$v.truename}</td>
+											<td><if condition="$v.level eq 0">普通会员<else/>城主</if></td>
+											<td><a target="_blank" href="{:U('inMember',array('u'=>$v['username']))}">{$v.username}</a></td>
+											<td><a target="_blank" href="{:U('inMember',array('u'=>$v['parent']))}">{$v.parent_id}</td>
+											<td><a href="{:U('Member/check',array('pid'=>$v['id']))}">{$v.parentcount}</a></td>
+											<td>{$v.regdate|date='Y-m-d H:i',###}</td>
+											<td>{$v.regip}</td>
+											<td>{$v.online_time|date='Y-m-d H:i',###}</td>
+
+											<td>{$v.money}</td>
+											<td>{$v.dongjie}</td>
+											<td>
+												<if condition='$v["lock"]'>
+													已封停
+													<else/>
+													正常
+												</if>
+											</td>
+
+											<td>
+												<?php if((time()-$v["online_time"]) < 300){?>
+
+												<span style="color:#F00;">在线</span>
+
+												<?php }else{ ?>
+
+												<span style="color:#ccc;">离线</span>
+
+												<?php } ?>
+
+											</td>
+
+											<td><if condition='$v["lock"]'>
+												<a onclick="if(confirm('确认解封此账户吗?')==false)return false;" href="{:U(GROUP_NAME .'/Member/editFeng',array('id'=>$v['id'],'lock'=>0))}">解封</a>
+												<else/>
+												<a onclick="if(confirm('确认暂停此账户吗？')==false)return false;" href="{:U(GROUP_NAME .'/Member/editFeng',array('id'=>$v['id'],'lock'=>1))}">封号</a>
+											</if>
+
+												|
+												<a href="{:U(GROUP_NAME .'/Member/editMember',array('id'=>$v['id']))}">修改</a> |
+												<a href="{:U(GROUP_NAME .'/Member/addJinbi',array('id'=>$v['id']))}">充值</a>|
+												<a onclick="if(confirm('确认删除此账户吗?')==false)return false;" href="{:U(GROUP_NAME .'/Member/deleteMember',array('id'=>$v['id']))}">删除</a>
+												</td>
+										</tr>
+									</foreach>
+									<tr>
+										<td colspan="18" style="text-align:center;"><div class="page">{$page}</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts-->
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+		<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>
+		<script src="__PUBLIC__/js/TableTools.min.js"></script>
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.notification.js"></script>
+		<script src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript">
+			function clear1(){
+			     var start,end;
+				if(confirm("确认要导出会员信息吗?")){
+				      if($("#start_time").val()){
+					          start = $("#start_time").val();
+					   }else{
+					          start =0;
+					   }
+					  if($("#end_time").val()){
+					          end   =  $("#end_time").val();
+					  }else{
+					           end   = 0;
+					  }
+					
+					window.location.href = "/index.php/Systemlogined/Excel/member/";
+				}
+			}
+		</script>		
+		<!--inline scripts related to this page-->
+	</body>
+</html>

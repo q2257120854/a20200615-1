@@ -1,0 +1,287 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-color:#fff;
+	font-family:"微软雅黑",Arial, Helvetica, sans-serif;
+}
+.bg-img{
+	background-image:url('../images/client_img.png');
+	background-repeat:no-repeat;
+}
+#guide{
+	width:10px;
+	height:420px;
+	right:-3%;
+	top:50%;
+	margin-top:-210px;
+	position:absolute;
+	z-index:1001;
+}
+#guide ul{
+	list-style:none;
+	}
+#guide ul li a{
+	display:block;
+	height:60px;
+	width:10px;
+	background-position:-600px -747px;
+	}
+#guide ul li a:hover{
+	background-position:-600px -693px;
+	}
+#guide ul li a.active{
+	background-position:-600px -639px;
+	}
+.yb-client-content{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	}
+.section{
+	position:absolute;
+	width:100%;
+	z-index:1;
+	bottom:-100%;
+	}
+.frist-section{
+	bottom:0;
+}
+.second-section{
+	bottom:-80%;
+	}
+.section-block{
+	position:relative;
+	width:100%;
+	background-color:#fff;
+}
+.bg-green{
+	background-color:#80b80b;
+	background-image: -moz-linear-gradient(top, #a7cb27, #599d0c);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#599d0c), to(#599d0c));
+    filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#a7cb27,endColorstr=#599d0c)";
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#a7cb27,endColorstr=#599d0c)";
+	}
+.bg-gray{
+	background-color:#f8f9f9;
+	}
+.frist-section a{
+	display:block;
+	position:absolute;
+	overflow:hidden;
+	text-indent:-10000px;
+	z-index:2;
+	}
+.frist-section a.gohome_but{
+	height:55px;
+	width:55px;
+	left:50px;
+	top:50px;
+	background-position:-325px -40px;
+	}
+.frist-section div.gohome-img-guide{
+	width:159px;
+	height:55px;
+	background-position:-411px -5px;
+	display:block;
+	position:absolute;
+	left:110px;
+	top:50px;
+	z-index:2;
+	display:none;
+	opacity:0;
+	}
+.frist-section a.logo{
+	height:168px;
+	width:230px;
+	top:20%;
+	left:50%;
+	margin-left:-115px;
+	background-position:-387px -140px;
+	}
+.frist-section a.download_but{
+	height:110px;
+	width:315px;
+	top:20%;
+	left:50%;
+	margin-left:-153px;
+	margin-top:200px;
+	background-position:-9px -10px;
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	-o-transform: scale(0.95);
+	transform: scale(0.95);
+	z-index: 9999;
+	opacity:0;
+   -webkit-transition: all 0.5s ease-in-out 0.1s;
+   -moz-transition: all 0.5s ease-in-out 0.1s;
+   -o-transition: all 0.5s ease-in-out 0.1s;
+   transition: all 0.5s ease-in-out 0.1s;
+}
+.section .section-title{
+	height:140px;
+	width:480px;
+	z-index:10;
+	position:absolute;
+	top:50px;
+	left:50%;
+	margin-left:-240px;
+	opacity:0;
+	}
+.st-02{
+	background-position:-60px -624px;
+	}
+.st-03{
+	background-position:-60px -762px;
+	}
+.st-04{
+	background-position:-60px -910px;
+	}
+.st-05{
+	background-position:-60px -1050px;
+	}
+.st-06{
+	top:50% !important;
+	margin-top:-70px;
+	background-position:-60px -1190px;
+	}
+div.section-bg-block{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	min-height:600px;
+	}
+div img.section-bg{
+	position:absolute;
+	z-index:1;
+	}
+div.download-list{
+	width:1000px;
+	margin:0 auto;
+	padding:60px 0px 20px 0px;
+	position:relative;
+	}
+div.make-top{
+	width:100%;
+	height:5%;
+	}
+div.qrcode-frame{
+	width:300px;
+	height:300px;
+	margin:0 auto;
+	}
+div.qrcode-frame div.qrcode-frame-img{
+	width:300px;
+	height:300px;
+	background-color:#fff;
+	padding:5px;
+	border:solid 1px #DDD;
+	}
+div.qrcode-frame div.note{
+	text-align:center;
+	padding:10px 0;
+	}
+div.qrcode-frame div.note span{
+	font-size:18px;
+	}
+div.singer-item{
+	width:500px;
+	}
+div.singer-item .vertical-decoration{
+	display:none;
+	}
+.download-iphone , .download-android{
+	float:left;
+	width:500px;
+	}
+.download-iphone-link , .download-android-link{
+	display:block;
+	width:260px;
+	height:30px;
+	margin:0 auto;
+	padding:59px 0px 15px 110px;
+	margin-bottom:30px;
+	text-decoration:none;
+	}
+.download-iphone-link{
+	background-position:-12px -215px;
+	}
+.download-android-link{
+	background-position:-12px -118px;
+	}
+a.download-iphone-link:hover{
+	background-position:-10px -1348px;
+	text-decoration:none;
+}
+a.download-android-link:hover{
+	background-position:-10px -1468px;
+	text-decoration:none;
+}
+.download-iphone-link span,.download-iphone-link b,.download-android-link span,.download-android-link b{
+	font-size:18px;
+	color:#666;
+	}
+.download-android-link span,.download-android-link b{
+	color:#ff2760;
+	}
+a.download-iphone-link:hover span,a.download-iphone-link:hover b{
+	color:#fff;
+	}
+a.download-android-link:hover span,a.download-android-link:hover b{
+	color:#fff;
+	}
+.download-iphone-qrcode , .download-android-qrcode{
+	height:300px;
+	width:350px;
+	padding-left:50px;
+	margin:0 auto;
+	}
+.download-iphone-qrcode p,.download-android-qrcode p{
+	font-size:16px;
+	padding:5px 0;
+	}
+.download-android-qrcode p{
+	color:#ff2760;
+	}
+.download-iphone-qrcode{
+	background-position:-7px -317px;
+	}
+.download-android-qrcode{
+	background-position:-317px -317px;
+	}
+div.vertical-decoration{
+	height:450px;
+	width:4px;
+	position:absolute;
+	left:50%;
+	margin-left:-2px;
+	top:50px;
+	background-position:-602px -899px;
+	}
+.yb-note{
+	width:870px;
+	margin:0 auto;
+	}
+.yb-note-list p{
+	color:#90a4ae;
+	padding:5px 0;
+	font-size:18px;
+		}
+.yb-note .yb-note-icon{
+	margin-bottom:10px;
+	height:38px;
+	background:url(../images/note.png) left center no-repeat;
+	}
+.footer{
+	width:300px;
+	height:30px;
+	position:absolute;
+	bottom:0;
+	left:50%;
+	text-align:center;
+	margin-left:-150px;
+	padding:80px 0px 20px 0px;
+	background:url('../images/logo.png') center top no-repeat;
+	}
+.footer span{
+	color:#90a4ae;
+}

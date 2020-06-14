@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link href="../css/grzxui.css" rel="stylesheet" type="text/css"/>
+    
+     <style>
+    	.aui-panel-time {
+    position: relative;
+    border: 1px solid #999999;
+    font-size: 1rem;
+    color: #999999;
+    border-radius: 20px;
+    padding: 2px 10px;
+    width: 90px;
+    height: 25px;
+    
+    bottom: 0px;
+  /*  left: 50%;
+    margin-left: -85px;
+    */
+}
+    	
+    </style>
+</head>
+<body>
+	
+	<div class="aui-flex aui-flex-gradual">
+                    <div id="toux" class="aui-flex-user">
+                        <img id="user_img"  src="../image/app/user.gif" alt="">
+                    </div>
+                    <div class="aui-flex-box">
+                        <h2 >
+                           <a id="islogin">通霸云影视欢迎您</a><em id="dlquanxian">优享会员</em>
+                        </h2>
+                        <p id="anniu">
+                        	
+                        </p>
+                    </div>
+                    <a class="Personal_info_right" onClick="qianDao('')">
+			          <img src="../user/4.png" alt="">
+			           <p>签到好礼</p>
+
+                    </div>
+                    <div class="aui-flex-Member">
+                        <p><em id="time">免费领VIP</em></p>
+                    </div>
+                </div>
+                <div class="aui-palace">
+                    <a onClick="openWin('qianbao')" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <span><em id="lingqian">---</em></span>
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>余额.零钱></h2>
+                        </div>
+                        <span class="aui-palace-grid-tag">
+                            <img src="../image/app/icon-tag.png" alt="">
+                        </span>
+                    </a>
+                <!--    <a href="javascript:;" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <span>0张</span>
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>商品券</h2>
+                        </div>
+                    </a>-->
+                    <a onClick="openWin('jifen_win')" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <span><em id="sign">- - -</em></span>
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>积分兑换></h2>
+                        </div>
+                    </a>
+                </div>
+                <div onClick="toLogin()" class="aui-flex" style="padding-bottom:0">
+                    <div class="aui-flex-box aui-flex-box-title">
+                        <h2>会员权益</h2>
+                        <p>
+                            根据您的消费数据，会员已为你 <em>节省3890.90元</em>
+                        </p>
+                    </div>
+                    <div class="aui-flex-fr">去续费
+                    </div>
+                </div>
+                <div class="aui-palace aui-palace-two">
+                    <div class="aui-palace-touch">
+                        <a onClick="openWin('share_win')" href="javascript:;" class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="../image/app/tuiguang.png" alt="">
+                            </div>
+                            <div class="aui-palace-grid-text">
+                                <h2>邀请返现</h2>
+                            </div>
+                        </a>
+                        <a onClick="openWin('lishijl')"  class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="../image/app/jl.png" alt="">
+                            </div>
+                            <div class="aui-palace-grid-text">
+                                <h2>观看记录</h2>
+                            </div>
+                        </a>
+                       <a onClick="openWin('open_agent_win')" href="javascript:;" class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="../image/app/jrdl.gif" alt="">
+                            </div>
+                            <div class="aui-palace-grid-text">
+                                <h2>加入代理</h2>
+                            </div>
+                        </a>
+                        <a onClick="openWin('dailizhuanqu_win')" href="javascript:;" class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="../image/app/dlzx.png" alt="">
+                            </div>
+                            <div class="aui-palace-grid-text">
+                                <h2>代理专区</h2>
+                            </div>
+                        </a>
+                        <a onclick="kefu()" class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="../image/app/icon-item-005.png" alt="">
+                            </div> 
+                            <div class="aui-palace-grid-text">
+                                <h2>专属客服</h2>
+                            </div>
+                        </a>
+                       <!--  <a href="javascript:;" class="aui-palace-grid">
+                            <div class="aui-palace-grid-icon">
+                                <img src="images/icon-item-006.png" alt="">
+                            </div>
+                            <div class="aui-palace-grid-text">
+                                <h2>敬请期待</h2>
+                            </div>
+                        </a>-->
+                    </div>
+                </div>
+                <!-- <div class="aui-slide-list">
+                    <ul id="dhgg" class="aui-slide-item-list">
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-001.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-002.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-001.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-002.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+                <div onclick="dingdan(0)" class="aui-flex" style="padding-bottom:0">
+                    <div class="aui-flex-box aui-flex-box-title">
+                        <h2>我的订单</h2>
+                        <p>你所有订单都在
+                        </p>
+                    </div>
+                    <div class="aui-flex-fr">查看所有订单
+                    </div>
+                </div>
+                <div class="aui-palace aui-palace-three">
+                    <!-- <a href="javascript:;" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <img src="../image/app/icon-item-007.png" alt="">
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>待付款</h2>
+                        </div>
+                    </a> -->
+                    <a onclick="dingdan(1)" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <img src="../image/app/icon-item-008.png" alt="">
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>待发货</h2>
+                        </div>
+                    </a>
+                    <!-- <a href="javascript:;" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <img src="../image/app/icon-item-009.png" alt="">
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>配送中</h2>
+                        </div>
+                    </a> -->
+                    <a onclick="dingdan(2)" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <img src="../image/app/icon-item-010.png" alt="">
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>已发货</h2>
+                        </div>
+                    </a>
+                    <!-- <a href="javascript:;" class="aui-palace-grid">
+                        <div class="aui-palace-grid-icon">
+                            <img src="../image/app/icon-item-011.png" alt="">
+                        </div>
+                        <div class="aui-palace-grid-text">
+                            <h2>退货售后</h2>
+                        </div>
+                    </a> -->
+                </div>
+               <!-- <div class="aui-flex">
+                    <div class="aui-flex-box aui-flex-box-title">
+                        <h2>储值有礼</h2>
+                        <p>储值送红包+优享会员
+                        </p>
+                    </div>
+                </div> -->
+                <!-- <div class="aui-slide-list">
+                    <ul id="guangg" class="aui-slide-item-list">
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-003.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-004.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-005.png" alt="">
+                            </a>
+                        </li>
+                        <li class="aui-slide-item-item">
+                            <a href="javascript:;" class="aui-link clearfix">
+                                <img src="../image/app/icon-ad-006.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+                <!-- <div class="aui-ime-button">
+                    <button>立即储值</button>
+                </div>
+                <div class="aui-ime-text b-line">
+                    <p>实时到账，立享优惠</p>
+                </div> -->
+                
+                <div class="aui-ime-list-box">
+					<!-- <a onClick="openWin('back_pwd')" class="aui-flex b-line">
+						<img width="5%" src="../image/app/mima.png" alt="">
+					    <div class="aui-flex-box">设置
+					    </div>
+					    <div class="aui-flex-list-fr"></div>
+					</a> -->
+                    <a onClick="openWin('back_pwd')" href="javascript:;" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/mima.png" alt="">
+                        <div class="aui-flex-box"> 修改密码
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    <a onClick="openWin('guankan_help_win')" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/videohelp.png" alt="">
+                        <div class="aui-flex-box">常见问题
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    <a onClick="cleaCache()" href="javascript:;" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/qingli.png" alt="">
+                        <div class="aui-flex-box">清理缓存
+                        </div>
+                        <span id="cache" class="aui-well-item-fr" style=" font-size: 12px; "></span>
+                    </a>
+                    <a onClick="checkUpdate()" href="javascript:;" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/shengji.png" alt="">
+                        <div class="aui-flex-box">在线更新
+                        </div>
+                        <span id="vsion" class="aui-well-item-fr" style=" font-size: 12px; "></span>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/about.png" alt="">
+                        <div class="aui-flex-box">关于我们
+                        </div>
+                        <span class="aui-well-item-fr" style=" font-size: 12px; " onClick="api.alert({title: '免责声明',msg: '本站所有视频均来自互联网，版权归原创者所有，如果侵犯了您的权益，请通知我们，我们将会在3个正常工作日内删除其侵权内容，谢谢合作。',  });"> 通霸云影视  <span style="color:#7bbfea">免责声明</span> </span>
+                        
+                    </a>
+                     <a onclick="jiaruqqqun()" class="aui-flex b-line">
+                    	<img width="5%" src="../image/app/qq.png" alt="">
+                        <div class="aui-flex-box">加入QQ群
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    
+                   <!-- <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-flex-box">欢迎评分
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-flex-box">意见反馈
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-flex-box">设置
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-flex-box">关于我们
+                        </div>
+                        <div class="aui-flex-list-fr"></div>
+                    </a>-->
+                </div>
+                
+                
+</body>
+
+
+	<script type="text/x-dot-template" id="lrtpl">
+		{{~ it.data : value : index }},
+				<li class="aui-slide-item-item">
+				    <a onclick="toBanner('{{= value. linkurl }}')" class="aui-link clearfix">
+				        <img src="http://tongbav5.tongbayun.cn/{{= value. picurl }}" alt="">
+				    </a>
+				</li>
+		{{~}}
+    </script>
+
+	<script type="text/x-dot-template" id="bannertpl">
+		{{~ it.data : value : index }},
+		<li class="aui-slide-item-item">
+		    <a href="javascript:;" class="aui-link clearfix">
+		        <img src="../image/app/icon-ad-001.png" alt="">
+		    </a>
+		</li>
+    <div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. linkurl }}')">
+        <img width="100%" height="100%" src="http://tongbav5.tongbayun.cn/{{= value. picurl }}" />
+    </div>
+  {{~}}
+</script>
+
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+	
+	
+	var timer = setInterval(function(){
+                    jifen();
+					
+                },1000)
+	apiready = function(){
+		// getBanner();
+		
+		//下拉刷新
+        api.setCustomRefreshHeaderInfo({
+            bgColor: '#fff',
+            images: [
+                'widget://image/app/xiala/1.png',
+                'widget://image/app/xiala/2.png',
+                'widget://image/app/xiala/3.png',
+                'widget://image/app/xiala/4.png',
+                'widget://image/app/xiala/5.png',
+                'widget://image/app/xiala/6.png',
+                'widget://image/app/xiala/7.png',
+                'widget://image/app/xiala/8.png',
+            ],
+            tips: {
+                pull: '下拉刷新！',
+                threshold: '松开立即刷新！',
+                load: '正在刷新'
+            }
+        }, function() {
+			
+            setTimeout(function() {
+				getda();
+				
+                api.refreshHeaderLoadDone();
+				
+            }, 3000);
+        });
+        //下拉刷新
+		
+		
+		//监听重新获取客服联系方式广播
+		api.addEventListener({
+				name: 'newLoingdata'
+			}, function(ret, err) {
+				if(ret) {
+					getData();
+					location.reload();
+				}
+			});
+			//获取当前APP版本
+			var appVersion = api.appVersion;
+			var vsion = $api.byId('vsion');
+			vsion.innerHTML = '当前版本：' + appVersion;
+			getCache(); //计算缓存
+			getData();
+	};
+	//添加广告
+	function getBanner(){
+		
+		var dhgg1 = $api.byId('dhgg');
+		var lrtpl1 = $api.byId('lrtpl');
+		
+		var guangg = $api.byId('guangg');
+		var bannertpl = $api.byId('lrtpl');
+	
+		// 添加广告
+		var uid = 0;
+		if (localStorage.getItem('user_id') > 1) {
+			uid = localStorage.getItem('user_id');
+		}
+		// end
+		api.ajax({
+			url: api_url + '/app/nav/index?uid=' + uid,
+			method: 'get',
+		}, function(ret, err) {
+			if (ret) {
+				alert(JSON.stringify(ret.grzx1));
+				//渲染模板
+				var pagefn = doT.template(lrtpl1.text);
+				dhgg1.innerHTML = pagefn(ret.grzx1);
+				var pagefn1 = doT.template(bannertpl.text);
+				guangg.innerHTML = pagefn1(ret.grzx2);
+				//      alert( JSON.stringify( ret.banner ) );
+				
+			}
+	
+		});
+	}
+	
+	
+	//获取、更新数据
+	function getData(){
+		    var user_id = localStorage.getItem('user_id');
+			var user_name = localStorage.getItem('user_name');
+			var user_name1 = localStorage.getItem('user_nickname');
+			var user_time = localStorage.getItem('user_time');
+			var yj_yyms = localStorage.getItem('rj_yyms');
+			var status = $api.byId('status'); //账号状态  用于判断封号
+			var s1 = formatDateTime(user_time);
+			var timestamp = Date.parse(new Date()) / 1000;
+			var time = $api.byId('time');
+			var islogin = $api.byId('islogin');
+			var huiyuan = $api.byId('dlquanxian');
+			var anniu=$api.byId("anniu");
+  			var userImg = $api.byId('user_img');
+  			if(user_time > timestamp) {
+				huiyuan.innerHTML="超级VIP";
+				time.innerHTML = ' 将于 ' + s1 + ' 到期';
+			}
+			if(user_time < timestamp) {
+				huiyuan.innerHTML="已过期";
+				time.innerHTML = 'VIP已到期 请及时续费';
+			}
+			if(user_time == "-1") {
+				huiyuan.innerHTML="超级VIP";
+				time.innerHTML = ' 永久贵宾';
+			}
+			if(yj_yyms=='0'){
+				huiyuan.innerHTML="免费模式";
+				time.innerHTML = '限时免费观看模式';
+			}
+			
+			if(user_id == "1") {
+				huiyuan.innerHTML="管理员";
+				time.innerHTML = ' 欢迎回来！';
+				if(localStorage.getItem('user_nickname')==""){
+                	islogin.innerHTML = '' + user_name;
+                }else{
+				islogin.innerHTML = '' + user_name1;
+				}
+				anniu.innerHTML = ' <div class="aui-panel-time"  onclick="exitLogin()">安全退出</div>';
+			if(localStorage.getItem('user1_img')==""){
+			}else{
+		          //  userImg.innerHTML = '<img id="user_img" src="'+localStorage.getItem('user1_img')+'" alt="">';   
+			    var img12=localStorage.getItem('user1_img');
+		        var reg=/%26/g;
+		        var tup=img12.replace(reg,'&');
+			    userImg.src=tup;
+			    
+			}
+			}
+			if(localStorage.getItem('user_id') < 1) {
+				islogin.innerHTML = ' - - - ';
+				time.innerHTML = ' ';
+				anniu.innerHTML = ' <div class="aui-panel-time"  onClick="toLogin()">立刻登录</div>';
+			//	userlogo.innerHTML = ' <img id="user_img" src="../image/app/defaultuser.png" alt="" style="box-shadow: 0 2px 6px 0 rgba(0,0,0,0.3);" alt="">';
+			
+			}
+			if(localStorage.getItem('user_id') > 1) {
+                if(localStorage.getItem('user_nickname')==""){
+                	islogin.innerHTML = '' + user_name;
+                }else{
+				islogin.innerHTML = '' + user_name1;
+				}
+				anniu.innerHTML = ' <div class="aui-panel-time"  onclick="exitLogin()">安全退出</div>';
+				
+				userlogo.innerHTML = ' <img id="user_img" src="../image/app/user.png" alt="" style="box-shadow: 0 2px 6px 0 rgba(0,0,0,0.3);" alt="">';
+
+            if(localStorage.getItem('user1_img')==""){
+			}else{
+		          //  userImg.innerHTML = '<img id="user_img" src="'+localStorage.getItem('user1_img')+'" alt="">';   
+			    
+			    var img12=localStorage.getItem('user1_img');
+		        var reg=/%26/g;
+		        var tup=img12.replace(reg,'&');
+			    userImg.src=tup;
+			}
+				
+				
+			}
+	}
+	/////////////会员过期时间获取  方法  formatDateTime  S   ////////////
+		function formatDateTime(timeStamp) {
+			var date = new Date();
+			date.setTime(timeStamp * 1000);
+			var y = date.getFullYear();
+			var m = date.getMonth() + 1;
+			m = m < 10 ? ('0' + m) : m;
+			var d = date.getDate();
+			d = d < 10 ? ('0' + d) : d;
+			var h = date.getHours();
+			h = h < 10 ? ('0' + h) : h;
+			var minute = date.getMinutes();
+			var second = date.getSeconds();
+			minute = minute < 10 ? ('0' + minute) : minute;
+			second = second < 10 ? ('0' + second) : second;
+			return y + '-' + m + '-' + d;
+		};
+	//打开页面方法
+	function openWin(name){
+		//没登陆转到登录界面
+		if(localStorage.getItem('user_id') < 1) {
+				api.toast({
+					msg: '亲爱的，你还没有登录哦！',
+					duration: 2000
+				});
+
+				api.openWin({
+					name: 'login',
+					url: './login.html',
+					delay: 300
+				});
+				return;
+			}
+		
+		//判断网络是否通畅并跳转
+		api.ajax({
+				url: api_url + '/login/login/banben.html',
+				method: 'get'
+			}, function(ret, err) {
+				if(ret) {
+
+					var delay = 0;
+					if(api.systemType != 'ios') {
+						delay = 300;
+					}
+					api.openWin({
+						name: '' + name + '',
+						url: '' + name + '.html',
+						bounces: false,
+						delay: delay,
+						slidBackEnabled: true,
+						vScrollBarEnabled: false
+					});
+
+				} else {
+
+					//网络连接失败 进行提示
+				//	NetworkConnectionFailurePrompt();
+
+				}
+
+			});
+	}
+	//加入QQ群
+	function jiaruqqqun(){
+		api.openWin({                
+                name: 'h5',                
+                url: './h5.html',                
+                pageParam: {                    
+                url: "https://jq.qq.com/?_wv=1027&k=5xc20hv"              
+                }            
+            });  
+	}
+	
+	function dingdan(id){
+		
+		if(localStorage.getItem('user_id') ==1 && localStorage.getItem('user_time') == "-1") {
+			api.openWin({
+				name: 'dingdan',
+				url: './dingdan.html',
+				delay: 300,
+				pageParam: {//描述：（可选项）页面参数，新页面中可以通过 api.pageParam 获取
+				 fw: id,
+				     }
+			});
+			//判断   如果user_id小于0 （未登录） 跳转登录
+		return;
+		}
+		if(localStorage.getItem('user_id') > 0 && localStorage.getItem('user_time') !== "-1") {
+			api.openWin({
+				name: 'dingdan',
+				url: './dingdan.html',
+				delay: 300,
+				pageParam: {//描述：（可选项）页面参数，新页面中可以通过 api.pageParam 获取
+				 fw: id,
+				     }
+			});
+			//判断   如果user_id小于0 （未登录） 跳转登录
+		} else {
+			api.openWin({
+				name: 'login',
+				url: './login.html',
+				delay: 300,
+			});
+		}
+	}
+	/////////////会员登录判断  方法  toLogin  S   ////////////
+		function toLogin() {
+			//判断   如果user_id大于0 （已登录） 并且 VIP时间为永久时  弹出提示
+			if(localStorage.getItem('user_id') > 0 && localStorage.getItem('user_time') == "-1") {
+				api.toast({
+					msg: '永久VIP  无需升级 感谢支持！',
+					duration: 2000
+				});
+			} else {
+				//判断   如果user_id大于0 （已登录） 并且 VIP时间不等于永久时  跳转升级
+				if(localStorage.getItem('user_id') > 0 && localStorage.getItem('user_time') !== "-1") {
+					api.openWin({
+						name: 'open_vip',
+						url: './open_vip.html',
+						delay: 300,
+					});
+					//判断   如果user_id小于0 （未登录） 跳转登录
+				} else {
+					api.openWin({
+						name: 'login',
+						url: './login.html',
+						delay: 300,
+					});
+				}
+
+			}
+
+		}
+	//退出方法
+	function exitLogin(){
+		api.sendEvent({
+				name: 'newLoingdata',
+				extra: {}
+		});
+			localStorage.setItem('user_id', '');
+			localStorage.setItem('user_name', '');
+			localStorage.setItem('user_time', '');
+			localStorage.setItem('Other_img','');
+			localStorage.setItem('Other_name','');
+			api.toast({
+				msg: ' 已安全退出',
+				duration: 2000
+			});
+			getData();
+			api.openWin({});
+	}
+	/////////////联系客服 方法  kefu  S  客服根据代理设置自动调用  ////////////
+		function kefu() {
+			if(localStorage.getItem('user_id') < 1) {
+				api.alert({
+					title: '请先登录',
+					msg: '知道了',
+				});
+			} else {
+				var dialogBox = api.require('dialogBox');
+				dialogBox.alert({
+					texts: {
+						content: '微信：' + localStorage.getItem('user_weichat'),
+						leftBtnTitle: '知道了',
+						rightBtnTitle: '复制'
+					},
+					styles: {
+						bg: '#fff',
+						w: 300,
+						content: {
+							color: '#000',
+							size: 14
+						},
+						left: {
+							marginB: 7,
+							marginL: 20,
+							w: 130,
+							h: 35,
+							corner: 2,
+							bg: '#ff7600',
+							color: '#fff',
+							size: 14
+						},
+						right: {
+							marginB: 7,
+							marginL: 10,
+							w: 130,
+							h: 35,
+							corner: 2,
+							bg: '#ff7600',
+							color: '#fff',
+							size: 14
+						}
+					}
+				}, function(ret) {
+					if(ret.eventType == 'left') {
+						var dialogBox = api.require('dialogBox');
+						dialogBox.close({
+							dialogName: 'alert'
+						});
+					} else if(ret.eventType == 'right') {
+						var clipBoard = api.require('clipBoard');
+						clipBoard.set({
+							value: localStorage.getItem('user_weichat')
+						}, function(ret, err) {
+							if(ret) {
+								api.toast({
+									msg: '已复制号码到剪切板',
+									duration: 2000
+								});
+								var dialogBox = api.require('dialogBox');
+								dialogBox.close({
+									dialogName: 'alert'
+								});
+							} else {
+
+							}
+						});
+					}
+				});
+			}
+		}
+		/////////////获取会员数据 方法  getData  E   ////////////
+function jifen(){
+	api.ajax({
+					url: api_url + '/login/login/signw1.html',
+					method: 'get',
+					data: {
+						values: {
+							uid: localStorage.getItem('user_id')
+						}
+					}
+				}, function(ret, err) {
+					if(ret) {
+						
+						var sign = $api.byId('sign');
+						
+						sign.innerHTML = ret.msg['jinbi'];
+
+					}
+
+				});
+       api.ajax({
+        url: api_url + '/login/login/yue1.html',
+        method: 'get',
+        data: {
+            values: {
+                uid: localStorage.getItem('user_id')
+            }
+        }
+    },function(ret, err){
+        if (ret) {
+            var yue = $api.byId('lingqian');
+            yue.innerHTML = ret.msg['share'];
+            
+        } else {
+          api.hideProgress();
+          //  alert('网络错误');
+        }
+    });
+	
+}
+
+/////////////更新app 方法  checkUpdate   E  （在apicloud进行）  ////////////
+		function checkUpdate() {
+			var mam = api.require('mam');
+			mam.checkUpdate(function(ret, err) {
+				if(ret) {
+					var result = ret.result;
+					if(result.update == true && result.closed == false) {
+						//  var str = '新版本号:' + result.version + '\n更新内容:' + result.updateTip  //下载地址:' + ';发布时间:' + result.time; + result.source + '; 需要的可以加上去
+						var str = '发布时间:' + result.time + '\n更新内容:\n' + result.updateTip //下载地址:' + ';发布时间:' + result.time; + result.source + '; 需要的可以加上去
+						api.confirm({
+							title: '已有新版本 V' + result.version,
+							msg: str,
+							buttons: ['更新', '取消']
+						}, function(ret, err) {
+							if(ret.buttonIndex == 1) {
+								if(api.systemType == "android") {
+									api.download({
+										url: result.source,
+										report: true
+									}, function(ret, err) {
+										if(ret && 0 == ret.state) { /* 下载进度 */
+											api.toast({
+												msg: "正在更新应用" + ret.percent + "%",
+												duration: 2000
+											});
+										}
+										if(ret && 1 == ret.state) { /* 下载完成 */
+											var savePath = ret.savePath;
+											api.installApp({
+												appUri: savePath
+											});
+										}
+									});
+								}
+								if(api.systemType == "ios") {
+									api.installApp({
+										appUri: result.source
+									});
+								}
+							}
+						});
+					} else {
+						/*
+						  api.alert({
+						      msg : "已是最新版，无需更新！"
+						  });
+						  */
+						api.toast({
+							msg: "已是最新版，无需更新！",
+							duration: 5000
+						});
+					}
+				} else {
+					api.alert({
+						msg: err.msg
+					});
+				}
+			});
+		}
+
+		/////////////更新app 方法  checkUpdate   E   ////////////
+
+
+
+	////////////清楚缓存 方法  cleaCache   S   ////////////
+function cleaCache() {
+	api.clearCache(function() {
+		api.toast({
+			msg: '清除完成'
+		});
+		getCache();
+	});
+}
+////////////计算缓存 方法  getCache   S   ////////////
+function getCache(){
+  api.getCacheSize(function(ret) {
+      var size = ret.size/1024/1024;
+      var mb = size.toFixed(2)
+      var cache = $api.byId('cache');
+      cache.innerHTML = mb+'MB';
+
+  });
+}
+
+//签到领积分
+	function qiandao(){
+			if (localStorage.getItem('user_id')>0) {
+				var qdfbxx = Math.floor(Math.random()*10+1);
+				//alert('恭喜您获得'+qdfbxx+'积分');
+						 api.ajax({
+						 	url: api_url+'login/login/qiand.html',
+						 	method: 'get',
+						 	data: {
+						 			values: {
+						 					uid: localStorage.getItem('user_id'),
+						 				qdjbx: qdfbxx
+						 			}
+						 	}
+						 },function(ret, err){
+						 	if (ret) {
+						 		if (ret.code == 1) {
+									//var qdfbxx = Math.floor(Math.random()*30+5);
+									alert('恭喜您获得'+qdfbxx+'积分');
+
+						 }else if (ret.code == 0) {
+						 			api.hideProgress();
+									alert('您今天已经签到过了！^-^');
+						 			}
+						 		}
+						 });
+			}else {
+				api.openWin({
+						name: 'login',
+						url: './login.html',
+						delay: 300,
+				});
+		   }
+
+		 }
+		 function getda(){
+			 api.ajax({
+			 	url: api_url+'login/login/logo.html',
+			 	method: 'get',
+			 	data: {
+			 		values: {
+			 			username: localStorage.getItem('user_name'),
+			 			passwd: localStorage.getItem('password'),
+			 			imei: api.deviceId,
+						kjdl:localStorage.getItem('kjdl'),
+						key:localStorage.getItem('anq_key'),
+			 		}
+			 	}
+			 }, function(ret, err) {
+			 	if(ret) {
+			 		if(ret.code == 0) {
+			 			swal("失败", "(ｷ｀ﾟДﾟ´)!! 账号或密码不正确", "error");
+			 			return;
+			 		} else if(ret.code == 1) {
+			 						console.log( JSON.stringify( ret ) );
+			 						if(ret.msg['status'] != 1 ){
+			 							swal("操作失败", "(ｷ｀ﾟДﾟ´)!! 账号被禁用！", "error");
+			 								
+			 								//alert( JSON.stringify( err ) );
+			 								return;
+			 							}
+			 			
+			 			//alert( JSON.stringify( ret ) );
+			 
+			 			localStorage.setItem('accountLogin',0);
+			 			localStorage.setItem('user_id', ret.msg['id']);
+			 			// localStorage.setItem('user_name', username);
+			 			// localStorage.setItem('password', password);
+			 			localStorage.setItem('user_time', ret.msg['time']);
+			 			localStorage.setItem('user_share', ret.msg['share']);
+			 			localStorage.setItem('user_advert', ret.msg['advert']);
+			 			localStorage.setItem('user_code', ret.msg['code']);
+			 			localStorage.setItem('power', ret.msg['power']);
+			 			localStorage.setItem('url', ret.msg['url']);
+			 			localStorage.setItem('url1', ret.msg['url1']);
+			 			localStorage.setItem('url2', ret.msg['url2']);
+			 			localStorage.setItem('url3', ret.msg['url3']);
+			 			localStorage.setItem('url4', ret.msg['url4']);
+			 			localStorage.setItem('url5', ret.msg['url5']);
+			 			localStorage.setItem('url6', ret.msg['url6']);
+			 			localStorage.setItem('url7', ret.msg['url7']);
+			 			localStorage.setItem('user_nickname', ret.msg['nick_name']);
+			 			localStorage.setItem('tjryqma',ret.msg['sjyqma']);
+			         	localStorage.setItem('stdejb',ret.msg['stjb']);
+			 			localStorage.setItem('user_zfb',ret.msg['zfb']);
+			 			localStorage.setItem('user_weichat', ret.msg['weichat']);
+			 			localStorage.setItem('user_sharema',ret.msg['share_ma']);
+			 			localStorage.setItem('user_img',ret.msg['userimg']);
+						localStorage.setItem('rj_yyms',ret.msg['yyms']);
+			 			api.sendEvent({
+			 				name: 'newLoingdata',
+			 				extra: {}
+			 			});
+			 			
+			 			getData();
+			 		}
+			 	} else {
+			 		
+			 		api.toast({
+			 			msg: '(ｷ｀ﾟДﾟ´)!!  网络错误 请检查！',
+			 			duration: 5000
+			 		});
+			 
+			 		//alert( JSON.stringify( err ) );
+			 		return;
+			 	}
+			 });
+			 
+		 }
+
+
+</script>
+</html>

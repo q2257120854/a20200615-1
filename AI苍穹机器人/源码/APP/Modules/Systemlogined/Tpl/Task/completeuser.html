@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>完成审核</title>
+
+	<meta name="description" content="Static &amp; Dynamic Tables" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!--basic styles-->
+
+	<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="__PUBLIC__/css/animate.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+	<!-- 分页样式 -->
+	<link rel="stylesheet" href="__PUBLIC__/css/page.css" />
+
+	<style type="text/css" title="currentStyle">
+		@import "__PUBLIC__/css/TableTools.css";
+	</style>
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+	<![endif]-->
+
+	<!--page specific plugin styles-->
+
+	<!--bbc styles-->
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+	<script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+	<![endif]-->
+
+	<!--inline styles if any-->
+</head>
+
+<body>
+<!--导航-->
+<include file="Public:navbar" />
+<include file="Public:sidebar" />
+<div class="container-fluid" id="main-container">
+	<!--边栏-->
+
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							Home
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+
+						<li>
+							完成审核
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+
+					<div class="page-header position-relative">
+						<h1>
+							完成审核
+						</h1>
+					</div><!--/.page-header-->
+
+					<div class="row-fluid">
+							<form name="editAnnounceType" class="form-horizontal"  action="{:U(GROUP_NAME.'/Task/completeuserHandle')}" method="post">
+								<div class="control-group">
+									<label class="control-label" for="username"> 会员编号</label>
+
+									<div class="controls">
+										<input type="text" name="username" <if condition="$Think.get.id neq 1"> readonly="readonly"</if> value="{$complete.username}" id="username"/>
+										<a href="{:U(GROUP_NAME.'/Task/completeuser',array('id'=>$next_id))}" style="cursor:pointer; padding:6px 15px; color:#ffffff; background:#06F; border-radius:4px;">审核下一个</a>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" for="truename">
+									姓名：</label>
+									<div class="controls">
+										<input type="text" value="{$complete.truename}" name="truename" id="truename" disabled />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="jinbi">
+										奖励金：</label>
+									<div class="controls">
+										<input type="text" value="{$complete.jinbi}" name="jinbi" id="jinbi" /><font color="red">* 审核通过，即时到账！</font>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" for="pic">完成截图</label>
+									<div class="controls">
+										<img src="{$complete['pic']}" width="200" />
+									</div>
+
+								</div>
+
+								<div class="control-group">
+									<label class="control-label">状态</label>
+									<div class="controls">
+										<input type="radio" name="status" value="2" >
+										<span class="lbl"> 审核未通过</span>
+										<input type="radio" name="status" value="1" checked="checked">
+										<span class="lbl"> 审核通过</span>
+									</div>
+						</div>
+
+					  <input type="hidden" name="id" value="{$complete.id}" />
+						<div class="form-actions">
+									<button class="btn btn-info no-border" type="submit">
+										<i class="icon-ok bigger-110"></i>
+										确认提交
+									</button>
+						</div>
+
+							</form>
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+
+				<div id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+						<i class="icon-cog"></i>
+					</div>
+
+					<div id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hidden">
+									<option data-class="default" value="#438EB9">#438EB9</option>
+									<option data-class="skin-1" value="#222A2D">#222A2D</option>
+									<option data-class="skin-2" value="#C6487E">#C6487E</option>
+									<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+							</div>
+							<span>&nbsp; 选择样式</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+
+		<!--basic scripts-->
+
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<!--page specific plugin scripts-->
+
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+		<!--bbc scripts-->
+		<script src="__PUBLIC__/js/jquery.validate.min.js"></script>
+
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="_

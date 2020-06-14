@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link type="text/css" href="../css/h5-search.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" type="text/css" href="../css/aui.css" />-->
+		<style>
+				.wrapper03 {
+					position: relative;
+					height: 350px;
+					width: 100%;
+					overflow: hidden;
+					margin: 0 auto;
+					border-bottom: 1px solid #ccc
+				}
+				.wrapper03 .scroller {
+					position: absolute
+				}
+				.wrapper03 .scroller li {
+					height: 20px;
+					color: #333;
+					float: left;
+					line-height: 35px;
+					font-size: 20px;
+					text-align: center
+				}
+				
+				.wrapper03 .scroller li a {
+					color: #333;
+					display: block;
+					margin: 0 .05rem;
+					padding: 0 .05rem
+				}
+				
+				.wrapper03 .scroller li.cur a {
+					color: #1cbb9b;
+					height: 30px;
+					border-bottom: 3px solid #1cbb9b
+				}
+		</style>
+		<style>
+			.search_result {
+			padding-top: 1px;
+			padding-bottom: 1px;
+			background-color: #efefef
+		}
+		.mod_no_result {
+			text-align: center;
+			margin: 40px auto
+		}
+		.mod_no_result {
+			margin: auto;
+			padding: 40px 0;
+			background-color: #fff;
+			-webkit-user-select: none;
+			user-select: none
+		}
+		.result_text {
+			margin: 20px auto
+		}
+	</style>
+	</head>
+	<body>
+
+
+
+		<section class="m-header-search m-search-page">
+			<hgroup class="fixed_top">
+				<div class="m-search-full-bgfff">
+					<div class="header-search-box">
+						<a class="logo-iqiyi"></a>
+						<div class="header-searchInput">
+							<form action="javascript:void(0);">
+								<input id="ff_wd" placeholder="" type="search" autovalue="" autocomplete="off" class="search-input">
+								<i class="c-glyphicon c-glyphicon-search"></i>
+								<i class="c-glyphicon c-glyphicon-close" style="display: none;"></i>
+							</form>
+						</div>
+						<div class="header-searchBtn">
+							<a id="soid" onclick="sosuo()" class="c-btn btn-search">搜索</a>
+							<div>
+								<a id="qxid" onclick="closeWin()" class="c-btn btn-search">取消</a>
+							</div>
+						</div>
+					</div>
+			</hgroup>
+		</section>
+
+
+
+
+		<div>
+
+			<div>
+				<div>
+					<div>
+						<div class="">
+							<nav class="g-nav-head ">
+								<div class="m-nav-head m-sliding">
+									<ul id="shaixuan1" class="m-nav-head-list m-sliding-list">
+										
+										<li>
+											<a onclick="setFrameGroupIndex( this );" class="c-linkChannel selected">
+												全部
+											</a>
+										</li>
+										<em id="tuozhan">
+											<li>
+												<a onclick="setFrameGroupIndex( this );" class="c-linkChannel">
+													待开发
+												</a>
+											</li>
+											
+										</em>
+											
+									</ul>
+								</div>
+							</nav>
+						</div>
+					</div>
+					<!---->
+					<!-- <div class="search_result _search_result">
+		    <div class="mod_no_result">
+		        <p class="result_text">
+		            很抱歉，没有找到相关视频内容
+		            <br>请换个关键词试试
+		        </p>
+		    </div>
+		</div> -->
+
+					<div>
+						<div label="全部">
+							<div>
+								<div id="div_list_f" class='m-box m-box-top'>
+
+
+								</div>
+							</div>
+						</div>
+						<div id="geng">
+
+						<div onclick="jzgd()" class="m-box-items m-box-items-full" id="gengduo">
+							<section class="m-loading-info">
+								<div class="c-info">加载中... </div>
+							</section>
+						</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+	</body>
+	<link type="text/css" href="../css/h5-mine-aura1wdb.css" rel="stylesheet"/>
+	<script type="text/x-dot-template" id="navcattpl">
+		{{~ it.data : value : index }}
+		<div class='m-box-items m-box-items-full'>
+			<div class='m-pic-text'>
+				<div class='piclist-img'>
+					<a target='_self' class='piclist-link' style='background-image: url("{{= value. vod_pic }}");'>
+						<div class='c-rb'>
+							<span class='c-date'>{{= value. vod_remarks }}</span></div>
+						<div class='c-lt'></div>
+					</a></div>
+				<div class='piclist-title'><a target='_self' class='piclist-title-link'>
+						<div class='c-title'>{{= value. vod_name }}</div>
+						<div class='c-info'>
+							<div>{{= value. vod_year }} {{= value. vod_class }} {{= value. vod_area }}</div>
+						</div>
+						<div class='c-info'>
+							<div>主演：{{= value. vod_actor }}</div>
+						</div>
+						<div class='c-info'>
+							<div>介绍：{{= value. vod_blurb }}</div>
+						</div>
+					</a>
+					<div class='pic-btn'>
+						<div class='piclist-btn'>
+							<a onclick="bofang('{{= value. vod_id }}')" target='_self'><i class='c-glyphicon c-glyphicon-playarrow'></i>立即播放</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	    {{~}}
+	
+	</script>
+	<script type="text/x-dot-template" id="fenltpl">
+		{{~ it.data : value : index }}
+	<li>
+		<a onclick="setFrameGroupIndex( this );" class="c-linkChannel">{{= value. fname }}</a>
+	</li>
+	    {{~}}
+	</script>
+
+
+
+	<script type="text/javascript" src="../js/iscroll.js"></script>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript">
+		var djapi_url = localStorage.getItem('djapi_url');
+		var api_url = localStorage.getItem('api_url');
+		var sjgs;
+		var yeshu = 1;
+		var leibie = 0;
+		var yj_yyms = localStorage.getItem('rj_yyms');
+		
+		
+		
+		setInterval(function() {
+
+			var so = $api.byId('soid');
+			var qx = $api.byId('qxid');
+			var myval = document.getElementById('ff_wd').value;
+			if (myval == api.pageParam.name) {
+				$api.attr(so, 'style', 'display: none;');
+				$api.attr(qx, 'style', '');
+			} else {
+				$api.attr(so, 'style', '');
+				$api.attr(qx, 'style', 'display: none;');
+			}
+		}, 100);
+		
+		apiready = function() {
+			//显示搜索影片信息
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			var sd= $api.byId('geng');
+			document.getElementById('ff_wd').value = api.pageParam.name;
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/sosuo',
+				data: {
+					values: {
+						name: document.getElementById('ff_wd').value,
+					}
+				}
+			}, function(ret, err) {
+
+				//alert( JSON.stringify( ret) );
+				if(ret.dsj.data.length>0){
+					var pagefn = doT.template(navtpl.text);
+					navid.innerHTML = pagefn(ret.dsj);
+					sd.innerHTML='<div onclick="jzgd()" class="m-box-items m-box-items-full" id="gengduo"><section class="m-loading-info"><div class="c-info">点击加载更多... </div></section></div>';
+				}else{
+					navid.innerHTML='';
+					sd.innerHTML = '<section class="m-noRecord"><div class="c-icon-noRecord"></div> <div class="c-info">未搜索到该影片，请留言反馈您需要的电影</div></section>';
+					return;
+				}
+				
+				
+				
+				
+				
+			});
+			//添加查询记录
+			api.ajax({
+				url: api_url + 'login/login/tjcxjl',
+				data: {
+					values: {
+						spname: document.getElementById('ff_wd').value,
+						username:localStorage.getItem('user_id'),
+					}
+				}
+			}, function(ret, err) {
+				
+			});
+			
+		};
+
+// 		function fenlei() {
+// 			var navid = $api.byId('tuozhan');
+// 			var navtpl = $api.byId('fenltpl');
+// 			api.ajax({
+// 				url: api_url + 'index.php/ysapp/sofenl',
+// 				data: {
+// 					values: {
+// 
+// 					}
+// 				}
+// 			}, function(ret, err) {
+// 
+// 				//alert( JSON.stringify( ret) );
+// 				var pagefn = doT.template(navtpl.text);
+// 				navid.innerHTML = pagefn(ret.dsj);
+// 			});
+// 
+// 		}
+
+		function setFrameGroupIndex(tag) {
+			if (tag == $api.dom('#shaixuan1 a.c-linkChannel selected')) return;
+			var eFootLis = $api.domAll('#shaixuan1 a'),
+				index = 0;
+			for (var i = 0, len = eFootLis.length; i < len; i++) {
+				if (tag == eFootLis[i]) {
+					index = i;
+				} else {
+					$api.removeCls(eFootLis[i], 'selected');
+				}
+			}
+			$api.addCls(eFootLis[index], 'selected');
+			if (leibie != index) {
+				yeshu = 1;
+			}
+			// leibie = index;
+			
+		}
+		//搜索新影片
+		function sosuo() {
+			//输出影片信息
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			var sd= $api.byId('geng');
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/sosuo',
+				data: {
+					values: {
+						name: document.getElementById('ff_wd').value,
+					}
+				}
+			}, function(ret, err) {
+				//alert( JSON.stringify( ret) );
+				if(ret.dsj.data.length>0){
+					var pagefn = doT.template(navtpl.text);
+					navid.innerHTML = pagefn(ret.dsj);
+					sd.innerHTML='<div onclick="jzgd()" class="m-box-items m-box-items-full" id="gengduo"><section class="m-loading-info"><div class="c-info">点击加载更多... </div></section></div>';
+				}else{
+					navid.innerHTML='';
+					sd.innerHTML = '<section class="m-noRecord"><div class="c-icon-noRecord"></div> <div class="c-info">未搜索到该影片，请留言反馈您需要的电影</div></section>';
+					return;
+				}
+				
+				yeshu = 1;
+			});
+			//增加搜索记录
+			api.ajax({
+				url: api_url + 'login/login/tjcxjl',
+				data: {
+					values: {
+						spname: document.getElementById('ff_wd').value,
+						username:localStorage.getItem('user_id'),
+					}
+				}
+			}, function(ret, err) {
+				
+			});
+			
+		}
+		
+		//转到播放页面
+		function bofang(id) {
+			var time = localStorage.getItem('user_time');
+			var user_id = localStorage.getItem('user_id');
+			var username = localStorage.getItem('user_name');
+			var timestamp = Date.parse(new Date()) / 1000;
+			
+			if (user_id < 1) {
+			    api.toast({
+			        msg: '爱看影视提醒！你还没登陆！',
+			        duration: 5000
+			    });
+			    api.openWin({
+			        name: 'login',
+			        url: './login.html',
+			        delay: 2000
+			    });
+			    return;
+			}
+			if(yj_yyms=='0'){
+				api.openWin({
+					name: 'play',
+					url: './play.html',
+					pageParam: {
+						id: id
+					}
+				});
+				return;
+			}
+			if (time > timestamp) {
+			    api.ajax({
+			        url: api_url + '/login/login/banben.html',
+			        method: 'get',
+					data: {
+						values: {
+							key:localStorage.getItem('anq_key'),
+						}
+					}
+			    }, function(ret, err) {
+			        if (ret) {
+			            api.toast({
+			                msg: 'VIP登录'
+			            });
+			            setTimeout("playRadio();", 1000);
+			            var delay = 0;
+			            if (api.systemType != 'ios') {
+			                delay = 300;
+			            }
+			            api.openWin({
+			            	name: 'play',
+			            	url: './play.html',
+			            	pageParam: {
+			            		id: id
+			            	}
+			            });
+			        } else {
+			            api.toast({
+			                msg: '请检查网络是否畅通'
+			            });
+			        }
+			    });
+			} else if (time == -1) {
+			    api.ajax({
+			        url: api_url + '/login/login/banben.html',
+			        method: 'get'
+			    }, function(ret, err) {
+			        if (ret) {
+			            api.toast({
+			                msg: '永久VIP登录'
+			            });
+			            setTimeout("playRadio();", 2000);
+			            var delay = 0;
+			            if (api.systemType != 'ios') {
+			                delay = 300;
+			            }
+			            api.openWin({
+			            	name: 'play',
+			            	url: './play.html',
+			            	pageParam: {
+			            		id: id
+			            	}
+			            });
+			        } else {
+			            api.toast({
+			                msg: '请检查网络是否畅通'
+			            });
+			        }
+			    });
+			} else if (time < timestamp) {
+			    VipExpiredHint();
+			}
+			
+		}
+		//未知
+		function toSearch() {
+			var myval = document.getElementById('ff_wd').value;
+			// alert(myval);
+			// alert(112);
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/sosuo',
+				data: {
+					values: {
+						name: api.pageParam.name,
+					}
+				}
+			}, function(ret, err) {
+
+			});
+
+		}
+
+		function closeWin() {
+			api.closeWin();
+		}
+		
+		//显示更多影片信息
+		function jzgd() {
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			// 添加广告
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/gxsosuo',
+				data: {
+					values: {
+						name: document.getElementById('ff_wd').value,
+						yema: yeshu + 1,
+						wz: leibie,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					//电视剧
+					if (ret.code == 0) {
+						api.toast({
+							msg: ret.msg,
+							duration: 5000
+						});
+						return;
+					} else {
+						var pagefn = doT.template(navtpl.text);
+						navid.innerHTML += pagefn(ret.dsj);
+						//      alert( JSON.stringify( ret ) );
+						yeshu = yeshu + 1;
+					}
+				}
+
+
+			});
+
+
+		}
+		function VipExpiredHint() {
+		    var dialogBox = api.require('dialogBox');
+		    dialogBox.alert({
+		        tapClose: true,
+		        texts: {
+		            content: '超级视频VIP已过期',
+		            leftBtnTitle: '在想想',
+		            rightBtnTitle: '去续费'
+		        },
+		        styles: {
+		            bg: '#fff',
+		            corner: 10,
+		            w: 300,
+		            title: {
+		                marginT: 20,
+		                icon: 'widget://image/app/VipExpiredTisi.png',
+		                iconSize: 80,
+		                titleSize: 14,
+		                titleColor: '#000'
+		            },
+		            content: {
+		                marginT: 20,
+		                marginB: 40,
+		                color: '#ff0072',
+		                size: 12
+		            },
+		            left: {
+		                marginB: 30,
+		                marginL: 30,
+		                w: 100,
+		                h: 40,
+		                corner: 10,
+		                bg: '#3d3d3d',
+		                color: '#fff',
+		                size: 12
+		            },
+		            right: {
+		                marginB: 30,
+		                marginL: 40,
+		                w: 100,
+		                h: 40,
+		                corner: 10,
+		                bg: '#ff0072',
+		                color: '#fff',
+		                size: 12
+		            }
+		        }
+		    }, function(ret) {
+		        if (ret.eventType == 'left') {
+		            var dialogBox = api.require('dialogBox');
+		            dialogBox.close({
+		                dialogName: 'alert'
+		            });
+		        } else if (ret.eventType == 'right') {
+		            api.openWin({
+		                name: 'open_vip',
+		                url: './open_vip.html',
+		                delay: 300
+		            });
+		            var dialogBox = api.require('dialogBox');
+		            dialogBox.close({
+		                dialogName: 'alert'
+		            });
+		        }
+		    });
+		
+		}
+	</script>
+</html>

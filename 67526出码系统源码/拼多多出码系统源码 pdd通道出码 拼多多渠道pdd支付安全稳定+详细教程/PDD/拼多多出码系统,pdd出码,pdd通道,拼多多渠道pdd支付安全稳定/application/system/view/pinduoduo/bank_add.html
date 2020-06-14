@@ -1,0 +1,98 @@
+{include file="block/layui" /}
+<style type="text/css">
+    .layui-quote-diy{color:#88754d;background:#fef8e2;}
+    .layui-form-label{min-width:110px;}
+</style>
+<div class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">机构名称：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="title" />
+        </div>
+        <div class="layui-form-mid layui-word-aux">工商银行/支付宝</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">收款姓名：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="name"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">收款账号：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="address"/>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"> </label>
+        <div class="layui-input-block">
+            <button type="button" id="submitForm" class="layui-btn tab-btn-active">添加</button>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['jquery'], function() {
+        var $ = layui.$;
+        $("#submitForm").on('click',function () {
+            let title=$("input[name='title']").val();
+            let name=$("input[name='name']").val();
+            let address=$("input[name='address']").val();
+            if (!title) {
+                layer.msg('请填写机构名称！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            if (!name) {
+                layer.msg('请填写收款姓名！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            if (!address) {
+                layer.msg('请填写收款账号！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            $.post('{:url('pinduoduo/bank_add')}',{
+                title:title,
+                name:name,
+                address:address
+            },function (res) {
+                console.log(res);
+                if (res.status){
+                    layer.msg('添加成功', {
+                        time: 2000,
+                        closeBtn: 0
+                    });
+                    self.location='{:url('pinduoduo/bank')}';
+                }else{
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        btn: ['知道了'],
+                        btnAlign: 'c',
+                        anim: 6
+                    });
+                }
+            })
+        });
+    });
+</script>
+<style>
+    .layui-form{
+        padding-top: 15px;
+    }
+    .layui-form-item .layui-input-inline{
+        width:300px;
+    }
+</style>

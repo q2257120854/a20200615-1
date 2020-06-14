@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的钱包</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style1.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+</head>
+<body>
+  <div class="myui-jifen-box">
+    <div class="myui-jifen-1">
+      <h1 id="sign"></h1>当前零钱
+    </div>
+    <div class="myui-jifen-bt">
+      <div class="my-jien-btn aui-btn aui-btn-info aui-btn-block aui-btn-sm" tapmode onclick="openWin('share_win')">去赚钱</div>
+    </div>
+    <div id="bili" class="myui-jifen-2">
+    </div>
+    <div class="aui-bar aui-bar-btn" style="width:80%;" type="count" id="demo">
+        <div class="aui-bar-btn-item aui-font-size-20">
+            <i class="aui-iconfont aui-icon-minus"></i>
+        </div>
+        <div class="aui-bar-btn-item">
+            <input type="number" class="aui-input aui-text-center" id="count"  value="1">
+        </div>
+        <div class="aui-bar-btn-item aui-font-size-20">
+            <i class="aui-iconfont aui-icon-plus"></i>
+        </div>
+    </div>
+    <div class="myui-jifen-bt">
+      <div class="my-jien-btn aui-btn aui-btn-info aui-btn-block aui-btn-sm" tapmode onclick="fasong()">我要提现</div>
+    </div><br/>
+     <!-- <div class="aui-btn aui-btn-danger" tapmode onclick="openWin('shoukuanma_win')">点此上传收款码</div>
+     <div class="aui-btn aui-btn-danger" tapmode onclick="totxjl()">查看提现记录</div> -->
+  </div>
+<div id="neir">
+
+	</div>
+
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/auitab.js" ></script>
+<script type="text/javascript">
+  var api_url = localStorage.getItem('api_url');
+
+  apiready = function(){
+    api.parseTapmode();
+    api.showProgress({
+        title: '正在刷新',
+        text: '请稍等...',
+        modal: false
+    });
+    api.ajax({
+        url: api_url+'login/login/yue.html',
+        method: 'get',
+        data: {
+            values: {
+                uid: localStorage.getItem('user_id')
+            }
+        }
+    },function(ret, err){
+        if (ret) {
+            var sign = $api.byId('sign');
+            sign.innerHTML = ret.msg['share'];
+
+        } else {
+          api.hideProgress();
+            alert('网络错误11');
+        }
+    });
+   api.ajax({
+           url: api_url+'login/login/share.html',
+           method: 'get',
+           data: {
+               values: {
+                   uid: localStorage.getItem('user_id')
+               }
+           }
+       },function(ret, err){
+           if (ret) {
+             var bili = $api.byId('bili');
+
+             bili.innerHTML = '可直接输入提现金额！';
+             api.hideProgress();
+           } else {
+             api.hideProgress();
+             alert('钱包刷新成功');
+
+           }
+       });
+     }
+ function fasong(){
+   var zfbxx = localStorage.getItem('user_zfb');
+   var bianl1 = document.querySelector('#sign');
+   var bianl2 = document.querySelector('#count').value;
+   var bianl3 = Number(bianl1.innerText)-(Number(bianl2));
+   var bianyu = Number(bianl3);
+   var bianx = Number(bianl1.innerText);
+   if (bianx<=9){
+       alert('满10元可提现，余额不足!');
+    return;
+   }
+   var shuji=Number(bianl2);
+
+    var userid = localStorage.getItem('user_id');
+    var student = new Object();
+    student.id = userid;
+    student.age = shuji;
+    var json = JSON.stringify(student);
+   api.ajax({
+     url: api_url+'appx/qbtx.php',
+     method: 'post',
+     data: {
+         values: {
+             json: json
+           }
+       }
+     }, function(ret, err) {
+	
+       if (ret.code==1) {
+           sign.innerHTML = bianyu;
+           alert('提现'+ret.msg+'元成功!1-3工作日到账!请耐心等待...'); 
+       } else {
+         if (ret.code==0 ){
+           alert(ret.msg);
+           return;
+         } else{
+              alert(ret.msg);
+         }
+           //api.alert({ msg: JSON.stringify(err) });
+       }
+
+     });
+
+ }
+ function fasong1(){
+      var ajax = new XMLHttpRequest();
+      ajax.open('post',api_url+'appx/qbtx.php');
+      ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	     var zfbxx = localStorage.getItem('user_zfb');
+			 var bianl1 = document.querySelector('#sign');
+			 var bianl2 = document.querySelector('#count').value;
+			 var bianl3 = Number(bianl1.innerText)-(Number(bianl2));
+			 var bianyu = Number(bianl3);
+			 var bianx = Number(bianl1.innerText);
+			 if (bianx<=9){
+			     alert('满10元可提现，余额不足!');
+			 	return;
+		   }
+			 	 var shuji=Number(bianl2);
+
+					var userid = localStorage.getItem('user_id');
+			 		var student = new Object();
+			 		student.id = userid;
+			 		student.age = shuji;
+			 		var json = JSON.stringify(student);
+			 		ajax.send('json='+json);
+			 	ajax.onreadystatechange = function(){
+			 		if (ajax.readyState ==4&&ajax.status==200) {
+			 				console.log(ajax.responseText);
+							var fhjg = ajax.responseText;
+							if (fhjg==0){
+								alert('您有一笔提现正在处理中...！暂时无法发起提现申请');
+								return;
+							}
+								sign.innerHTML = bianyu;
+			 				alert('提现'+ajax.responseText+'元成功!1-3工作日到账!请耐心等待...');
+
+			 		}
+			 	};
+    }
+
+  //重新获取到期时间
+  function getTime(){
+    api.ajax({
+        url: api_url+'login/login/veifys.html',
+        method: 'get',
+        data: {
+            values: {
+                username: localStorage.getItem('user_name'),
+                passwd: localStorage.getItem('password'),
+                imei:api.deviceId,
+				kjdl:localStorage.getItem('kjdl'),
+				key:localStorage.getItem('anq_key'),
+            }
+        }
+    },function(ret, err){
+        if (ret) {
+          if (ret.code == 0) {
+            api.hideProgress();
+            alert('不明错误 请重新登录');
+          }else if (ret.code == 1) {
+              localStorage.setItem('user_time',ret.msg['time']);
+              api.sendEvent({
+                name: 'newLoingdata',
+                extra: {
+                }
+              });
+          }
+        } else {
+          api.hideProgress();
+          alert('网络错误！33');
+        }
+    });
+  }
+
+
+  var bar = document.querySelectorAll(".aui-bar-btn");
+    if(bar){
+        for(var i=0; i<bar.length;i++){
+            var d = bar[i];
+            var tab = new auiTab({
+                element:bar[i],
+                repeatClick:true
+            },function(ret){
+                //alert( JSON.stringify( ret ) );
+                if(ret.dom.parentNode.getAttribute("type") && ret.dom.parentNode.getAttribute("type")=="count"){
+                    var count = parseInt(document.getElementById("count").value);
+                    if(ret.index==2)return;
+                    if(ret.index==1){
+                      if (document.getElementById("count").value<=1) {
+                        return;
+                      }
+                        document.getElementById("count").value = count-1;
+                    }
+                    if(ret.index==3){
+                        document.getElementById("count").value = count+1;
+                    }
+                }
+            });
+
+        }
+    }
+
+  function totxjl(){
+  	if (localStorage.getItem('user_id')>0) {
+  			api.openWin({
+  				name: 'txjl_win',
+  				url: './txjl_win.html',
+  					delay: 300,
+  			});
+  	}else {
+  		api.openWin({
+  				name: 'login',
+  				url: './login.html',
+  				delay: 300,
+  		});
+  	}
+  }
+
+
+
+
+   function openWin(name){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: ''+name+'',
+            url: ''+name+'.html',
+            bounces:false,
+            delay: delay,
+            slidBackEnabled:true,
+            vScrollBarEnabled:false
+        });
+    }
+</script>
+</html>

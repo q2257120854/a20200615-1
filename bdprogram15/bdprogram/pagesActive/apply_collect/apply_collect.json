@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "活动报名",
+  "component": true,
+  "usingComponents": {
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

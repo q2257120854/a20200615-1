@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "实物订单",
+  "component": true,
+  "usingComponents": {
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

@@ -1,0 +1,109 @@
+{include file="block/layui" /}
+<div class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属店铺：</label>
+        <div class="layui-input-inline">
+            <select name="stores_id">
+                <option value="">选择店铺</option>
+                {volist name="list" id="vo"}
+                <option value="{$vo.id}">{$vo.name}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux">若没有店铺，请先<a href="{:url('pinduoduo/stores_add')}">【添加店铺】</a></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品链接：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="goods_url"  placeholder="请填写商品链接"/>
+        </div>
+        <div class="layui-form-mid layui-word-aux">商品链接，如：https://mobile.yangkeduo.com/goods.html?goods_id=34979656</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"> </label>
+        <div class="layui-input-block">
+            <button type="button" id="submitForm" class="layui-btn tab-btn-active" >添加商品</button>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['jquery','layer'], function() {
+        var $ = layui.$;
+        layer.open({
+            type: 1
+            ,title: '特别提醒' //不显示标题栏
+            ,closeBtn: false
+            ,area: '400px;'
+            ,shade: 0.8
+            ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+            ,btn: ['确定']
+            ,btnAlign: 'c'
+            ,moveType: 1 //拖拽模式，0或者1
+            ,content: '<div style="padding: 20px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">' +
+                '一、商品是否设置了规格,且单独购买为100元;<br>' +
+                '二、每种规格库存要尽量多，比如100000件;<br>' +
+                '三、商品限购设置多点，比如10000件;<br>' +
+                '四、不能限制的收货点，保证全国各地都能收货。' +
+                '</div>'
+            ,success: function(layero){
+
+            }
+        });
+
+        $("#submitForm").on('click',function () {
+            var stores_id=$("select[name='stores_id']").val();
+            let goods_url=$("input[name='goods_url']").val();
+            if (!stores_id) {
+                layer.msg('请选择店铺！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            if (!goods_url) {
+                layer.msg('请填写商品链接！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            var msg =layer.msg('抓取商品信息...', {
+                time: 10000,
+                closeBtn: 0
+            });
+            $.post('{:url('pinduoduo/get_goods_info')}',{
+                stores_id:stores_id,
+                goods_url:goods_url
+            },function (res) {
+                layer.close(msg);
+                console.log(res);
+                if (res.status){
+                    layer.msg('添加成功', {
+                        time: 2000,
+                        closeBtn: 0
+                    });
+                    self.location='{:url('pinduoduo/goods')}';
+                }else{
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        btn: ['知道了'],
+                        btnAlign: 'c',
+                        anim: 6
+                    });
+                }
+            })
+        });
+    });
+</script>
+<style>
+    .layui-form{
+        padding-top: 15px;
+    }
+    .layui-form-item .layui-input-inline{
+        width:300px;
+    }
+</style>

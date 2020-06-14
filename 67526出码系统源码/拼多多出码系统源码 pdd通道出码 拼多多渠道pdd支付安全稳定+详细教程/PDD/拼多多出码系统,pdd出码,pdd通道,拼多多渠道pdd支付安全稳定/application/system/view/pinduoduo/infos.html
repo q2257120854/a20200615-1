@@ -1,0 +1,36 @@
+{include file="block/layui" /}
+<script type="text/javascript" src="__PUBLIC_JS__/clipboard.min.js"></script>
+<form class="layui-form layui-form-pane" style="padding-top: 15px">
+    <div class="layui-form-item" style="display:none;">
+        <label class="layui-form-label layui-col-xs12 layui-col-sm6 layui-col-md3">支付平台KEY：</label>
+        <div class="layui-input-inline layui-col-xs12 layui-col-sm6 layui-col-md6" style="width: 500px;">
+            <input type="text" disabled value="{$api_key}" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux layui-col-xs12 layui-col-sm6 layui-col-md3">请复制后，打开支付平台支付后台进行绑定</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">出码链接：</label>
+        <div class="layui-input-inline" style="width: 500px;">
+            <input type="text" disabled value="{$link}?id={$login['uid']}" class="layui-input my_url" data-clipboard-text="{$link}?id={$login['uid']}">
+        </div>
+        <div class="layui-form-mid layui-word-aux">
+            <a href="{$link}?id={$login['uid']}" target="_blank">打开链接</a>
+            <span>通过此链接出的码不经过支付平台支付</span>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    layui.use(['jquery'], function(){
+        var $=layui.jquery
+        $(document).ready(function(){
+            var clipboard1 = new Clipboard('.my_url');
+            clipboard1.on('success', function(e) {
+                alert("复制成功！");
+            });
+            clipboard1.on('error', function(e) {
+                alert("复制失败！请手动复制");
+            });
+        })
+    })
+
+</script>

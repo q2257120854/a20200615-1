@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<link rel="stylesheet" type="text/css" href="../css/reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/weichat.css">
+		<link rel="stylesheet" type="text/css" href="../css/style4.css">
+		<title>My Wallet</title>
+	</head>
+	<body>
+		<header class="aui-navBar aui-navBar-fixed" id="aui-header">
+			<a onclick="closeWin()" href="javascript:;" class="aui-navBar-item">
+				<i class="icon icon-return"></i>
+			</a>
+			<div class="aui-center">
+				<span class="aui-center-title1" id="title">充值中心</span>
+			</div>
+			<a href="javascript:;" class="aui-navBar-item">
+				<i class="icon icon-sys"></i>
+			</a>
+		</header>
+
+		<div class="wrap">
+			<div class="tixian-box">
+				<div class="tobank">
+					<span class="dzyh">充值渠道</span>
+					<span class="yhk">官方聚合支付</span>
+					<span class="dz">急速到帐</span>
+				</div>
+				<div class="t-moneys">
+					<span class="txje">充值金额</span>
+					<span class="rmb">￥</span>
+					<span class="kyye">当前零钱余额：<a id="sign">25546.60</a>元</span>
+					<input type="text" id="getmoneys" class="t-input">
+					<button id="getout" tapmode onclick="fasong()">充值</button>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var yue;
+
+		var api_url = localStorage.getItem('api_url');
+
+		apiready = function() {
+			api.parseTapmode();
+			
+			api.ajax({
+				url: api_url + 'login/login/yue.html',
+				method: 'get',
+				data: {
+					values: {
+						uid: localStorage.getItem('user_id')
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					var sign = $api.byId('sign');
+					sign.innerHTML = ret.msg['share'];
+					yue = ret.msg['share'];
+				} else {
+					api.hideProgress();
+					alert('网络错误11');
+				}
+			});
+
+		}
+
+		function fasong() {
+			var money = document.getElementById('getmoneys').value;
+			var oGetOut = document.getElementById("getout");
+			if (money.indexOf(".") == -1) {
+
+			} else {
+				len = money.split('.')[1].length;
+				if (len > 2) {
+					alert('最多支持两位小数充值!');
+					return;
+				}
+				if(money.split('.').length>2){
+					alert('请输入正确金额!');
+					return;
+				}
+				
+			}
+			
+			if (oGetOut.style.opacity == 0.4 || oGetOut.style.opacity == "") {
+				return;
+			} else {
+				api.openWin({
+					name: 'h5',
+					url: './h5.html',
+					pageParam: {
+						url: api_url + "daili_pay/?name=余额充值&type_id=80&fee=" + money + "&user_id=" + localStorage.getItem('user_id')
+					}
+				});
+			}
+		}
+
+
+		window.onload = function() {
+			var okyMOneys = parseFloat(yue); //模拟可用余额,实际使用的时候从数据库返回或其它的操作。
+			var oGetMoneys = document.getElementById("getmoneys");
+			var oGetOut = document.getElementById("getout");
+			var oKyye = document.getElementsByClassName("kyye")[0];
+
+
+
+			oGetMoneys.oninput = function() //监听用户的输入给出相应提示。
+			{
+				if (oGetMoneys.value == "") {
+					oGetOut.style.opacity = 0.4;
+					oKyye.innerHTML = "当前零钱余额：" + yue + "元"
+				} else {
+					var paroGetMoneys = parseFloat(oGetMoneys.value);
+					var sxf = paroGetMoneys * 0.001;
+					var sjdz = paroGetMoneys - sxf;
+					var sd = parseFloat(yue) + parseFloat(paroGetMoneys);
+					//oGetMoneys.value=sjdz.toFixed(2);
+					// oKyye.innerHTML = "额外扣除￥" + sxf.toFixed(2) + "手续费（费率0.1%）";
+					oKyye.innerHTML = "充值后余额￥" + sd;
+					oGetOut.style.opacity = 1;
+					//这里就可以进行与后台交互的操作比如ajax操作等。
+				}
+			};
+
+
+
+		};
+		function closeWin(){
+		    api.closeWin({
+		    });
+		}
+	</script>
+
+</html>

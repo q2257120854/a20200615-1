@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "预约预定订单下单",
+  "enablePullDownRefresh": false,
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

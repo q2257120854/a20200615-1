@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "直播列表",
+  "component": true,
+  "usingComponents": {
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

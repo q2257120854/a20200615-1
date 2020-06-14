@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{margin:0;padding:0;height:100%;font-family:"microsoft YaHei","Î¢ÈíÑÅºÚ";background:#f1f2f7;}
+
+/*rong add*/
+.card_title { color:#f06724; font-size:14px; width:868px; height:40px; background-color:#fdf6ec; border:1px dashed #fdddb9; position:relative; margin-bottom:20px;}
+.card_title i { width:20px; height:20px; background:url(card_title_tip.gif) no-repeat;position:absolute; left:0; top:0;}
+.card_title span { padding-left:30px; line-height:42px;}
+.optionsBox a strong.member{ font-size:14px; color:#5b5b5b; line-height:44px; height:44px; width:129px; display:block; text-align:center; }
+.optionsBox a.choised strong.member { color:#4a94d3}
+.optionsBox a:hover strong.member { color:#4a94d3}
+table.banklist {border-collapse: collapse; width:100%; text-align:center; background:#d7d7d7; margin:24px 0;}
+table.banklist tr { background:#fff;}
+table.banklist tr.first_line { background:#f2f2f2;}
+table.banklist, table.banklist td, table.banklist th {border: solid 1px #d7d7d7; line-height:34px; font-size:12px;}
+table.banklist th{ color:#595959; font-weight:bold;}
+table.banklist td { color:#222222;}
+table.banklist td a { color:#3c94d8; text-decoration:none;}
+table.banklist td a:hover { text-decoration:underline;}

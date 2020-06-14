@@ -1,0 +1,64 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    
+    <div class="form-group">
+        <label for="c-id" class="control-label col-xs-12 col-sm-2">{:__('id')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-id" data-rule="required" class="form-control" name="row[id]" type="text" value="{$row.id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-uid" class="control-label col-xs-12 col-sm-2">{:__('uid')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-uid" data-rule="required" class="form-control" name="row[uid]" type="text" value="{$row.uid}">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="c-money" class="control-label col-xs-12 col-sm-2">{:__('money')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-money" data-rule="" class="form-control" name="row[money]" type="text" value="{$row.money}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-num" class="control-label col-xs-12 col-sm-2">{:__('num')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-num" data-rule="" class="form-control" name="row[num]" type="text" value="{$row.num}">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="c-xiazhu" class="control-label col-xs-12 col-sm-2">{:__('xiazhu')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-xiazhu" data-rule="required" class="form-control" name="row[xiazhu]" type="number" value="{$row.xiazhu}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-result" class="control-label col-xs-12 col-sm-2">{:__('result')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[result]', ['1'=>__('yes'), '0'=>__('no')], $row['result'])}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="c-createtime" class="control-label col-xs-12 col-sm-2">{:__('createtime')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-createtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[createtime]" type="text" value="{$row.createtime|datetime}">
+        </div>
+    </div>
+     
+    <div class="form-group">
+        <label for="c-numx" class="control-label col-xs-12 col-sm-2">{:__('numx')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-numx" data-rule="required" class="form-control" name="row[numx]" type="text" value="{$row.numx}">
+        </div>
+    </div>
+    
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

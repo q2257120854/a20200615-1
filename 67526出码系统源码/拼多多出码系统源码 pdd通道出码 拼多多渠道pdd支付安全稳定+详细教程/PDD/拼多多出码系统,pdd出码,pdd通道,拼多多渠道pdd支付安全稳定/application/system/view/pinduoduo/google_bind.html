@@ -1,0 +1,39 @@
+{include file="block/layui" /}
+<style type="text/css">
+    .layui-quote-diy{color:#88754d;background:#fef8e2;}
+    .layui-form-label{min-width:110px;}
+</style>
+{if condition="!$user->client"}
+<blockquote class="layui-elem-quote layui-quote-nm layui-quote-diy">
+    当前账号没绑定商户，请先联系管理员绑定商户
+</blockquote>
+{else/}
+<blockquote class="layui-elem-quote layui-quote-nm layui-quote-diy">
+    使用Google验证器扫描二维码，或输入秘钥进行绑定
+</blockquote>
+<div class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">二维码：</label>
+        <div class="layui-input-inline">
+            <div id="output"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">秘钥：</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input layui-bg-gray" value="{$secret}" readonly/>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC_JS__/jquery.2.1.4.min.js"></script>
+<script src="__PUBLIC_JS__/jquery.qrcode.min.js"></script>
+<script>
+    jQuery(function(){
+        jQuery('#output').qrcode({
+            width: 200,
+            height: 200,
+            text: '{$qrCodeUrl}'
+        });
+    });
+</script>
+{/if}

@@ -1,0 +1,171 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">订单号：</label>
+        <div class="layui-input-inline">
+            <input type="text" name="order_sn" class="layui-input"  placeholder="请填写订单号">
+        </div>
+        <label class="layui-form-label">商户订单号：</label>
+        <div class="layui-input-inline">
+            <input type="text" name="api_order_sn" class="layui-input"  placeholder="请填写商户订单号">
+        </div>
+        <label class="layui-form-label">代理商：</label>
+        <div class="layui-input-inline" id="agent">
+            <select name="agent" lay-filter="agent"  lay-verify="required" lay-search="">
+                <option value="">选择或搜索代理商</option>
+                {if condition="ADMIN_ID==1"}
+                <option value="">全部</option>
+                {/if}
+                {volist name="list" id="vo"}
+                <option value="{$vo.id}">{$vo.nick}</option>
+                {/volist}
+            </select>
+        </div>
+        <label class="layui-form-label">日期</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="date" id="date" placeholder="请选择日期范围">
+        </div>
+        <label class="layui-form-label">来源：</label>
+        <div class="layui-input-inline">
+            <select name="client">
+                <option value="">全部</option>
+                <option value="-1">自行出码</option>
+                {foreach $clients as $v}
+                <option value="{$v.id}">{$v.nick}</option>
+                {/foreach}
+            </select>
+        </div>
+        <label class="layui-form-label">支付：</label>
+        <div class="layui-input-inline">
+            <select name="is_pay">
+                <option value="">全部</option>
+                <option value="1">是</option>
+                <option value="2">否</option>
+            </select>
+        </div>
+        <label class="layui-form-label">支付方式：</label>
+        <div class="layui-input-inline">
+            <select name="pay_type">
+                <option value="">全部</option>
+                <option value="38">微信</option>
+                <option value="9">支付宝</option>
+            </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+
+<table class="layui-hide" id="orders"></table>
+<div class="statistical" style="padding: 20px 10px;">
+    总金额：<span class="total" style="color: red;"></span>元
+</div>
+<script>
+    layui.use(['form','jquery','table','laydate'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        var laydate = layui.laydate;
+        table.render({
+            elem: '#orders'
+            ,url:'{:url('pinduoduo/orders')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'id', title: 'ID',width: 80}
+                ,{field:'nick', title: '代理商',width:100}
+                ,{field:'stores_name', title: '店铺名',width:140}
+                ,{field:'order_sn', title: '订单号',width: 200}
+                ,{field:'api_order_sn', title: '商户订单号',width: 200}
+                ,{field:'total', title: '金额',width: 80}
+                ,{field:'is_pay', title: '支付',width: 60}
+                ,{field:'from_platform', title: '订单来源',width: 100}
+                ,{field:'phone', title: '下单手机',width: 120}
+                ,{field:'goods_id', title: '商品ID',width: 110}
+                // ,{field:'receive', title: '收货',width: 65}
+                ,{field:'pay_type', title: '方式',width: 80}
+                ,{field:'ctime', title: '下单时间',width: 180}
+            ]]
+            ,done: function(res, curr, count){
+                console.log(res)
+                $(".statistical .total").text(res.total);
+            }
+        });
+        //日期范围
+        laydate.render({
+            elem: '#date'
+            ,range: "~"
+            ,max: getNowFormatDate()
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('orders', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        order_sn: $("input[name=order_sn]").val(),
+                        api_order_sn: $("input[name=api_order_sn]").val(),
+                        agent: $("select[name=agent]").val(),
+                        staff: $("select[name=staff]").val(),
+                        date: $("input[name=date]").val(),
+                        client: $("select[name=client]").val(),
+                        is_pay: $("select[name=is_pay]").val(),
+                        pay_type: $("select[name=pay_type]").val()
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            ids=new Array();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        form.on('select(agent)', function(data){
+            var admin_uid=data.value;
+            $.post('{:url('pinduoduo/getstaffs')}',{
+                admin_uid:admin_uid
+            },function (res) {
+                console.log(res);
+                $('.staff').remove();
+                if (res.data.length>0){
+                    var html='<div class="layui-input-inline staff" >';
+                    html+='<select class="layui-input" name="staff" lay-ignore>';
+                    html+='<option value="">选择员工</option>';
+                    html+='<option value="">全部</option>';
+                    res.data.forEach(function (val) {
+                        html+='<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+                    html+='</select></div>';
+                    $('#agent').after(html);
+                    form.render('select', 'select');
+                }
+            })
+        });
+        //获取当前时间，格式YYYY-MM-DD
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            return currentdate;
+        }
+    });
+</script>
+<style>
+    .layui-form-label{
+        min-width: initial !important;
+        width: initial !important;
+    }
+</style>

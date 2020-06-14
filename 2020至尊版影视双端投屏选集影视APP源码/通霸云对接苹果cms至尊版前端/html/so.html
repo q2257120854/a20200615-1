@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link type="text/css" href="../css/h5-aura.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<div class="m-search-full m-search-full-bgfff">
+					<section class="m-header-search m-search-page">
+						<div class="header-search-box">
+							<a class="logo-iqiyi"></a>
+							<div class="header-searchInput">
+								<form action="javascript:void(0);">
+									<input id="ff_wd" placeholder="" type="search" autovalue="" autocomplete="off" class="search-input">
+									<i class="c-glyphicon c-glyphicon-search"></i>
+									<i class="c-glyphicon c-glyphicon-close" style="display: none;"></i>
+								</form>
+							</div>
+							<div id="clso" class="header-searchBtn">
+								<a id="soid" onclick="sosuo()" class="c-btn btn-search">搜索</a>
+								<div>
+									<a id="qxid" onclick="closeWin()" class="c-btn btn-search">取消</a>
+
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="header-search-suggest">
+								<ul id="lsjl" class="list-suggest" style="display: none;"></ul>
+								<div>
+									<div id="ls" class="search-item" style="display: none;">
+										<div class="search-title">
+											<div class="c-title">
+												搜索历史
+											</div><a onclick="qklsjl()" class="c-clearRecord">清空记录</a>
+										</div>
+										<div id="xsjl" class="search-list">
+											<a onclick="sosuols('1212')" class="c-link">1212</a>
+										</div>
+
+									</div>
+									<div id="remen" class="search-item search-hot-item" style="display: none;">
+										<div class="search-title">
+											<div class="c-title">
+												热门搜索
+											</div>
+										</div>
+										<div id="xsremen" class="search-list">
+											<a href="javascript:void(0)" class="c-link">奔跑吧兄弟</a>
+											<a href="javascript:void(0)" class="c-link">破冰行动</a>
+											<a href="javascript:void(0)" class="c-link">海贼王</a>
+											<a href="javascript:void(0)" class="c-link">向往的生活</a>
+											<a href="javascript:void(0)" class="c-link">极限挑战</a>
+											<a href="javascript:void(0)" class="c-link">少年派</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+			</div>
+
+	</body>
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+
+		setInterval(function() {
+			var so = $api.byId('soid');
+			var qx = $api.byId('qxid');
+
+			var myval = document.getElementById('ff_wd').value;
+			if (!myval) {
+				$api.attr(so, 'style', 'display: none;');
+				$api.attr(qx, 'style', '');
+			} else {
+				$api.attr(so, 'style', '');
+				$api.attr(qx, 'style', 'display: none;');
+
+			}
+		}, 100);
+		apiready = function() {
+			var xsls = $api.byId('ls');
+			var xsls1 = $api.byId('xsjl');
+			api.ajax({
+				url: api_url + 'login/login/xscxjl',
+				method: 'get',
+				data: {
+					values: {
+						username: localStorage.getItem('user_id'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					if (ret['sl'] > 0) {
+						$api.attr(xsls, 'style', '');
+						var html = "";
+						var banner = ret.ldjl;
+						if(ret['sl']>6){
+							var sdj=6;
+						}else{
+							var sdj=ret['sl'];
+						}
+						for (ii = 1; ii <= sdj; ii++) {
+							var i1 = ii - 1;
+							item = banner[i1];
+							html += "<a onclick=\"sosuols('" + item.title + "')\"  class='c-link'>" + item.title + "</a>";
+						}
+						xsls1.innerHTML = html;
+					}
+
+				}
+			});
+
+			var remen = $api.byId('remen');
+			var xsremen = $api.byId('xsremen');
+			api.ajax({
+				url: api_url + 'login/login/remenso',
+				method: 'get',
+				data: {
+					values: {}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					var sd = ret[0]['sotuij'];
+					var ss = sd.split(',');
+					if (ss.length == 1 && ss[0] == "") {
+						$api.attr(remen, 'style', 'display: none;');
+						return;
+					}
+					if (ss.length > 0) {
+						$api.attr(remen, 'style', '');
+						var html = "";
+						for (ii = 1; ii <= ss.length; ii++) {
+							var i1 = ii - 1;
+							html += "<a onclick=\"sosuols('" + ss[i1] + "')\"  class='c-link'>" + ss[i1] + "</a>";
+						}
+						xsremen.innerHTML = html;
+					} else {
+						$api.attr(remen, 'style', 'display: none;');
+					}
+
+				}
+			});
+
+
+
+		};
+
+		function sosuo() {
+			var myval = document.getElementById('ff_wd').value;
+
+			api.ajax({
+				url: api_url + 'login/login/tjcxjl',
+				method: 'get',
+				data: {
+					values: {
+						username: localStorage.getItem('user_id'),
+						spname: myval,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+
+					api.openWin({
+						name: 'soxs',
+						url: './soxs.html',
+						pageParam: {
+							name: myval
+						}
+					});
+
+				}
+			});
+
+
+
+
+		}
+
+		function sosuols(name) {
+			api.ajax({
+				url: api_url + 'login/login/gxcxjl',
+				data: {
+					values: {
+						username: localStorage.getItem('user_id'),
+						spname: name,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+
+					api.openWin({
+						name: 'soxs',
+						url: './soxs.html',
+						pageParam: {
+							name: name
+						}
+					});
+
+				}
+			});
+
+
+
+
+
+		}
+
+		function qklsjl() {
+			api.ajax({
+				url: api_url + 'login/login/qkjl',
+				data: {
+					values: {
+						username: localStorage.getItem('user_id'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					alert('清空成功');
+
+				}
+			});
+		}
+
+		function closeWin() {
+			api.closeWin();
+		}
+	</script>
+</html>

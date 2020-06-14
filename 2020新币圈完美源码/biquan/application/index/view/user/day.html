@@ -1,0 +1,219 @@
+<style>
+    .profile-avatar-container {
+        position: relative;
+        width: 100px;
+    }
+    .profile-avatar-container .profile-user-img {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-avatar-container .profile-avatar-text {
+        display: none;
+    }
+    .profile-avatar-container:hover .profile-avatar-text {
+        display: block;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: #444;
+        opacity: .6;
+        color: #fff;
+        top: 0;
+        left: 0;
+        line-height: 100px;
+        text-align: center;
+    }
+    .profile-avatar-container button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+</style>
+<div id="content-container" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2 class="page-header">{$title}</h2>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="one">
+                            <div class="widget-body no-padding">
+                                <div class="bootstrap-table">
+                                    <div class="fixed-table-toolbar">
+                                        <div class="bs-bars pull-left">
+                                            <div id="toolbar" class="toolbar">
+ 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fixed-table-container" style="padding-bottom: 0px;">
+                                        <div class="fixed-table-header" style="display: none;">
+                                            <table></table>
+                                        </div>
+                                        <div class="fixed-table-body">
+                                            <div class="fixed-table-loading" style="top: 42px; display: none;">
+                                                正在努力地加载数据中，请稍候……
+                                            </div>
+                                            
+                                            <table id="table" class="table table-striped table-bordered table-hover"
+                                                   data-operate-edit="1" data-operate-del="1" width="100%">
+                                                <thead>
+                                                <tr>
+                                                    <th class="bs-checkbox "
+                                                        style="text-align: center; vertical-align: middle; width: 36px; "
+                                                        data-field="0">
+                                                        <div class="th-inner ">
+                                                            <input name="btSelectAll" type="checkbox"
+                                                                   onclick="btSelectAll(this)"/>
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="id">
+                                                        <div class="th-inner sortable both">
+                                                            ID
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                    
+                                    
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            充值
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            提现
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            游戏
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            赔付
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            余额
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                        
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            提成
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+
+                                                      
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="point">
+                                                        <div class="th-inner sortable both">
+                                                            创建时间
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                   
+                                                </tr>
+                                                </thead>
+                                                <tbody data-listidx="0">
+                                                {volist name="list" id="vo"}
+                                                <tr >
+                                                    <td class="bs-checkbox "><input 
+                                                                                    name="btSelectItem[]"
+                                                                                    type="checkbox"/></td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['id']}
+                                                    </td>
+
+                                                    
+                                                    <td style="text-align: center; vertical-align: middle; " >
+                                                        {$vo['wup']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['wdown']}
+                                                    </td>
+                                                     <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['allin']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                     {$vo['allout']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; "  >
+                                                        {$vo['point']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['awardok']}
+                                                    </td>
+                                                   
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['createtime']}
+                                                    </td>
+                                                    
+                                                    
+                                                </tr>
+                                                {/volist}
+                                                </tbody>
+                                            </table>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-layer {
+        height: 100%;
+        min-height: 150px;
+        min-width: 300px;
+    }
+    .form-body {
+        width: 100%;
+        overflow: auto;
+        top: 0;
+        position: absolute;
+        z-index: 10;
+        bottom: 50px;
+        padding: 15px;
+    }
+    .form-layer .form-footer {
+        height: 50px;
+        line-height: 50px;
+        background-color: #ecf0f1;
+        width: 100%;
+        position: absolute;
+        z-index: 200;
+        bottom: 0;
+        margin: 0;
+    }
+    .form-footer .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>
+ 

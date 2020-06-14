@@ -1,0 +1,11 @@
+服务器Linux，环境apache PHP 7.2 mysql5.5 指定目录public
+数据库配置文件在config目录database.php修改成你的数据库信息
+UpdUserStatus.sh
+UpdGoodsStatus.sh
+修改成你自己的文件目录
+
+默认地址域名/admin.php
+默认账号密码admin 1234567
+
+测试商户账户yyy 12345678
+

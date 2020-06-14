@@ -1,0 +1,160 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">店铺：</label>
+        <div class="layui-input-inline" >
+            <select name="stores" lay-search="">
+                <option value="">选择或搜索店铺</option>
+                {if condition="ADMIN_ID==1"}
+                <option value="">全部</option>
+                {/if}
+                {volist name="list" id="item"}
+                <option value="{$item.id}">{$item.name}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+<table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+<script type="text/html" id="toolbar">
+    <div class="layui-btn-group fl">
+        <a data-href="{:url('stores_status?val=1')}" class="layui-btn layui-btn-primary layui-btn-sm hisi-page-btns layui-icon layui-icon-play" data-table="dataTable">&nbsp;启用</a>
+        <a data-href="{:url('stores_status?val=0')}" class="layui-btn layui-btn-primary layui-btn-sm hisi-page-btns layui-icon layui-icon-pause" data-table="dataTable">&nbsp;禁用</a>
+    </div>
+</script>
+<script type="text/html" id="buttonTpl">
+    <form>
+        <input type="checkbox"  class="layui-btn-sm" data-id="{{d.id }}" {{d.status==1?'checked':''}}  lay-skin="switch" lay-filter="StatusSwitch" lay-text="启用|禁用">
+    </form>
+</script>
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#dataTable'
+            ,url:'{:url('pinduoduo/stores')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,toolbar: '#toolbar'
+            ,cols: [[
+                {type:'checkbox'}
+                ,{field:'id', title: 'ID',width: 80, sort: true}
+                ,{field:'name', title: '店铺',edit: 'text', width:120}
+                ,{field:'admin_name', title: '代理商', width:110}
+                ,{field:'store_remain_total', title: '每日限额(不限填0)',edit:'number', width:120}
+                ,{field:'order_total', title: '今日下单', sort: true, width:110}
+                ,{field:'cur_total', title: '今日成团', sort: true, width:110}
+                ,{field:'scale', title: '成功率', sort: true, width:110}
+                ,{field:'ctime', title: '添加时间', sort: true, width:180}
+                ,{title: '操作',width: 100, templet: '#buttonTpl'}
+            ]]
+        });
+        var tip_index = 0;
+        $(document).on('mouseenter', 'td[data-field="name"]', function(){
+            console.log(this);
+            tip_index = layer.tips('点击店铺名称可以修改', this, {time: 2000});
+        }).on('mouseleave', this, function(){
+            layer.close(tip_index);
+        });
+
+        var tip_index = 0;
+        $(document).on('mouseenter', 'td[data-field="store_remain_total"]', function(){
+            console.log(this);
+            tip_index = layer.tips('不限填0', this, {time: 2000});
+        }).on('mouseleave', this, function(){
+            layer.close(tip_index);
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('dataTable', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        stores: $("select[name=stores]").val(),
+                        agent: $("select[name=agent]").val()
+                    }
+                });
+            }
+        };
+        //监听单元格编辑
+        table.on('edit(dataTable)', function(obj){
+            var value = obj.value //得到修改后的值
+                ,data = obj.data //得到所在行所有键值
+                ,field = obj.field; //得到字段
+            if (field=='name'){
+                var id=data.id;
+                var name=value;
+                var flag=true;
+                if (!name){
+                    layer.msg("店铺名称不能为空");
+                    flag = false;
+                    return;
+                }
+                if (flag) {
+                    $.ajax({
+                        type:"POST",
+                        url: "{:url('pinduoduo/stores_rename')}",
+                        data:{
+                            id:id
+                            ,name:name
+                        },
+                        success: function(res){
+                            layer.msg(res.msg);
+                            if (res.status){
+                                self.location.reload();
+                            }
+                        }
+                    });
+                }
+            }
+            if (field=='store_remain_total') {
+                let id = data.id;
+                let store_remain_total = value;
+                let flag = true;
+                if (flag) {
+                    $.post('{:url('pinduoduo/stores_remain_total')}', {
+                        id: id,
+                        store_remain_total: store_remain_total
+                    }, function (res) {
+                        console.log(res);
+                        layer.msg(res.msg, {
+                            time: 2000,
+                            closeBtn: 0
+                        });
+                    })
+                }
+            }
+        });
+        $('#search').on('click', function () {
+            ids=new Array();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        form.on('switch(StatusSwitch)', function(data){
+            let id=data.elem.dataset.id;
+            let status=this.checked?1:0;
+            $.post('{:url('pinduoduo/stores_status')}',{
+                id:id,
+                val:status
+            },function (res) {
+                console.log(res);
+                layer.msg(res.msg, {
+                    time: 2000,
+                    closeBtn: 0
+                });
+                if(res.status==0){
+                    $(data.elem).prop("checked", data.elem.defaultChecked);
+                    form.render();
+                }
+            })
+        });
+    });
+</script>

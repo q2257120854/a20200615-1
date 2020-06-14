@@ -1,0 +1,84 @@
+{
+  "clearInfo": {
+    "clearUrl": "/api/clear.json"
+  },
+  "homeInfo": {
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": "/index/index/index"
+  },
+  "logoInfo": {
+    "title": "管理系统",
+    "image": "/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": {
+    "currency": {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        
+        {
+          "title": "点卡管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "点卡生成",
+              "href": "/index/dianka/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "有效点卡",
+              "href": "/index/dianka/ylog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "点卡使用记录",
+              "href": "/index/dianka/slog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "用户管理",
+              "href": "/index/vip/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "代理管理",
+              "href": "/index/user/index",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "充值记录",
+              "href": "/index/user/clog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "开通记录",
+              "href": "/index/user/xlog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        }
+        
+      ]
+    }
+    
+  }
+}

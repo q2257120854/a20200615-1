@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+
+		<link type="text/css" href="../css/h5-aura1wdb.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-mine-aura1wdb.css" rel="stylesheet" />
+
+	</head>
+	<body>
+
+		<div>
+
+			<div>
+				<div>
+
+					<div icon="c-tabNav-screen" title="筛选" cname="dianshiju">
+						<div class="m-box-items m-box-items-full">
+							<div>
+
+								<section name="m-tagSearch" class="m-sortList-wrap m-sliding sortList-border">
+									<ul id="shaixuan1" class="m-sortList m-sliding-list" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px) scale(1) translateZ(0px);">
+										<!-- <li onclick="setFrameGroupIndex( this,0 );" style="pointer-events: auto;">
+											<a   class="c-sortlist-item selected">
+												全部
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a onclick="setFrameGroupIndex( this );" class="c-sortlist-item ">
+												内地
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a  onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												香港
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a  onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												韩国
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a  onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												欧美
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a  onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												日本
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a  onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												台湾
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												海外
+											</a>
+										</li>
+										<li style="pointer-events: auto;">
+											<a onclick="setFrameGroupIndex( this );" class="c-sortlist-item">
+												其他
+											</a>
+										</li> -->
+									</ul>
+								</section>
+
+							</div>
+						</div>
+
+						<div name="m-searchList" class="m-box-items m-box-items-full">
+							<section class="m-pic m-pic-vertical">
+								<ul id="div_list_f" class="m-pic-list m-sliding-list">
+
+
+
+								</ul>
+							</section>
+
+						</div>
+
+						<div id="geng">
+							<!-- <div onclick="jzgd()" class="m-box-items m-box-items-full">
+								<section class="m-loading-info">
+									<div class="c-info">点击加载更多... </div>
+								</section>
+							</div> -->
+						</div>
+						<div onclick="dingbu()" class="m-sideBar" style="">
+							<div>
+								<a href="javascript:void(0)" class="m-goTop"><i class="c-glyphicon c-glyphicon-arrowUp"></i><span>顶部</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+
+	<script type="text/x-dot-template" id="navcattpl">
+		{{~ it.data : value : index }}
+    <li>
+    <div tapmode onclick="bofang('{{= value. vod_id }}')" class="piclist-img">
+				<a  class="piclist-link" style='background-image: url("{{= value. vod_pic }}");'>
+					<div class="c-rt">
+						<i class="c-picicon c-picicon-pay"></i>
+					</div>
+					<div class="c-lb"><!----></div>
+					<div class="c-rb">
+						<span class="c-date">{{= value. vod_remarks }}</span>
+					</div>
+					<div class="c-lt"></div>
+					<div class="c-lrb"><!----></div>
+				</a>
+			</div>
+			<div class="piclist-title">
+				<div class="c-title">
+					<a onclick="">{{= value. vod_name }}</a>
+				</div>
+			</div>
+</li>
+    {{~}}
+
+</script>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var djapi_url = localStorage.getItem('djapi_url');
+		var leixing = 0;
+		var yeshu = 1;
+		var shaixuan;
+		var yj_yyms = localStorage.getItem('rj_yyms');
+		
+		apiready = function() {
+
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/ffenl',
+				method: 'get',
+				data: {
+					values: {
+						id: leixing,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					var ss = $api.byId('shaixuan1');
+					var sl = ret.length;
+					if (sl > 0) {
+						for (var i = 0; i < sl; i++) {
+							var i1 = i + 1;
+							if (i == 0) {
+								ss.innerHTML += '<li style="pointer-events: auto;"><a onclick="setFrameGroupIndex( this,' + ret[i].type_id +
+									' );" class="c-sortlist-item selected ">' + ret[i].type_name + '</a></li>';
+								shaixuan = ret[i].type_id;
+								hqdy();
+							} else {
+								ss.innerHTML += '<li style="pointer-events: auto;"><a onclick="setFrameGroupIndex( this,' + ret[i].type_id +
+									' );" class="c-sortlist-item ">' + ret[i].type_name + '</a></li>';
+							}
+						}
+					}else{
+						shaixuan = leixing;
+						hqdy();
+					}
+				}
+
+			});
+			
+
+
+
+
+
+
+			//下拉刷新
+			api.setCustomRefreshHeaderInfo({
+				bgColor: '#fff',
+				images: [
+					'widget://image/app/xiala/1.png',
+					'widget://image/app/xiala/2.png',
+					'widget://image/app/xiala/3.png',
+					'widget://image/app/xiala/4.png',
+					'widget://image/app/xiala/5.png',
+					'widget://image/app/xiala/6.png',
+					'widget://image/app/xiala/7.png',
+					'widget://image/app/xiala/8.png',
+				],
+				tips: {
+					pull: '下拉刷新！',
+					threshold: '松开立即刷新！',
+					load: '正在刷新'
+				}
+
+			}, function() {
+
+				hqdy();
+
+				//下拉刷新被触发，自动进入加载状态，使用 api.refreshHeaderLoadDone() 手动结束加载中状态
+				setTimeout(function() {
+					api.refreshHeaderLoadDone()
+				}, 3000);
+			});
+			//下拉刷新
+
+
+		};
+
+		function bofang(url) {
+			var time = localStorage.getItem('user_time');
+			var user_id = localStorage.getItem('user_id');
+			var username = localStorage.getItem('user_name');
+			var timestamp = Date.parse(new Date()) / 1000;
+			
+			if (user_id < 1) {
+				api.toast({
+					msg: '通霸云影视提醒！你还没登陆！',
+					duration: 5000
+				});
+				api.openWin({
+					name: 'login',
+					url: './login.html',
+					delay: 2000
+				});
+				return;
+			}
+			if(yj_yyms=='0'){
+				api.openWin({
+					name: 'play',
+					url: './play.html',
+					pageParam: {
+						id: url
+					}
+				});
+				return;
+			}
+			if (time > timestamp) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get',
+					data: {
+						values: {
+							key: localStorage.getItem('anq_key'),
+						}
+					}
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: 'VIP登录'
+						});
+						setTimeout("playRadio();", 1000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: url
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time == -1) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get',
+					data: {
+						values: {
+							key: localStorage.getItem('anq_key'),
+						}
+					}
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: '永久VIP登录'
+						});
+						setTimeout("playRadio();", 2000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: url
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time < timestamp) {
+				VipExpiredHint();
+			}
+
+		}
+
+		function dingbu() {
+			api.pageUp({
+				top: true
+			}, function(ret, err) {
+				//coding...
+			});
+		}
+
+		function setFrameGroupIndex(tag, onl) {
+
+			if (tag == $api.dom('#shaixuan1 a.c-sortlist-item selected')) return;
+			var eFootLis = $api.domAll('#shaixuan1 a'),
+				index = 0;
+			for (var i = 0, len = eFootLis.length; i < len; i++) {
+				if (tag == eFootLis[i]) {
+					index = i;
+				} else {
+					$api.removeCls(eFootLis[i], 'selected');
+				}
+			}
+			$api.addCls(eFootLis[index], 'selected');
+			if (shaixuan != index) {
+				yeshu = 1;
+			}
+			shaixuan = onl;
+			hqdy();
+
+		}
+
+		function hqdy() {
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			var sd = $api.byId('geng');
+			// 添加广告
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/dsjsy1',
+				data: {
+					values: {
+						shaix: shaixuan,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					//电视剧
+					if (ret.dsj.data.length > 0) {
+						var pagefn = doT.template(navtpl.text);
+						navid.innerHTML = pagefn(ret.dsj);
+						sd.innerHTML =
+							'<div onclick="jzgd()" class="m-box-items m-box-items-full"><section class="m-loading-info"><div class="c-info">点击加载更多... </div></section></div>';
+					} else {
+						navid.innerHTML = '';
+						sd.innerHTML =
+							'<section class="m-noRecord"><div class="c-icon-noRecord"></div> <div class="c-info">当前分类没有视频,请直接搜索您想看的视频!</div></section>';
+						return;
+					}
+
+					//      alert( JSON.stringify( ret ) );
+
+				}
+
+
+			});
+
+
+		}
+
+		function jzgd() {
+			var navid = $api.byId('div_list_f');
+			var navtpl = $api.byId('navcattpl');
+			// 添加广告
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/dsjjzgd1',
+				data: {
+					values: {
+						yema: yeshu + 1,
+						shaix: shaixuan,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					//电视剧
+					if (ret.code == 0) {
+						api.toast({
+							msg: ret.msg,
+							duration: 5000
+						});
+						return;
+					} else {
+						var pagefn = doT.template(navtpl.text);
+						navid.innerHTML += pagefn(ret.dsj);
+						//      alert( JSON.stringify( ret ) );
+						yeshu = yeshu + 1;
+					}
+				}
+
+
+			});
+
+
+		}
+	</script>
+</html>

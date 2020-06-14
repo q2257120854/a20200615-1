@@ -1,0 +1,85 @@
+<style type="text/css">
+    .hui{color:#aaa !important;}
+    .pointer{cursor:pointer;}
+    .cash_fee{display:inline-block;min-width:30px;color:#666 !important;}
+</style>
+<div style="padding:20px;">
+    <div class="layui-form menu-dl ">
+        <form class="page-list-form">
+            {volist name="list" id="vo"}
+            <dl class="menu-dl1">
+                <dt>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>{$vo->nick}</span></div>
+                    <input type="checkbox" name="status" value="1" {$vo->status == 1 ? 'checked' : ''} lay-skin="switch" lay-filter="switchStatus" lay-text="正常|关闭" data-href="{:url('user/status')}?table=admin_user&id={$vo->id}">
+                    <div class="menu-btns">
+                        <a data-href="{:url('user/delUser')}?id={$vo->id}" class="layui-btn layui-btn-xs layui-btn-danger j-tr-del pointer" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                    </div>
+                </dt>
+                <dd>
+                    <dl class="menu-dl2">
+                        <dt>
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" style="float:left;"><span class="hui">商户id</span></div>
+                            <div style="line-height:18px;"><span class="hui">{$vo->client->client_id}</span></div>
+                        </dt>
+                        <dt>
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" style="float:left;"><span class="hui">商户密钥</span></div>
+                            <div style="line-height:18px;"><span class="hui">{$vo->client->client_secret}</span></div>
+                        </dt>
+                        <dt>
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" style="float:left;"><span class="hui">商户余额</span></div>
+                            <div style="line-height:18px;"><span class="hui">{$vo->client->total}</span></div>
+                        </dt>
+                        <dt>
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary" style="float:left;"><span class="hui">商户费率</span></div>
+                            <div style="line-height:18px;"><span class="hui cash_fee" _id="{$vo->client->id}" contenteditable>{$vo->client->cash_fee}</span></div>
+                        </dt>
+                        {volist name="vo['child']" id="vvo"}
+                        {if condition="$vvo->id != $vo->id"}
+                        <dt>
+                            <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>{$vvo->nick}</span></div>
+                            <input type="checkbox" name="status" value="1" {$vvo->status == 1 ? 'checked' : ''} lay-skin="switch" lay-filter="switchStatus" lay-text="正常|关闭" data-href="{:url('user/status')}?table=admin_user&id={$vvo->id}">
+                            <div class="menu-btns">
+                                <a data-href="{:url('user/delUser')}?id={$vvo->id}" class="layui-btn layui-btn-xs layui-btn-danger j-tr-del pointer" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                            </div>
+                        </dt>
+                        {/if}
+                        {/volist}
+                    </dl>
+                </dd>
+            </dl>
+            <div style="height:20px;"></div>
+            {/volist}
+        </form>
+    </div>
+</div>
+{include file="block/layui" /}
+<script type="text/javascript">
+    layui.use(['jquery', 'layer'], function() {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        $(document).ajaxComplete(function(e, o, res){
+            if (res.url.search('deluser') > -1) {
+                location.reload();
+            }
+        });
+        var last_value = null;
+        $('.cash_fee').focus(function(){
+            last_value = parseFloat($(this).html());
+        }).blur(function(){
+            var cash_fee = parseFloat($(this).html());
+            if (isNaN(cash_fee)) {
+                layer.msg('请输入有效数值!');
+                return;
+            }
+            if (last_value != cash_fee) {
+                var id = $(this).attr('_id');
+                $.post('{:url("client_fee")}', {
+                    cash_fee: cash_fee,
+                    id: id
+                }, function (data) {
+                    layer.msg(data.msg);
+                });
+            }
+        });
+    });
+</script>

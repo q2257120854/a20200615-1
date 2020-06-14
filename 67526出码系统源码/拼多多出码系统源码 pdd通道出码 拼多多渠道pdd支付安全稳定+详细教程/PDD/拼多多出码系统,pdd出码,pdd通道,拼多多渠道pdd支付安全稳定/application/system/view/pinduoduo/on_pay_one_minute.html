@@ -1,0 +1,15 @@
+{include file="block/layui" /}
+<blockquote class="layui-elem-quote">一分钟订单确认成功</blockquote>
+<script>
+    layui.use(['jquery'], function(){
+        var $ = layui.$;
+        $.ajax({
+            type: 'POST',
+            url: '',
+            timeout: 1000,
+            complete: function(){
+                console.log('超时');
+            }
+        });
+    });
+</script>

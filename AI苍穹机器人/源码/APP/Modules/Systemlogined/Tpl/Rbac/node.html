@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<meta name="description" content="Minimal empty page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/node.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="#">Home</a>
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+
+						<li>
+							<a href="#">权限管理</a>
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+					<div class="page-header position-relative">
+						<div style="text-align:left;width:100%;">
+						    <a type="button" href="{:U(GROUP_NAME.'/Rbac/addNode')}" class="btn btn-info btn-small no-border"> <i class="icon-plus icon-white"></i> 添加节点</a>
+						</div>
+					</div><!--/.page-header-->
+
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE-->
+							<div class="row-fluid">
+								<div id="wrap">
+		<a href="{:U(GROUP_NAME .'/Rbac/addNode')}" class="add-app">添加应用</a>
+
+		<foreach name="node" item="app">
+			<div class="app">
+				<p>
+					<strong class="blue">{$app.title}[<a href="{:U(GROUP_NAME .'/Rbac/addNode',array('pid'=>$app['id'],'level'=>2))}">添加控制器</a>]</strong>
+					[<a href="{:U(GROUP_NAME .'/Rbac/editNode',array('nid'=>$app['id']))}">修改</a>]
+					[<a href="{:U(GROUP_NAME .'/Rbac/deleteNode',array('nid'=>$app['id'],'type'=>1))}">删除</a>]
+				</p>
+			
+
+			<foreach name="app['child']" item="action">
+				<dl>
+					<dt>
+						<strong class="red">{$action.title}</strong>
+						[<a href="{:U(GROUP_NAME .'/Rbac/addNode',array('pid'=>$action['id'],'level'=>3))}">添加方法</a>] [<a href="{:U(GROUP_NAME .'/Rbac/editNode',array('nid'=>$action['id']))}">修改</a>] [<a href="{:U(GROUP_NAME .'/Rbac/deleteNode',array('nid'=>$action['id'],'type'=>2))}">删除</a>]
+					</dt>
+				
+				<foreach name="action['child']" item="method">
+					<dd>
+						<span>{$method.title}</span>
+						[<a href="{:U(GROUP_NAME .'/Rbac/editNode',array('nid'=>$method['id']))}">修改</a>]
+						[<a href="{:U(GROUP_NAME .'/Rbac/deleteNode',array('nid'=>$method['id'],'type'=>3))}">删除</a>]
+					</dd>
+				</foreach>
+				</dl>
+			</foreach>
+			</div>
+		</foreach>
+	</div>
+						</div><!--/row-->
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+
+				<div id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+						<i class="icon-cog"></i>
+					</div>
+
+					<div id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hidden">
+									<option data-class="default" value="#438EB9">#438EB9</option>
+									<option data-class="skin-1" value="#222A2D">#222A2D</option>
+									<option data-class="skin-2" value="#C6487E">#C6487E</option>
+									<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+							</div>
+							<span>&nbsp; 选择样式</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<!--basic scripts-->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/js/jquery-1.9.1.min.js'>"+"<"+"/script>");
+		</script>
+		<!--page specific plugin scripts-->
+
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+			
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+	</body>
+</html>

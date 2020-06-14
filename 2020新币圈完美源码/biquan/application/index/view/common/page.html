@@ -1,0 +1,71 @@
+<div class="pagebar pagelist">
+     {$page}
+</div>
+
+
+
+<style>
+     input::-webkit-outer-spin-button,
+     input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+     }
+     input[type="number"]{
+          -moz-appearance: textfield;
+     }
+     .pagebar{
+          width: 100%;
+          text-align: center;
+          margin: 5px;
+          padding: 2px;
+          max-height: 50px;
+          overflow: hidden;
+     }
+     .pagelist{
+          width: 100%;
+          justify-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+     }
+     .pagelist>li{
+          padding: 2px;
+          max-width: 100px;
+          min-width: 40px;
+          height: 32px;
+          line-height: 26px;
+          text-align: center;
+          margin: 1px;
+          display: block;
+          list-style-type: none;
+          background-color: #fff;
+          border: #0d95e8 1px solid;
+          color: #0d95e8;
+          border-radius: 5px;
+          overflow: hidden;
+          box-sizing: border-box;
+     }
+     .pagelist>li:hover{
+          background-color: #0d95e8;
+          color: #fff;
+     }
+     .liLabel{
+          background-color: #fff !important;
+          color: #0d1318 !important;
+     }
+     #page_now{
+          max-width: 34px !important;
+          max-height: 26px;
+          border: none ;
+          text-align: center ;
+          color: inherit;
+          background-color: inherit;
+          border-radius: 5px;
+     }
+     .pagelist>li a{
+          width: 100%;
+          display: block;
+          color: inherit;
+     }
+
+</style>
+

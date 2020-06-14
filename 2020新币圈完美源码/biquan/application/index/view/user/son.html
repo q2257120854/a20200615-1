@@ -1,0 +1,375 @@
+<style>
+    .profile-avatar-container {
+        position: relative;
+        width: 100px;
+    }
+    .profile-avatar-container .profile-user-img {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-avatar-container .profile-avatar-text {
+        display: none;
+    }
+    .profile-avatar-container:hover .profile-avatar-text {
+        display: block;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: #444;
+        opacity: .6;
+        color: #fff;
+        top: 0;
+        left: 0;
+        line-height: 100px;
+        text-align: center;
+    }
+    .profile-avatar-container button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+</style>
+<div id="content-container" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2 class="page-header">{$title}</h2>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="one">
+                            <div class="widget-body no-padding">
+                                <div class="bootstrap-table">
+                                    <div class="fixed-table-toolbar">
+                                        <div class="bs-bars pull-left">
+                                            <div id="toolbar" class="toolbar">
+
+                                                <a class="btn btn-primary btn-add" href="/index.php/index/daili/son.html?uid={$uid}&today=1"><i
+                                                        class="fa fa-address-book"></i>ID:{$uid},今天数据</a>
+
+                                                <a class="btn btn-primary btn-add" href="/index.php/index/daili/son.html?uid={$uid}&today=0"><i
+                                                        class="fa fa-address-book"></i>ID:{$uid},全部数据</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fixed-table-container" style="padding-bottom: 0px;">
+                                        <div class="fixed-table-header" style="display: none;">
+                                            <table></table>
+                                        </div>
+                                        <div class="fixed-table-body">
+                                            <div class="fixed-table-loading" style="top: 42px; display: none;">
+                                                正在努力地加载数据中，请稍候……
+                                            </div>
+                                            <script type="text/javascript">
+                                                function notice(id) {
+                                                    $('#msg').show();
+                                                    $.ajax({
+                                                        type: "post",
+                                                        dataType: "html",
+                                                        data: {"id": id},
+                                                        url: "/index.php/index/user/wx_status.html",
+                                                        success: function (d) {
+                                                            $('#wx_status' + id).html(d);
+                                                        },
+                                                        error: function () {
+                                                            $('#wx_status' + id).html('error');
+                                                        }
+                                                    })
+                                                }
+                                                function editx(id) {
+                                                    $('#add_box').hide();
+                                                    $('#msg_edit').show();
+                                                    $.ajax({
+                                                        type: "post",
+                                                        dataType: "json",
+                                                        data: {"id": id},
+                                                        url: "/index.php/index/user/wx_edit.html",
+                                                        success: function (d) {
+                                                            $('#edit_id').val(d.id);
+                                                            $('#plupload-avatar').attr('cid',d.id);
+                                                            $('#edit_wxname').val(d.wxname);
+                                                            $('#edit_code').val(d.code);
+                                                        },
+                                                        error: function () {
+                                                            //$('#wx_status'+id).html('error');
+                                                        }
+                                                    })
+                                                }
+                                            </script>
+                                            <script src="/assets/js/llqrcode.js"></script>
+                                            <script>
+                                                function showimg(id, url) {
+                                                    layer.alert('<img class="upload-qrimg" src="/merchant/businesscode/see.html?' + url + '">',
+                                                        {shadeClose: true, title: '收款码预览 ID:' + id});
+                                                }
+                                                layui.use('upload', function () {
+                                                    var upload = layui.upload;
+                                                    layui.each($('#plupload-avatar'), function (index, elem) {
+                                                        upload.render({
+                                                            elem: elem //绑定元素
+                                                            , auto: false
+                                                            , bindAction:'#goUpdata'
+                                                            , url: '/index.php/index/user/upfile.html' //上传接口
+                                                            , exts: 'jpg|png|gif|jpeg'
+                                                            , field: 'img'
+                                                            , data: {
+                                                                'id': function () {
+                                                                    return $(elem).attr('cid');
+                                                                },
+                                                                wxp:''
+                                                            }
+                                                            , done: function (res) {
+                                                                layer.open({
+                                                                    content: res.msg,
+                                                                    yes: function (index, layero) {
+                                                                        window.location.reload();
+                                                                    }
+                                                                });
+                                                            }
+                                                            , error: function () {
+                                                                //请求异常回调
+                                                            }
+                                                            , choose: function (obj) {
+                                                                var This = this;
+                                                                var files = obj.pushFile();
+                                                                Object.keys(files).forEach(key=>{
+                                                                    // 取文件
+                                                                    var file = files[key];
+                                                                    // 图片的base64值
+                                                                    // var reader = new FileReader();
+                                                                    // reader.readAsDataURL(file);
+                                                                    // reader.onload = function(e) {
+                                                                    //     console.log(this.result);
+                                                                    // }
+                                                                //     解析图片
+                                                                    qrcode.decode(window.URL.createObjectURL(file));
+                                                                    qrcode.callback = function (qr_msg) {
+                                                                        This.data.wxp=qr_msg;
+                                                                        document.querySelector('#edit_code').value=qr_msg;
+                                                                        document.querySelector('#goUpdata').removeAttribute('disabled');
+                                                                    }
+                                                                });
+                                                            }
+                                                        });
+                                                    });
+                                                });
+                                            </script>
+                                            <table id="table" class="table table-striped table-bordered table-hover"
+                                                   data-operate-edit="1" data-operate-del="1" width="100%">
+                                                <thead>
+                                                <tr>
+                                                    <th class="bs-checkbox "
+                                                        style="text-align: center; vertical-align: middle; width: 36px; "
+                                                        data-field="0">
+                                                        <div class="th-inner ">
+                                                            <input name="btSelectAll" type="checkbox"
+                                                                   onclick="btSelectAll(this)"/>
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="id">
+                                                        <div class="th-inner sortable both">
+                                                            ID
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="id">
+                                                        <div class="th-inner sortable both">
+                                                            级别
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            微信名字
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            充值
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            提现
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            游戏
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            余额
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            比例%
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            提成
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+
+     <!--                                                 <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="amount">
+                                                        <div class="th-inner sortable both">
+                                                            下级数
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th> -->
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="point">
+                                                        <div class="th-inner sortable both">
+                                                            创建时间
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="logintime">
+                                                        <div class="th-inner sortable both">
+                                                            开启状态
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                    <th style="text-align: center; vertical-align: middle; "
+                                                        data-field="operate">
+                                                        <div class="th-inner ">
+                                                            操作
+                                                        </div>
+                                                        <div class="fht-cell"></div>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody data-listidx="0">
+                                                {volist name="list" id="vo"}
+                                                <tr >
+                                                    <td class="bs-checkbox "><input 
+                                                                                    name="btSelectItem[]"
+                                                                                    type="checkbox"/></td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['id']}
+                                                    </td>
+
+                                                    <td style="text-align: center; vertical-align: middle; "> {$vo['son_lever']}</td> 
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['username']} {$vo['nickname']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; " >
+                                                        {$vo['chonzhi']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['tixian']}
+                                                    </td>
+                                                     <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['allin']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                     {$vo['point']}
+                                                    </td>
+
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['liu_award']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                       {$vo['all_son']}({$vo['son']})
+                                                    </td>
+                                                    
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        {$vo['createtime']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle;"
+                                                        id="wx_status{$vo['id']}">{$vo['status']}
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; ">
+                                                        <a class="btn btn-xs btn-success btn-editone"
+                                                           href="/index.php/index/daili/son.html?uid={$vo['id']}"
+                                                           title="管理二维码"><i class="fa fa-qrcode"></i>下级</a>
+                                        <a class="btn btn-xs btn-success btn-editone"
+                                                           href="/index.php/index/daili/count.html?uid={$vo['id']}"
+                                                           title="管理二维码"><i class="fa fa-qrcode"></i>统计</a>
+                                                            <a class="btn btn-xs btn-success btn-editone"
+                                                           href="/index.php/index/daili/day.html?uid={$vo['id']}"
+                                                           title="管理二维码"><i class="fa fa-qrcode"></i>日常</a
+                                                    </td>
+                                                </tr>
+                                                {/volist}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                        
+                 
+                                        <div class="clearfix">总游戏：{$map['sum_allin']},总赔付：{$map['sum_allout']},总充值：{$map['sum_chonzhi']},总提现：{$map['sum_tixian']}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-layer {
+        height: 100%;
+        min-height: 150px;
+        min-width: 300px;
+    }
+    .form-body {
+        width: 100%;
+        overflow: auto;
+        top: 0;
+        position: absolute;
+        z-index: 10;
+        bottom: 50px;
+        padding: 15px;
+    }
+    .form-layer .form-footer {
+        height: 50px;
+        line-height: 50px;
+        background-color: #ecf0f1;
+        width: 100%;
+        position: absolute;
+        z-index: 200;
+        bottom: 0;
+        margin: 0;
+    }
+    .form-footer .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>
+{include file="../application/index/view/common/page.html" /}
+
+<script !src="">
+    function btSelectAll(s) {
+        var selectors = document.querySelectorAll("input[name='btSelectItem[]']");
+        for (let i = 0; i < selectors.length; i++) {
+            selectors[i].checked = s.checked;
+        }
+    }
+
+</script>

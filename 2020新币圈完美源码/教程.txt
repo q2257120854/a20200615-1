@@ -1,0 +1,37 @@
+
+
+www.skyxmedia.cn  自己批量搜索替换掉这个你自己的域名
+
+
+环境 1.16  5.6   5.6   redis必须要装
+
+
+以后云代付死了，这两个地方要换的。
+
+/application/index/controller/Biquan.php
+
+/public/fastpay/Fast_Cofig.php
+
+这2个以后自己发现死了，要用到的地方
+
+这2个地方是要改自己的域名和公众号的地方，
+
+后台就是 admin
+
+前台是 /index/biquan
+
+执行启动脚本和红包一样启动
+
+socket/biquan.php
+
+
+
+
+
+
+
+
+
+
+
+

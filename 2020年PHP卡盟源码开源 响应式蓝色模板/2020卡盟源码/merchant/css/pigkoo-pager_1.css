@@ -1,0 +1,28 @@
+﻿#pigkoo-pager-box{font-family:"microsoft YaHei","微软雅黑" font-size:12px;}
+#pigkoo-pager-box a{text-decoration:none; border:1px solid #999999;background:#ffffff; width:auto;}
+#pigkoo-pager-box a,#pigkoo-pager-box input{/*border-radius:3px;*/}
+/*分页导航样式*/
+#pigkoo-pager-box .pigkoo-pager-nav-box {float:left;padding:5px;}
+#pigkoo-pager-box .pigkoo-pager-nav-box a:hover{background:#3d7399;color:#fff;}
+#pigkoo-pager-box .pigkoo-pager-nav-box a{display:inline-block; margin-right:5px; margin-left:0; float:none;*margin-top:0px;  margin-top:4px; height:30px; text-align:center;padding:0 1em; line-height:30px;font-size:12px;color:#545454;}
+#pigkoo-pager span{display:inline-block; margin-right:5px; height:30px; text-align:center;padding:0.1em 0.6em; line-height:31px;font-size:12px;color:#333;}
+#pigkoo-pager-box .pigkoo-pager-nav-box .current{color:#545454; font-weight:bold;}
+#pigkoo-pager-box .pigkoo-pager-nav-box .prev, 
+#pigkoo-pager-box .pigkoo-pager-nav-box .first, 
+#pigkoo-pager-box .pigkoo-pager-nav-box .last{font-size:12px;padding:1px 4px;color:#555;} 
+#pigkoo-pager-box .pigkoo-pager-nav-box a.next{ font-size:12px; margin-top:0px; *margin-top:-3px; padding:0 1.5em 0 1em; background:url(../images/page_narrow_1.png) no-repeat 55px -32px #FFF; }
+#pigkoo-pager-box .pigkoo-pager-nav-box a.prev{  padding:0 1em 0 1.5em;  background:url(../images/page_narrow_1.png) no-repeat 6px 0 #FFF; }
+#pigkoo-pager-box .pigkoo-pager-nav-box a.next:hover{background:url(../images/page_narrow_1.png) no-repeat 55px -32px #3d7399;}
+#pigkoo-pager-box .pigkoo-pager-nav-box a.prev:hover{background:url(../images/page_narrow_1.png) no-repeat 6px 0 #3d7399;}
+/*分页信息样式*/
+#pigkoo-pager-box .pigkoo-pager-info-box {float:left;/*line-height:26px;*/padding:8px 5px 4px 5px; }
+#pigkoo-pager-box .pigkoo-pager-info-box .page-info{color:#999;margin:0;padding:0; font-size:12px;}
+#pigkoo-pager-box .pigkoo-pager-info-box .page-text-input{border:1px solid #999999; text-align:center;color:#999; width:43px;height:26px;line-height:26px;}
+#pigkoo-pager-box .pigkoo-pager-info-box .page-text-input-focus{border:1px solid #0063dc;color:#222;}
+#pigkoo-pager-box .pigkoo-pager-info-box a.go-btn{width:39px;height:27px;padding:0;margin:0;line-height:27px;float:none; display:inline-block;text-align:center;color:#FFF;border:1px solid #e8e7e7; background:#3d7399; font-size:12px;}
+#pigkoo-pager-box .pigkoo-pager-info-box a.go-btn-focus{background:#0063dc;color:#fff; }
+#pigkoo-pager-box .pigkoo-pager-info-box a.go-btn:hover{}
+
+/*清除元素浮动*/
+#pigkoo-pager-box b.clear{display:block;clear:both;}
+

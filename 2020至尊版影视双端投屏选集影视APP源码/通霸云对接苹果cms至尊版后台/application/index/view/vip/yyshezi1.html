@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>代理管理</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="/public/static/amz/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/public/static/amz/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="/public/static/amz/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/public/static/amz/css/admin.css">
+    <link rel="stylesheet" href="/public/static/amz/css/app.css">
+    <script src="/public/static/amz/js/echarts.min.js"></script>
+
+    <!--old  下-->
+
+    <link rel="stylesheet" href="/public/static/assets/css/fonts/linecons/css/linecons.css">
+
+    <link rel="stylesheet" href="/public/static/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/static/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/static/assets/css/xenon-core.css">
+    <link rel="stylesheet" href="/public/static/assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="/public/static/assets/css/xenon-components.css">
+    <link rel="stylesheet" href="/public/static/assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="/public/static/assets/css/custom.css">
+
+    <script src="/public/static/assets/js/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="/public/static/assets1/css/layui.css">
+    <link rel="stylesheet" href="/public/static/assets1/css/view.css"/>
+    <script src="/public/static/assets1/layui.all.js"></script>
+    <!--old  上-->
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/public/static/assets/js/html5shiv.min.js"></script>
+    <script src="/public/static/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/public/static/assets/css/fonts/elusive/css/elusive.css">
+
+</head>
+
+<body data-type="index">
+
+<div class="tpl-page-container">
+
+<div class="page-title">
+
+    <div class="title-env">
+        <h1 class="title">运营设置</h1>
+    </div>
+
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="{:url('/')}"><i class="fa-home"></i>Home</a>
+            </li>
+
+            <li class="active">
+
+                <strong>System</strong>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<div class="panel panel-default">
+
+
+    <div class="panel-body">
+
+        <form role="form" id="form1" method="post" action="{:url('vip/yyshezi')}" class="validate">
+            {volist name="list" id="vo"}
+          <div class="form-group"> 
+                <label class="control-labell" for="field-5">一部手机最多注册几个账号</label> 
+                <input  class="form-control" value="{$vo.zcxz}"  name="zcxz" > 
+             </div>
+          <div class="form-group"> 
+                <label class="control-labell" for="field-5">搜索界面推荐影片名，最多6个（用英文,分割）</label> 
+                <input  class="form-control" value="{$vo.sotuij}"  name="sotuij" > 
+             </div>
+           <div class="form-group"> 
+                <label class="control-labell" for="field-5">移动端操作安全码</label> 
+                <input  class="form-control" value="{$vo.ydkey}"  name="ydkey" > 
+             </div>
+          <div class="form-group"> 
+                <label class="control-labell" for="field-5">提现需要会员有效期在多少天以上</label> 
+                <input class="form-control" value={$vo.txxz}  name="txxz" > 
+             </div> 
+          	<div class="form-group"> 
+                <label class="control-labell" for="field-5">开通代理的价格</label> 
+                <input class="form-control" value={$vo.daili}  name="daili" > 
+             </div> 
+			 <div class="form-group"> 
+            		<label class="control-labell" for="field-5">体验卡购买价格</label> 
+            		 <input class="form-control" value={$vo.tiyan} name="tiyan" > 
+           </div>  
+		    <div class="form-group"> 
+            		<label class="control-labell" for="field-5">月卡购买价格</label> 
+            		 <input class="form-control" value={$vo.yueka} name="yueka" > 
+           </div>  
+		    <div class="form-group"> 
+            		<label class="control-labell" for="field-5">季度卡购买价格</label> 
+            		 <input class="form-control" value={$vo.jika} name="jika" > 
+           </div>  
+		    <div class="form-group"> 
+            		<label class="control-labell" for="field-5">半年卡购买价格</label> 
+            		 <input class="form-control" value={$vo.bannian} name="bannian" > 
+           </div>  
+		    <div class="form-group"> 
+            		<label class="control-labell" for="field-5">年卡购买价格</label> 
+            		 <input class="form-control" value={$vo.nianka} name="nianka" > 
+           </div>  
+		    <div class="form-group"> 
+            		<label class="control-labell" for="field-5">永久卡购买价格</label> 
+            		 <input class="form-control" value={$vo.yongjiu} name="yongjiu" > 
+           </div>   
+			 
+			
+            <div class="form-group">
+                <label class="control-labell" for="field-5">金币兑换现金比率(100的整倍数)</label>
+                <input class="form-control" value={$vo.jbmoney} name="jbmoney" >
+            </div>
+          
+          	<div class="form-group">
+                <label class="control-labell" for="field-5">金币兑换会员天数比率(10的整倍数)</label>
+                <input class="form-control" value={$vo.jbday}  name="jbday" >
+            </div>          
+          
+		        <div class="form-group"> 
+		       		 <label class="control-labell" for="field-5">新号注册送钱(不送填写0即可)</label> 
+		       		<input class="form-control" value={$vo.zcmoney} name="zcmoney" > 
+		        </div>  
+          
+            <div class="form-group">
+            		<label class="control-labell" for="field-5">新号注册送金币(不送填写0即可)</label>
+            		<input class="form-control" value={$vo.zcjb} name="zcjb" >
+            </div>  
+          
+          	<div class="form-group">
+                <label class="control-labell" for="field-5">分享注册送金币(10的整倍数)</label>
+                <input class="form-control" value={$vo.sharefjb} name="sharefjb" >
+            </div>
+						
+              <div class="form-group">
+              		<label class="control-labell" for="field-5">会员徒弟其中有充代理的返钱(元)</label>
+              		<input class="form-control" value={$vo.fdljb} name="fdljb" >
+              </div>          
+
+            <div class="form-group">
+                <label class="control-labell" for="field-5">一级代理返佣(元)</label>
+                <input class="form-control" value={$vo.dljba} name="dljba" >
+            </div>
+          
+          
+          	<div class="form-group">
+                <label class="control-labell" for="field-5">二级代理返佣(元)</label>
+                <input class="form-control" value={$vo.dljbb} name="dljbb" >
+            </div>
+
+            <div class="form-group">
+                <label class="control-labell" for="field-5">三级代理返佣(元)</label>
+                <input class="form-control" value={$vo.dljbc} name="dljbc" >
+            </div>
+						
+           <div class="form-group">
+                <label class="control-labell" for="field-5">四级代理返佣(元)</label>
+                <input class="form-control" value={$vo.dljbd} name="dljbd" >
+            </div>
+						
+						<div class="form-group">
+                <label class="control-labell" for="field-5">五级代理返佣(元)</label>
+                <input class="form-control" value={$vo.dljbe} name="dljbe" >
+            </div>
+							
+						<div class="form-group">
+						<label class="control-labell" for="field-5">徒弟(会员)充值<font  color="forestgreen"  size="3"><b>体验卡</b></font>给师傅(上级)返钱-元</label>
+						<input class="form-control" value={$vo.ckfa} name="ckfa" >
+						</div>	
+
+						<div class="form-group">
+						<label class="control-labell" for="field-5">徒弟(会员)充值<font  color="forestgreen"  size="3"><b>月卡</b></font>给师傅(上级)返钱-元</label>
+						<input class="form-control" value={$vo.ckfb} name="ckfb" >
+						</div>
+						
+						<div class="form-group">
+								<label class="control-labell" for="field-5">徒弟(会员)充值<font color="#FF22FF" size="3"><b>季卡</b></font>给师傅(上级)返钱-元</label>
+								<input class="form-control" value={$vo.ckfc} name="ckfc" >
+						</div>
+						
+						
+						<div class="form-group">
+						<label class="control-labell" for="field-5">徒弟(会员)充值<font  color="forestgreen"  size="3"><b>半年卡</b></font>给师傅(上级)返钱-元</label>
+						<input class="form-control" value={$vo.ckfd} name="ckfd" >
+						</div>	
+						
+						
+						<div class="form-group">
+								<label class="control-labell" for="field-5">徒弟(会员)充值<font color="#F5611A" size="3"><b>年卡</b></font>给师傅(上级)返钱-元</label>
+								<input class="form-control" value={$vo.ckfe} name="ckfe" >
+						</div>
+						
+						<div class="form-group">
+								<label class="control-labell" for="field-5">徒弟(会员)充值<font color="#007FFF" size="3"><b>永久卡</b></font>给师傅(上级)返钱-元</label>
+								<input class="form-control" value={$vo.ckff} name="ckff" >
+						</div>
+  
+<br>
+                         	  <div class="caption font-green bold">
+				                  支付接口配置
+				                    </div>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">商户ID</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.partner}" name="partner" >
+				            </div>
+				            <br>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">商户key</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.key}" name="key" >
+				            </div>
+				            <br>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">支付网关</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.apiurl}" name="apiurl" >
+				            </div>
+           <div class="caption font-green bold">
+				                  邮箱验证配置
+				                    </div>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">SMTP服务器（QQ邮箱请填：smtp.qq.com）</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.dizhi}" name="dizhi" >
+				            </div>
+				            <br>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">SMTP端口（默认端口：465）</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.dk}" name="dk" >
+				            </div>
+				            <br>
+				            <div class="form-group">
+				                <label class="control-labell" for="field-5">邮箱账号</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.faxin}" name="faxin" >
+				            </div>
+                           <div class="form-group">
+				                <label class="control-labell" for="field-5">邮箱授权码</label>
+				                <input type='text' class="form-control" style="margin: 0px -33.5px 0px 0px; height: 30px;" value="{$vo.yxmm}" name="yxmm" >
+				            </div>
+          
+					 
+          
+          {/volist}
+			
+				
+				
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">提交</button>
+                <button type="reset" class="btn btn-white">重置</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+{$code=='1'?'<div class="col-md-6" id="alert" style="position:fixed;right:0px;bottom:0px;  width: 350px">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <strong>恭喜 ! 修改成功了！</strong>
+    </div>
+</div>
+
+':''}
+<script>
+    setTimeout("$('#alert').fadeOut(1000)",2000)
+</script>

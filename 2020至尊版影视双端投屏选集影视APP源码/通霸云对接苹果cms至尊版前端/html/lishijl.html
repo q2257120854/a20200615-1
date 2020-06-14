@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link type="text/css" href="../css/h5-aura1wdb.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/h5-mine-aura1wdb.css" rel="stylesheet"/>
+</head>
+<body>
+
+	<div class="m-topSite-wrap">
+		<section class="m-topSite m-borderB m-topSite-fixed">
+			<a onclick="closeWin()" class="c-goback router-link-active"><i class="c-glyphicon c-glyphicon-arrowLeft"></i></a>
+			<div class="c-content">播放记录</div>
+			<a onclick="qingkong()" class="c-more-link" style="">
+				清空
+			</a>
+		</section>
+	</div>
+	<div class="m-box">
+		<div class="m-box-items m-box-items-full">
+			<div class="m-nav-playRecord-box">
+				<section class="m-nav-playRecord m-three-nav-fixed">
+					<div class="playRecord-tip"><i class="c-myicon c-myicon-suo"></i><span class="c-info">播放记录仅本人可见</span></div>
+				
+				</section>
+			</div>
+		</div>
+	</div>
+	<div total="57">
+		<div>
+			<div id="div_list_f" class="m-box">
+				<section class="m-noRecord"><div class="c-icon-noRecord"></div> <div class="c-info">看过的那些精彩视频会保存在这里</div></section>
+				
+				 <script type="text/x-dot-template" id="navcattpl">
+				   
+				   <div tapmode onclick="bofang('{{= it. sid }}')" class="m-box-items m-box-items-full">
+									<div class="m-topList m-toplist-first">
+										<div class="checkbox" style="display: none;">
+										    <i class="c-glyphicon c-glyphicon-checkbox"></i>
+										</div>
+										<div class="topList-img">
+											<a  class="topList-link" style='background-image: url("{{= it. img }}");'>
+												<div class="c-rb"><span class="c-date"></span></div>
+											</a>
+										</div>
+										<div class="topList-text">
+											<a  class="topList-title">
+												{{= it. title }}
+											</a>
+											<a >
+												<em class="topList-video">
+													<i class="c-glyphicon c-glyphicon-cellphone"></i>{{= it. time }}</em>
+											</a>
+										</div>
+									</div>
+								</div>
+				    
+				</script>
+				
+				
+				
+				
+			</div>
+			
+		</div>
+	</div>
+	
+</div>
+
+</body>
+<!---->
+<!-- <script type="text/x-dot-template" id="navcattpl">
+    {{~ it.data : value : index }}
+   <div tapmode onclick="bofang('{{= value. sid }}')" class="m-box-items m-box-items-full">
+					<div class="m-topList m-toplist-first">
+						<div class="checkbox" style="display: none;"><i class="c-glyphicon c-glyphicon-checkbox"></i></div>
+						<div class="topList-img">
+							<a  class="topList-link" style='background-image: url("{{= value. img }}");'>
+								<div class="c-rb"><span class="c-date">01:17:38</span></div>
+							</a>
+						</div>
+						<div class="topList-text">
+							<a  class="topList-title">
+								{{= value. title }}
+							</a>
+							<a >
+								<em class="topList-video">
+									<i class="c-glyphicon c-glyphicon-cellphone"></i>{{= value. time }}</em>
+							</a>
+						</div>
+					</div>
+				</div>
+    {{~}}
+</script> -->
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script type="text/javascript" src="../script/date.min.js"></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+	var yj_yyms = localStorage.getItem('rj_yyms');
+	var list_template;
+	apiready = function(){
+		list_template = $("#navcattpl").text();
+		// var navid = $api.byId('div_list_f');
+  //       var navtpl = $api.byId('navcattpl');
+        
+		api.ajax({
+    
+      url: api_url+'login/login/lsjilu',
+            method: 'get',
+            data:{
+          values:{
+            uid: localStorage.getItem('user_id'),
+          }
+        }
+        }, function(ret, err) {
+            if (ret) {
+                //渲染模板
+              //电视剧
+                // var pagefn = doT.template(navtpl.text);
+                // navid.innerHTML = pagefn(ret.jl);
+                  //      alert( JSON.stringify( ret ) );
+				  
+				  if(ret.jl.data.length==0){
+        		//$("#list").empty();
+      //  		$("#list").html('<div  class="empty">'+ ret.msg +'</div>');
+ 		$("#div_list_f").html('<section class="m-noRecord"><div class="c-icon-noRecord"></div> <div class="c-info">看过的那些精彩视频会保存在这里</div></section>');
+        		return;
+        	}
+				  var array = ret.jl.data;
+        	//alert(JSON.stringify(ret));
+        	for(var i=0;i<array.length;i++){
+        		var p = array[i];
+        		
+        		var date_str = "";
+        		try{
+        			var date = new Date();
+        			date.setTime(p.time*1000);
+        			date_str = date.format('MM-dd hh:mm');
+        		}catch(e){
+        		}
+        		p["time"] = date_str;
+
+        	}
+
+	   		var text = "";
+
+			for(var i=0;i<array.length;i++){
+				var p = array[i];
+				text = text + doT.template(list_template)(p);
+			}
+			$("#div_list_f").html(text);
+			
+				  
+				  
+				  
+            }
+        });
+		
+		
+	};
+	function sjcltm(timex) {
+	    var d = new Date(timex * 1000);
+	    timex = d.toISOString();
+	    var pattern2 = ".000Z";
+	    timex = timex.replace(new RegExp(pattern2), "");
+	    timex = timex.replace(/T/, " ");
+	    timex = timex.substring(0, 10);
+	    return (timex);
+	}
+	function sosuo(){
+         api.openWin({
+									 name: 'so',
+									 url: './so.html',
+									 pageParam: {
+										 
+									 }
+								 });
+
+    }
+	function bofang(sid){
+var time = localStorage.getItem('user_time');
+			var user_id = localStorage.getItem('user_id');
+			var username = localStorage.getItem('user_name');
+			var timestamp = Date.parse(new Date()) / 1000;
+			
+			if (user_id < 1) {
+				api.toast({
+					msg: '通霸云影视提醒！你还没登陆！',
+					duration: 5000
+				});
+				api.openWin({
+					name: 'login',
+					url: './login.html',
+					delay: 2000
+				});
+				return;
+			}
+			if(yj_yyms=='0'){
+				api.openWin({
+					name: 'play',
+					url: './play.html',
+					pageParam: {
+						id: sid
+					}
+				});
+				return;
+			}
+			if (time > timestamp) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: 'VIP登录'
+						});
+						setTimeout("playRadio();", 1000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: sid
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time == -1) {
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: '永久VIP登录'
+						});
+						setTimeout("playRadio();", 2000);
+						var delay = 0;
+						if (api.systemType != 'ios') {
+							delay = 300;
+						}
+						api.openWin({
+							name: 'play',
+							url: './play.html',
+							pageParam: {
+								id: sid
+							}
+						});
+					} else {
+						api.toast({
+							msg: '请检查网络是否畅通'
+						});
+					}
+				});
+			} else if (time < timestamp) {
+				VipExpiredHint();
+			}
+
+ }
+	function qingkong(){
+		
+		api.ajax({
+    
+      url: api_url+'login/login/qklsjilu',
+            method: 'get',
+            data:{
+          values:{
+            uid: localStorage.getItem('user_id'),
+          }
+        }
+       }, function(ret, err) {
+            if (ret) {
+                //渲染模板
+              //电视剧
+                alert('清空成功');
+              
+                  //      alert( JSON.stringify( ret ) );
+            }
+
+
+        });
+	}
+	function closeWin(){
+        api.closeWin({
+        });
+    }
+</script>
+</html>

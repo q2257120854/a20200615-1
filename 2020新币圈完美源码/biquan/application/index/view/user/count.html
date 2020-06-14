@@ -1,0 +1,79 @@
+<style>
+    .profile-avatar-container {
+        position:relative;
+        width:100px;
+    }
+    .profile-avatar-container .profile-user-img{
+        width:100px;
+        height:100px;
+    }
+    .profile-avatar-container .profile-avatar-text {
+        display:none;
+    }
+    .profile-avatar-container:hover .profile-avatar-text {
+        display:block;
+        position:absolute;
+        height:100px;
+        width:100px;
+        background:#444;
+        opacity: .6;
+        color: #fff;
+        top:0;
+        left:0;
+        line-height: 100px;
+        text-align: center;
+    }
+    .profile-avatar-container button{
+        position:absolute;
+        top:0;left:0;width:100px;height:100px;opacity: 0;
+    }
+</style>
+<div id="content-container" class="container">
+    <div class="row">
+ 
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="alert alert-success" role="alert">下属用户充值:{$dat['sum_chonzhi']}</div>
+                    <div class="alert alert-info" role="alert">下属用户提现:{$dat['sum_tixian']}</div>
+                    <div class="alert alert-warning" role="alert">下属用户游戏:{$dat['sum_allin']}</div>
+                    <div class="alert alert-danger" role="alert">下属用户返奖:{$dat['sum_allout']}</div>
+                    <div class="alert bg-aqua" role="alert">下属用户余额:{$dat['sum_point']}</div>
+                    <div class="alert bg-blue" role="alert">获取佣金:{$dat['liuin_award']}</div>
+                   <!--  <div class="alert bg-lime" role="alert">收益:</div> -->
+                    <div class="alert bg-green" role="alert">上级:{$fatherid}</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+ 
+<style>
+    .form-layer {height:100%;min-height:150px;min-width:300px;}
+    .form-body {
+        width:100%;
+        overflow:auto;
+        top:0;
+        position:absolute;
+        z-index:10;
+        bottom:50px;
+        padding:15px;
+    }
+    .form-layer .form-footer {
+        height:50px;
+        line-height:50px;
+        background-color: #ecf0f1;
+        width:100%;
+        position:absolute;
+        z-index:200;
+        bottom:0;
+        margin:0;
+    }
+    .form-footer .form-group{
+        margin-left:0;
+        margin-right:0;
+    }
+</style>

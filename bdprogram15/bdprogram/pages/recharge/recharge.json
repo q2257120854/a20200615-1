@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "账户充值",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

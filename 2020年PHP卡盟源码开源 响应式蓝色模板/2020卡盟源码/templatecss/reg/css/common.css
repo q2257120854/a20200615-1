@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;}
+img{border:0;}
+ul,ol{list-style-type:none;}
+body{background:#FFF;}
+body,form{margin:0;padding:0;font-size:12px;line-height:180%;font-family:"Microsoft YaHei","微软雅黑"; }
+.right{float:right;}
+.left{float:left;}
+.wrap{width:1034px; margin:0px auto;}
+.more{float:right;}
+.clear{clear:both;}
+input{outline:none}
+a{text-decoration: none;}
+a:link {color:#000000;text-decoration: none;}
+a:visited {color:#000000;text-decoration: none;}
+a:hover {color:#FF0000;text-decoration: none;}
+a:active {color:#FF0000;text-decoration: none;}
+/* Padding Start */
+.p_l_10{padding-left:15px;}
+.p_l_15{padding-left:15px;}
+.p_l_45{padding-left:45px;}
+.p_r_10{padding-right:10px;}
+.p_b_15{padding-bottom:15px;}
+.p_b_10{padding-bottom:10px;}
+.p_t_15{padding-top:15px;}
+.p_p_5{padding:5px 0px;}
+/* Padding The End */
+
+/* margin Start */
+.m_l_10{margin-left:10px;}
+.m_l_20{margin-left:20px;}
+.m_l_40{margin-left:40px;}
+.m_t_5{margin-top:5px;}
+.m_t_15{margin-top:15px;}
+.m_t_10{margin-top:10px;}
+.m_r_12{margin-right:12px;}
+.m_r_10{margin-right:10px;}
+.m_r_11{margin-right:11px;}
+.m_r_15{margin-right:15px;}
+.m_r_20{margin-right:20px;}
+.m_r_25{margin-right:25px;}
+.m_b_15{ margin-bottom:15px;}
+.m_a_20{margin:0px 20px }
+/* margin The End */
+
+
+/* 头部 Start */
+.header,.header_1{width:100%;}
+.header{background:url(../images/header.jpg) repeat-x;}
+.header_1{height:34px; padding-top:6px;}
+.logo{margin:20px 0px;}
+.menu{width:100%; float:left; height:43px; font-size:14px; color:#FFF; background:url(../images/menu.bg.jpg) repeat-x;}
+.menu li{ float:left; text-align:center; width:90px;  background:url(../images/dh.jpg) no-repeat right; padding-left:10px; padding-right:20px;}
+.menu li a{ color:#000; float:left;padding-top:10px;width:90px;height:33px;}
+.menu li a:hover{ color:#ff0000;}
+a.open{
+width:90px;
+height:33px;
+padding-top:10px;
+float:left;
+color:#FFFFFF;
+font-weight:bold;
+background:url(../images/nav.jpg) center;
+display:block;}
+
+.home{width:1004px; float:left;height:32px;background:url(../images/ico.home.jpg) #fefeff center left no-repeat; padding-top:14px; padding-left:30px;}
+.home span{color:#00b8f6; float:right; text-align:right;}
+.home span b{text-decoration:underline;}
+
+
+.index{width:1008px; padding:13px; background:#FFF;}
+.footer{width:100%; background:url(../images/footer.jpg) #8eacc4 repeat-x; padding:25px 0px; color:#000;}
+
+.tit{width:100%; float:left; background:url(../images/tit.jpg); height:27px; padding-top:7px; color:#909090;}
+.tit a{color:#909090;}
+.tit a:hover{color:#FF0000;}
+/*=====================以下部分是Validform必须的====================*/
+.Validform_checktip{margin-left:8px; line-height:20px; height:20px; overflow:hidden; color:#999; font-size:12px; }
+.Validform_right{ color:#71b83d; padding-left:20px; background:url('/Public/images/form/valid_icons.png') no-repeat -40px -20px;}
+.Validform_wrong{ color:red; padding-left:20px; white-space:nowrap; background:url('/Public/images/form/valid_icons.png') no-repeat -20px -40px;}
+.Validform_loading{ padding-left:20px; background:url('/Public/images/form/onLoad.gif') no-repeat left center;}
+.Validform_error{ background:#FEFBD3; }
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999'); box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);}
+#Validform_msg .iframe{ position:absolute; left:0px; top:-1px; z-index:-1; }
+#Validform_msg .Validform_title{ position:relative; line-height:35px; height:35px; text-align:left; font-weight:bold; padding:0 10px; color:#fff; background:#33B5E5; }
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{ line-height:30px; position:absolute; right:10px; top:0px; color:#fff; text-decoration:none; }
+#Validform_msg a.Validform_close:hover{color:#ccc;}
+#Validform_msg .Validform_info{padding:10px;border:1px solid #bbb; border-top:none; text-align:left;}
+
+/*=====================以下部分是Lazyload.js必须的====================*/
+.lazy {display: none;}
+/*=====================以下部分是网页翻页必须的====================*/
+div.pager {FONT-SIZE:12px; MARGIN:3px 0px; font-family:"宋体", "微软雅黑" TEXT-ALIGN: center; float:right;}
+div.pager A {border:#dedede 1px solid; COLOR: #666666; MARGIN-RIGHT: 3px; padding:5px 8px;}
+div.pager A:hover {border:#e43a3d 1px solid; padding:5px 8px; background:#e43a3d; color:#FFF}
+div.pager A:active {border:#dedede 1px solid;FONT-WEIGHT: bold; padding:5px 8px;color:#FFF;}
+.current {border:#e43a3d 1px solid;FONT-WEIGHT: bold; padding:5px 8px; margin-right:3px;BACKGROUND-COLOR: #e43a3d;color:#FFF;}
+
+
+.com_inputs{ background-color:#25a1e2; text-align:center; padding:2px 5px; color:#FFF; border:0px;}
+
+
+.r1{width:100px;height:auto;float:right;     
+     position:fixed !important; top/**/:213px;     
+     position:absolute; z-index:300; top:expression(offsetParent.scrollTop+200);right:10px;}  
+.r2{width:100px;height:auto;background:red;float:right;     
+     position:fixed !important; top/**/:300px;     
+     position:absolute; z-index:400; top:expression(offsetParent.scrollTop+300);right:10px;}  
+.l1{width:100px;height:auto;float:right;     
+     position:fixed !important; top/**/:213px;     
+     position:absolute; z-index:300; top:expression(offsetParent.scrollTop+200);left:10px;}  
+.l2{width:100px;height:auto;background:red;float:right;     
+     position:fixed !important; top/**/:300px;     
+     position:absolute; z-index:400; top:expression(offsetParent.scrollTop+300);left:10px;} 

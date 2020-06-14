@@ -1,0 +1,15 @@
+{include file="block/layui" /}
+<blockquote class="layui-elem-quote">数据统计成功</blockquote>
+<script>
+    layui.use(['jquery'], function(){
+        var $ = layui.$;
+        $.ajax({
+            type: 'POST',
+            url: '',
+            timeout: 1000,
+            complete: function(){
+                console.log('超时');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,221 @@
+@charset "utf-8";
+/* CSS Document */
+/* RESET */
+body,ul,ol,li,span,p,form,h1,h2,h3,h4,h5,h6,img{
+    margin: 0;
+    padding: 0;
+    font-weight:normal;
+}
+a{
+    text-decoration:none;
+    outline: none;
+    cursor: pointer;
+    color: #383838;
+}
+a:hover{
+    color: #FE7E17;
+}
+img{
+    border: medium none;
+}
+ul,ol{
+    list-style: none outside none;
+}
+input,select,textarea{
+    font: 12px Arial, Helvetica, sans-serif;
+}
+body{
+    height: 100%;
+    width: 100%;
+    font: 12px/1.6 Microsoft Yahei,Arial,Helvetica,sans-serif;
+    color: #a4a9ab;
+    background:url(images/reg_bg.png) no-repeat center 0 #f2f2f2;
+    -webkit-text-size-adjust:none;       
+}
+body {
+font: 12px/1.6 Microsoft Yahei,Arial,Helvetica,sans-serif;
+color: #a4a9ab;
+}
+.content {
+margin: 0 auto;
+padding-top: 35px;
+width: 950px;
+}
+.logo {
+background: url(images/user_reg.png) no-repeat;
+_background: url(images/user_reg.png) no-repeat;
+height: 55px;
+width: 139px;
+float: left;
+margin-top: 10px;
+}
+.logo a {
+display: block;
+height: 55px;
+width: 139px;
+text-indent: -99999px;
+}
+h1 {
+font-size: 18px;
+}
+.no_login {
+color: #ffffff;
+font-size: 15px;
+margin-top: 21px;
+}
+.no_login a {
+color: #ffffff;
+text-decoration: underline;
+}
+.sucess_ico, .warn_icon, .email, .mobile, .email_cur, .mobile_cur, .refresh, .success, .error, .detail, .pw_strength, .to_login {
+background: url("images/icon_24.png") no-repeat scroll 0 0 transparent;
+_background: url("images/icon_24.png") no-repeat scroll 0 0 transparent;
+display: block;
+}
+.main {
+border: 1px solid #d9d9d9\9;
+border-top: 1px solid #d9d9d9\9;
+box-shadow: 1px 1px 9px RGBA(0,0,0,0.28);
+background-color: #ffffff;
+opacity: 0.97;
+height: auto;
+overflow: hidden;
+padding-bottom: 70px;
+width: 950px;
+}
+.register_head {
+padding: 50px 122px 0;
+display: inline-block;
+}
+.register_head .current {
+border-bottom: 2px solid #50a8d8;
+color: #4b9ecb;
+}
+.register_head li {
+cursor: pointer;
+float: left;
+width: 353px;
+height: 40px;
+font-size: 18px;
+color: #616161;
+border-bottom: 1px solid #d4d4d4;
+}
+.email_area {
+margin-left: 100px;
+margin-top: 36px;
+min-height: 250px;
+height: auto !important;
+_height: 250px;
+overflow: visible;
+}
+.email_area p {
+height: 34px;
+line-height: 34px;
+margin-bottom: 23px;
+}
+.email_area label, .big_tips, .line_info {
+width: 120px;
+font-size: 14px;
+color: #616161;
+text-align: right;
+display: inline-block;
+vertical-align: top;
+}
+.email_area input, .email_area select, .yzm, .email_area textarea, .input_box {
+border: 1px solid #dfdfdf;
+height: 28px;
+width: 250px;
+margin-left: 10px;
+padding: 2px 5px;
+outline: 0 none;
+-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+-webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+line-height: 28px;
+}
+.yzm {
+width: 120px !important;
+}
+.safe_content .info_tips, .safe_content .spec_info_tips, .email_area .info_tips {
+margin-left: 10px;
+font-size: 12px;
+color: #969696;
+border: none;
+outline: none;
+line-height: 32px;
+vertical-align: top;
+display: inline-block;
+height: 32px;
+}
+.info_tips a {
+color: #36a2dc;
+}
+.refresh {
+width: 21px;
+height: 21px;
+background-position: -134px -9px;
+margin-top: 7px;
+}
+.email_area input:focus, .yzm:focus{
+border-color: #50a8d8;
+}
+.email_area img, .refresh {
+display: inline-block;
+vertical-align: top;
+margin-left: 10px;
+cursor: pointer;
+}
+.email_area .checkbox_spec {
+width: auto;
+margin-left: 129px;
+height: auto;
+color: #616161;
+border: medium none;
+box-shadow: none;
+}
+.xieyi {
+color: #616161;
+}
+.ml10 {
+margin-left: 10px !important;
+}
+.blue_btn {
+background: url(images/blue_btn.png) no-repeat;
+width: 124px;
+height: 37px;
+display: inline-block;
+margin-left: 129px;
+text-align: center;
+color: #ffffff;
+font-size: 16px;
+line-height: 39px;
+}
+.footer {
+border-top: 1px solid #d3d3d3;
+margin: 15px 0px 5px;
+padding: 10px 0;
+color: #8b8b8b;
+}
+.footer li {
+float: left;
+}
+.footer li a {
+color: #8b8b8b;
+}
+.division {
+background-color: #848484;
+width: 1px;
+height: 14px;
+margin: 2px 8px;
+_display: inline;
+}
+.clear {
+clear: both;
+}
+.fl {
+float: left;
+}
+
+.fr {
+float: right;
+}

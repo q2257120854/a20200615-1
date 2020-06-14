@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "地址列表",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "w-picker": "/components/w-picker/w-picker",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

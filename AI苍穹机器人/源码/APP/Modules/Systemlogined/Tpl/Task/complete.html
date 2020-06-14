@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>任务完成</title>
+
+    <meta name="description" content="Static &amp; Dynamic Tables" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--basic styles-->
+
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+    <!-- 分页样式 -->
+    <link rel="stylesheet" href="__PUBLIC__/css/page.css" />
+
+    <style type="text/css" title="currentStyle">
+        @import "__PUBLIC__/css/TableTools.css";
+    </style>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+
+    <!--page specific plugin styles-->
+
+    <!--bbc styles-->
+
+    <link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+    <script src="__PUBLIC__/js/My97DatePicker/WdatePicker.js"></script>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+    <![endif]-->
+
+    <!--inline styles if any-->
+</head>
+
+<body>
+<style>
+    input[type="checkbox"].allcheckbox{ opacity:1; position:relative;}
+</style>
+
+
+<!--导航-->
+<include file="Public:navbar" />
+
+<div class="container-fluid" id="main-container">
+    <a id="menu-toggler" href="#">
+        <span></span>
+    </a>
+
+    <!--边栏-->
+    <include file="Public:sidebar" />
+
+    <div id="main-content" class="clearfix">
+        <div id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home"></i>
+                    Home
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+                </li>
+                <li class="active">任务完成</li>
+            </ul><!--.breadcrumb-->
+        </div>
+
+        <div id="page-content" class="clearfix">
+
+            <div class="row-fluid">
+                <!--PAGE CONTENT BEGINS HERE-->
+                <form id="table-searchbar" method="POST" class="form-inline well well-small">
+                    <div class="row-fluid">&nbsp;&nbsp;<select class="span3" name="type" style="width: 100px;">
+                        <option value="1" selected="selected">会员编号</option>
+                        <option value="2">真实姓名</option>
+
+                    </select>
+                        <input type="text" class="input-small" name="typename" value="">
+                        &nbsp;&nbsp;
+                        <button type="submit" class="btn btn-small no-border" id="btn-query" type="button"><i class="icon-search"></i>查询</button>
+                        <button type="button"  onclick="allcheck()" class="btn btn-success btn-small no-border" id="btn-compute" type="button">批量审核</button>
+                        <!--	&nbsp;&nbsp;
+                            <button type="button"  onclick="return clear1()" class="btn btn-success btn-small no-border" id="btn-compute" type="button">导出会员报表</button>	-->
+                    </div>
+                </form>
+
+            <form id="form1s" name="form1s" method="post"  action="{:U(GROUP_NAME.'/Task/plsh')}">
+                <table id="table_report" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th><input type="checkbox"  class="allcheckbox" onClick="$('input[type=checkbox]').prop('checked', $(this).prop('checked'));"></th>
+                        <th>序号</th>
+                        <th>会员编号</th>
+                        <th>完成截图</th>
+                        <th>奖励金币</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="list" item="v">
+                        <tr>
+                            <td><input type="checkbox" name="userids[]" value="{$v['id']}" class="allcheckbox"></td>
+                            <td>{$v.id}</td>
+                            <td>{$v.username}</td>
+                            <td><a href="{$v.pic}" target="_blank"><img src="{$v.pic}"  style="width:40px;"/></a></td>
+
+                            <td>{$v.jinbi}</td>
+                            <td>
+                                <if condition='$v.status eq 0'>
+                                    未审核
+                                    <elseif condition="$v.status eq 1"/>
+                                    已通过
+                                    <else/>
+                                    <font color="red">已拒绝</font>
+                                </if>
+                            </td>
+
+                            <td>
+                                <if condition='$v.status eq 0'>
+
+                                    <a href="{:U(GROUP_NAME .'/Task/completeuser',array('id'=>$v['id']))}">查看审核</a> | <a onclick="if(confirm('删除后不可恢復！您确定要删除此会员吗?')==false)return false;" href="{:U(GROUP_NAME .'/Task/deleteTask',array('id'=>$v['id']))}">删除</a>
+                                    <elseif condition="$v.status eq 1"/>
+                                    <font color="blue">审核通过</font>
+                                    <else/>
+                                    <font color="red">已拒绝</font>
+                                </if>
+                            </td>
+
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td colspan="8" style="text-align:center;"><div class="page">{$page}</div></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                </form>
+            </div>
+            <!--PAGE CONTENT ENDS HERE-->
+        </div><!--/row-->
+    </div><!--/#page-content-->
+</div><!--/#main-content-->
+</div><!--/.fluid-container#main-container-->
+
+<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+</a>
+
+<!--basic scripts-->
+<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+<!--page specific plugin scripts-->
+<script src="__PUBLIC__/js/bootbox.min.js"></script>
+<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/js/jquery.dataTables.bootstrap.js"></script>
+<script src="__PUBLIC__/js/TableTools.min.js"></script>
+<!--bbc scripts-->
+
+<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+<script src="__PUBLIC__/js/bbc.min.js"></script>
+
+<script src="__PUBLIC__/js/bootstrap.notification.js"></script>
+<script src="__PUBLIC__/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+    function clear1(){
+        var start,end;
+        if(confirm("确认要导出会员信息吗?")){
+            if($("#start_time").val()){
+                start = $("#start_time").val();
+            }else{
+                start =0;
+            }
+            if($("#end_time").val()){
+                end   =  $("#end_time").val();
+            }else{
+                end   = 0;
+            }
+
+            window.location.href = "/index.php/Systemlogined/Excel/member/";
+        }
+    }
+
+    function allcheck(){
+        var templist = new Array();
+        $("input[name='userids[]']:checked").each(function(){
+            templist.push($(this).val());
+        });
+        if(templist.length==0){
+            alert("请先勾选再进行批量操作");
+        }else{
+            //var temp = templist.join(",");
+            $('#form1s').submit();
+        }
+    }
+</script>
+<!--inline scripts related to this page-->
+</body>
+</html>

@@ -1,0 +1,155 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">日期</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" name="date" id="date" placeholder="请选择日期范围">
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+<div style="padding: 20px;">
+    <table class="layui-hide" id="reports" lay-filter="errors"></table>
+    <div class="statistical" style="padding: 20px 10px;">
+        已支付总金额：<span class="day_sum" style="color: red;"></span>元，
+        支付平台金额：<span class="cy_day_sum" style="color: red;"></span>元
+    </div>
+    <!-- 引入 ECharts 文件 -->
+    <script src="__PUBLIC_JS__/echarts/echarts.min.js"></script>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%;height:300px;"></div>
+</div>
+<script type="text/javascript">
+    layui.use(['form','jquery','table','laydate'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        var laydate = layui.laydate;
+        table.render({
+            elem: '#reports'
+            ,url:'{:url('pinduoduo/reports')}'
+            ,page: true
+            ,limit:7
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'date', title: '日期'}
+                ,{field:'day_sum', title: '金额'}
+                ,{field:'cy_day_sum', title: '支付平台金额'}
+            ]]
+            ,done:function(res){
+                console.log(res)
+                $(".statistical .day_sum").text(res.day_sum);
+                $(".statistical .cy_day_sum").text(res.cy_day_sum);
+                createChart(res.data)
+            }
+        });
+        //日期范围
+        laydate.render({
+            elem: '#date'
+            ,range: "~"
+            ,max: getNowFormatDate()
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('reports', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        agent: $("select[name=agent]").val(),
+                        date: $("input[name=date]").val(),
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+    function createChart(data) {
+        var xAxis_data=[];
+        var series_day_data=[];
+        var series_cy_day_data=[];
+        data.forEach(function (v,k) {
+            xAxis_data.unshift(v.date);
+            series_day_data.unshift(parseInt(v.day_sum));
+            series_cy_day_data.unshift(parseInt(v.cy_day_sum));
+        });
+        console.log(series_day_data)
+        console.log(series_cy_day_data)
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '数据统计'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            color:['#4472C5','#ED7C30'],
+            legend: {
+                data:['单日金额','支付平台金额']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: xAxis_data
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'单日金额',
+                    type:'line',
+                    smooth: true,
+                    data:series_day_data
+                },
+                {
+                    name:'支付平台金额',
+                    type:'line',
+                    smooth: true,
+                    data:series_cy_day_data
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+    //获取当前时间，格式YYYY-MM-DD
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator1 + month + seperator1 + strDate;
+        return currentdate;
+    }
+</script>
+<style>
+    .layui-card-header{
+        font-weight: bold;
+    }
+</style>

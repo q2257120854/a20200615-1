@@ -1,0 +1,82 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" data-rule="required" class="form-control form-control" name="row[uid]" type="number" value="{$row.uid}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Srpay')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-srpay" data-rule="required" class="form-control form-control" name="row[srpay]" type="number" value="{$row.srpay}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wup')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wup" data-rule="required" class="form-control form-control" name="row[wup]" type="number" value="{$row.wup}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wdown')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-wdown" data-rule="required" class="form-control form-control" name="row[wdown]" type="number" value="{$row.wdown}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Kfdown')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-kfdown" data-rule="required" class="form-control form-control" name="row[kfdown]" type="number" value="{$row.kfdown}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Kfup')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-kfup" data-rule="required" class="form-control form-control" name="row[kfup]" type="number" value="{$row.kfup}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Allin')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-allin" data-rule="required" class="form-control form-control" name="row[allin]" type="number" value="{$row.allin}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Xallin')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-xallin" data-rule="required" class="form-control form-control" name="row[xallin]" type="number" value="{$row.xallin}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Allout')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-allout" data-rule="required" class="form-control form-control" name="row[allout]" type="number" value="{$row.allout}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Result')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-result" data-rule="required" class="form-control form-control" name="row[result]" type="number" value="{$row.result}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Paytime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-paytime" data-rule="required" class="form-control datetimepicker form-control" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[paytime]" type="text" value="{$row.paytime|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Note')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-note" data-rule="required" class="form-control form-control" name="row[note]" type="text" value="{$row.note}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

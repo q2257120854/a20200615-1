@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<meta name="description" content="Minimal empty page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!--basic styles-->
+
+		<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" />
+
+		<!--自定义样式-->
+		<link rel="stylesheet" href="__PUBLIC__/css/custom.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!--page specific plugin styles-->
+
+		<!--bbc styles-->
+
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-responsive.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/bbc-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/css/bbc-ie.min.css" />
+		<![endif]-->
+	</head>
+
+	<body>
+		<!--导航-->
+		<include file="Public:navbar" />
+
+		<div class="container-fluid" id="main-container">
+			<a id="menu-toggler" href="#">
+				<span></span>
+			</a>
+			<!--边栏-->
+			<include file="Public:sidebar" />
+
+			<div id="main-content" class="clearfix">
+				<div id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							Home
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+
+						<li>
+							会员管理
+
+							<span class="divider">
+								<i class="icon-angle-right"></i>
+							</span>
+						</li>
+					</ul><!--.breadcrumb-->
+				</div>
+
+				<div id="page-content" class="clearfix">
+					<div class="page-header position-relative">
+						<h1>
+							修改会员信息
+						</h1>
+					</div><!--/.page-header-->
+
+					<div class="row-fluid">
+						<!--PAGE CONTENT BEGINS HERE-->
+							<form name="editAnnounceType" class="form-horizontal"  action="{:U(GROUP_NAME.'/Member/editMemberHandle')}" method="post">
+								<div class="control-group">
+									<label class="control-label" for="username"> 用户名</label>
+
+									<div class="controls">
+										<input type="text" name="username" <if condition="$Think.get.id neq 1"> readonly="readonly"</if> value="{$member.username}" id="username"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="truename">
+									真实姓名：</label>
+									<div class="controls">
+										<input type="text" value="{$member.truename}" name="truename" id="truename" />
+									</div>
+								</div>
+
+								<div class="control-group">
+									<label class="control-label" for="password">
+									一级密码：</label>
+									<div class="controls">
+										<input type="password" value="" name="password" id="password" placeholder="不修改请留空" />
+									</div>
+								</div>
+
+								<input type="hidden" name="id" value="{$member.id}" />
+								<div class="form-actions">
+									<button class="btn btn-info no-border" type="submit">
+										<i class="icon-ok bigger-110"></i>
+										保存
+									</button>
+								</div>
+
+							</form>
+						<!--PAGE CONTENT ENDS HERE-->
+					</div><!--/row-->
+				</div><!--/#page-content-->
+
+				<div id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning" id="ace-settings-btn">
+						<i class="icon-cog"></i>
+					</div>
+
+					<div id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hidden">
+									<option data-class="default" value="#438EB9">#438EB9</option>
+									<option data-class="skin-1" value="#222A2D">#222A2D</option>
+									<option data-class="skin-2" value="#C6487E">#C6487E</option>
+									<option data-class="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+							</div>
+							<span>&nbsp; 选择样式</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/#main-content-->
+		</div><!--/.fluid-container#main-container-->
+
+		<!--basic scripts-->
+
+		<script src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+		<!--page specific plugin scripts-->
+
+		<script src="__PUBLIC__/js/bootbox.min.js"></script>
+		
+		<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+		
+		<!--bbc scripts-->
+		<script src="__PUBLIC__/js/jquery.validate.min.js"></script>
+		<!--自定义JS-->
+		<script type="text/javascript">
+			$('form[name="editAnnounceType"]').validate({
+					//默认为lable
+					errorElement : 'span',
+					//失败时先移除成功的class
+					validClass : 'success',
+					//指定成功的样式
+					success : function(span){
+						span.addClass('success');
+					},
+
+					rules:{
+						name:{
+							required : true
+						}
+					},
+					messages:{
+						name:{
+							required:'请填写类别名称'
+						}
+					}
+
+				});
+		</script>	
+		<!--bbc scripts-->
+
+		<script src="__PUBLIC__/js/bbc-elements.min.js"></script>
+		<script src="__PUBLIC__/js/bbc.min.js"></script>
+	</body>
+</html>

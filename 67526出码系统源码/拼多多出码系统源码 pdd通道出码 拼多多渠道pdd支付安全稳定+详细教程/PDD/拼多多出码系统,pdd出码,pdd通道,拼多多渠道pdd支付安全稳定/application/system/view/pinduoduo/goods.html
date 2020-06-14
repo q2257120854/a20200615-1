@@ -1,0 +1,191 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">店铺：</label>
+        <div class="layui-input-inline" >
+            <select name="stores" lay-search="">
+                <option value="">选择或搜索店铺</option>
+                {if condition="ADMIN_ID==1"}
+                <option value="">全部</option>
+                {/if}
+                {volist name="list" id="vo"}
+                <option value="{$vo.id}">{$vo.name}</option>
+                {/volist}
+            </select>
+        </div>
+        <label class="layui-form-label">商品ID：</label>
+        <div class="layui-input-inline">
+            <input type="number" name="goods_id" class="layui-input"  placeholder="请填写商品ID">
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+
+<table class="layui-hide" id="dataTable" lay-filter="dataTable"></table>
+<script type="text/html" id="toolbar">
+    <div class="layui-btn-group fl">
+        <a data-href="{:url('goods_status?val=1')}" class="layui-btn layui-btn-primary layui-btn-sm hisi-page-btns layui-icon layui-icon-play" data-table="dataTable">&nbsp;启用</a>
+        <a data-href="{:url('goods_status?val=0')}" class="layui-btn layui-btn-primary layui-btn-sm hisi-page-btns layui-icon layui-icon-pause" data-table="dataTable">&nbsp;禁用</a>
+    </div>
+</script>
+<script type="text/html" id="is_upperTpl">
+    <div class="layui-btn-group">
+        <input type="checkbox" class="layui-btn layui-btn-sm" data-id="{{d.id }}" {{d.is_upper==1?'checked':''}}  lay-skin="switch" lay-filter="IsUpperSwitch" lay-text="上架|下架">
+    </div>
+</script>
+<script type="text/html" id="buttonTpl">
+    <div class="layui-btn-group">
+        <input type="checkbox" class="layui-btn layui-btn-sm" data-id="{{d.id }}" {{d.status==1?'checked':''}}  lay-skin="switch" lay-filter="StatusSwitch" lay-text="启用|禁用">
+        {if condition="false"}<a data-id="{{d.id }}" lay-event="goods_move" style="margin-left: 10px !important;" class="goods-move-btn layui-btn layui-btn-danger layui-btn-xs">移动</a>{/if}
+        {if condition="false"}<a href="javascript:goods_del({{d.id }});" style="margin-left: 10px !important;" class="layui-btn layui-btn-warm layui-btn-xs">删除</a>{/if}
+    </div>
+</script>
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#dataTable'
+            ,url:'{:url('pinduoduo/goods')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,toolbar: '#toolbar'
+            ,cols: [[
+                {type:'checkbox'}
+                ,{field:'id', title: 'ID',width: 80, sort: true}
+                ,{field:'nick', title: '发布人',width: 100}
+                ,{field:'stores_name', title: '店铺',width:140}
+                ,{field:'goods_name', title: '商品名称',width:450}
+                ,{field:'goods_url', title: '商品链接',width:480}
+                ,{field:'is_upper', title: '上下架',width:100, templet: '#is_upperTpl'}
+                ,{field:'ctime', title: '添加时间', width: 170}
+                ,{title: '操作',width: 180, templet: '#buttonTpl'}
+            ]]
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('dataTable', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        stores: $("select[name=stores]").val(),
+                        goods_id: $("input[name=goods_id]").val(),
+                        agent: $("select[name=agent]").val()
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            ids=new Array();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        form.on('switch(StatusSwitch)', function(data){
+            let id=data.elem.dataset.id;
+            let status=this.checked?1:0;
+            $.post('{:url('pinduoduo/goods_status')}',{
+                id:id,
+                val:status
+            },function (res) {
+                console.log(res);
+                layer.msg(res.msg, {
+                    time: 2000,
+                    closeBtn: 0
+                });
+                if(res.status==0){
+                    $(data.elem).prop("checked", data.elem.defaultChecked);
+                    form.render();
+                }
+            })
+        });
+        form.on('switch(IsUpperSwitch)', function(data){
+            let id=data.elem.dataset.id;
+            let is_upper=this.checked?1:0;
+            $.post('{:url('pinduoduo/goods_is_upper')}',{
+                id:id,
+                is_upper:is_upper
+            },function (res) {
+                console.log(res);
+                layer.msg(res.msg, {
+                    time: 2000,
+                    closeBtn: 0
+                });
+                if(res.status==0){
+                    $(data.elem).prop("checked", data.elem.defaultChecked);
+                    form.render();
+                }
+            })
+        });
+        table.on('tool(goods)', function(obj){
+            var event=obj.event;
+            var data = obj.data;
+            if (event=='goods_move'){
+                var html='<div style="padding: 30px 58px 10px; background-color: #393D49;color: #FFFFFF; line-height: 22px; font-weight: 300;">';
+                html+='<div class="layui-form" >';
+                html+='<div class="layui-form-item">';
+                html+='<div class="layui-input-inline" style="text-align: center" >';
+                html+='<select class="layui-input" id="goods_move_select" style="display: block">';
+                html+='<option value="">选择店铺</option>';
+                {volist name="list" id="vo"}
+                html+='<option value="{$vo.id}">{$vo.name}</option>';
+                {/volist}
+                html+='</select></div></div></div></div>';
+                layer.open({
+                    type: 1
+                    ,title: '移动商品:'
+                    ,closeBtn: false
+                    ,area: '300px;'
+                    ,shade: 0.8
+                    ,id: 'LAY_goods_move' //设定一个id，防止重复弹出
+                    ,btn: ['移动','放弃']
+                    ,btnAlign: 'c'
+                    ,moveType: 1 //拖拽模式，0或者1
+                    ,content: html
+                    ,success: function(res){
+
+                    }
+                    ,yes: function(){
+                        var flag=true;
+                        var stores_id=$('#goods_move_select').val();
+                        if (!stores_id) {
+                            layer.msg("请选择店铺！");
+                            flag=false;
+                            return;
+                        }
+                        var id=data.id;
+                        if (flag){
+                            $.ajax({
+                                type:"POST",
+                                url: "{:url('pinduoduo/goods_move')}",
+                                data:{
+                                    id:id
+                                    ,stores_id:stores_id
+                                },　
+                                success: function(res){
+                                    layer.msg(res.msg);
+                                    if (res.status){
+                                        self.location.reload();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+    });
+    {if condition="false"}
+    function goods_del(id) {
+        if (confirm('确认是否删除？')==true){
+            self.location='{:url('pinduoduo/goods_del')}?id='+id;
+        }
+    }
+    {/if}
+</script>

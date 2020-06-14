@@ -1,0 +1,61 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <label class="layui-form-label">订单号：</label>
+        <div class="layui-input-inline">
+            <input type="text" name="order_sn" class="layui-input"  placeholder="请填写订单号">
+        </div>
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+<table class="layui-hide" id="after_sales"></table>
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#after_sales'
+            ,url:'{:url('pinduoduo/after_sales')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'id', title: 'ID',width: 80}
+                ,{field:'nick', title: '代理商',width:100}
+                ,{field:'order_sn', title: '订单号',width: 200}
+                ,{field:'ctime', title: '检查时间',width: 180}
+            ]]
+            ,done: function(res, curr, count){
+                console.log(res)
+            }
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('after_sales', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        order_sn: $("input[name=order_sn]").val(),
+                        agent: $("select[name=agent]").val()
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            ids=new Array();
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
+<style>
+    .layui-form-label{
+        min-width: initial !important;
+        width: initial !important;
+    }
+</style>

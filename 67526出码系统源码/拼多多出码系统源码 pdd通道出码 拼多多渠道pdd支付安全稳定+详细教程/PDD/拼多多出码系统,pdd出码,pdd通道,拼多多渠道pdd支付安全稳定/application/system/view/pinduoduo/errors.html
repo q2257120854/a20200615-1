@@ -1,0 +1,49 @@
+{include file="block/layui" /}
+<div class="layui-form" style="padding-top: 15px;">
+    <div class="layui-form-item" style="margin-bottom: 0">
+        <div class="layui-form-mid layui-word-aux" style="padding: 5px 0!important;">
+            <button type="button" id="search" data-type="search" class="layui-btn layui-btn-normal layui-btn-sm" >搜索</button>
+        </div>
+    </div>
+</div>
+<table class="layui-hide" id="errors" lay-filter="errors"></table>
+
+<script>
+    layui.use(['form','jquery','table'], function(){
+        var form = layui.form;
+        var table = layui.table;
+        var $ = layui.$;
+        table.render({
+            elem: '#errors'
+            ,url:'{:url('pinduoduo/errors')}'
+            ,page: true
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'id', title: 'ID',width: 80}
+                ,{field:'msg', title: '错误'}
+                ,{field:'agent_name', title: '代理商'}
+                ,{field:'phone', title: '手机号码'}
+                ,{field:'goods', title: '商品'}
+                ,{field:'datetime', title: '记录时间'}
+            ]]
+        });
+        //搜索加载--数据表格重载
+        var active = {
+            search: function () {
+                table.reload('errors', {
+                    method:'GET',
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        agent: $("select[name=agent]").val(),
+                    }
+                });
+            }
+        };
+        $('#search').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>

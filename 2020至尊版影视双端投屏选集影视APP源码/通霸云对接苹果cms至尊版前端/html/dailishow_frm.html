@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的代理</title>
+		<link rel="stylesheet" type="text/css" href="../css/auiy.css" />
+		<style type="text/css">
+					/* .testx{float: left;width:100%;}
+					.test{ background:forestgreen;margin: 2px;width:100%;}
+					.test ul{list-style:none;height: 45px;background: #fff;margin: 0;padding: 0; width:100%;}
+					.test li{float:left;width:auto;margin-right:15px;margin-left: 5px; pabackground: #F8F8FF; color:#008B8B; line-height: 45px;text-align: center;}
+		 */
+		td
+		{
+			width: 25%;
+		 white-space: nowrap;
+		 overflow:hidden;
+		 text-align: -webkit-center;
+		 height: 28px;
+		 color: #0075F0;
+		 text-align: center;
+		 font-size: 0.65rem;
+		}
+		.tablex{
+			width: 100%;
+			color: #FF2600;
+
+		}
+		
+		</style>
+</head>
+<body onload="load()">
+	<label id="tishi" style="display:none;text-align: center;font-size: 0.98rem;color: #F96060;margin: 5px;"></label>
+  
+   <div id="neir">
+	</div>
+	
+</body>
+<script type="text/javascript">
+	function load(){
+	      var ajax = new XMLHttpRequest();
+	      ajax.open('post','http://tongbav5.tongbayun.cn/appx/daili.php');
+	      ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	      var userid = localStorage.getItem('user_id');
+	      var student = new Object(); 
+	      student.id = userid; 
+				
+	      var json = JSON.stringify(student); 
+	      ajax.send('json='+json);
+	      ajax.onreadystatechange = function(){
+	        if (ajax.readyState ==4&&ajax.status==200) {
+	            console.log(ajax.responseText);
+	            var show = document.querySelector('#tishi');
+							var neirx = document.querySelector('#neir');
+	                show.style.display='block';
+									 var data =ajax.responseText;
+									   var result=eval("("+data+")");
+										function sjcl(timex){
+										 var d = new Date(timex * 1000);
+										 timex=d.toISOString();
+										 var pattern2 = ".000Z";
+										 timex = timex.replace(new RegExp(pattern2), "");
+										 timex = timex.replace(/T/, " ");
+										 timex = timex.substring(5,10);
+										 	return(timex);
+										 	} 	 
+											var shuchu ='';
+											var moneyx =0;
+										 for(var i=0;i<result.length;i++){
+									var qiantb ='<table class="tablex">'+'<tr><th>用户名</th><th>时间</th><th>等级</th><th>金额</th></tr>';
+									var houtb =' </table>';
+	                var str= '<tr>'+'<td>'+'<font size=4>'+result[i][2]+'</font>'+'</td>'+
+	                        '<td>'+'<font size=4>'+sjcl(result[i][1])+'</font>'+'</td>'+
+													'<td>'+'<font size=4>'+result[i][3]+'级代理返'+'</font>'+'</td>'+
+													'<td>'+'<font color=red size=4>'+result[i][4]+'元</font>'+'</td>'+'</tr>';
+													shuchu += str;
+													moneyx = moneyx + Number(result[i][4]);
+	                         } 	
+													 var shuchu =qiantb+shuchu+houtb;
+													 neirx.innerHTML=shuchu;
+													 
+	  var con=result.length;
+		localStorage.setItem('tud',con); 
+		if (con==0){
+			show.innerHTML='啊奥!您有'+ con+'位下级代理  '+'共获得0元';	
+		}else{
+	  show.innerHTML='恭喜!您有'+ con+'位下级代理  '+'共获得'+moneyx+'元';		
+	     } 
+			 
+	    }
+	
+	   };	    	
+	}
+	
+</script>
+</html>

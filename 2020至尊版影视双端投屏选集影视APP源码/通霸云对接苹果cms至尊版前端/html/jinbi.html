@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>金币兑换</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style1.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+	</head>
+
+	<body>
+
+		<div class="myui-jifen-box">
+
+
+
+			<div class="myui-jifen-bt" style="width:90%;margin: 0 auto;padding-top:.5rem;height: auto;overflow: hidden;">
+				<!--
+				<div style="float: left;font-size:0.7rem;display: inline-block;padding: 8px 22px;color: white;border: 1px solid;border-radius: 3px;background-color:#89AE00;" tapmode onclick="openWin('share_win')">获取金币</div>
+
+				<div style="float: right;font-size:0.7rem;display: inline-block;padding: 8px 22px;color: white;border: 1px solid;border-radius: 3px;background-color:#03a9f4;" tapmode onclick="dhxj()">兑换现金</div>
+				-->
+			</div>
+			<b style="font-size: 0.8rem;color:#f00;">↓ 请上传您的支付宝/微信收款二维码 ↓</b>
+			<br>
+			<b style="font-size: 0.6rem;color: #f00;">点击图片直接上传</b>
+
+			<div id="zfb_img" style="text-align:center;padding-top:0rem;position: relative;">
+
+				<form enctype="multipart/form-data" style="position: absolute;width: 100%;height: 100%;left:0px;top:0px;">
+				<img id="skm_img"  onclick="fnphotograph()" src="../image/5798194e81001_1024.jpg" alt="收款码" style="z-index:99999;width:90%;display:inline-block;border-radius:5px;margin-top: .5rem;">
+					<!--贴图库Token-->
+					<input name="Token" type="hidden" id="Token" value="017380b60aee7407dc4ed0cb00d5e40359a0113f:NlS_e58CQhRH3RkG2jZIwUaSIug=:eyJkZWFkbGluZSI6MTU4MzQwMTEzNSwiYWN0aW9uIjoiZ2V0IiwidWlkIjoiNTcwNTEyIiwiYWlkIjoiMTIzMzMxNiIsImZyb20iOiJmaWxlIn0=" />
+				<!--	<div class="myui-jifen-bt" style="position: absolute;width: 100%;height: 100%;left:0px;top:0px;padding-top:.5rem;">
+						<input onchange="changImg(event,'skm_img')" name="file" type="file" id="file" style="position: absolute;width: 100%;height: 100%;left: 0px;opacity:0;background: #0075F0;" />
+						<div style="font-size:0.7rem;display: inline-block;padding: 8px 22px;color: white;border: 1px solid;border-radius: 3px;background-color:#89AE00;position: relative;">
+							<span>点击上传</span>
+						</div>
+						<div style="font-size:0.7rem;display: inline-block;padding: 8px 22px;color: white;border: 1px solid;border-radius: 3px;background-color:#03a9f4;position: relative;">
+							<input type="button" value="Upload" style="position: absolute;width: 100%;height: 100%;left: 0px;opacity:0;"/>
+							<span>确认提交</span>
+						</div>
+					</div>-->
+				</form>
+			</div>
+
+			<div class="myui-jifen-bt">
+			</div>
+
+		</div>
+		<progress style="display:none"></progress>
+		<div id="res"></div>
+
+	</body>
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/auitab.js"></script>
+	<script type="text/javascript" src="../script/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="http://common.jb51.net/jslib/jquery/jquery.min.js"></script>
+	<script>
+		var api_url = localStorage.getItem('api_url');
+	apiready = function() {
+
+	}
+		$(function() {
+			if(localStorage.zfbImg != "" && localStorage.zfbImg != 'undefind') {
+				$("#skm_img").attr("src", localStorage.zfbImg);
+			}
+		});
+		$(':button').click(function() {
+
+		});
+		if('../image/5798194e81001_1024.jpg' == $("#skm_img").attr("src")){
+			 $.ajax({
+          url: api_url+'login/login/getzfbcz.html',
+          type: 'post',
+          dataType:'json',
+          data:{
+  					uid: localStorage.getItem('user_id')
+  				},
+         success:function(ret){
+           if(ret.code==1) {
+             $("#skm_img").attr("src",ret.msg)
+           }
+         }
+
+        });
+		}
+
+		function progressHandlingFunction(e) {
+			if(e.lengthComputable) {
+				$('progress').attr({
+					value: e.loaded,
+					max: e.total
+				});
+			}
+		}
+		function fnphotograph() {
+			api.actionSheet({
+					title: '选择',
+					cancelTitle: '取消',
+					buttons: ['拍照', '相册']
+			}, function(ret, err) {
+					if (ret) {
+							//alert( JSON.stringify( ret ) );
+							if(ret.buttonIndex<3){
+								var sourceTypes = ['camera', 'album'];
+								api.getPicture({
+										sourceType: sourceTypes[ret.buttonIndex - 1],
+										allowEdit: true,
+										quality: 100,
+										saveToPhotoAlbum: false
+								}, function(ret, err) {
+										if (ret) {
+											//	alert(JSON.stringify(ret));
+												fnUploadAtavar(ret.data);
+										} else {
+												//alert(JSON.stringify(err));
+										}
+								});
+							}
+					} else {
+						//	alert(JSON.stringify(err));
+					}
+			});
+
+	}
+
+	function fnUploadAtavar(photo) {
+		api.showProgress({
+				title: '收款码上传中...',
+				modal: false
+			});
+		api.ajax({
+				url: 'http://up.imgapi.com/',
+				method: 'post',
+				dataType:'json',
+				data: {
+						values: {
+								Token: $('#Token').val()
+						},
+						files: {
+								 file:photo
+						}
+				}
+		}, function(data, err) {
+
+				if (data.linkurl  && data.linkurl!='undefind' ) {
+					var values = {
+						uid: localStorage.getItem('user_id'),
+						zfb: data.linkurl
+					}
+					api.ajax({
+						url: api_url+'login/login/zfbcz.html',
+						method: 'post',
+						data: {
+								values: values
+						}
+				}, function(ret, err) {
+						if (ret) {
+							if(ret.code == 1) {
+								alert('上传成功');
+								$("#skm_img").attr("src",data.linkurl)
+								localStorage.zfbImg = data.linkurl;
+							} else if(ret.code == 0) {
+								alert('修改失败');
+							} else {
+								alert('网络错误！11');
+							}
+						} else {
+								api.hideProgress();
+								alert('上传失败');
+						}
+				});
+				} else {
+					//	api.alert({ msg: JSON.stringify(err) });
+				}
+		});
+		api.hideProgress();
+		return '';
+	}
+		function changImg(e, imgid) {
+
+			for(var i = 0; i < e.target.files.length; i++) {
+				var file = e.target.files.item(i);
+				if(!(/^image\/.*$/i.test(file.type))) {
+					continue; //不是图片 就跳出这一次循环
+				}
+				//实例化FileReader API
+				var freader = new FileReader();
+				freader.readAsDataURL(file);
+					alert(	$("#" + imgid).attr("src"));
+				freader.onload = function(e) {
+							alert(9998);
+					$("#" + imgid).attr("src", e.target.result);
+						alert('收款码上传中...');
+				/*
+					api.showProgress({
+						title: '收款码上传中...',
+						modal: false
+					});*/
+					alert(777);
+					var formData = new FormData($('form')[0]);
+					alert(222);
+					$.ajax({
+						url: 'http://up.imgapi.com/',
+						type: 'POST',
+						data:formData  ,
+            contentType: false,
+            processData: false,
+						async:false,
+						success: function(data) {
+								alert(1);
+							/*
+									var values = {
+										uid: localStorage.getItem('user_id'),
+										zfb: data.linkurl
+									}
+									$.ajax({
+									url: 'http://tongbav5.tongbayun.cn/login/login/zfbcz.html',
+									type: 'post',
+									dataType:'json',
+									data:values,
+									async:false,
+								 success:function(ret){
+									 if(ret.code == 1) {
+										// api.hideProgress();
+										 alert('上传成功');
+										 localStorage.zfbImg = data.linkurl;
+										 	$("#skm_img").attr("src",data.linkurl);
+									 } else if(ret.code == 0) {
+										// api.hideProgress();
+										 alert('修改失败');
+									 } else {
+										// api.hideProgress();
+										 alert('网络错误！11');
+									 }
+								 } });*/
+						},error: function(data) {
+							console.log(data);
+							alert('上传失败,请稍后再试');
+						}
+					})
+					alert(1111);
+				  return '';
+
+					$.ajax({
+						url: 'http://up.imgapi.com/',
+						type: 'POST',
+						xhr: function() {
+							myXhr = $.ajaxSettings.xhr();
+							if(myXhr.upload) {
+								myXhr.upload.addEventListener('progress', progressHandlingFunction, false);
+							}
+							return myXhr;
+						},
+						beforeSend: function() {
+							//$('progress').show();
+
+						},
+						success: function(data) {
+
+							//$('#res').html(JSON.stringify(data));
+							//alert("上传成功，linkurl:" + data.linkurl);
+							//window.location.reload();
+							$("#skm_img").attr("src",data.linkurl);
+							var values = {
+								uid: localStorage.getItem('user_id'),
+								zfb: data.linkurl
+							}
+							$.ajax({
+							url: api_url+'login/login/zfbcz.html',
+							type: 'post',
+							dataType:'json',
+							data:values,
+						 success:function(ret){
+							 if(ret.code == 1) {
+								// api.hideProgress();
+								 alert('上传成功');
+								 localStorage.zfbImg = data.linkurl;
+							 } else if(ret.code == 0) {
+								// api.hideProgress();
+								 alert('修改失败');
+							 } else {
+								// api.hideProgress();
+								 alert('网络错误！11');
+							 }
+						 } });
+
+
+							//alert( JSON.stringify( values ) );
+							/*$.ajax({
+								url: 'http://tongbav5.tongbayun.cn/login/login/zfbcz.html',
+								method: 'post',
+								dataType:'json',
+								data: values
+							}, function(ret, err) {
+								if(ret) {
+									//alert( JSON.stringify( ret ) );
+									if(ret.code == 1) {
+										api.hideProgress();
+										alert('上传成功');
+										localStorage.zfbImg = data.linkurl;
+									} else if(ret.code == 0) {
+										api.hideProgress();
+										alert('修改失败');
+									} else {
+										api.hideProgress();
+										alert('网络错误！11');
+									}
+								}
+							});
+*/
+
+						/*	api.ajax({
+								url: 'http://tongbav5.tongbayun.cn/login/login/zfbcz.html',
+								method: 'post',
+								data: {
+									"values": values
+								}
+							}, function(ret, err) {
+								if(ret) {
+									//alert( JSON.stringify( ret ) );
+									if(ret.code == 1) {
+										api.hideProgress();
+										alert('上传成功');
+										localStorage.zfbImg = data.linkurl;
+									} else if(ret.code == 0) {
+										api.hideProgress();
+										alert('修改失败');
+									} else {
+										api.hideProgress();
+										alert('网络错误！11');
+									}
+								}
+							});*/
+						},
+						error: function(data) {
+							console.log(data);
+							alert('上传失败,请稍后再试');
+						},
+						data: formData,
+						cache: false,
+						contentType: false,
+						processData: false
+					});
+
+				}
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+
+//		apiready = function() {
+//			api.parseTapmode();
+//			api.showProgress({
+//				title: '正在刷新',
+//				text: '请稍等...',
+//				modal: false
+//			});
+//			api.ajax({
+//				url: 'http://tongbav5.tongbayun.cn/login/login/sign.html',
+//				method: 'get',
+//				data: {
+//					values: {
+//						uid: localStorage.getItem('user_id')
+//					}
+//				}
+//			}, function(ret, err) {
+//				if(ret) {
+//					var sign = $api.byId('sign');
+//					sign.innerHTML = ret.msg['share'];
+//					localStorage.setItem('user_jinb', ret.msg['share']);
+//				} else {
+//					api.hideProgress();
+//					alert('网络错误11');
+//				}
+//			});
+//
+//			api.ajax({
+//				url: 'http://tongbav5.tongbayun.cn/login/login/share.html',
+//				method: 'get',
+//				data: {
+//					values: {
+//						uid: localStorage.getItem('user_id')
+//					}
+//				}
+//			}, function(ret, err) {
+//				if(ret) {
+//					//var bili = $api.byId('bili');
+//
+//					//bili.innerHTML = '100百年金币可以兑换1天会员资格！';
+//					bili2.innerHTML = '100百年金币可以兑换1元现金!';
+//					api.hideProgress();
+//				} else {
+//					api.hideProgress();
+//					alert('获取失败');
+//
+//				}
+//			});
+//		}
+
+//		function fasong() {
+//			var ajax = new XMLHttpRequest();
+//			ajax.open('post', 'http://tongbav5.tongbayun.cn/appx/cesaj.php');
+//			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//
+//			var bianl1 = document.querySelector('#sign');
+//			var bianl2 = document.querySelector('#count').value;
+//			var bianl3 = Number(bianl1.innerText) - (Number(bianl2) * 100); //兑换百年金币/金币比率!!!!
+//			var bianyu = Number(bianl3);
+//			if(bianyu <= 0) {
+//				alert('百年金币不足，无法兑换')
+//				return;
+//			}
+//			var shuji = Number(bianl2);
+//			sign.innerHTML = bianyu;
+//			localStorage.setItem('user_jinb', bianyu);
+//			var userid = localStorage.getItem('user_id');
+//			var student = new Object();
+//			student.id = userid;
+//			student.age = shuji;
+//			var json = JSON.stringify(student);
+//			ajax.send('json=' + json);
+//			ajax.onreadystatechange = function() {
+//				if(ajax.readyState == 4 && ajax.status == 200) {
+//					console.log(ajax.responseText);
+//					alert('兑换成功！恭喜获得' + ajax.responseText + '天VIP')
+//				}
+//			};
+//		}
+
+//		function dhxj() {
+//			var ajax = new XMLHttpRequest();
+//			ajax.open('post', 'http://tongbav5.tongbayun.cn/appx/dhxj.php');
+//			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//
+//			var bianl1 = document.querySelector('#sign');
+//			var bianl2 = document.querySelector('#count').value;
+//			var bianl3 = Number(bianl1.innerText) - (Number(bianl2) * 100); //兑换百年金币/金币比率!!!!
+//			var bianyu = Number(bianl3);
+//
+//			if(bianyu <= 0) {
+//				alert('百年金币不足，无法兑换')
+//				return;
+//			}
+//			if(bianl2 < 20) {
+//				alert('金额满50元，方可提现，或者您可以用金币兑换您的百年演示VIP时长哦！继续努力邀请好友吧！')
+//				return;
+//			}
+//			var shuji = Number(bianl2);
+//			localStorage.setItem('user_jinb', bianyu);
+//			var userid = localStorage.getItem('user_id');
+//			var student = new Object();
+//			student.id = userid;
+//			student.age = shuji;
+//			var json = JSON.stringify(student);
+//			//alert(json)
+//			ajax.send('json=' + json);
+//			ajax.onreadystatechange = function() {
+//				if(ajax.readyState == 4 && ajax.status == 200) {
+//					if(ajax.responseText == 403) {
+//						alert("有未审核订单,请稍后申请提现！");
+//					} else {
+//						alert('申请提现成功！恭喜获得' + ajax.responseText + '元现金,请等待客服审核！')
+//						sign.innerHTML = bianyu;
+//					}
+//				}else{
+//					alert('网络异常请稍后再试！')
+//				}
+//			};
+//		}
+//		/*
+//		  function exchange00(){
+//		    var share = $api.val($api.byId('count'));
+//
+//		    api.ajax({
+//		        url: api_url+'/login/login/exchange.html',
+//		        method: 'get',
+//		        data: {
+//		            values: {
+//		                uid: localStorage.getItem('user_id'),
+//		                share:share*jifenbi
+//		            }
+//		        }
+//		    },function(ret, err){
+//		        if (ret) {
+//		            if (ret.code == 0) {
+//		              alert( ret.msg );
+//		            }else {
+//		              getTime();
+//		              alert( '成功兑换'+share+'天会员' );
+//		            }
+//
+//		        } else {
+//		          api.hideProgress();
+//		            alert( '网络错误22' );
+//		        }
+//		    });
+//		  }
+//		*/
+//
+//		//重新获取到期时间
+		function getTime() {
+			api.ajax({
+				url: api_url+'login/login/veifys.html',
+				method: 'get',
+				data: {
+					values: {
+						username: localStorage.getItem('user_name'),
+						passwd: localStorage.getItem('password'),
+						imei: api.deviceId,
+						kjdl:localStorage.getItem('kjdl'),
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if(ret) {
+					if(ret.code == 0) {
+						api.hideProgress();
+						alert('不明错误 请重新登录');
+					} else if(ret.code == 1) {
+						localStorage.setItem('user_time', ret.msg['time']);
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+					}
+				} else {
+					api.hideProgress();
+					alert('网络错误！33');
+				}
+			});
+		}
+
+		var bar = document.querySelectorAll(".aui-bar-btn");
+		if(bar) {
+			for(var i = 0; i < bar.length; i++) {
+				var d = bar[i];
+				var tab = new auiTab({
+					element: bar[i],
+					repeatClick: true
+				}, function(ret) {
+					//alert( JSON.stringify( ret ) );
+					if(ret.dom.parentNode.getAttribute("type") && ret.dom.parentNode.getAttribute("type") == "count") {
+						var count = parseInt(document.getElementById("count").value);
+						//if(ret.index==2)return;
+						if(ret.index == 1) {
+							if(document.getElementById("count").value <= 1) {
+								return;
+							}
+							document.getElementById("count").value = count - 1;
+						}
+						if(ret.index == 3) {
+							document.getElementById("count").value = count + 1;
+						}
+					}
+				});
+
+			}
+		}
+
+		function openWin(name) {
+			var delay = 0;
+			if(api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: '' + name + '',
+				url: '' + name + '.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,34 @@
+html,body {line-height:0;}
+body {background:#253E6E;}
+body,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd,p {margin:0;}
+body,h1,input,button,select,textarea {font-family:"Microsoft Yahei","PingFang SC","Helvetica Neue",serif;font-size:.28rem;color:#272727;}
+input,button,select,textarea {border:none;outline:none;}
+input,button,textarea,th,td {padding:0;}
+i,em,cite {font-style:normal;}
+ul,ol {padding:0;list-style:none;}
+img {vertical-align:top;border:none;}
+a {text-decoration:none;color:inherit;}
+
+.warp,.header{margin:0 auto;width:7.5rem;}
+.warp:after{content:'';display:table;clear:both;}
+.header{position:fixed;display:table;background:rgba(40,40,40,.5);z-index:3;}
+.soft-logo,.soft-name,.soft-down{display:table-cell;height:1rem;vertical-align:middle;}
+.soft-logo{width:.9rem;text-align:right;}
+.soft-logo img{border-radius:.15rem;width:.7rem;height:.7rem;}
+.soft-name{padding:0 .17rem;line-height:.2rem;font-size:.18rem;font-weight:300;color:#fff;}
+.soft-name p:first-child{line-height:.4rem;font-size:.3rem;font-weight:bold;}
+.soft-down{width:1.66rem;}
+.soft-btn{border-radius:.5rem;width:1.5rem;height:.6rem;background:#fff;text-align:center;}
+.soft-btn img{margin:.04rem 0 0 .05rem;width:1.3rem;}
+.soft-cont{position:relative;}
+.soft-cont img{width:100%;}
+.down-btn{position:absolute;top:5.5rem;right:.4rem;padding:.5rem 0 0.1rem .5rem;width:2.05rem!important;height:.48rem;}
+
+/*setp and weixin*/
+.step{margin:0 auto;width:7.5rem;background:#000 url("../images/step/step-header.jpg") no-repeat top / contain;text-align:center;}
+.step-header{padding:.5rem 0;font-size:.36rem;color:#fff;}
+.step img{margin-bottom:.3rem;width:6.9rem;}
+.weixin{position:fixed;top:0;right:0;bottom:0;left:0;text-align:center;background:rgba(0,0,0,.8);z-index:9;}
+.weixin img{margin:.3rem 0 0 .4rem;width:5.73rem;height:2.65rem;}
+
+

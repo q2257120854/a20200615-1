@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<style>
+			/*新加空提示信息*/
+			.m-noRecord {
+				padding:     .395rem 0 0;
+				text-align: center;
+			}
+			.m-noRecord .c-icon-noRecord {
+				background: url(../image/app/Loading2.gif) no-repeat;
+				background-size: cover;
+				width: 15rem;
+				height: 0rem;
+				/* margin: .485rem auto 0; */
+				margin: 0 auto;
+			}
+			.m-noRecord .c-info {
+				background: linear-gradient(to right, #ffd74c, #c7752e);
+				-webkit-background-clip: text;
+				color: transparent;
+				/* color: #cecfce;  */
+				line-height: 4rem;
+				padding:     .25rem 0;
+				font-size: .8rem;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/auislide.css" />
+		<link rel="stylesheet" href="../css/zhibo.css">
+	</head>
+	<body style="background: #eee;padding-top: 0.01rem;">
+		<div class="wrap">
+			<textarea id="fktxt" placeholder="反馈您想看的电影我们会及时为您更新 " style="width:98%;border-radius:0.1rem;background: #fff;height: 150px;margin-left:1%;margin-right:1%;padding: 1%"></textarea>
+			<div class="aui-btn aui-btn-info aui-btn-block" tapmode onclick="Qply()" style="font-size:16px;m border-radius:0.5rem;width:80%;height:40px;line-height:40px;margin-right:10%;margin-left:10%;margin-top:5%;">
+				提交
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js" ></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		apiready = function() {
+			
+		}
+		function Qply() {
+			var fktxt = $api.byId('fktxt');
+			var wd = $api.val(fktxt);
+			api.ajax({
+				url : 'http://tongbav5.tongbayun.cn/login/login/qpliuy.html',
+				method : 'post',
+            	data: {
+                	values: {
+                    	txt: wd
+                	}
+            	}
+			}, function(ret, err) {
+				if(ret){
+					var dialogBox = api.require('dialogBox');
+dialogBox.alert({
+    texts: {
+        title: '',
+        content: ret.msg,
+        leftBtnTitle: '确认'
+    },
+    styles: {
+        bg: '#fff',
+        w: 300,
+        corner:2,
+        title: {
+            marginT: 0
+        },
+        content: {
+            color: '#000',
+            size: 14
+        },
+        left: {
+            marginB: 7,
+            marginL: 20,
+            w: 260,
+            h: 35,
+            corner: 2,
+            bg: 'rgb(2, 107, 244)',
+            color: '#fff',
+            size: 13
+        }
+    }
+}, function(rem) {
+    if (rem.eventType == 'left') {
+        var dialogBox = api.require('dialogBox');
+        dialogBox.close({
+            dialogName: 'alert'
+        });
+        if(ret.ok==1){
+        	api.closeWin();
+        }
+    }
+});
+				}else{
+					api.toast({
+						msg: '请检测网络是否正常!',
+						duration: 5000
+					});
+				}
+			});
+		}
+	</script>
+</html>

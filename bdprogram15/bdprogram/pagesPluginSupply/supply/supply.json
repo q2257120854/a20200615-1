@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "copyright": "/components/copyright/copyright",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

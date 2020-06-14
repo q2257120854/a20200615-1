@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "copyright": "/components/copyright/copyright",
+    "myfooter": "/components/myfooter/myfooter",
+    "list_pic": "/components/plugins/list_pic",
+    "list_pic_td0": "/components/plugins/list_pic_td0",
+    "list_pic_td1": "/components/plugins/list_pic_td1",
+    "list_pic_td2": "/components/plugins/list_pic_td2",
+    "list_text": "/components/plugins/list_text"
+  }
+}

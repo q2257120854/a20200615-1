@@ -1,0 +1,30 @@
+﻿@charset "gb2312";
+html,body{ color:#222; background:#efefef; font-family:"microsoft YaHei","΢���ź�";}
+html, body, ul, li, ol , dl , dd , dt , p, h1, h2, h3, h4, h5, h6, form, fieldset, legend , figure, table, td,b{margin:0;padding:0;border:0;}
+header,footer,nav,section,article,hgroup,aside{ display:block; margin:0;padding:0;border:0;}
+input,select,textarea{margin:0; padding:0;}
+fieldset,img{border:none;}
+img{ border:0;}
+address,caption,cite,code,dfn,em,th,var {font-style: normal;font-weight: normal;}
+ul,ol,li{list-style-type:none;}
+select,input{vertical-align:middle;}
+select,input,textarea {font-size:12px; font-family:"microsoft YaHei","΢���ź�";}
+a {color:#222222;text-decoration:none;}
+a:visited{ text-decoration:none;}
+.left { float:left;}
+.right { float:right;}
+.clear {width:100%;clear:both;height:0px;}
+.yahei{font-family:"microsoft YaHei","΢���ź�";font-weight:normal;}
+h1, h2, h3, h4, h5, h6 { font-size:14px;}
+.mar { margin: 0 auto;}
+.fwb { font-weight:bold;}
+.fwn { font-weight:normal;}
+ins{  display: none; font-size:0; line-height:0; overflow: hidden; text-indent: -9999px;}
+.red { color:red;}
+.orange_bold { font-family:Arial; font-size:15px; font-weight:bold; color:#ff6600;}
+.green { color:#427e11;}
+.blue_line { color:#0278c3; text-decoration:underline;}
+.martop10 { margin-top:15px;}
+.block {display:block;}
+.none {display:none;}
+.font12 { font-size:12px;}

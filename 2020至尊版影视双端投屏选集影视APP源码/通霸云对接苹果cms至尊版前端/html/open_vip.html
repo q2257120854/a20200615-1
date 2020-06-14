@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>开通会员</title>
+		<link href="../css/style4.css" rel="stylesheet" type="text/css" />
+
+
+		<link rel="stylesheet" type="text/css" href="../css/sweet-alert.css">
+		<script src="../js/sweet-alert.min.js"></script>
+	</head>
+
+	<body>
+
+		<section class="aui-flexView">
+			<header class="ui_button"></header>
+			<header class="aui-navBar aui-navBar-fixed">
+				<a onclick="closeWin()" href="javascript:;" class="aui-navBar-item">
+					<i class="icon icon-return"></i>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title1">开通会员</span>
+				</div>
+				<a href="javascript:;" class="aui-navBar-item">
+					<i class="icon icon-sys"></i>
+				</a>
+			</header>
+
+
+
+			<section class="aui-scrollView">
+				<div class="aui-member-head">
+					<div class="aui-flex">
+						<div class="aui-flex-user">
+							<img id="user_img" src="../image/app/user.png" alt="">
+						</div>
+						<div class="aui-flex-box aui-flex-box-top">
+							<h2><i id="name">李嘉桦同学 </i><em>开通会员</em></h2>
+						</div>
+					</div>
+					<div class="aui-member-box">
+						<h1>
+							<img src="../image/ktvip/title1.png" alt="">
+						</h1>
+						<div class="aui-palace">
+							<a href="#" class="aui-palace-grid">
+								<div class="aui-palace-grid-icon">
+									<img src="../image/ktvip/icon-nav-001.png" alt="">
+								</div>
+								<div class="aui-palace-grid-text">
+									<h2>视频权益</h2>
+									<p>全网视频免费看</p>
+								</div>
+							</a>
+							<a href="#" class="aui-palace-grid">
+								<div class="aui-palace-grid-icon">
+									<img src="../image/ktvip/icon-nav-002.png" alt="">
+								</div>
+								<div class="aui-palace-grid-text">
+									<h2>分享赚金币</h2>
+									<p>分享越多赚的越多</p>
+								</div>
+							</a>
+							<a href="#" class="aui-palace-grid">
+								<div class="aui-palace-grid-icon">
+									<img src="../image/ktvip/icon-nav-004.png" alt="">
+								</div>
+								<div class="aui-palace-grid-text">
+									<h2>客服优先</h2>
+									<p>售后急速接入</p>
+								</div>
+							</a>
+
+							<a href="#" class="aui-palace-grid">
+								<div class="aui-palace-grid-icon">
+									<img src="../image/ktvip/icon-nav-005.png" alt="">
+								</div>
+								<div class="aui-palace-grid-text">
+									<h2>提现优先</h2>
+								</div>
+							</a>
+							<a href="#" class="aui-palace-grid">
+								<div class="aui-palace-grid-icon">
+									<img src="../image/ktvip/icon-nav-001.png" alt="">
+								</div>
+								<div class="aui-palace-grid-text">
+									<h2>丢单速赔</h2>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="aui-flex">
+					<div class="aui-flex-box">
+						<h2> <i class="icon icon-member"></i> 购买会员</h2>
+					</div>
+				</div>
+				<div class="aui-flex-member-list">
+					<ul class="aui-cho-box">
+						<li onclick="yj()" class="aui-flex on">
+							<div class="aui-flex-time">
+								<h1>永久会员</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥228</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="yongjiu"> ￥190</a></h2>
+							</div>
+						</li>
+						<li onclick="nian()" class="aui-flex">
+							<div class="aui-flex-time">
+								<h1>1年</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥106</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="nianka"> ￥110</a></h2>
+							</div>
+						</li>
+						<li onclick="ban()" class="aui-flex">
+							<div class="aui-flex-time">
+								<h1>6个月</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥118</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="bannian"> ￥105</a></h2>
+							</div>
+						</li>
+						<li onclick="ji()" class="aui-flex">
+							<div class="aui-flex-time">
+								<h1>3个月</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥106</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="jika"> ￥101</a></h2>
+							</div>
+						</li>
+						<li onclick="yue()" class="aui-flex">
+							<div class="aui-flex-time">
+								<h1>1个月</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥106</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="yueka"> ￥190</a></h2>
+							</div>
+						</li>
+						<li onclick="ty()" class="aui-flex">
+							<div class="aui-flex-time">
+								<h1>体验7天</h1>
+							</div>
+							<div class="aui-flex-box">
+								<h2>原价 <em>￥106</em></h2>
+							</div>
+							<div class="aui-flex-tag">
+								<h2><em>特惠</em><a id="tiyan"> ￥190</a></h2>
+							</div>
+						</li>
+					</ul>
+					<h3><i class="icon icon-info"></i> 成为会员可享受5大权益,到期手动续费</h3>
+				</div>
+				<div id="goumai" class="aui-member-get">
+
+				</div>
+				<div class="aui-flex">
+					<div class="aui-flex-box">
+						<h3>会员权益可为您每年多节省 <em>≈2700元</em></h3>
+					</div>
+				</div>
+
+				<div class="aui-list-box">
+					<a href="#" class="aui-flex">
+						<div class="aui-flex-box">
+							<h5>邀请返利无上限</h5>
+						</div>
+						<div class="aui-flex-text">
+							<p>多奖励约<em>900元</em></p>
+						</div>
+					</a>
+
+				</div>
+				<div class="aui-member-get">
+					<button onclick="jhmcz()">激活码充值</button>
+				</div>
+			</section>
+		</section>
+	</body>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			$(".aui-cho-box li").click(function() {
+				$(this).addClass("on").siblings().removeClass("on");
+				tola();
+			});
+
+		});
+
+		function tola() {
+			var $li = $(".aui-cho-box").children("li.on");
+			var money = $li.children("i").text();
+			var count = $(".auiSks").val();
+			$(".aui-total span").text(money * count);
+		}
+	</script>
+
+
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var user_id = localStorage.getItem('user_id');
+		var api_url = localStorage.getItem('api_url');
+		var aqkey = localStorage.getItem('anq_key');
+
+		var fenbian;
+		var yongjiu1;
+		var nianka1;
+		var bannian1;
+		var jika1;
+		var yueka1;
+		var tiyan1;
+
+		apiready = function() {
+
+			var names = $api.byId('name');
+			if (localStorage.getItem('user_nickname') == "") {
+				names.innerHTML = localStorage.getItem('user_name');
+			} else {
+				names.innerHTML = localStorage.getItem('user_nickname');
+			}
+
+			api.parseTapmode();
+			newLoingdata();
+			api.ajax({
+				url: api_url + '/login/login/rjxx.html',
+				method: 'get',
+
+			}, function(ret, err) {
+				if (ret) {
+					var yongjiu = $api.byId('yongjiu');
+					var nianka = $api.byId('nianka');
+					var bannian = $api.byId('bannian');
+					var jika = $api.byId('jika');
+					var yueka = $api.byId('yueka');
+					var tiyan = $api.byId('tiyan');
+					var goumai = $api.byId('goumai');
+
+						yongjiu.innerHTML = '￥' + ret.msg['yongjiu'];
+					nianka.innerHTML = '￥' + ret.msg['nianka'];
+					bannian.innerHTML = '￥' + ret.msg['bannian'];
+					jika.innerHTML = '￥' + ret.msg['jika'];
+					yueka.innerHTML = '￥' + ret.msg['yueka'];
+					tiyan.innerHTML = '￥' + ret.msg['tiyan'];
+					goumai.innerHTML = '<button onclick="openUrl4()">￥' + ret.msg['yongjiu'] + '购买权益</button>';
+					goumai.innerHTML += '<br><button onclick="yuepay(' + ret.msg['yongjiu'] + ',' + ret.msg['yongjiu'] + ')">余额购买</button>';
+					yongjiu1 = ret.msg['yongjiu'];
+					nianka1 = ret.msg['nianka'];
+					bannian1 = ret.msg['bannian'];
+					jika1 = ret.msg['jika'];
+					yueka1 = ret.msg['yueka'];
+					tiyan1 = ret.msg['tiyan'];
+				}
+
+			});
+
+			if (localStorage.getItem('user1_img') == "") {} else {
+				var userImg = $api.byId('user_img');
+				var img12 = localStorage.getItem('user1_img');
+				var reg = /%26/g;
+				var tup = img12.replace(reg, '&');
+				userImg.src = tup;
+			}
+
+		}
+
+		function newLoingdata() {
+
+			api.ajax({
+				url: api_url + '/login/login/logo.html',
+				method: 'get',
+				data: {
+					values: {
+						username: localStorage.getItem('user_name'),
+						passwd: localStorage.getItem('password'),
+						imei: api.deviceId,
+						key:localStorage.getItem('anq_key'),
+					}
+				},
+			}, function(ret, err) {
+				if (ret) {
+					if (ret.code == 0) {
+						api.openWin({
+							name: 'login_win',
+							url: './login_win.html',
+							delay: 300
+						});
+						return;
+					} else if (ret.code == 1) {
+						localStorage.setItem('user_id', ret.msg['id']);
+						localStorage.setItem('user_time', ret.msg['time']);
+						localStorage.setItem('user_share', ret.msg['share']);
+						localStorage.setItem('user_advert', ret.msg['advert']);
+						localStorage.setItem('user_code', ret.msg['code']);
+						localStorage.setItem('user_weichat', ret.msg['weichat']);
+						localStorage.setItem('url', ret.msg['url']);
+						localStorage.setItem('url1', ret.msg['url1']);
+						localStorage.setItem('url2', ret.msg['url2']);
+						localStorage.setItem('url3', ret.msg['url3']);
+						localStorage.setItem('url4', ret.msg['url4']);
+						localStorage.setItem('url5', ret.msg['url5']);
+						localStorage.setItem('url6', ret.msg['url6']);
+						localStorage.setItem('url7', ret.msg['url7']);
+						localStorage.setItem('user_nickname', ret.msg['nick_name']);
+						localStorage.setItem('tjryqma', ret.msg['sjyqma']);
+						localStorage.setItem('stdejb', ret.msg['stjb']);
+						localStorage.setItem('user_zfb', ret.msg['zfb']);
+						localStorage.setItem('user_sharema', ret.msg['share_ma']);
+						localStorage.setItem('user_img', ret.msg['userimg']);
+						//      var weichatdiv = $api.byId('weichat');
+						//      weichatdiv.innerHTML = '客服微信：'+localStorage.getItem('user_weichat');
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+					}
+				} else {
+					// alert('网络错误！');
+					return;
+				}
+			});
+		}
+
+		function yj() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl4()">￥' + yongjiu1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + yongjiu1 + ',' + yongjiu1 + ')">余额购买</button>';
+		}
+
+		function nian() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl3()">￥' + nianka1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + nianka1 + ',' + nianka1 + ')">余额购买</button>';
+		}
+
+		function ban() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl6()">￥' + bannian1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + bannian1 + ',' + bannian1 + ')">余额购买</button>';
+		}
+
+		function ji() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl2()">￥' + jika1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + jika1 + ',' + jika1 + ')">余额购买</button>';
+		}
+
+		function yue() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl1()">￥' + yueka1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + yueka1 + ',' + yueka1 + ')">余额购买</button>';
+		}
+
+		function ty() {
+			var goumai = $api.byId('goumai');
+			goumai.innerHTML = '<button onclick="openUrl5()">￥' + tiyan1 + '购买权益</button>';
+			goumai.innerHTML += '<br><button onclick="yuepay(' + tiyan1 + ',' + tiyan1 + ')">余额购买</button>';
+		}
+
+
+
+		function openUrl1() {
+
+			if (localStorage.getItem('url1') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url1') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url1'));
+			}
+		}
+
+		function openUrl2() {
+			if (localStorage.getItem('url2') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url2') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url2'));
+			}
+		}
+
+		function openUrl3() {
+			if (localStorage.getItem('url3') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url3') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url3'));
+			}
+		}
+
+		function yuepay(leix,money) {
+			api.ajax({
+				url: api_url + '/login/login/paymoney1.html',
+				method: 'get',
+				data: {
+					values: {
+						uid: localStorage.getItem('user_id'),
+						leix: leix,
+						money:money,
+						key: aqkey,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					if (ret.code == 0) {
+						api.hideProgress();
+						api.alert({
+							title: '哎呀~',
+							msg: ret.msg,
+						});
+						return;
+					} else if (ret.code == 1) {
+						api.hideProgress();
+						api.alert({
+							title: '恭喜!',
+							msg: '充值成功,请返回个人中心下拉刷新！',
+						});
+						localStorage.setItem('user_time', ret.lasttime);
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+						api.closeWin();
+
+					} else {
+						api.hideProgress();
+						api.alert({
+							title: '糟糕~',
+							msg: '网络似乎有点问题',
+						});
+					}
+				}
+			});
+
+		}
+
+		function openUrl4() {
+			if (localStorage.getItem('url4') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url14') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url4'));
+			}
+		}
+
+		function openUrl5() {
+			if (localStorage.getItem('url5') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url15') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url5'));
+			}
+		}
+
+		function openUrl6() {
+			if (localStorage.getItem('url6') == '无数据') {
+				keFu();
+				return;
+			} else if (localStorage.getItem('url6') == '') {
+				keFu();
+				return;
+			} else {
+				toBanner(localStorage.getItem('url6'));
+			}
+		}
+
+
+
+
+
+		//访问地址
+		function toBanner(url) {
+			var sys = api.systemType;
+			if (sys == 'ios') {
+				if (url == '') {
+					keFu();
+					return;
+				} else {
+					api.openApp({
+						iosUrl: url + "&user_id=" + localStorage.getItem('user_id')
+					}, function(ret, err) {});
+				}
+			} else {
+
+				if (url == '') {
+					keFu();
+					return;
+				} else {
+					api.openWin({
+						name: 'h5',
+						url: './h5.html',
+						pageParam: {
+							url: url + "&user_id=" + localStorage.getItem('user_id')
+						}
+					});
+				}
+
+			}
+
+
+		}
+
+		function keFu() {
+			var dialogBox = api.require('dialogBox');
+			dialogBox.alert({
+				texts: {
+					content: '请联系客服微信：' + localStorage.getItem('user_weichat'),
+					leftBtnTitle: '知道了',
+					rightBtnTitle: '联系客服'
+				},
+				styles: {
+					bg: '#fff',
+					w: 300,
+					title: { //（可选项）JSON对象；弹窗标题栏样式配置，不传则不显示标题区域
+						marginT: 20, //（可选项）数字类型；标题栏与对话框顶端间距；默认：20
+						icon: 'widget://image/app/molisos.png', //（可选项）字符串类型；标题前面的图标路径，要求本地路径（widget://、fs://）；图片为正方形的，如：50*50、100*100，建议开发者传大小合适的图片以适配高分辨率手机屏幕，不传则不显示
+						iconSize: 80, //（可选项）数字类型；icon 图标边长大小,若 icon 不存在则此参数无效；默认：24
+						titleSize: 14, //（可选项）数字类型；标题字体大小；默认：14
+						titleColor: '#000' //（可选项）字符串类型；标题字体颜色，支持#、rgb、rgba；默认：#fff
+					},
+					content: {
+						color: '#000',
+						size: 16
+					},
+					left: { //（可选项）JSON 对象；左边按钮样式配置，不传则不显示左边按钮
+						marginB: 30, //（可选项）数字类型；左边按钮的下边距；默认：7
+						marginL: 30, //（可选项）数字类型；左边按钮的左边距；默认：20
+						w: 100, //（可选项）数字类型；左边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；左边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；左边按钮圆角半径；默认：0.0
+						bg: '#3d3d3d', //（可选项）字符串类型；左边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；左边按钮标题字体颜色，支持rgb，rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；左边按钮标题字体大小；默认：12
+					},
+					right: { //（可选项）JSON 对象；右边按钮样式配置，不传则不显示右边按钮
+						marginB: 30, //（可选项）数字类型；右边按钮的下边距；默认：7
+						marginL: 40, //（可选项）数字类型；右边按钮左边距；默认：10
+						w: 100, //（可选项）数字类型；右边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；右边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；右边按钮圆角半径；默认：0.0
+						bg: '#ff0103', //（可选项）字符串类型；右边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；右边按钮标题字体颜色，支持rgb、rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；右边按钮标题字体大小；默认：12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				} else if (ret.eventType == 'right') {
+					var clipBoard = api.require('clipBoard');
+					clipBoard.set({
+						value: localStorage.getItem('user_weichat')
+					}, function(ret, err) {
+						if (ret) {
+							api.toast({
+								msg: '已复制号码到剪切板',
+								duration: 2000
+							});
+							var dialogBox = api.require('dialogBox');
+							dialogBox.close({
+								dialogName: 'alert'
+							});
+						} else {
+
+						}
+					});
+				}
+			});
+		}
+
+
+		function jhmcz() {
+
+			var dialogBox = api.require('dialogBox');
+			dialogBox.input({
+				keyboardType: 'default',
+				texts: {
+					title: '激活码充值',
+					placeholder: '输入激活码',
+					leftBtnTitle: '取消',
+					rightBtnTitle: '确定'
+				},
+				styles: {
+					bg: '#fff',
+					corner: 2,
+					w: 300,
+					h: 240,
+					title: {
+						h: 60,
+						alignment: 'center',
+						size: 14,
+						color: '#000',
+						marginT: 30,
+					},
+					input: {
+						h: 60,
+						y: 30,
+						marginT: 15,
+						marginLeft: 10,
+						marginRight: 10,
+						textSize: 14,
+						textColor: '#000'
+					},
+					dividingLine: {
+						width: 0.5,
+						color: '#696969'
+					},
+					left: {
+						bg: 'rgba(0,0,0,0)',
+						color: '#007FFF',
+						size: 12
+					},
+					right: {
+						bg: 'rgba(0,0,0,0)',
+						color: '#007FFF',
+						size: 12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'right') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'input'
+					});
+					if (ret.text == "") {
+						swal("操作失败", "调皮~   激活码都没输入", "error");
+						return;
+					}
+
+					api.ajax({
+						url: api_url + '/login/login/dianka.html',
+						method: 'get',
+						data: {
+							values: {
+								uid: localStorage.getItem('user_id'),
+								dianka: ret.text,
+							}
+						}
+					}, function(ret, err) {
+						if (ret) {
+							if (ret.code == 0) {
+								api.hideProgress();
+								api.alert({
+									title: '哎呀~',
+									msg: ret.msg,
+								});
+								return;
+							} else if (ret.code == 1) {
+								api.hideProgress();
+								api.alert({
+									title: '恭喜!',
+									msg: '充值成功,请返回个人中心下拉刷新！',
+								});
+								localStorage.setItem('user_time', ret.lasttime);
+								api.sendEvent({
+									name: 'newLoingdata',
+									extra: {}
+								});
+								api.closeWin();
+
+
+
+							} else {
+								api.hideProgress();
+								api.alert({
+									title: '糟糕~',
+									msg: '网络似乎有点问题',
+								});
+							}
+						}
+					});
+
+
+				}
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'input'
+					});
+				}
+
+
+			});
+
+
+
+		}
+
+
+		function closeWin() {
+			api.closeWin({});
+		}
+	</script>
+</html>

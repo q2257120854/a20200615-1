@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>用户注册</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <link href="../css/stylezcy.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="../js/jqueryzcy.js"></script>
+        <script type="text/javascript" src="js/time.js"></script>
+    </head>
+
+    <body>
+      <header  class="ui_button"></header>
+        <section class="aui-flexView">
+            <header class="aui-navBar aui-navBar-fixed">
+                <a onclick="closeWin()" class="aui-navBar-item">
+                    <i class="icon icon-return"></i>
+                </a>
+                <div class="aui-center">
+                    <span class="aui-center-title">修改密码</span>
+                </div>
+                <a href="javascript:;" class="aui-navBar-item">
+                    <i class="icon icon-news"></i>
+                </a>
+            </header>
+            
+                <div class="aui-code-box">
+                 
+                        <p class="aui-code-line">
+                            <input type="text" class="aui-code-line-input" name="search" value="" id="username" autocomplete="off" placeholder="请输入手机号"/>
+                        </p>
+                        
+                        <p class="aui-code-line aui-code-line-clear">
+                            <input id="password" type="text" class="aui-code-line-input" autocomplete="off" placeholder="请输入密码"/>
+                            
+                        </p>
+                        <p class="aui-code-line">
+                            <input type="text" class="aui-code-line-input" name="search" value="" id="xpassword" autocomplete="off" placeholder="请输入新密码"/>
+                        </p>
+                        
+                        <div class="aui-code-btn">
+                            <button onclick="toReg()">修改密码</button>
+                        </div>
+                   
+                </div>
+            
+        </section>
+        
+    </body>
+    
+    
+    
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    var api_url = localStorage.getItem('api_url');
+    var onoff = true;
+    var code_data = '';
+  apiready = function () {
+    
+    var header = $api.byId('aui-header');
+    $api.fixStatusBar(header);
+    var headerPos = $api.offset(header);
+    var body_h = $api.offset($api.dom('body')).h;
+  }
+    function closeWin(){
+        api.closeWin({
+        });
+    }
+
+
+    function toReg(){
+      var lao_pass = $api.val($api.byId('password'));
+      var username = $api.val($api.byId('username'));
+      var  xinpass = $api.val($api.byId('xpassword'));
+      if(username == ''){
+        api.alert({
+            title: '调皮~',
+            msg: '请输入账号',
+        });
+        return;
+      }
+	  if(lao_pass == ''){
+	    api.alert({
+	        title: '调皮~',
+	        msg: '请输入密码',
+	    });
+	    return;
+	  }
+      if(xinpass == ''){
+        api.alert({
+            title: '调皮~',
+            msg: '请输入新密码',
+        });
+        return;
+      }
+	  if(username !== localStorage.getItem('user_name')){
+	    api.alert({
+	        title: '调皮~',
+	        msg: '只能修改当前登录的账号哦~',
+	    });
+	    return;
+	  }
+      api.ajax({
+          url: api_url+'/login/login/repasss1.html',
+          method: 'get',
+          data: {
+              values: {
+                  username:username,
+                  laopass:lao_pass,
+                  xinpass: xinpass,
+				  key:localStorage.getItem('anq_key'),
+              }
+          }
+      },function(ret, err){      	
+          if (ret) {
+              if (ret.code == 0) {
+                api.alert({
+                    title: '修改失败！',
+                    msg: ret.msg,
+                });
+              }else {
+                localStorage.setItem('password',xinpass);
+                api.alert({
+                    title: '修改成功',
+                    msg: '请重新登录！',
+                });
+                api.sendEvent({
+                  name: 'outLogin',
+                  extra: {
+                  }
+                });
+
+                api.closeWin();
+              }
+          } else {
+            api.alert({
+                title: '糟糕~',
+                msg: '网络错误！',
+            });
+          }
+      });
+      
+    }
+
+    function openLogin(name,password){
+        var delay = 0;
+        if(api.systemType != 'ios'){
+            delay = 300;
+        }
+        api.openWin({
+            name: 'login',
+            url: './login.html',
+            pageParam:{name:name,password:password},
+        });
+    }
+
+</script>
+</html>

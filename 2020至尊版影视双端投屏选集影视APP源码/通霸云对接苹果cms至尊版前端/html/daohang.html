@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link type="text/css" href="../css/h5-aura.css" rel="stylesheet"/>
+    <link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet"/>
+</head>
+<body>
+	<div id="daoh" class="m-navigation" glue-component="page.home.component.headContainerNew" glue-id="page.home.component.headContainerNew_114">
+			<!-- 导航置顶 m-navigation-content 追加 navigation-fixed -->
+			<section class="m-navigation-content  navigation-fixed" glue-node="headerContianer">
+				<a  class="logo-iqiyi" title="爱奇艺" glue-node="iqiyiLogo" data-rseat="607051_home"></a>
+				<div class="m-user">
+					<div class="header-search" glue-component="page.home.component.searchBtn" glue-node="search" glue-id="page.home.component.searchBtn_115">
+						<a onclick="sosuo()" href="javascript:void(0);" class="c-glyphicon c-glyphicon-searchnavigation" data-rseat="607061_search"></a>
+					</div>
+					<div class="header-login" glue-component="page.home.component.userInfo" glue-id="page.home.component.userInfo_116">
+						<a  class="link-login" data-node="login" data-rseat="607061_login">我的</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	<div class="m-box">
+			<div class="m-box-items m-box-items-full">
+				<section class="m-channel-title">
+					影视·休闲
+				</section>
+			</div>
+			<div class="m-box-items m-box-items-full">
+				<section class="m-channel-list">
+					<a  class="m-list-link" title="电视剧"><i class="c-listicon c-list-dianshiju"></i><span class="m-list-info"> 电视剧 </span></a>
+					<a  class="m-list-link" title="电影"><i class="c-listicon c-list-dianying"></i><span class="m-list-info"> 电影 </span></a>
+					<a  class="m-list-link" title="综艺"><i class="c-listicon c-list-zongyi"></i><span class="m-list-info"> 综艺 </span></a>
+					<a  class="m-list-link" title="动漫"><i class="c-listicon c-list-dongman"></i><span class="m-list-info"> 动漫 </span></a>
+					
+					<a  class="m-list-link" title="音乐"><i class="c-listicon c-list-yinyue"></i><span class="m-list-info"> 音乐 </span></a>
+					
+					<a  class="m-list-link" title="直播中心"><i class="c-listicon c-list-zhibo"></i><span class="m-list-info"> 直播中心 </span></a>
+					<a  title="全网影视" class="m-list-link"><i class="c-listicon c-list-quanwangyingshi"></i><span class="m-list-info"> 全网影视 </span></a>
+				</section>
+			</div>
+		</div>
+		<!--
+			<a href="/jilupian/" class="m-list-link" title="纪录片"><i class="c-listicon c-list-jilupian"></i><span class="m-list-info"> 纪录片 </span></a>
+					<a href="/yingxun/" title="影讯" class="m-list-link"><i class="c-listicon c-list-yingxun"></i><span class="m-list-info"> 影讯 </span></a>
+					<a href="/pianhua/" class="m-list-link" title="片花"><i class="c-listicon c-list-pianhua"></i><span class="m-list-info"> 片花 </span></a>
+					<a href="/weidianying/" class="m-list-link" title="网络电影"><i class="c-listicon c-list-wangluodianying"></i><span class="m-list-info"> 网络电影 </span></a>
+					<a href="/tuokouxiu/" class="m-list-link" title="脱口秀"><i class="c-listicon c-list-tuokouxiu"></i><span class="m-list-info"> 脱口秀 </span></a>
+					<a href="/yule/" class="m-list-link" title="娱乐"><i class="c-listicon c-list-yule"></i><span class="m-list-info"> 娱乐 </span></a>
+					<a href="/fun/" class="m-list-link" title="搞笑"><i class="c-listicon c-list-gaoxiao"></i><span class="m-list-info"> 搞笑 </span></a>
+					<a href="//m-x.pps.tv" title="奇秀直播" class="m-list-link"><i class="c-listicon c-list-qixiu"></i><span class="m-list-info"> 奇秀直播 </span></a>
+					
+					
+			-->
+		
+		
+		
+		
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		
+	};
+	function sosuo(){
+         api.openWin({
+									 name: 'so',
+									 url: './html/so.html',
+									 pageParam: {
+										 
+									 }
+								 });
+
+    }
+</script>
+</html>

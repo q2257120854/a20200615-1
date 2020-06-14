@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "拼团首页",
+  "component": true,
+  "usingComponents": {
+    "copyright": "/components/copyright/copyright",
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

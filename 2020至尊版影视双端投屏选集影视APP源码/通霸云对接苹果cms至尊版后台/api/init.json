@@ -1,0 +1,256 @@
+{
+  "clearInfo": {
+    "clearUrl": "/api/clear.json"
+  },
+  "homeInfo": {
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": "/index/index/index"
+  },
+  "logoInfo": {
+    "title": "管理系统",
+    "image": "/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": {
+    "currency": {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "主页",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "系统设置",
+              "href": "/index/vip/advert",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "短信接口",
+              "href": "/index/vip/dxjk",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "管理员",
+              "href": "/index/admin/index",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "运营管理",
+          "href": "",
+          "icon": "fa fa-window-maximize",
+          "target": "_self",
+          "child": [
+            {
+              "title": "直播接口",
+              "href": "/index/jiekou/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "推送消息",
+              "href": "http://dashboard.mob.com/#!/push/create/",
+              "icon": "fa fa-tachometer",
+              "target": "_blank"
+            },
+            {
+              "title": "弹窗消息",
+              "href": "/index/send/settc",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "软件设置",
+              "href": "/index/vip/yyshezi",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+			{
+              "title": "反馈留言",
+              "href": "/index/vip/liuy",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+			{
+              "title": "求片留言",
+              "href": "/index/vip/qpliuy",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "购卡链接",
+              "href": "/index/user/pass",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "代理提卡",
+              "href": "/index/index/settpay",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "商城管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "商品管理",
+              "href": "/index/shangcheng/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "订单管理",
+              "href": "/index/shangcheng/dingdan",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "点卡管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "点卡生成",
+              "href": "/index/dianka/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "有效点卡",
+              "href": "/index/dianka/ylog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "点卡使用记录",
+              "href": "/index/dianka/slog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "广告管理",
+          "href": "/index/banner/index",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        },
+        {
+          "title": "销售记录",
+          "href": "/index/user/paylog",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "提现专区",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "提现管理",
+              "href": "/index/yhtx/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "提现记录",
+              "href": "/index/yhtx/txjl",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "影视管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "电影推荐",
+              "href": "/index/video/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "美女视频",
+              "href": "/index/mn/index",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+            ,
+            {
+              "title": "电视直播",
+              "href": "/index/tv/index",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "用户管理",
+          "href": "",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "用户管理",
+              "href": "/index/vip/index",
+              "icon": "fa fa-gears",
+              "target": "_self"
+            },
+            {
+              "title": "代理管理",
+              "href": "/index/user/index",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "充值记录",
+              "href": "/index/user/clog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "开通记录",
+              "href": "/index/user/xlog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "代理记录",
+              "href": "/index/user/mlog",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "即将到期",
+              "href": "/index/user/daoqi",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        }
+        
+      ]
+    }
+    
+  }
+}

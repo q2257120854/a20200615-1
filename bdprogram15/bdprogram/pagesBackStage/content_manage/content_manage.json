@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "内容管理",
+  "navigationBarBackgroundColor": "#ffffff",
+  "component": true,
+  "usingComponents": {
+    "bsfooter": "/components/bsfooter/bsfooter"
+  }
+}

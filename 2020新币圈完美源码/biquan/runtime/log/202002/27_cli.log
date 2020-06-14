@@ -1,0 +1,11 @@
+[ 2020-02-27T19:03:11+08:00 ][ error ] [10501]SQLSTATE[70100]: <<Unknown error>>: 1317 Query execution was interrupted[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:385]
+[ 2020-02-27T19:03:11+08:00 ][ error ] [8]think\db\Connection::close(): send of 5 bytes failed with errno=32 Broken pipe[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:793]
+[ 2020-02-27T19:03:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-02-27T19:03:12+08:00 ][ error ] [2002]SQLSTATE[HY000] [2002] Connection refused[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:295]
+[ 2020-02-27T19:03:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-02-27T19:03:14+08:00 ][ error ] [2002]SQLSTATE[HY000] [2002] Connection refused[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:295]
+[ 2020-02-27T19:03:15+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-02-27T19:03:15+08:00 ][ error ] [2002]SQLSTATE[HY000] [2002] Connection refused[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:295]
+[ 2020-02-27T19:03:16+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-02-27T19:03:16+08:00 ][ error ] [2002]SQLSTATE[HY000] [2002] Connection refused[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/db/Connection.php:295]
+[ 2020-02-27T19:03:17+08:00 ][ info ] [ DB ] INIT mysql

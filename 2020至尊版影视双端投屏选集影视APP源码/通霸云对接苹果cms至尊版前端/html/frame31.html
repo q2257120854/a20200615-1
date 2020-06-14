@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>文档</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		
+		<link rel="stylesheet" href="../css/gb.min_d087b321.css" onerror="__reloadResource(this)" />
+		<link href="../css/msearch.min_d6f9537c.css" rel="stylesheet" type="text/css" />
+	
+	
+	<link rel="stylesheet" href="../css/index.min_e1e71516.css"/>
+	</head>
+	<body>
+		<div class="wx_wrap" >
+			<div class="m_header_v2" style="display: block;">
+				<div class="m_header_bar">
+					
+					<div class="m_header_bar_title">购物中心</div>
+					
+				</div>
+				
+			</div>
+			
+		<div id="div_list_f">
+		
+		
+		
+		</div>
+			
+			<!-- <div class="search_interlude" after="4">
+				<div class="J_ping J_ping" id="mDownload" style="background-color: rgb(255, 255, 255);" report-eventid="MDownLoadFloat_OpenNow">
+					<img src="http://m.360buyimg.com/mobilecms/jfs/t17851/344/2460261989/63175/d5d66db/5af926a5Nb439e68a.jpg" style="width:100%;">
+				</div>
+			</div> -->
+			
+			
+			
+		
+	</body>
+	<script type="text/x-dot-template" id="navcattpl">
+	    {{~ it.data : value : index }}
+	    <div onclick="toshop('{{= value. id }}')" class="search_prolist cols_1" >
+	    	<div class="search_prolist_item" >
+	    		<div class="search_prolist_item_inner J_ping" >
+	    			<div class="search_prolist_cover" >
+	    				<img  src="http://tongbav5.tongbayun.cn{{= value. picurl }}">
+	    			</div>
+	    			<div class="search_prolist_info" >
+	    				<div class="search_prolist_title" >{{= value. title }}</div>
+	    				<div class="search_prolist_attr">
+	    				</div>
+	    				<div class="search_prolist_price" >
+	    					<strong>
+	    						<em >¥ <span class="int">{{= value. money }}</span></em>
+	    					</strong>
+	    				</div>
+	    				<div class="search_prolist_line" >
+	    				</div>
+	    				<div class="search_prolist_other text_small">
+	    				</div>
+	    				<div class="search_prolist_shop" >
+	    					<i class="mod_tag">
+	    						<img src="../image/c5ab4d78f8bf4d90.png">
+	    					</i>
+	    					<i class="mod_tag">
+	    						<img src="../image/5bfb58faNfdbaaf9e.png">
+	    					</i>
+	    					<span class="search_prolist_comment" ><span>{{= value. payrs }}</span>人购买</span>
+	    				</div>
+	    				<div class="search_prolist_other text_small hide"></div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    {{~}}
+	</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+	apiready = function() {
+		//下拉刷新
+		    api.setCustomRefreshHeaderInfo({
+		        bgColor : '#fff',
+		         images: [
+		              'widget://image/app/xiala/1.png',
+		              'widget://image/app/xiala/2.png',
+		              'widget://image/app/xiala/3.png',
+		              'widget://image/app/xiala/4.png',
+		              'widget://image/app/xiala/5.png',
+		              'widget://image/app/xiala/6.png',
+		              'widget://image/app/xiala/7.png',
+		              'widget://image/app/xiala/8.png',
+		                ],
+		                tips: {
+		                    pull: '下拉刷新！',
+		                    threshold: '松开立即刷新！',
+		                    load: '正在刷新'
+		                }
+		
+		    }, function() {
+					  getshop();
+		        //下拉刷新被触发，自动进入加载状态，使用 api.refreshHeaderLoadDone() 手动结束加载中状态
+		        setTimeout(function(){
+		    api.refreshHeaderLoadDone()
+		        }, 3000);
+		    });
+		    //下拉刷新
+		
+	    	getshop();
+	 }
+	 function getshop(){
+		 var navid = $api.byId('div_list_f');
+		 var navtpl = $api.byId('navcattpl');
+
+		 // 添加广告
+		 api.ajax({
+		   url: api_url+'login/login/shopsy',
+		         method: 'get',
+		     }, function(ret, err) {
+		         if (ret) {
+		             //渲染模板
+		             var pagefn = doT.template(navtpl.text);
+		             navid.innerHTML = pagefn(ret.shop);
+		          
+		               // alert( JSON.stringify( ret.shop ) );
+		         }
+		 
+		 
+		     });
+	 }
+	 function toshop(id){
+		api.openWin({
+       name: 'jifenscms',
+       url: './jifenscms_win.html',
+       delay: 100,
+       pageParam:{
+         spid:id,
+       }
+   });
+	 }
+</script>
+</html>

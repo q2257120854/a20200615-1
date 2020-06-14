@@ -1,0 +1,38 @@
+<table id="dataTable"></table>
+{include file="block/layui" /}
+<script type="text/html" title="状态模板" id="statusTpl">
+    <input type="checkbox" name="status" value="{{ d.status }}" lay-skin="switch" lay-filter="switchStatus" lay-text="已支付|未支付" {{ d.status == 1 ? 'checked' : '' }} {{ d.status == 1 || d.status == 2 ? 'disabled' : '' }} data-href="{:url('settlement_status')}?id={{ d.id }}">
+    <input type="checkbox" name="status" value="{{ d.status }}" lay-skin="switch" lay-filter="switchStatus" lay-text="已取消|未取消" {{ d.status == 2 ? 'checked' : '' }} {{ d.status == 1 || d.status == 2 ? 'disabled' : '' }} data-href="{:url('settlement_cancel')}?id={{ d.id }}">
+</script>
+
+<script type="text/javascript">
+    layui.use(['table', 'jquery', 'layer'], function() {
+        var table = layui.table, formType = {:json_encode(form_type())},
+        $ = layui.jquery, layer = layui.layer;
+        table.render({
+            elem: '#dataTable'
+            ,url: '{:url('settlement')}' //数据接口
+            ,page: true //开启分页
+            ,limit: 10
+            ,skin: 'row'
+            ,even: true
+            ,text: {
+                none : '暂无相关数据'
+            }
+            ,cols: [[ //表头
+                {field: 'id', title: 'ID', width:80}
+                ,{field: 'nick', title: '商户名', width:130}
+                ,{field: 'total', title: '提现金额', width:130}
+                ,{field: 'fee', title: '手续费', width:110}
+                ,{field: 'pre_balance', title: '提前余额', width:130}
+                ,{field: 'balance', title: '提后余额', width:130}
+                ,{field: 'bank_title', title: '机构名称', width:130}
+                ,{field: 'bank_name', title: '收款姓名', width:100}
+                ,{field: 'bank_address', title: '收款账号', width:200}
+                ,{field: 'status', title: '账单状态', width: 180, templet: '#statusTpl'}
+                ,{field: 'f_name', title: '财务管理员', width:130}
+                ,{field: 'c_time', title: '提现时间', width: 180}
+            ]]
+        });
+    });
+</script>

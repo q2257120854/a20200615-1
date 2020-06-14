@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "礼品卡兑换",
+  "component": true,
+  "usingComponents": {
+    "datetime": "/components/datetime/datetime"
+  }
+}

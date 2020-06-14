@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/myfooter/myfooter"],{"166b":function(e,n,t){"use strict";(function(e){Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var t={props:["page_signs","baseinfo"],data:function(){return{isIphoneX:""}},created:function(){var n=this;e.getSystemInfo({success:function(e){var t=e,a=t.model;-1!=a.search("iPhone X")&&(n.isIphoneX=!0)}})},methods:{redirectto:function(n){var t=n.currentTarget.dataset.link,a=n.currentTarget.dataset.linktype;if("page"==a){var r=t.indexOf("pages/index"),o=t.indexOf("index?pageid");-1==r&&-1==o?(console.log(getCurrentPages().length),getCurrentPages().length>7?e.reLaunch({url:t}):e.navigateTo({url:t})):(console.log(22222),e.reLaunch({url:t}))}else this._redirectto(t,a)},makephonecall:function(){e.makePhoneCall({phoneNumber:e.getStorageSync("base_tel")})}}};n.default=t}).call(this,t("5486")["default"])},6799:function(e,n,t){"use strict";t.r(n);var a=t("166b"),r=t.n(a);for(var o in a)"default"!==o&&function(e){t.d(n,e,function(){return a[e]})}(o);n["default"]=r.a},"6bab":function(e,n,t){"use strict";t.r(n);var a=t("a23d"),r=t("6799");for(var o in r)"default"!==o&&function(e){t.d(n,e,function(){return r[e]})}(o);t("c21e");var u,c=t("f0c5"),i=Object(c["a"])(r["default"],a["b"],a["c"],!1,null,null,null,!1,a["a"],u);n["default"]=i.exports},a23d:function(e,n,t){"use strict";var a,r=function(){var e=this,n=e.$createElement;e._self._c},o=[];t.d(n,"b",function(){return r}),t.d(n,"c",function(){return o}),t.d(n,"a",function(){return a})},c21e:function(e,n,t){"use strict";var a=t("ca44"),r=t.n(a);r.a},ca44:function(e,n,t){}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/myfooter/myfooter-create-component',
+    {
+        'components/myfooter/myfooter-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('5486')['createComponent'](__webpack_require__("6bab"))
+        })
+    },
+    [['components/myfooter/myfooter-create-component']]
+]);

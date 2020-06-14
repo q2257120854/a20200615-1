@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "名片列表页",
+  "enablePullDownRefresh": false,
+  "component": true,
+  "usingComponents": {
+    "myfooter": "/components/myfooter/myfooter"
+  }
+}

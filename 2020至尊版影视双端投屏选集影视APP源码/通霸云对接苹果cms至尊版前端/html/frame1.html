@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>frmae0</title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/auislide.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style2.css" />
+		<link rel="stylesheet" href="../css/zhibo.css">
+        <link rel="stylesheet" href="../css/index.min_e1e71516.css"/>
+		<style>
+			.empty{ text-align: center; padding: 120px 0; }
+			body{
+				background: white;
+			}
+    </style>
+	</head>
+	<body>
+	<div class="m_header_v2" style="display: block;">
+		<div class="m_header_bar">
+
+			<div class="m_header_bar_title">直播大厅</div>
+
+		</div>
+
+	</div>
+	<div class="" style="width:92%;margin:0 auto;border-radius:10px;box-shadow: 0 0 10px #333;margin-top:10px">
+		<div id="aui-slide">
+
+			<div id="slidebox" class="aui-slide-wrap" style="border-radius:0.5rem;box-shadow:0.1rem 0.1rem 0.4rem rgba(99, 99, 99, 0.3);">
+
+				<!--顶部横幅未加载完成时的提示-->
+				<img id="bpic"style="height:100%;" src="../image/default_picture/default_banner.png" onClick="UnloadedCompleted()">
+				<!--顶部横幅未加载完成时的提示-->
+
+
+			</div>
+		</div>
+		<section>
+			<div class="list-title-r" id="wzbox_top">
+
+			</div>
+		</section>
+		</body>
+		<script type="text/x-dot-template" id="bannertpl">
+			{{~ it.data : value : index }}
+			<div class="aui-slide-node bg-dark" tapmode onclick="toBanner('{{= value. linkurl }}')">
+					<img src="http://tongbav5.tongbayun.cn/{{= value. picurl }}" />
+			</div>
+		{{~}}
+	</script>
+
+
+
+		<div class="tab-panel">
+			<div class="tab-panel-item tab-active">
+				<div class="tab-item">
+					<a onClick="girlxiezhenList()" class="aui-flex b-line">
+						<div class="aui-flex-iphone">
+							<img src="../image/app/meinvxiezhen.png" alt="">
+						</div>
+						<div class="aui-flex-box">
+							<p>
+								<em class="aui-group-three"> 精彩视频</em>
+							</p>
+							<h3>海量直播精彩视频</h3>
+							<p>
+								<em class="aui-group-one">不定时更新</em> <em class="aui-group-two">直播视频</em>
+							</p>
+
+						</div>
+						<div class="aui-flex-support">去观看</div>
+					</a>
+
+
+					<!-- <a onClick="vList()" class="aui-flex b-line">
+						<div class="aui-flex-iphone">
+							<img src="../image/app/dianying.png" alt="">
+						</div>
+						<div class="aui-flex-box">
+							<p>
+								<em class="aui-group-three"> 热门电影</em>
+							</p>
+							<h3>当下最火热大片推荐</h3>
+							<p>
+								<em class="aui-group-one">不定时更新</em> <em class="aui-group-two">经典热门大片</em>
+							</p>
+
+						</div>
+						<div class="aui-flex-support">去观看</div>
+					</a> -->
+
+
+
+					<a onClick="tvList()" class="aui-flex b-line">
+						<div class="aui-flex-iphone">
+							<img src="../image/app/tv.png" alt="">
+						</div>
+						<div class="aui-flex-box">
+							<p>
+								<em class="aui-group-three"> 电视直播</em>
+							</p>
+							<h3>在线收看高清CCTV、卫视</h3>
+							<p>
+								<em class="aui-group-one">实时更新</em> <em class="aui-group-two">电视TV</em>
+							</p>
+
+						</div>
+						<div class="aui-flex-support">去观看</div>
+					</a>
+
+					<a onClick="douyinList()" class="aui-flex b-line">
+						<div class="aui-flex-iphone">
+							<img src="../image/douyin.png" alt="">
+						</div>
+						<div class="aui-flex-box">
+							<p>
+								<em class="aui-group-three">在线抖音</em>
+							</p>
+							<h3>抖音快手火山美拍短视频</h3>
+							<p>
+								<em class="aui-group-one">实时更新</em> <em class="aui-group-two">搞笑网红</em>
+							</p>
+
+						</div>
+						<div class="aui-flex-support">去观看</div>
+					</a>
+
+					<a onClick="gameList()" class="aui-flex b-line">
+						<div class="aui-flex-iphone">
+							<img src="../image/app/game.png" alt="">
+						</div>
+						<div class="aui-flex-box">
+							<p>
+								<em class="aui-group-three"> 游戏直播</em>
+							</p>
+							<h3>各类游戏在线直播 </h3>
+							<p>
+								<em class="aui-group-one">实时更新</em> <em class="aui-group-two">知名主播</em>
+							</p>
+
+						</div>
+						<div class="aui-flex-support">去观看</div>
+					</a>
+
+				</div>
+			</div>
+
+
+		</div>
+		</div>
+
+	</div>
+
+	</body>
+	<script type="text/javascript">
+
+	</script>
+
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript" src="../script/auipullrefresh.js"></script>
+	<script type="text/javascript" src="../script/auislide.js"></script>
+	<script type="text/javascript" src="../script/auilazyload.js"></script>
+	<script type="text/javascript">
+		var imgdz = '';
+		var api_url = localStorage.getItem('api_url');
+
+		/////  初始化执行   S /////
+		/////  apiready  一打开就执行的 函数
+
+		apiready = function() {
+
+			//下拉刷新
+			api.setCustomRefreshHeaderInfo({
+				bgColor: '#fff',
+				images: [
+					'widget://image/app/xiala/1.png',
+					'widget://image/app/xiala/2.png',
+					'widget://image/app/xiala/3.png',
+					'widget://image/app/xiala/4.png',
+					'widget://image/app/xiala/5.png',
+					'widget://image/app/xiala/6.png',
+					'widget://image/app/xiala/7.png',
+					'widget://image/app/xiala/8.png',
+				],
+				tips: {
+					pull: '下拉刷新！',
+					threshold: '松开立即刷新！',
+					load: '正在刷新'
+				}
+
+			}, function() {
+				getBanner();
+				//下拉刷新被触发，自动进入加载状态，使用 api.refreshHeaderLoadDone() 手动结束加载中状态
+				setTimeout(function() {
+					api.refreshHeaderLoadDone()
+				}, 3000);
+			});
+			//下拉刷新
+
+
+
+
+
+			getBanner();
+			api.parseTapmode();
+			api.ajax({
+				url: api_url + '/login/login/imgad.html',
+				method: 'get',
+				data: {
+					values: {
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//alert( JSON.stringify( ret ) );
+					localStorage.setItem('fxpic1', ret.msg.fxpic1);
+					localStorage.setItem('fxurl1', ret.msg.fxurl1);
+					localStorage.setItem('fxpic2', ret.msg.fxpic2);
+					localStorage.setItem('fxurl2', ret.msg.fxurl2);
+					var bpic = $api.byId('bpic');
+					//        imgdz = ret.msg.picurl;
+					//        if (ret.msg.pic!='') {
+					//          bpic.src = ret.msg.pic;
+					//        }
+					//        document.getElementById("bpic").onclick = function(){ imgUrl(); };
+				} else {
+
+
+
+				}
+			});
+
+
+			//////////////////////    图片懒加载  S  //////////////////////
+			new auiLazyload({
+				errorImage: '../image/error-img.jpg'
+			});
+
+			//////////////////////    图片懒加载  E  //////////////////////
+
+
+
+		}
+
+		/////  初始化执行   E /////
+
+
+
+
+
+
+
+
+		///// *****某个请求提示框   具体用处不明   *******/////
+		function playRadio() {
+			api.hideProgress();
+		}
+		///// *****某个请求提示框   具体用处不明   *******/////
+
+
+
+
+
+
+		//////////////////////   打开APP时 获取Banner和图标  方法    DataLoading    定时     S //////////////////////
+
+		//定时执行数据加载
+		var timer = setInterval(function() {
+			DataLoading();
+		}, 1000)
+
+		//判断是否服务器通信成功
+		function DataLoading() {
+
+			api.ajax({
+				url: api_url + '/login/login/banben.html',
+				method: 'get'
+			}, function(ret, err) {
+				if (ret) {
+					getBanner(); //获取Banner
+					//alert( JSON.stringify( ret ) );
+					/*  关闭提示
+					          api.toast({
+					              msg: '数据已更新',
+					              duration: 1000
+					          });
+					*/
+
+					clearInterval(timer); // 获取成功 清除定时器
+				}
+				/*else {
+				         api.toast({
+				             msg: '数据获取成功 当前为最新数据',
+				             duration: 1000
+				         });
+
+				           //alert( JSON.stringify( err ) );
+				       }
+				       */
+			});
+
+
+
+
+		}
+
+		//////////////////////   打开APP时 获取Banner和图标  方法    DataLoading    定时     E //////////////////////
+
+		///////访问轮播地址 方法    toBanner   S   ///////
+		function toBanner(url) {
+
+			if (url == '') {
+
+
+				api.toast({
+					msg: '(#^.^#) 暂无详情'
+				});
+
+			} else {
+
+
+				//网络连接判断S
+
+
+				api.ajax({
+					url: api_url + '/login/login/banben.html',
+					method: 'get'
+				}, function(ret, err) {
+					if (ret) {
+
+						//网络正常   跳转
+
+
+
+
+
+						/*
+                                               api.showProgress({
+                                                   title: 'VIP登录中',
+                                                   modal: false
+                                               });
+                                         */
+						api.toast({
+							msg: '加载中'
+						});
+
+
+
+						api.openWin({
+							name: 'h5',
+							url: './h5.html',
+							pageParam: {
+								url: url
+							}
+						});
+
+
+
+
+					} else {
+
+						//网络连接失败 进行提示
+						NetworkConnectionFailurePrompt();
+
+					}
+
+
+				});
+				//网络连接判断E
+
+			}
+		}
+
+		///////访问轮播地址 方法    toBanner   E   ///////
+
+
+
+		//////////////////////    菜单导航获取  方法  getBanner  S  //////////////////////
+		function getBanner() {
+			var bannerid = $api.byId('slidebox');
+			var bannertpl = $api.byId('bannertpl');
+
+			api.ajax({
+				url: api_url + '/login/login/banben.html',
+				method: 'get',
+				data: {
+					values: {
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+
+					localStorage.setItem('user_advert', ret.banben);
+					// var advert = $api.byId('gonggao');
+					// advert.innerHTML = localStorage.getItem('user_advert');
+					localStorage.setItem('jx_url1', ret.banben);
+
+				} else {
+					//alert( JSON.stringify( err ) );
+				}
+			});
+
+
+
+			// 添加广告
+			var uid = 0;
+			if (localStorage.getItem('user_id') > 1) {
+				uid = localStorage.getItem('user_id');
+			}
+			// end
+			api.ajax({
+				url: api_url + '/app/nav/index?uid=' + uid,
+				method: 'get',
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					var pagefn = doT.template(bannertpl.text);
+					bannerid.innerHTML = pagefn(ret.juhezx);
+					//      alert( JSON.stringify( ret.banner ) );
+					banNer();
+				}
+				/*  去掉无网络弹窗提示else {
+				    alert( '网络错误' );
+				    api.hideProgress();
+				}
+				*/
+			});
+		}
+
+		//////////////////////    菜单导航获取  方法  getBanner  E  //////////////////////
+
+
+		//////////////////////    轮播图获取  方法  getNav  S  //////////////////////
+		function getNav() {
+			var zblid = $api.byId('zbl_list_f');
+			var zbltpl = $api.byId('zblcattpl');
+			var bannerid = $api.byId('slidebox');
+			var bannertpl = $api.byId('bannertpl');
+
+
+			// 添加广告
+			var uid = 0;
+			if (localStorage.getItem('user_id') > 1) {
+				uid = localStorage.getItem('user_id');
+			}
+			// end
+			api.ajax({
+				url: api_url + '/app/nav/index?uid=' + uid,
+				method: 'get',
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					var pagefn = doT.template(bannertpl.text);
+					bannerid.innerHTML = pagefn(ret.banner);
+					banNer();
+					//        alert( JSON.stringify( ret ) );
+
+
+				}
+				/*  去掉无网络弹窗提示
+				else {
+				    alert( '网络错误' );
+				    api.hideProgress();
+				}
+				*/
+
+			});
+		}
+		//////////////////////    轮播图获取  方法  getNav  E  //////////////////////
+
+
+
+		//////////////////////   打开推荐影片播放页  方法         S //////////////////////
+		function vList() {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: 'v_list_win',
+				url: 'v_list_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+		function tvList() {
+			var delay = 0;
+			api.openWin({
+				name: 'tv_list_win',
+				url: 'tv_list_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+		function mnList() {
+			var delay = 0;
+			api.openWin({
+				name: 'v_mn_win',
+				url: 'v_mn_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+
+		function zhiboList() {
+			var delay = 0;
+			api.openWin({
+				name: 'zhibo_win',
+				url: 'zhibo_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+		function gameList() {
+			var delay = 0;
+			api.openWin({
+				name: 'game_list_win',
+				url: 'game_list_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+
+
+
+		function girlList() {
+			var delay = 0;
+			api.toast({
+				msg: '暂时下线',
+				duration: 5000
+			});
+		}
+
+
+		function douyinList() {
+			var delay = 0;
+			api.openWin({
+				name: 'douyin_win',
+				url: 'douyin_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+
+			});
+		}
+
+		function girlxiezhenList() {
+			var delay = 0;
+			api.openWin({
+				name: 'v_mn_win',
+				url: 'v_mn_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+		function fenlei() {
+			var delay = 0;
+			api.openWin({
+				name: 'fenlei_win',
+				url: 'fenlei_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+
+		function zhibohezi() {
+			var delay = 0;
+			api.openWin({
+				name: 'zhibo_win',
+				url: 'zhibo_win.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false,
+			});
+		}
+
+		function openWin(name) {
+			var time = localStorage.getItem('user_time');
+			var user_id = localStorage.getItem('user_id');
+			var username = localStorage.getItem('user_name');
+			var timestamp = Date.parse(new Date()) / 1000;
+			if (user_id == 0) {
+				api.alert({
+					title: '温馨提示',
+					msg: '请先登陆后使用',
+				});
+				api.openWin({
+					name: 'login',
+					url: 'login.html',
+					delay: 300
+				});
+				return;
+
+			}
+
+			if (time > timestamp) {
+
+
+				var delay = 0;
+				if (api.systemType != 'ios') {
+					delay = 300;
+				}
+				api.openWin({
+					name: '' + name + '',
+					url: '' + name + '.html',
+					delay: 800,
+					bgColor: '#000000'
+				});
+
+			} else if (time < timestamp) {
+				var dialogBox = api.require('dialogBox');
+				dialogBox.alert({
+					texts: {
+						content: '您的VIP会员已过期，请及时续费！',
+						leftBtnTitle: '在想想',
+						rightBtnTitle: '去开通'
+					},
+					styles: {
+						bg: '#fff',
+						w: 300,
+						content: {
+							color: '#000',
+							size: 14
+						},
+						left: {
+							marginB: 7,
+							marginL: 20,
+							w: 130,
+							h: 35,
+							corner: 2,
+							bg: '#ff7600',
+							color: '#fff',
+							size: 14
+						},
+						right: {
+							marginB: 7,
+							marginL: 10,
+							w: 130,
+							h: 35,
+							corner: 2,
+							bg: '#ff7600',
+							color: '#fff',
+							size: 14
+						}
+					}
+				}, function(ret) {
+					if (ret.eventType == 'left') {
+						var dialogBox = api.require('dialogBox');
+						dialogBox.close({
+							dialogName: 'alert'
+						});
+					} else if (ret.eventType == 'right') {
+						api.openWin({
+							name: 'open_vip_win',
+							url: './open_vip_win.html',
+							delay: 300
+						});
+						var dialogBox = api.require('dialogBox');
+						dialogBox.close({
+							dialogName: 'alert'
+						});
+					}
+				});
+			}
+
+		}
+
+
+
+
+
+		//////////////////////    会员过期提示  方法  VipExpiredHint   S  //////////////////////
+		function VipExpiredHint() {
+
+			/*会员过期弹窗提示*/
+			var dialogBox = api.require('dialogBox');
+			dialogBox.alert({
+				tapClose: true, //描述：（可选项）是否点击遮罩层关闭该对话框  默认值：false
+				texts: {
+					content: '您的VIP会员已过期',
+					leftBtnTitle: '在想想',
+					rightBtnTitle: '去续费'
+				},
+				styles: {
+					bg: '#fff', //（可选项）字符串类型；对话框整体背景配置，支持#、rgb、rgba、img；默认：#fff
+					corner: 10, //（可选项）数字类型；对话框背景圆角大小；默认：2
+					w: 300, //（可选项）数字类型；对话框的宽；默认：300
+					title: { //（可选项）JSON对象；弹窗标题栏样式配置，不传则不显示标题区域
+						marginT: 20, //（可选项）数字类型；标题栏与对话框顶端间距；默认：20
+						icon: 'widget://image/app/dialogBoxTisi.jpg', //（可选项）字符串类型；标题前面的图标路径，要求本地路径（widget://、fs://）；图片为正方形的，如：50*50、100*100，建议开发者传大小合适的图片以适配高分辨率手机屏幕，不传则不显示
+						iconSize: 80, //（可选项）数字类型；icon 图标边长大小,若 icon 不存在则此参数无效；默认：24
+						titleSize: 14, //（可选项）数字类型；标题字体大小；默认：14
+						titleColor: '#000' //（可选项）字符串类型；标题字体颜色，支持#、rgb、rgba；默认：#fff
+					},
+					content: { //（可选项）JSON 对象；文本内容配置，若不传则不显示该区域
+						marginT: 20, //（可选项）数字类型；内容文本顶端与标题栏底端的距离，如果标题栏不存在，则是到窗口顶端的距离；默认：20
+						marginB: 40, //（可选项）数字类型；内容文本底端与 left/right 顶端的距离，如果 left/right 都不存在，则是到对话框底端的距离；默认：20
+						color: '#ff0103', //（可选项）字符串类型；内容文本字体颜色，支持 rgb、rgba、#；默认：#eee
+						size: 12 //（可选项）数字类型：内容文本字体大小；默认：12
+					},
+					left: { //（可选项）JSON 对象；左边按钮样式配置，不传则不显示左边按钮
+						marginB: 30, //（可选项）数字类型；左边按钮的下边距；默认：7
+						marginL: 30, //（可选项）数字类型；左边按钮的左边距；默认：20
+						w: 100, //（可选项）数字类型；左边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；左边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；左边按钮圆角半径；默认：0.0
+						bg: '#3d3d3d', //（可选项）字符串类型；左边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；左边按钮标题字体颜色，支持rgb，rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；左边按钮标题字体大小；默认：12
+					},
+					right: { //（可选项）JSON 对象；右边按钮样式配置，不传则不显示右边按钮
+						marginB: 30, //（可选项）数字类型；右边按钮的下边距；默认：7
+						marginL: 40, //（可选项）数字类型；右边按钮左边距；默认：10
+						w: 100, //（可选项）数字类型；右边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；右边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；右边按钮圆角半径；默认：0.0
+						bg: '#ff0103', //（可选项）字符串类型；右边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；右边按钮标题字体颜色，支持rgb、rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；右边按钮标题字体大小；默认：12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				} else if (ret.eventType == 'right') {
+					api.openWin({
+						name: 'open_vip_win',
+						url: './open_vip_win.html',
+						delay: 300
+					});
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				}
+			});
+			/*    会员过期弹窗提示结束    */
+
+		}
+		//////////////////////    会员过期提示 方法 VipExpiredHint  E  //////////////////////
+
+
+
+
+
+
+
+		//////////////////////    网络连接失败提示  方法  NetworkConnectionFailurePrompt   S  //////////////////////
+		function NetworkConnectionFailurePrompt() {
+
+			/*无网络弹窗提示*/
+			var dialogBox = api.require('dialogBox');
+			dialogBox.alert({
+				tapClose: false, //描述：（可选项）是否点击遮罩层关闭该对话框  默认值：false
+				texts: {
+					content: '请检查网络是否顺畅',
+					leftBtnTitle: '先不管',
+					rightBtnTitle: '网络设置'
+				},
+				styles: {
+					bg: '#fff', //（可选项）字符串类型；对话框整体背景配置，支持#、rgb、rgba、img；默认：#fff
+					corner: 10, //（可选项）数字类型；对话框背景圆角大小；默认：2
+					w: 300, //（可选项）数字类型；对话框的宽；默认：300
+					title: { //（可选项）JSON对象；弹窗标题栏样式配置，不传则不显示标题区域
+						marginT: 20, //（可选项）数字类型；标题栏与对话框顶端间距；默认：20
+						icon: 'widget://image/app/dialogBoxTisi.jpg', //（可选项）字符串类型；标题前面的图标路径，要求本地路径（widget://、fs://）；图片为正方形的，如：50*50、100*100，建议开发者传大小合适的图片以适配高分辨率手机屏幕，不传则不显示
+						iconSize: 80, //（可选项）数字类型；icon 图标边长大小,若 icon 不存在则此参数无效；默认：24
+						titleSize: 14, //（可选项）数字类型；标题字体大小；默认：14
+						titleColor: '#000' //（可选项）字符串类型；标题字体颜色，支持#、rgb、rgba；默认：#fff
+					},
+					content: { //（可选项）JSON 对象；文本内容配置，若不传则不显示该区域
+						marginT: 20, //（可选项）数字类型；内容文本顶端与标题栏底端的距离，如果标题栏不存在，则是到窗口顶端的距离；默认：20
+						marginB: 40, //（可选项）数字类型；内容文本底端与 left/right 顶端的距离，如果 left/right 都不存在，则是到对话框底端的距离；默认：20
+						color: '#ff0103', //（可选项）字符串类型；内容文本字体颜色，支持 rgb、rgba、#；默认：#eee
+						size: 12 //（可选项）数字类型：内容文本字体大小；默认：12
+					},
+					left: { //（可选项）JSON 对象；左边按钮样式配置，不传则不显示左边按钮
+						marginB: 30, //（可选项）数字类型；左边按钮的下边距；默认：7
+						marginL: 30, //（可选项）数字类型；左边按钮的左边距；默认：20
+						w: 100, //（可选项）数字类型；左边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；左边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；左边按钮圆角半径；默认：0.0
+						bg: '#3d3d3d', //（可选项）字符串类型；左边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；左边按钮标题字体颜色，支持rgb，rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；左边按钮标题字体大小；默认：12
+					},
+					right: { //（可选项）JSON 对象；右边按钮样式配置，不传则不显示右边按钮
+						marginB: 30, //（可选项）数字类型；右边按钮的下边距；默认：7
+						marginL: 40, //（可选项）数字类型；右边按钮左边距；默认：10
+						w: 100, //（可选项）数字类型；右边按钮的宽；默认：130
+						h: 40, //（可选项）数字类型；右边按钮的高；默认：35
+						corner: 10, //（可选项）数字类型；右边按钮圆角半径；默认：0.0
+						bg: '#ff0103', //（可选项）字符串类型；右边按钮的背景，支持rgb、rgba、#、img；默认：'#e0e'
+						color: '#fff', //（可选项）字符串类型；右边按钮标题字体颜色，支持rgb、rgba、#；默认：'#007FFF'
+						size: 12 //（可选项）数字类型；右边按钮标题字体大小；默认：12
+					}
+				}
+			}, function(ret) {
+				if (ret.eventType == 'left') {
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				} else if (ret.eventType == 'right') {
+
+
+					var openset = api.require('openSet');
+					openset.open({
+						id: 1
+					});
+
+
+					var dialogBox = api.require('dialogBox');
+					dialogBox.close({
+						dialogName: 'alert'
+					});
+				}
+			});
+			/*    无网络弹窗提示结束    */
+
+		}
+		//////////////////////    网络连接错误提示 方法 NetworkConnectionFailurePrompt  E  //////////////////////
+
+
+
+
+
+
+		//////////////////////    轮播图获取  方法  getNav  S  //////////////////////
+		function getNav() {
+			var navid = $api.byId('zbl_list_f');
+			var navtpl = $api.byId('navcattpl');
+
+
+			// 添加广告
+			var uid = 0;
+			if (localStorage.getItem('user_id') > 1) {
+				uid = localStorage.getItem('user_id');
+			}
+			// end
+			api.ajax({
+				url: api_url + '/app/nav/index?uid=' + uid,
+				method: 'get',
+			}, function(ret, err) {
+				if (ret) {
+					//渲染模板
+					var pagefn = doT.template(navtpl.text);
+					navid.innerHTML = pagefn(ret.banner);
+					var pagefn = doT.template(navtjtpl.text);
+					navtjid.innerHTML = pagefn(ret.banne);
+					//        alert( JSON.stringify( ret ) );
+
+
+				}
+				/*  去掉无网络弹窗提示
+				else {
+				    alert( '网络错误' );
+				    api.hideProgress();
+				}
+				*/
+
+			});
+		}
+		//////////////////////    轮播图获取  方法  getNav  E  //////////////////////
+
+
+		//////////////////////    幻灯轮播图获取  方法  banNer  S  //////////////////////
+		function banNer() {
+			var slide = new auiSlide({
+				container: document.getElementById("aui-slide"),
+				// "width":300,
+				"height": 150,
+				"speed": 300,
+				"pageShow": true,
+				"autoPlay": 5000,
+				"pageStyle": 'dot',
+				"loop": true,
+				'dotPosition': 'center',
+			});
+		}
+
+		new auiLazyload({
+			errorImage: '../image/error-img.jpg'
+		});
+
+
+
+
+		////////////手动开始下拉刷新的加载状态 方法  fnRefreshHeaderLoading   S   ////////////
+		function fnRefreshHeaderLoading() {
+			api.refreshHeaderLoading();
+		};
+		////////////手动开始下拉刷新的加载状态 方法  fnRefreshHeaderLoading   E   ////////////
+	</script>
+
+
+
+
+
+
+
+</html>

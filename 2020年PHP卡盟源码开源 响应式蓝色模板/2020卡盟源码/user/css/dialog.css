@@ -1,0 +1,84 @@
+/*container*/
+#ym-window{
+	background:#fff;overflow:hidden;
+	font-size:12px;font-family:'宋体'
+}
+
+/*header*/
+.ym-tl{padding-left:3px;background:#79bbe0}
+.ym-tr{padding-right:3px;background:#79bbe0}
+.ym-tc{background: url(images/headerbg.gif) repeat-x bottom;border-bottom: 1px solid #CAD9EA;overflow:hidden;height:30px;border-top:3px solid #79bbe0;line-height:30px;padding:0 5px}
+.ym-ttc{height:3px}
+.ym-header-text{font-size:12px;font-weight:bold;color:#005C89;float:left;width:400px;white-space:nowrap;text-overflow:ellipsis;-moz-text-overflow: ellipsis; overflow:hidden}
+.ym-header-tools{float:right;margin-top:5px}
+.ym-header-tools strong{display:none}
+
+/*body*/
+.ym-ml{background:#79bbe0;padding-left:3px;}
+.ym-mr{background:#79bbe0;padding-right:3px;}
+.ym-mc{background:#fff;padding:0}
+.ym-body{overflow:auto;padding:0;font-size:12px;}
+.ym-body.Notice{font-size:14px;}
+
+/*button*/
+.ym-btn{text-align:center;background:#fff;}
+
+/*footer*/
+.ym-bl{background:#79bbe0;padding-left:3px}
+.ym-br{background:#79bbe0;padding-right:3px}
+.ym-bc{background:#79bbe0;height:3px;font-size:3px}
+
+/*icon*/
+.Dialog_alert{
+	padding-left:70px;
+	background:url(images/info.gif) no-repeat 15px 20px
+}
+.Dialog_succeed{
+	padding-left:90px;
+	background:url(images/right.gif) no-repeat 20px 50%
+}
+.Dialog_error{
+	padding-left:90px;
+	background:url(images/err.gif) no-repeat 20px 50%
+}
+.Dialog_confirm{
+	padding-left:90px;
+	background:url(images/ask.gif) no-repeat 20px 50%
+}
+.Dialog_alert .ym-content,.Dialog_succeed .ym-content,.Dialog_error .ym-content,.Dialog_confirm .ym-content{}
+.ym-content {padding:10px;display:block;word-break: break-all;word-wrap: break-word;}
+.ym-content h1{font-size:14px;margin-bottom:10px}
+.ym-content li {overflow: hidden;line-height:1.4;margin-bottom:10px;border-bottom:1px dotted #ccc;}
+.ym-content .zongji{color:red;font-weight:bold}
+
+/*图标公共定义*/
+.ym-header-tools div{
+	cursor:pointer;
+	width:21px;height:21px;float:left;margin:0 1px;
+	background:url(images/ico.gif) no-repeat 0 0;
+}
+.Dialog_close{
+	background-position:-21px 0 !important;
+}
+.Dialog_max{
+	background-position:0 -21px !important;
+}
+.Dialog_min{
+	background-position:0 0 !important;
+}
+.Dialog_normal{
+	background-position:-21px -21px !important;
+}
+
+/*取消确认按钮样式*/
+input.btnStyle{
+	background:url(images/btn_bg.gif) no-repeat;
+	width:100px;height:21px;line-height:21px;
+	font-size:12px;color:#183C94;border:0;margin:10px 0
+}
+
+input.btnStyle.Notice{
+	background:url(images/icon_col.gif) no-repeat;
+	width:70px;height:36px;line-height:36px;
+	font-size:0;color:#183C94;border:0;margin:10px 0
+}

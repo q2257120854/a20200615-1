@@ -1,0 +1,57 @@
+.page {
+	margin-bottom:20px;
+}
+.page input{
+	color: #3498db;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	text-decoration: none;
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	margin-left: 2px;
+	border-top-color: #eee;
+	border-right-color: #eee;
+	border-bottom-color: #eee;
+	border-left-color: #eee;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+
+.page input:hover{
+	BORDER-RIGHT: #3498db 1px solid; BORDER-TOP: rgb(16, 152, 242) 1px solid; BORDER-LEFT: rgb(16, 152, 242) 1px solid; COLOR: #666; BORDER-BOTTOM: rgb(16, 152, 242) 1px solid
+}
+.page input.current{
+	cursor:default;
+	color: #fff;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	font-weight: bold;
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	margin-left: 2px;
+	border-top-color: #3498db;
+	border-right-color: #3498db;
+	border-bottom-color: #3498db;
+	border-left-color: #3498db;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	background-color: #3498db;
+}

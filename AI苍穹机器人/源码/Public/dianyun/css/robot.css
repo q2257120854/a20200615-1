@@ -1,0 +1,27 @@
+*:not(input):not(textarea) {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-touch-callout:none;
+}
+.robot-main{
+    width: 100%;
+    height: auto;
+}
+
+.robot-main.active-state{
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -webkit-transform: scale(0.8,0.8);
+    -moz-transform: scale(0.8,0.8);
+    -o-transform: scale(0.8,0.8);
+    transform: scale(0.8,0.8);
+}
+
+.robot-listen {
+    width:100%; height: auto; display: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}

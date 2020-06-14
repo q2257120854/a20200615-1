@@ -1,0 +1,29 @@
+[ 2020-03-03T22:27:33+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000097s ]
+[ info ] [ LOG ] INIT File
+[ 2020-03-03T22:27:33+08:00 ][ info ] [ CACHE ] INIT Redis
+[ 2020-03-03T22:27:33+08:00 ][ error ] [0]not support: redis[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/cache/driver/Redis.php:44]
+[ 2020-03-03T22:32:35+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000111s ]
+[ info ] [ LOG ] INIT File
+[ 2020-03-03T22:32:35+08:00 ][ info ] [ CACHE ] INIT Redis
+[ 2020-03-03T22:32:35+08:00 ][ error ] [0]not support: redis[/www/wwwroot/zzz.sfpfg.cn/thinkphp/library/think/cache/driver/Redis.php:44]
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000124s ]
+[ info ] [ LOG ] INIT File
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ CACHE ] INIT Redis
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001824s ]
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ LANG ] /www/wwwroot/zzz.sfpfg.cn/thinkphp/lang/zh-cn.php
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ BIND ] 'socket/Bqworker'
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'socket',
+    1 => 'Bqworker',
+    2 => 'start',
+  ),
+)
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2020-03-03T22:38:03+08:00 ][ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002037s ]
+[ 2020-03-03T22:38:04+08:00 ][ info ] [ DB ] INIT mysql

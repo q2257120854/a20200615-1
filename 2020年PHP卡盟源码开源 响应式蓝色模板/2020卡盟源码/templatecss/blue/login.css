@@ -1,0 +1,201 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+img {
+    outline-width:0px;
+    vertical-align:top;
+}
+.clear {
+    zoom: 1;
+    padding-top: 10px;
+}
+input,button {
+    font-family: "Microsoft YaHei", "Helvetica";
+    outline: none;
+}
+.clear:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+
+.wrap {
+    margin: 0 auto;
+}
+
+.btn-white {
+    background: #fff;
+    color: #2f82ff;
+    border: 1px solid #2f82ff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+
+/* 取消number上下箭头*/
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+
+.iconBg {
+    background-image: url("i_cbg_1.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.login-wrap {
+    position: relative;
+    float: left;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.login-top {
+    position: relative;
+    padding: 16px 8px 4px;
+}
+.welcome-login {
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    color: #333;
+}
+
+.input-wrap {
+    position: relative;
+    margin-top: 15px;
+}
+.input-wrap input {
+    padding:4px 0 4px 10px;
+    width: 232px;
+    color: #010101;
+    font-size: 14px;
+    line-height: 26px;
+    border: 1px solid #d9dee0;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.input-wrap input:focus {
+    border: 1px solid #1c94e2;
+}
+.denger input,.denger input:focus {
+    border: 1px solid #db0113;
+}
+.login-btn {
+
+}
+.input-wrap span {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 14px;
+    height: 16px;
+    display: inline-block;
+}
+.login-btn li {
+    margin: 6px 0;
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+.login-btn li:hover {
+    color: #010101;
+    text-decoration:underline;
+}
+.login-btn .go-register {
+    float: left;
+}
+.login-btn button {
+    width: 100%;
+    padding: 5px 0;
+    background: #1c94e2;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    border: 1px solid #1c94e2;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+height: 34px;
+    -moz-border-radius: 2px;
+}
+.login-btn button:hover {
+    background: #2389ff;
+    border: 1px solid #2389ff;
+}
+.login-bottom {
+    padding: 2px 0;
+}
+.login-bottom li {
+    position: relative;
+    float: left;
+    width: 102px;
+    font-size: 12px;
+    padding: 4px 0;
+    line-height: 20px;
+    color: #666;
+}
+.login-bottom i {
+    width: 22px;
+    height: 22px;
+}
+.login-bottom .QQ {
+
+    text-align: right;
+}
+.login-bottom .WX {
+    padding-left: 28px;
+    text-align: left;
+}
+.login-bottom  .band {
+    text-align: center;
+    color: #d3d3d3;
+    width: 31px;
+}
+.login-bottom .icon_qq {
+    padding-right: 28px;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    background-position: 0 0;
+}
+.login-bottom .icon_wx {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    background-position: 0 -22px;
+}
+.biref {
+    display: none;
+    font-size: 12px;
+    color: #ff3b30;
+    text-align: left;
+    margin: 0 auto;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+}
+.biref .biref-x {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    background-position: 0 -44px;
+    width: 16px;
+    height: 16px;
+}
+.biref p {
+    padding-left: 24px;
+    line-height: 18px;
+}
+
+/*   end   */
+

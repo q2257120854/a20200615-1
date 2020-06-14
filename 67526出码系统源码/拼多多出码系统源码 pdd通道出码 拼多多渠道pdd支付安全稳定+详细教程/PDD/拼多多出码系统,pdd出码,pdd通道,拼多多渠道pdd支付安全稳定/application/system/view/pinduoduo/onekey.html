@@ -1,0 +1,63 @@
+{include file="block/layui" /}
+<div class="layui-form">
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">小号数据</label>
+        <div class="layui-input-inline" style="width:500px;">
+            <textarea name="content" placeholder="请输入内容" style="height:300px;" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"> </label>
+        <div class="layui-input-block">
+            <button type="button" id="submitForm" class="layui-btn tab-btn-active">导入</button>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['jquery'], function() {
+        var $ = layui.$;
+        $("#submitForm").on('click',function () {
+            let content=$("textarea[name='content']").val();
+            if (!content) {
+                layer.msg('小号数据不能为空！', {
+                    time: 3000, //20s后自动关闭
+                    btn: ['知道了'],
+                    btnAlign: 'c',
+                    anim: 6
+                });
+                return;
+            }
+            var msg =layer.msg('正在导入请稍后...', {
+                time: 10000,
+                closeBtn: 0
+            });
+            $.post('{:url('pinduoduo/onekey')}',{
+                content:content
+            },function (res) {
+                layer.close(msg);
+                if (res.status){
+                    layer.msg('添加成功', {
+                        time: 2000,
+                        closeBtn: 0
+                    });
+                    self.location='{:url('pinduoduo/users')}';
+                }else{
+                    layer.msg(res.msg, {
+                        time: 2000,
+                        btn: ['知道了'],
+                        btnAlign: 'c',
+                        anim: 6
+                    });
+                }
+            })
+        });
+    });
+</script>
+<style>
+    .layui-form{
+        padding-top: 15px;
+    }
+    .layui-form-item .layui-input-inline{
+        width:300px;
+    }
+</style>

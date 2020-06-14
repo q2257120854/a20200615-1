@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="pixel-ratio-3 retina android android-5 android-5-0 watch-active-state"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="/Public/dianyun/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="/Public/dianyun/css/app.css">
+    <link rel="stylesheet" href="/Public/dianyun/css/iconfont.css">
+
+    <link href="/Public/dianyun/shouye/swiper.min.css" type="text/css" rel="stylesheet">
+    <link href="/Public/dianyun/shouye/style.css" type="text/css" rel="stylesheet">
+    <script src="/Public/dianyun/shouye/jquery.min.js"></script>
+    <script src="/Public/dianyun/shouye/swiper.min.js"></script>
+    <script src="/Public/dianyun/shouye/rem.js"></script>
+    <script src="/Public/dianyun/shouye/safari.js"></script>
+  </head>
+  <body class="framework7-root">
+    <div class="panel-overlay"></div>
+	<div class="panel panel-left panel-reveal layout-dark">	    
+	</div>
+	
+
+<div class="page toolbar-fixed">
+    
+
+    <div class="page-content">
+<div class="swiper-container" id="bannerbgslider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/Public/dianyun/shouye/bg1.jpg"></div>
+        <div class="swiper-slide"><img src="/Public/dianyun/shouye/bg2.jpg"></div>
+        <div class="swiper-slide"><img src="/Public/dianyun/shouye/bg3.jpg"></div>
+        <div class="swiper-slide"><img src="/Public/dianyun/shouye/bg4.jpg"></div>
+    </div>
+</div>
+<div class="bannerbg">
+    <div class="bannerslider">
+        <div class="swiper-container" id="bannerslider">
+            <div class="swiper-wrapper">
+				<foreach name="banner" item="v">
+					<div class="swiper-slide"><a href="{$v.href}"><img src="{$v.path}"></a></div>
+				 </foreach>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+        <div>
+            <div class="noticepanel">
+                <img src="/Public/dianyun/img/notice.png" class="titleicon">
+                <marquee scrolldelay="200" id="lstNotice" onmouseover="this.stop()" onmouseout="this.start()"><ul><li><a class="black external" href="#">{$gonggao}</a>&nbsp;&nbsp;</li></ul></marquee>
+            </div>
+        </div>
+
+        <div>
+        
+            <div class="upgradepanel">
+                <img src="/Public/dianyun/img/ad-01.jpg" style="width:auto; height:100%;">
+                <div class="upgradebutton">
+                    <a href="{:U('Index/Wallet/index')}" class="external">
+                        <img src="/Public/dianyun/img/login.gif" style="width:120px; height:auto;">
+                    </a>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="content-block" style="margin: 10px 0px;">
+            <div class="row h-frame">
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('New/xiangmu')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-01.png"></div>
+                        <div class="h-title">项目说明</div>
+                    </a>
+                </div>
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('New/video')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-02.png"></div>
+                        <div class="h-title">视频介绍</div>
+                    </a>
+                </div>
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('Index/Index/fenxiang')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-03.png"></div>
+                        <div class="h-title">分享赚钱</div>
+                    </a>
+                </div>
+            </div>
+            <div class="row h-frame">
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('New/help')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-04.png"></div>
+                        <div class="h-title">新手入门</div>
+                    </a>
+                </div>
+
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('Robot/robot')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-05.png"></div>
+                        <div class="h-title">今日客单</div>
+                    </a>
+                </div>
+                <div class="col-33">
+                    <a class="h-item external" href="{:U('Index/Index/kefu')}">
+                        <div class="h-icon"><img src="/Public/dianyun/img/icon-06.png"></div>
+                        <div class="h-title">联系客服</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-10 bg-gray"></div>
+
+        <div class="area-20">
+            <div class="row">
+                <div class="col-100 center">
+                    <img src="/Public/dianyun/img/icon-a0.png" style="width:50%; height: auto;">
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-100 center">
+                    <a href="{:U('Index/Robot/pcontent')}" class="external">
+                        <img src="/Public/dianyun/img/icon-a1.png" style="width:80%; height: auto;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-10 bg-gray"></div>
+
+        <div class="area-20 buyer-history">
+            <h3><i class="icon iconfont icon-yonghuming"></i> 最近购买用户</h3>
+            <marquee scrolldelay="200" id="lstBuyHistory" direction="up" onmouseover="this.stop()" onmouseout="this.start()" style="height: 60px;">
+                <ul id="ulBuyHistory">
+                    <foreach name="mai_log" item="v">
+                        <li>[{$v.addtime|mb_substr=###,5,11,'utf-8'}]&nbsp;&nbsp;{$v.user|yc_phone=###}}购买了机器人</li>
+                    </foreach>
+                    <li>[12-16 22:48]&nbsp;&nbsp;131****8355购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;170****6210购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;135****6794购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;186****1318购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;132****9405购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;187****8228购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;136****1367购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;138****0779购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;158****6469购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;159****6411购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;134****2726购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;135****6315购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;185****2114购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;138****7146购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;135****7627购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;138****6459购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;136****6036购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;136****5482购买了机器人</li>
+                    <li>[12-16 22:48]&nbsp;&nbsp;138****8311购买了机器人</li>
+                </ul>
+            </marquee>
+        </div>
+
+    </div>
+
+
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="{:U('Index/New/index')}" class="tab-link external active">
+                <img src="/Public/dianyun/img/tab-home.png">
+                <span class="tabbar-label">首页</span>
+            </a>
+            <a href="{:U('Index/Robot/index')}" class="tab-link external">
+                <img src="/Public/dianyun/img/tab-robot-01.png">
+                <span class="tabbar-label">机器人</span>
+            </a>
+            <a href="{:U('Index/Task/index')}" class="tab-link external">
+                <img src="/Public/dianyun/img/tab-coin-01.png">
+                <span class="tabbar-label">领金币</span>
+            </a>
+            <a href="{:U('Index/Wallet/index')}" class="tab-link external">
+                <img src="/Public/dianyun/img/tab-account-01.png">
+                <span class="tabbar-label">我的</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var m_pageIdx = "";
+
+</script>
+        </div>
+      </div> 
+    </div> 
+  
+
+
+<script>
+    var Swiper1 = new Swiper('#bannerbgslider');
+    var swiper = new Swiper('#bannerslider', {
+        slidesPerView: 1,
+        observer: true,
+        observeParents: true,
+        controller: {
+            control: Swiper1, //控制Swiper1
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '#bannerslider .swiper-pagination',
+            clickable: true,
+        },
+    });
+</script>
+</body></html>

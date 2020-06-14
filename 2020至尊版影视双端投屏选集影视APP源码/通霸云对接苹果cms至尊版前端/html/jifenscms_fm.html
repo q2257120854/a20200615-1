@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>购物网</title>
+	<link rel="stylesheet" href="http://g.alicdn.com/??tm/detail-b/4.2.8/index.css,mui/desc-mods/4.0.15/wpimagetext/index.css,mui/desc-mods/4.0.15/custommodule/index.css" />
+	
+</head>
+<body>
+		<div class="page">
+			
+			<div id="content" class="content">
+				<div class="container" >
+					<div class="group-warp">
+						<div class="module-wrap" data-module="mods/module-preview/index" id="J_mod0">
+							<div class="module-preview" >
+								<section class="mui-slider preview-slider">
+									<div class="scroller preview-scroller">
+										<a id="shop_list" class="item">
+										 <img src="http://img.alicdn.com/imgextra/i4/268451883/O1CN01eI69gI1PmSKl84ak2_!!268451883.jpg_2200x2200Q50s50.jpg_.webp">
+										</a> 
+									</div>
+								</section>
+							</div>
+						</div>
+						
+						<div class="module-wrap" >
+							<div class="module-price">
+								<div class="real-price"> 
+								    <span class="ui-yen ">
+										<i class="price-symbol">¥</i>
+										<span id="money" class="price">1059-1678</span>
+									</span>
+									<span class="icon-text">狂欢大促</span> 
+								</div>
+							</div>
+						</div>
+						
+						<div class="module-wrap">
+							<div class="module-title">
+								<div class="share-warp mui-flex">
+									<div id="title" class="main cell">-----</div>
+									<span class="share-div mui-flex share-hidden">
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="module-wrap">
+							<div class="module-adds">
+								<span class="postage">快递: 0.00</span>
+
+								<span id="titles" class="sales">销量 1094件</span>
+
+								<span class="delivery">----</span></div>
+						</div>
+						<div class="module-wrap">
+							<div class="module-atmosphere"></div>
+						</div>
+					</div>
+					
+					<div class="group-warp">
+						<div class="module-wrap" data-module="mods/module-desc/index" id="J_mod19">
+							<div class="module-desc" id="p-desc" data-mod-name="detail-m/mods/module-desc/index" data-nav="详情">
+								<div class="scrolltips">
+									<div class="part-title mui-flex align-center">
+										<div class="cell">
+											<hr>
+										</div><span class="txt fixed">详情</span>
+										<div class="cell">
+											<hr>
+										</div>
+									</div>
+								</div>
+								<div id="shop_list1" class="container" >
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="group-warp"></div>
+				</div>
+			</div>
+			
+			<section class="actionBar-bg">
+				<div id="s-downshelf" class="opened"></div>
+				<div id="s-actionBar-container">
+					<div class="action-bar-wrap j-bottom-bar  ">
+						
+						<div class="mods-wrap"></div>
+						<div tapmode onclick="openLive('')" class="trade">
+							<a class="buy">
+								<p>立即购买</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			
+		</div>
+		
+	</body>
+<script type="text/x-dot-template" id="templates">
+  {{~ it.shop : value : index }}
+      <img src="http://tongbav5.tongbayun.cn//{{= value. picurl }}">
+  {{~}}
+</script>
+
+
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/doT.js"></script>
+<script type="text/javascript" src="../script/auipullrefresh.js"></script>
+<script type="text/javascript" src="../script/auislide.js"></script>
+<script type="text/javascript" src="../script/auilazyload.js" ></script>
+<script type="text/javascript">
+var api_url = localStorage.getItem('api_url');
+apiready = function(){
+  //下拉刷新
+        api.setCustomRefreshHeaderInfo({
+            bgColor : '#fff',
+             images: [
+                  'widget://image/app/xiala/qicai.gif',
+                    ],
+                    tips: {
+                        pull: '你…你想干什么！你不要过来！',
+                        threshold: '讨厌 快放开我 非礼呀！',
+                        load: '通霸云影视 享受生活'
+                    }
+
+        }, function() {
+            setTimeout(function(){
+        api.refreshHeaderLoadDone()
+            }, 3000);
+        });
+
+  //下拉刷新
+  api.parseTapmode();
+  getShoplist();
+}
+
+function getShoplist(){
+	
+  var shop_list = $api.byId('shop_list');
+  var shop_list1 = $api.byId('shop_list1');
+  var templates = $api.byId('templates');
+  
+  
+  // var template = $api.byId('template');
+  // var spcs = $api.byId('spcs');
+   var title = $api.byId('title');
+   var titles = $api.byId('titles');
+   var money = $api.byId('money');
+  // var moneys = $api.byId('moneys');
+  api.ajax({
+    url: api_url+'/login/login/shoplist.html?spid='+api.pageParam.spid,
+    method: 'get',
+},function(ret, err){
+    if (ret) {
+      //渲染模板
+      var pagefn = doT.template(templates.text);
+      shop_list.innerHTML = pagefn(ret);
+	  title.innerHTML=ret.shop[0].title;
+	  money.innerHTML=ret.shop[0].money;
+	  shop_list1.innerHTML = ret.shop[0].miaoshu;
+	  titles.innerHTML='销量 '+ret.shop[0].payrs+'件';
+	  
+      // var pagefn = doT.template(templates.text);
+      // spcs.innerHTML = pagefn(ret);
+      // var pagefn = doT.template(titles.text);
+      // title.innerHTML = pagefn(ret);
+      // var pagefn = doT.template(moneys.text);
+      // money.innerHTML = pagefn(ret);
+    }
+});
+}
+
+function openLive(){
+  api.openWin({
+     name: 'action',
+     url: './action_win.html',
+     delay: 100,
+     pageParam:{spid:api.pageParam.spid}
+ });
+}
+
+</script>
+
+</html>

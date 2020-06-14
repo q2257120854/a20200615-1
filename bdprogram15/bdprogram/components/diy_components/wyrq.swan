@@ -1,0 +1,1 @@
+<web-view class="box_wyrq" src="{{wyrq.params.linurl}}"></web-view>

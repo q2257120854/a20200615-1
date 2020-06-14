@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>节点列表</title>
+<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+<link rel="stylesheet" href="__PUBLIC__/Css/node.css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('input[level=1]').click(function(){
+			var inputs = $(this).parents('.app').find('input');
+			$(this).attr('checked') ? inputs.attr('checked','checked') : inputs.removeAttr('checked');
+		})
+
+		$('input[level=2]').click(function(){
+			var inputs = $(this).parents('dl').find('input');
+			$(this).attr('checked') ? inputs.attr('checked','checked') : inputs.removeAttr('checked');
+		})
+
+		$('input[level]:gt(0)').click(function(){
+			$('input[level]:eq(0)').attr('checked','checked');
+		})
+
+	});
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<a href="{:U(GROUP_NAME.'/Rbac/role')}" class="add-app">返回</a>
+		<form action="{:U(GROUP_NAME.'/Rbac/setAccess')}" method="post">
+			<foreach name="node" item="app">
+				<div class="app">
+					<p>
+						<strong>{$app.title}</strong>
+						<input type="checkbox" level="1" name="access[]" value="{$app.id}_1"  <if condition='$app["access"]'>checked="checked"</if>/>
+					</p>
+				
+
+				<foreach name="app['child']" item="action">
+					<dl>
+						<dt>
+							<strong>{$action.title}</strong>
+							<input type="checkbox" level="2" name="access[]" value="{$action.id}_2" <if condition='$action["access"]'>checked="checked"</if> />
+						</dt>
+					
+					<foreach name="action['child']" item="method">
+						<dd>
+							<span>{$method.title}</span>
+							<input type="checkbox" level="3" name="access[]" value="{$method.id}_3" <if condition='$method["access"]'>checked="checked"</if>/>
+						</dd>
+					</foreach>
+					</dl>
+				</foreach>
+				</div>
+			</foreach>
+	</div>
+	<input type="hidden" name="rid" value="{$rid}"/>
+	<input type="submit" value="保存修改" style="display: block;margin: 20px auto;cursor: pointer;"/>
+	</form>
+</body>
+</html>

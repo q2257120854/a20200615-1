@@ -1,0 +1,389 @@
+<div id="sidebar">
+<?php $acc = session("_ACCESS_LIST");?>
+				<div id="sidebar-shortcuts">
+				
+					<div id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+
+						<span class="btn btn-info"></span>
+
+						<span class="btn btn-warning"></span>
+
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!--#sidebar-shortcuts-->
+
+				<ul class="nav nav-list">
+					<li>
+						<a href="{:U(GROUP_NAME.'/Index/index')}">
+							<i class="icon-dashboard"></i>
+							<span>首页</span>
+						</a>
+					</li>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Member')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+					<li sid="Memberuncheck_Membercheck" <if condition="MODULE_NAME eq 'Member'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-edit"></i>
+							<span>会员管理</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'Member'">style="display: block;"</if>>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Member')][strtoupper('check')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+							<li url="Membercheck">
+								<a href="{:U(GROUP_NAME.'/Member/check')}">
+									<i class="icon-double-angle-right"></i>
+									会员列表
+								</a>
+							</li>	
+</if>
+	<li url="Memberuncheck">
+		<a href="{:U(GROUP_NAME.'/Member/shuadan')}">
+			<i class="icon-double-angle-right"></i>
+			刷单数量
+		</a>
+	</li>
+	<li url="Memberuncheck">
+		<a href="{:U(GROUP_NAME.'/Member/lockuser')}">
+			<i class="icon-double-angle-right"></i>
+			封停会员
+		</a>
+	</li>
+
+
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Member')][strtoupper('shu_list')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+							<li url="Membercheck">
+								<a href="{:U(GROUP_NAME.'/Member/shu_list')}">
+									<i class="icon-double-angle-right"></i>
+									团队树形图
+								</a>
+							</li>
+</if>	
+
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Member/gaward')}">
+									<i class="icon-double-angle-right"></i>
+									赠送机器人
+								</a>
+							</li>
+
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Member/awardlist')}">
+									<i class="icon-double-angle-right"></i>
+									发放奖励记录
+								</a>
+							</li>
+
+						
+						</ul>
+					</li>
+</if>
+
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Dai')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+	<li <if condition="MODULE_NAME eq 'Dai'">class="open"</if>>
+	<a href="#" class="dropdown-toggle">
+		<i class="icon-book"></i>
+		<span class="menu-text"> 发圈任务 </span>
+
+		<b class="arrow icon-angle-down"></b>
+	</a>
+	</if>
+
+	<ul class="submenu" <if condition="MODULE_NAME eq 'Task'">style="display: block;"</if>>
+
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('complete')][strtoupper('complete')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li>
+			<a href="{:U(GROUP_NAME.'/Task/complete')}">
+				<i class="icon-double-angle-right"></i>
+				完成审核
+			</a>
+		</li>
+	</if>
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('yescomplete')][strtoupper('yescomplete')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li>
+			<a href="{:U(GROUP_NAME.'/Task/yescomplete')}">
+				<i class="icon-double-angle-right"></i>
+				已完成任务
+			</a>
+		</li>
+	</if>
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('notcomplete')][strtoupper('notcomplete')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li>
+			<a href="{:U(GROUP_NAME.'/Task/notcomplete')}">
+				<i class="icon-double-angle-right"></i>
+				已失败任务
+			</a>
+		</li>
+	</if>
+		</ul>
+		</li>
+	</if>
+
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Shop')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">			
+                        <li sid="top"  <if condition="MODULE_NAME eq 'Shop'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-random"></i>
+							<span>机器人管理</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'Shop'">style="display: block;"</if>>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Banner')][strtoupper('type_list')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">							
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Shop/banner')}">
+									<i class="icon-double-angle-right"></i>
+									首页滚动横幅
+								</a>
+							</li>
+</if>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Shop')][strtoupper('type_list')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">							
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Shop/type_list')}">
+									<i class="icon-double-angle-right"></i>
+									分类列表
+								</a>
+							</li>
+</if>	
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Shop')][strtoupper('lists')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Shop/lists')}">
+									<i class="icon-double-angle-right"></i>
+									机器人列表
+								</a>
+							</li>
+</if>					
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Shop')][strtoupper('orderlist')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">				
+							<li url="Memberuncheck">
+								<a href="{:U(GROUP_NAME.'/Shop/orderlist')}">
+									<i class="icon-double-angle-right"></i>
+									已购机器人
+								</a>
+							</li>
+</if>
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Shop')][strtoupper('editshouyi')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li url="Memberuncheck">
+			<a href="{:U(GROUP_NAME.'/Shop/editshouyi')}">
+				<i class="icon-double-angle-right"></i>
+				修改收益
+			</a>
+		</li>
+	</if>
+	</ul>
+					</li>
+</if>						
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">		
+					<li sid="Bonusindex_Jinbidetailindex_JinbidetailjinbiAddList_Jinzhongzidetailindex" <if condition="MODULE_NAME eq 'Jinbidetail'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-calendar"></i>
+							<span>资金管理</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'Jinbidetail'">style="display: block;"</if>>
+
+				
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')][strtoupper('index')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+							<li url="Jinbidetailindex">
+								<a href="{:U(GROUP_NAME.'/Jinbidetail/index')}">
+									<i class="icon-double-angle-right"></i>
+									财务明细
+								</a>
+							</li>
+</if>
+
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')][strtoupper('index')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+							<li url="Jinbidetailindex">
+								<a href="{:U('Jinbidetail/index',array('type'=>1))}">
+									<i class="icon-double-angle-right"></i>
+									机器人收益
+								</a>
+	
+						</li>
+</if>	
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')][strtoupper('qjinbi')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+							<li url="Jinbidetailindex">
+								<a href="{:U(GROUP_NAME.'/Jinbidetail/qjinbi')}">
+									<i class="icon-double-angle-right"></i>
+									冻结明细
+								</a>
+							</li>
+</if>	
+						
+ <if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')][strtoupper('paylists')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">								
+							<li url="JinbidetailjinbiAddList">
+								<a href="{:U(GROUP_NAME.'/Jinbidetail/paylist')}">
+									<i class="icon-double-angle-right"></i>
+									充值管理
+								</a>
+							</li>	
+</if> 
+
+
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Jinbidetail')][strtoupper('emoneyWithdraw')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+							<li url="JinbidetailjinbiAddList">
+								<a href="{:U(GROUP_NAME.'/Jinbidetail/emoneyWithdraw')}">
+									<i class="icon-double-angle-right"></i>
+									提现管理
+								</a>
+							</li>
+</if>
+
+						</ul>
+					</li>
+</if>					
+					
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Info')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+					<li sid="Infoannounce_InfoannType_InfomsgReceive_InfomsgSend" <if condition="MODULE_NAME eq 'Info'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-list-alt"></i>
+							<span>信息交流</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'Info'">style="display: block;"</if>>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Info')][strtoupper('announce')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">							
+							<li url="Infoannounce">
+								<a href="{:U(GROUP_NAME.'/Info/announce')}">
+									<i class="icon-double-angle-right"></i>
+									公告管理
+								</a>
+							</li>
+</if>							
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Info')][strtoupper('annType')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">	
+							<li url="InfoannType">
+								<a href="{:U(GROUP_NAME.'/Info/annType')}">
+									<i class="icon-double-angle-right"></i>
+									公告类别
+								</a>
+							</li>
+	</if>
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Info')][strtoupper('xiangmu')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li url="InfoannType">
+			<a href="{:U(GROUP_NAME.'/Info/xiangmu')}">
+				<i class="icon-double-angle-right"></i>
+				项目说明
+			</a>
+		</li>
+	</if>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Info')][strtoupper('msgReceive')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">	
+							<li url="InfomsgReceive">
+								<a href="{:U(GROUP_NAME.'/Info/msgReceive')}">
+									<i class="icon-double-angle-right"></i>
+									聊天室
+								</a>
+							</li>
+</if>
+						</ul>
+					</li>
+</if>			
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Rbac')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+					<li sid="Rbacindex_Rbacrole_Rbacnode" <if condition="MODULE_NAME eq 'Rbac'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-file"></i>
+							<span>权限管理</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'Rbac'">style="display: block;"</if>>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Rbac')][strtoupper('index')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">						
+							<li url="Rbacindex">
+								<a href="{:U(GROUP_NAME.'/Rbac/index')}">
+									<i class="icon-double-angle-right"></i>
+									管理员列表
+								</a>
+							</li>
+</if>	
+						
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Rbac')][strtoupper('role')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">							
+						<li url="Rbacrole">
+								<a href="{:U(GROUP_NAME.'/Rbac/role')}">
+									<i class="icon-double-angle-right"></i>
+									角色列表
+								</a>
+							</li>
+</if>	
+
+
+
+
+<!--							
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('Rbac')][strtoupper('node')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">							
+						 <li url="Rbacnode">
+								<a href="{:U(GROUP_NAME.'/Rbac/node')}">
+									<i class="icon-double-angle-right"></i>
+									节点列表
+								</a>
+							</li> 
+</if>
+-->				
+				
+						</ul>
+						
+					</li>
+</if>	
+		
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('System')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+					<li sid="Logindex_BakbackUp_SystemcustomSetting"  <if condition="MODULE_NAME eq 'System'">class="open"</if>>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-text-width"></i>
+							<span>系统设置</span>
+
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu" <if condition="MODULE_NAME eq 'System'">style="display: block;"</if>>
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('System')][strtoupper('backUp')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+							<li url="BakbackUp">
+								<a href="{:U(GROUP_NAME.'/System/backUp')}">
+									<i class="icon-double-angle-right"></i>
+									数据备份
+								</a>
+							</li>
+</if>	
+<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('System')][strtoupper('customSetting')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+							<li url="SystemcustomSetting">
+								<a href="{:U(GROUP_NAME.'/System/customSetting')}">
+									<i class="icon-double-angle-right"></i>
+									自定义配置
+								</a>
+							</li>
+</if>
+	<if condition="(isset($acc[strtoupper(GROUP_NAME)][strtoupper('System')][strtoupper('systemlog')])) or (!empty($_SESSION[C('ADMIN_AUTH_KEY')]))">
+		<li url="SystemcustomSetting">
+			<a href="{:U(GROUP_NAME.'/System/systemlog')}">
+				<i class="icon-double-angle-right"></i>
+				系统日志
+			</a>
+		</li>
+	</if>
+
+	</ul>
+					</li>
+				
+</if>					
+					
+				</ul><!--/.nav-list-->
+
+				<div id="sidebar-collapse">
+					<i class="icon-double-angle-left"></i>
+				</div>
+			</div>
+
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='__PUBLIC__/js/jquery-1.9.1.min.js">"+"<"+"/script>");
+</script>
+<script type="text/javascript">
+	$(function() {
+		var method = '{$Think.server.path_info}';
+		var middle = method.split('/')[2];
+		var end = method.split('/')[3];
+
+		$('li[sid*='+ middle + end +']').addClass("active open");
+		$('li[url*='+ middle + end +']').addClass("active");
+	});
+</script>

@@ -1,0 +1,49 @@
+<div class="navbar navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a href="#" class="brand">
+						<small>
+							<i class="icon-leaf"></i>
+							机器人管理系统
+						</small>
+					</a><!--/.brand-->
+
+					<ul class="nav ace-nav pull-right">
+
+
+
+
+						<li class="light-blue user-profile">
+							<a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
+								<img class="nav-user-photo" src="__PUBLIC__/avatars/avatar2.png"/>
+								<span id="user_info">
+									<small>管理员</small>
+									{$Think.session.adminusername}
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer" id="user_menu">
+								<li>
+									<a href="{:U(GROUP_NAME.'/Index/Logout')}">
+										<i class="icon-off"></i>
+										安全退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!--/.ace-nav-->
+				</div><!--/.container-fluid-->
+			</div><!--/.navbar-inner-->
+		</div>
+        
+        
+<style>
+#page_search input{ border:0px; background:#ccc;color:#ffffff; margin-left:5px;}
+#page_search .current{ background:#005580; color:#ffffff;}
+.page a{font-size:16px;}
+a.active{ color:#C30 !important; font-size:18px;}
+
+</style>        
+        

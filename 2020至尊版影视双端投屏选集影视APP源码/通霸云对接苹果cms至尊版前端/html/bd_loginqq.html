@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>绑定QQ</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+    <link href="../css/stylezc.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery.minzc.js"></script>
+    
+</head>
+<body>
+	<header  class="ui_button"></header>
+        <section class="aui-flexView">
+            <header class="aui-navBar aui-navBar-fixed b-line">
+                <a onclick="closeWin()" class="aui-navBar-item">
+                    <i class="icon icon-return"></i>
+                </a>
+                <div class="aui-center">
+                    <span class="aui-center-title">QQ绑定</span>
+                </div>
+                <a tapmode onclick="openWin('reg_frm')" class="aui-navBar-item">
+                    <i class="icon icon-sys"></i>注册
+                </a>
+            </header>
+            <section class="aui-scrollView">
+                <div class="aui-code-box">
+                    <form action="">
+                        <p class="aui-code-line">
+                            <input type="text" class="aui-code-line-input" name="search" value="" id="username" autocomplete="off" placeholder="账号"/>
+                        </p>
+                        <p class="aui-code-line aui-code-line-clear">
+                            <i class="aui-show  operate-eye-open"></i>
+                            <input id="password" type="password" class="aui-code-line-input password" placeholder="密码" value="">
+                        </p>
+                        
+                        <div class="aui-code-btn">
+                            <button type="button" name="button"  onclick="loginTo()">绑定登录</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </section>
+        </section>
+       <script type="text/javascript">
+            $('.aui-show').click(function() {
+                let pass_type = $('input.password').attr('type');
+
+                if (pass_type === 'password') {
+                    $('input.password').attr('type', 'text');
+                    $('.aui-show').removeClass('operate-eye-open').addClass('operate-eye-close');
+                } else {
+                    $('input.password').attr('type', 'password');
+                    $('.aui-show').removeClass('operate-eye-close').addClass('operate-eye-open');
+                }
+            })
+        </script>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+	
+	apiready = function(){
+		qq = api.require('QQPlus');
+			wx = api.require('wx');
+			
+	};
+	
+	function loginTo(){
+		var username = $api.val($api.byId('username'));
+		var password = $api.val($api.byId('password'));
+		if(username == '') {
+				api.toast({
+					msg: 'ε=(´ο｀*))) 调皮~   账号都没输入',
+					duration: 5000
+				});
+				return;
+			}
+			if(password == '') {
+				api.toast({
+					msg: 'ε=(´ο｀*))) 哎呀~   密码还没输入',
+					duration: 5000
+				});
+				return;
+			}
+			api.toast({
+				msg: 'ヾ(◍°∇°◍)ﾉﾞ 努力验证中……',
+				duration: 5000
+			});
+
+			api.closeWin({
+				name: 'reg_frm'
+			});
+			api.ajax({
+				url: api_url+'login/login/kjbingding.html',
+				method: 'get',
+				data: {
+					values: {
+						username: username,
+						passwd: password,
+						imei: api.deviceId,
+						logoqq: api.pageParam.kjdl,
+						nick_name: api.pageParam.dlname,
+						userimg:api.pageParam.img1,
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if(ret) {
+					if(ret.code == 0) {
+						api.toast({
+							msg: ret.msg,
+							duration: 5000
+						});
+						return;
+					} else if(ret.code == 1) {
+									console.log( JSON.stringify( ret ) );
+									if(ret.msg['status'] != 1 ){
+											api.toast({
+												msg: '(ｷ｀ﾟДﾟ´)!! 账号被禁用！',
+												duration: 5000
+											});
+
+											//alert( JSON.stringify( err ) );
+											return;
+										}
+						api.toast({
+							msg: '(#^.^#) 绑定成功！',
+							duration: 5000
+						});
+
+						//alert( JSON.stringify( ret ) );
+						console.log( JSON.stringify( ret ) );
+						localStorage.setItem('accountLogin',0);
+						localStorage.setItem('user_id', ret.msg['id']);
+						localStorage.setItem('user_name', username);
+						localStorage.setItem('password', password);
+						localStorage.setItem('user_time', ret.msg['time']);
+						localStorage.setItem('user_share', ret.msg['share']);
+						localStorage.setItem('user_advert', ret.msg['advert']);
+						localStorage.setItem('user_code', ret.msg['code']);
+						localStorage.setItem('power', ret.msg['power']);
+						localStorage.setItem('url', ret.msg['url']);
+						localStorage.setItem('url1', ret.msg['url1']);
+						localStorage.setItem('url2', ret.msg['url2']);
+						localStorage.setItem('url3', ret.msg['url3']);
+						localStorage.setItem('url4', ret.msg['url4']);
+						localStorage.setItem('url5', ret.msg['url5']);
+						localStorage.setItem('url6', ret.msg['url6']);
+						localStorage.setItem('url7', ret.msg['url7']);
+						localStorage.setItem('user_nickname', ret.msg['nick_name']);
+						localStorage.setItem('tjryqma',ret.msg['sjyqma']);
+			        	localStorage.setItem('stdejb',ret.msg['stjb']);
+						localStorage.setItem('user_zfb',ret.msg['zfb']);
+						localStorage.setItem('user_weichat', ret.msg['weichat']);
+						localStorage.setItem('user_sharema',ret.msg['share_ma']);
+						localStorage.setItem('user1_img',ret.msg['userimg']);
+						localStorage.setItem('rj_yyms',ret.msg['yyms']);
+						api.sendEvent({
+							name: 'newLoingdata',
+							extra: {}
+						});
+//						api.closeWin({});
+						api.closeToWin({
+	                       name: 'root'
+                        });
+
+						
+					}
+				} else {
+					
+					api.toast({
+						msg: '(ｷ｀ﾟДﾟ´)!!  网络错误 请检查！',
+						duration: 5000
+					});
+
+					//alert( JSON.stringify( err ) );
+					return;
+				}
+			});
+		
+	}
+	
+	function closeWin() {
+			api.closeWin({});
+		}
+	function openWin(name) {
+			var delay = 0;
+			if(api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: name,
+				url: name + '.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				bgColor: '#000',
+				animation: {
+					type: "reveal", //动画类型（详见动画类型常量）
+					subType: "from_bottom", //动画子类型（详见动画子类型常量）
+					duration: 400
+				},
+				vScrollBarEnabled: false
+			});
+		}
+</script>
+</html>

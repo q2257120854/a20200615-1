@@ -1,0 +1,20 @@
+搭建说明：
+【安装环境】Linux+伪静态 +PHP5.6+mysql5.5+ SSL证书（使用宝塔）
+1、上传文件到根目录，导入sql数据库文件，然后修改数据库配置source\system\config.inc.php
+2、设置伪静态规则，apache规则在根目录：.htaccess，Nginx规则在static\pack\Rewrite
+3、开启ssl证书,免签封装使用证书签名，需要对应修改data\cert目录下的server证书配置文件，
+然后启用PHP函数exec，打开openssl模块
+4、PHP文件上传大小配置
+5、修改下载页底部信息 static\default\js\template\wave.js
+
+默认管理后台
+网址/265admin.php
+管理员：admin@qq.com  密码123456
+
+
+
+
+5G云资源网  www.yunziyuan.com.cn
+
+
+为用户免费提供各大论坛付费源码   欢迎大家投稿  打击乱收费 公益你我他

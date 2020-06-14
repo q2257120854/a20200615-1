@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<style>
+		#con{
+			margin: 10px;
+			font-size: 24px; 
+		}
+		ul{
+			margin-bottom: 10px;
+		}
+		ul li{ 
+			margin: 5px 10px;
+			padding: 5px;
+			color: #000;
+			word-wrap: break-word;
+		}
+	</style>
+</head>
+<body>
+    <label id="con">Hello APP</label>
+	<div id='sys-info'></div>
+    <button onclick="opensl()" value='打开Group'>ssssss</button>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+
+    function opensl(){
+        var alltabs = [
+  			{name:'buy', url:'main.html', bounces:true, title:'车票预订'},
+  			{name:'order', url:'main.html', bounces:true, title:'订单查询'},
+  			{name:'more', url:'main.html', bounces:true, title:'更多功能'}
+        ];
+			var ch = api.winHeight - 75 - 25;
+			api.openFrameGroup({
+                  name:'tabs',
+                  scrollEnabled:true,
+                  rect:{x:0, y:75, w:'auto', h:ch},
+                  frames:alltabs,
+                  background:'#F0F'
+            });
+    }
+
+    apiready = function(){
+		var str = '<ul>';
+        str += '<li>引擎版本信息: ' + api.version + '</li>';
+        str += '<li>系统类型: ' + api.systemType + '</li>';
+        str += '<li>系统版本: ' + api.systemVersion + '</li>';
+        str += '<li>设备类型: ' + api.uiMode + '</li>';
+        str += '<li>设备标识: ' + api.deviceId + '</li>';
+        str += '<li>设备型号: ' + api.deviceModel + '</li>';
+        str += '<li>设备名称: ' + api.deviceName + '</li>';
+        str += '<li>网络状态: ' + api.connectionType + '</li>';
+        str += '<li>是否越狱: ' + api.jailbreak + '</li>';
+        str += '<li>应用渠道: ' + api.channel + '</li>';
+        str += '<li>主窗口名字: ' + api.winName + '</li>';
+        str += '<li>主窗口宽度: ' + api.winWidth + '</li>';
+        str += '<li>主窗口高度: ' + api.winHeight + '</li>';
+        str += '<li>子窗口名字: ' + api.frameName + '</li>';
+        str += '<li>子窗口宽度: ' + api.frameWidth + '</li>';
+        str += '<li>子窗口高度: ' + api.frameHeight + '</li>';
+        str += '<li>屏幕绝对宽度: ' + api.screenWidth + '</li>';
+        str += '<li>屏幕绝对高度: ' + api.screenHeight + '</li>';
+        str += '<li>屏幕密度: ' + window.devicePixelRatio + '</li>';
+        str += '</ul>'
+
+		$api.byId('sys-info').innerHTML = str;
+
+    };
+</script>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>用户注册</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<meta content="telephone=no" name="format-detection" />
+		<link href="../css/stylezcy.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../js/jqueryzcy.js"></script>
+		<script type="text/javascript" src="js/time.js"></script>
+	</head>
+
+	<body>
+		<header class="ui_button"></header>
+		<section class="aui-flexView">
+			<header class="aui-navBar aui-navBar-fixed">
+				<a onclick="closeWin()" class="aui-navBar-item">
+					<i class="icon icon-return"></i>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title">找回密码</span>
+				</div>
+				<a href="javascript:;" class="aui-navBar-item">
+					<i class="icon icon-news"></i>
+				</a>
+			</header>
+
+			<div class="aui-code-box">
+
+				<p class="aui-code-line">
+					<input type="text" class="aui-code-line-input" name="search" value="" id="username" autocomplete="off" placeholder="请输入手机号" />
+				</p>
+
+				<p class="aui-code-line aui-code-line-clear">
+					<input id="yzcode" type="text" class="aui-code-line-input" autocomplete="off" placeholder="短信验证码" />
+					<input id="btn1" type="button" name="button" class="aui-btn-default" value="获取验证码" onclick="getCode()" />
+
+				</p>
+				<p class="aui-code-line">
+					<input type="text" class="aui-code-line-input" name="search" value="" id="password" autocomplete="off" placeholder="请输入新密码" />
+				</p>
+
+
+				<div class="aui-code-btn">
+					<button onclick="toReg()">找回密码</button>
+				</div>
+
+			</div>
+
+		</section>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+
+				$(".aui-code-line-input").addClear();
+
+			});
+		</script>
+	</body>
+
+
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var aqkey = localStorage.getItem('anq_key');
+		var onoff = true;
+		var code_data = '';
+		apiready = function() {
+			var moduleSMSSDK = api.require('smssdk');
+			api.parseTapmode();
+			var header = $api.byId('aui-header');
+			$api.fixStatusBar(header);
+			var headerPos = $api.offset(header);
+			var body_h = $api.offset($api.dom('body')).h;
+
+		}
+
+		function closeWin() {
+			api.closeWin({});
+		}
+
+
+		function toReg() {
+			var password = $api.val($api.byId('password'));
+			var username = $api.val($api.byId('username'));
+			var yzcode = $api.val($api.byId('yzcode'));
+			var user_id = localStorage.getItem('user_id');
+			var lao_pswd = localStorage.getItem('password');
+			if (username == '') {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入登录账号',
+				});
+				return;
+			}
+			if (yzcode == '') {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入验证码',
+				});
+				return;
+			}
+			if (password == '') {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入密码',
+				});
+				return;
+			}
+			if (username.length != 11) {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入11位手机号码',
+				});
+				return;
+			}
+			if (username.length < 6) {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入6位以上密码',
+				});
+				return;
+			}
+			var moduleSMSSDK = api.require('smssdk');
+			var param = {
+				zone: '86',
+				phoneNumber: username,
+				code: yzcode
+			};
+			moduleSMSSDK.commitCode(param, function(ret, err) {
+				if (err !== null && err !== undefined && err !== '') {
+					// 错误消息示例：{"msg":"Template not exist.","code":484}
+					alert("Error:\n" + JSON.stringify(err));
+				} else {
+					api.ajax({
+						url: api_url + '/login/login/repasss.html',
+						method: 'get',
+						data: {
+							values: {
+								username: username,
+								password: password,
+								key: aqkey
+							}
+						}
+					}, function(ret, err) {
+						if (ret) {
+							if (ret.code == 0) {
+								api.alert({
+									title: '修改失败！',
+									msg: ret.msg,
+								});
+							} else {
+								localStorage.setItem('password', password);
+								api.alert({
+									title: '修改成功',
+									msg: '请重新登录！',
+								});
+								api.sendEvent({
+									name: 'outLogin',
+									extra: {}
+								});
+					
+								api.closeWin();
+							}
+						} else {
+							api.alert({
+								title: '糟糕~',
+								msg: '网络错误！',
+							});
+						}
+					});
+					
+				}
+			});
+
+			
+		}
+
+
+		function openLogin(name, password) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: 'login',
+				url: './login.html',
+				pageParam: {
+					name: name,
+					password: password
+				},
+			});
+		}
+
+		//获取验证码
+		function getCode() {
+			var yzcode = $api.val($api.byId('yzcode'));
+			var username = $api.val($api.byId('username'));
+			if (!onoff) {
+				return;
+			}
+			onoff = false;
+			if (username == '') {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入手机号码',
+				});
+				onoff = true;
+				return;
+			}
+			if (username.length != 11) {
+				api.alert({
+					title: '警告！~',
+					msg: '请输入11位手机号码',
+				});
+				onoff = true;
+				return;
+			}
+			
+			var moduleSMSSDK = api.require('smssdk');
+			var param = {
+				zone: '86',
+				phoneNumber: username,
+				tempCode: ''
+			};
+			moduleSMSSDK.getTextCode(param, function(ret, err) {
+				if (err !== null && err !== undefined && err !== '') {
+					// 错误消息示例：{"msg":"Template not exist.","code":484}
+					alert("Error:\n" + JSON.stringify(err));
+				} else {
+					// 正常消息示例：{"smart":false}
+					api.toast({
+						msg: '发送成功',
+						duration: 1000,
+						location: 'middle'
+					});
+					var btn1 = $api.byId('btn1');
+					var nuw = 60;
+					var timer = setInterval(function(){
+					  nuw --;
+					  if (nuw < 1) {
+					    btn1.value="获取验证码";
+					    clearInterval(timer);
+					    onoff = true;
+					  }else {
+					   btn1.value=nuw+'s';
+					  }
+					},1000)
+				}
+			});
+			
+
+
+		}
+
+		function openWin(name) {
+			var delay = 0;
+			if (api.systemType != 'ios') {
+				delay = 300;
+			}
+			api.openWin({
+				name: '' + name + '',
+				url: '' + name + '.html',
+				bounces: false,
+				delay: delay,
+				slidBackEnabled: true,
+				vScrollBarEnabled: false
+			});
+		}
+	</script>
+</html>

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的礼品卡",
+  "component": true,
+  "usingComponents": {
+    "auth": "/components/auth/auth",
+    "bindPhone": "/components/bindPhone/bindPhone",
+    "myfooter": "/components/myfooter/myfooter",
+    "bind-phone": "/components/bindPhone/bindPhone"
+  }
+}

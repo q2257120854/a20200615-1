@@ -1,0 +1,477 @@
+---------------------------------------------------------------
+[ 2020-03-20T22:39:50+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/banben.html?key=tongba
+[运行时间：0.050458s] [吞吐率：19.82req/s] [内存消耗：3,710.00kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'banben',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'key' => 'tongba',
+)
+[ info ] [ RUN ] app\login\controller\Login->banben[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000239s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.001259s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000632s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_advert` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 13 LIMIT 1 [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 21 LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000352s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:51+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/imgad.html?key=tongba
+[运行时间：0.057661s] [吞吐率：17.34req/s] [内存消耗：3,727.12kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'imgad',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'key' => 'tongba',
+)
+[ info ] [ RUN ] app\login\controller\Login->imgad[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000361s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.001325s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000592s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_advert` [ RunTime:0.000750s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 30 LIMIT 1 [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 31 LIMIT 1 [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 32 LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 33 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 34 LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 35 LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 36 LIMIT 1 [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 37 LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 38 LIMIT 1 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 39 LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 40 LIMIT 1 [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 41 LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 42 LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 44 LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 45 LIMIT 1 [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 46 LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 48 LIMIT 1 [ RunTime:0.000267s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:51+08:00 ] 58.20.26.149 POST cmscs1.jc3c.cn/index/send/tc
+[运行时间：0.051090s] [吞吐率：19.57req/s] [内存消耗：2,837.29kb] [文件加载：40]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'send',
+    2 => 'tc',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Send->tc[ /www/wwwroot/cmscs1.jc3c.cn/application/index/controller/Send.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000247s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_tc` [ RunTime:0.000925s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_tc` LIMIT 1 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:51+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/banben.html?key=tongba
+[运行时间：0.053201s] [吞吐率：18.80req/s] [内存消耗：3,709.98kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'banben',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'key' => 'tongba',
+)
+[ info ] [ RUN ] app\login\controller\Login->banben[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000350s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.002162s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_advert` [ RunTime:0.001043s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 13 LIMIT 1 [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 21 LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000265s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:51+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//app/nav/index?uid=0
+[运行时间：0.072330s] [吞吐率：13.83req/s] [内存消耗：3,113.60kb] [文件加载：44]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'app',
+    1 => 'nav',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '0',
+)
+[ info ] [ RUN ] app\app\controller\Nav->index[ /www/wwwroot/cmscs1.jc3c.cn/application/app/controller/Nav.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000222s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_banner` [ RunTime:0.000859s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` = 1 LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 0,99 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` = 1 LIMIT 1 [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` = 1 LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` = 1 LIMIT 1 [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000361s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 25  AND `uid` = 1 LIMIT 1 [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000318s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8 LIMIT 1 [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3 LIMIT 1 [ RunTime:0.000338s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:52+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/banben.html
+[运行时间：0.048769s] [吞吐率：20.50req/s] [内存消耗：3,786.72kb] [文件加载：44]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'banben',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\login\controller\Login->banben[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000374s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.001387s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000688s ]
+[ error ] [8]未定义数组索引: key[/www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php:997]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:53+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/banben.html?key=tongba
+[运行时间：0.052182s] [吞吐率：19.16req/s] [内存消耗：3,709.98kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'banben',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'key' => 'tongba',
+)
+[ info ] [ RUN ] app\login\controller\Login->banben[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000462s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.001404s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_advert` [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 13 LIMIT 1 [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 21 LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000433s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:53+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//app/nav/index?uid=0
+[运行时间：0.065824s] [吞吐率：15.19req/s] [内存消耗：3,113.60kb] [文件加载：44]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'app',
+    1 => 'nav',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '0',
+)
+[ info ] [ RUN ] app\app\controller\Nav->index[ /www/wwwroot/cmscs1.jc3c.cn/application/app/controller/Nav.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000370s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_banner` [ RunTime:0.001275s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000562s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` = 1 LIMIT 1 [ RunTime:0.001235s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 0,99 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` = 1 LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` = 1 LIMIT 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000611s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` = 1 LIMIT 1 [ RunTime:0.000416s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 25  AND `uid` = 1 LIMIT 1 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000504s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8 LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3 LIMIT 1 [ RunTime:0.000560s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:53+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//login/login/banben.html?key=tongba
+[运行时间：0.058440s] [吞吐率：17.11req/s] [内存消耗：3,709.98kb] [文件加载：41]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'login',
+    1 => 'login',
+    2 => 'banben',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'key' => 'tongba',
+)
+[ info ] [ RUN ] app\login\controller\Login->banben[ /www/wwwroot/cmscs1.jc3c.cn/application/login/controller/Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000475s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_shezi` [ RunTime:0.001259s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_shezi` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_advert` [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 8 LIMIT 1 [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 9 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 12 LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 13 LIMIT 1 [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.000885s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 21 LIMIT 1 [ RunTime:0.000755s ]
+[ sql ] [ SQL ] SELECT `content` FROM `ap_advert` WHERE  `id` = 20 LIMIT 1 [ RunTime:0.000407s ]
+---------------------------------------------------------------
+[ 2020-03-20T22:39:53+08:00 ] 58.20.26.149 GET cmscs1.jc3c.cn//app/nav/index?uid=0
+[运行时间：0.067827s] [吞吐率：14.74req/s] [内存消耗：3,113.60kb] [文件加载：44]
+[ info ] [ LANG ] /www/wwwroot/cmscs1.jc3c.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'app',
+    1 => 'nav',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'charset' => 'UTF-8',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 7.1.1; MI MAX 2 Build/NMF26F; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36',
+  'connection' => 'Keep-Alive',
+  'accept-encoding' => 'gzip',
+  'host' => 'cmscs1.jc3c.cn',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '0',
+)
+[ info ] [ RUN ] app\app\controller\Nav->index[ /www/wwwroot/cmscs1.jc3c.cn/application/app/controller/Nav.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT file
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000319s ] mysql:host=localhost;port=3306;dbname=tongbav5_tongba;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ap_banner` [ RunTime:0.000919s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000434s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 1  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 2  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` = 1 LIMIT 1 [ RunTime:0.000388s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3  AND `uid` IN (0,1) LIMIT 0,99 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` = 1 LIMIT 1 [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 4  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` = 1 LIMIT 1 [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 5  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` = 1 LIMIT 1 [ RunTime:0.000415s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 6  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 LIMIT 1 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 7  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 LIMIT 1 [ RunTime:0.000411s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000461s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 12  AND `uid` = 1 ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 25  AND `uid` = 1 LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) LIMIT 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 22  AND `uid` IN (0,1) ORDER BY `sort` ASC LIMIT 0,99 [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 8 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `ap_banner` WHERE  `cid` = 3 LIMIT 1 [ RunTime:0.000428s ]

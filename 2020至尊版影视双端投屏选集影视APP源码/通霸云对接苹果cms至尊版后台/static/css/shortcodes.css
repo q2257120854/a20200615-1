@@ -1,0 +1,2324 @@
+﻿/**
+ *	=================================================================================================
+ *
+ *  [Shortcodes Stylesheet]
+ *
+ *	Project:		Flare - HTML Startup Landing Page
+ *	Version:		1.0
+ *	Last change:	01/26/2016
+ *	Primary use:	Mobile App, Landing Page, Creative, Coporate, Business
+ *	File Name: 		shortcodes.css
+ *	Author: 		Morad
+ *	Description: This file is containing all shortcodes used in the template.
+ *				 It's divided as listed below.
+ *	
+ *	=================================================================================================
+ *	
+ *	shortcodes.css file is divided as the following: 
+ *	
+ *	( 01 ) - Icons
+ *	( 02 ) - Pricing Table
+ *	( 03 ) - Social Icons
+ *	( 04 ) - Divider Spaces
+ *	( 05 ) - DropCaps
+ *	
+*/
+
+
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 01 ) - Icons
+ *	-------------------------------------------------------------------------------
+ *  
+ *  This part contains codes of Icons use settings, sizes and styles.
+ *
+ *	------
+ *
+ *  Icons divided to the following sections:
+ *
+ *	   |
+ *	   |-->  [ 1 ] - Icons Settings
+ *	   |-->  [ 2 ] - Icons Sizes
+ *	   |-->  [ 2 ] - Icons Sizes
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - Icons Settings 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.icon {
+	display: inline-block;
+	border-radius: 4px;
+	position: relative;
+}
+
+.icon.rounded,
+.icon.rounded i,
+.icon.rounded img {
+	border-radius: 9999px;
+}
+
+.icon i,
+.icon img {
+	width: 100%;
+}
+
+.icon i {
+	height: 100%;
+	text-align: center;
+	border-radius: 4px;
+	-webkit-transition: all 0.2s;
+			transition: all 0.2s;
+
+	background: transparent; /* Icon background is assigned for the :after */
+/*	color: #222;
+	box-shadow: inset 0 0 0 2px #eee;
+*/}
+
+.icon i:after {
+	/*background: #eee;*/ /* Icon background color */
+	background-image: url("../images/icon-light-bg.png"); /* light angled BG effect */
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 4px;
+	content: '';
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	-webkit-transition: all 0.2s;
+			transition: all 0.2s;
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+}
+
+.icon.rounded i:after {
+	border-radius: 9999px;
+}
+
+
+/**
+ *  [ 2 ] - Icons Styles 
+ *	~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Grey Icon */
+.icon.grey i {
+	color: #222;
+	box-shadow: inset 0 0 0 2px #e5e5e5;
+}
+
+.icon.grey i:after {
+	background-color: #e5e5e5;
+}
+
+/* Dark Icon */
+.icon.dark i {
+	color: #fff;
+	box-shadow: inset 0 0 0 2px #222;
+}
+
+.icon.dark i:after {
+	background-color: #222;
+}
+
+/* Colorful Icon */
+.icon.colorful i {
+	color: #fff;
+	box-shadow: inset 0 0 0 2px #f17663;
+}
+
+.icon.colorful i:after {
+	background-color: #f17663;
+}
+
+/* Bordered Icon [ work with each color ] */
+.icon.bordered i:after {
+	-webkit-transform: scale(0.87);
+		-ms-transform: scale(0.87);
+			transform: scale(0.87);
+}
+
+.icon.bordered.x4 i:after,
+.icon.bordered.x3 i:after {
+	-webkit-transform: scale(0.85);
+		-ms-transform: scale(0.85);
+			transform: scale(0.85);
+}
+
+.icon.bordered.x2 i:after {
+	-webkit-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+			transform: scale(0.8);
+}
+
+.icon.bordered.x1 i:after {
+	-webkit-transform: scale(0.75);
+		-ms-transform: scale(0.75);
+			transform: scale(0.75);
+}
+
+
+/**
+ *  [ 3 ] - Icons Sizes
+ *	~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.x1 {
+	width: 32px;
+	height: 32px;
+}
+
+.x1 i {
+	line-height: 32px;
+	font-size: 13px;
+}
+
+.x2 {
+	width: 48px;
+	height: 48px;
+}
+
+.x2 i {
+	line-height: 48px;
+	font-size: 20px;
+}
+
+.x3 {
+	width: 64px;
+	height: 64px;
+}
+
+.x3 i {
+	line-height: 64px;
+	font-size: 27px;
+}
+
+.x4 {
+	width: 80px;
+	height: 80px;
+}
+
+.x4 i {
+	line-height: 80px;
+	font-size: 34px;
+}
+
+.x5 {
+	width: 96px;
+	height: 96px;
+}
+
+.x5 i {
+	line-height: 96px;
+	font-size: 41px;
+}
+
+.x6 {
+	width: 112px;
+	height: 112px;
+}
+
+.x6 i {
+	line-height: 112px;
+	font-size: 48px;
+}
+
+.x7 {
+	width: 128px;
+	height: 128px;
+}
+
+.x7 i {
+	line-height: 128px;
+	font-size: 55px;
+}
+
+.x8 {
+	width: 144px;
+	height: 144px;
+}
+
+.x8 i {
+	line-height: 144px;
+	font-size: 62px;
+}
+
+.x9 {
+	width: 160px;
+	height: 160px;
+}
+
+.x9 i {
+	line-height: 160px;
+	font-size: 69px;
+}
+
+.x10 {
+	width: 176px;
+	height: 176px;
+}
+
+.x10 i {
+	line-height: 176px;
+	font-size: 76px;
+}
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 02 ) - Info Boxes
+ *	-------------------------------------------------------------------------------
+ *  
+ *  This part contains codes of Info Boxes settings and styles.
+ *
+ *	------
+ *
+ *  Info Boxes to the following sections:
+ *
+ *	   |
+ *	   |-->  [ 1 ] - Info Boxes Settings
+ *	   |-->  [ 2 ] - Info Boxes Icons Styles
+ *	   |-->  [ 3 ] - Info Boxes Types
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - Info Boxes Settings 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Info Box */
+[class*="info-box"] {
+	margin-bottom: 0;
+}
+
+.col-md-12 .info-box1,
+.col-sm-12 .info-box1,
+.col-md-12 .info-box2,
+.col-sm-12 .info-box2 {
+	margin-bottom: 35px;
+}
+
+/*[class*="col-"]:not(col-md-12) > [class*="info-box"],
+[class*="col-"]:not(col-sm-12) > [class*="info-box"] {
+	display: none;
+}
+*/
+[class*="info-box"] h1,
+[class*="info-box"] h2 {
+	padding-bottom: 15px;
+}
+
+[class*="info-box"] h3,
+[class*="info-box"] h4 {
+	padding-bottom: 13px;
+}
+
+[class*="info-box"] h5,
+[class*="info-box"] h6 {
+	padding-bottom: 12px;
+}
+
+
+/* Info Box Content */
+[class*="info-box-content"] {
+
+}
+
+[class*="info-box-content"] p:last-child {
+	padding-bottom: 0;
+}
+
+/* Info Box Icon */
+[class*="info-box-icon"] {
+	position: relative;
+}
+
+
+/**
+ *  [ 2 ] - Info Boxes Icons Styles
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Icon Animation when hover info box */
+
+/* Color Control */
+
+/* Hover Grey */
+[class*="info-box"]:hover .info-box-icon.hover-grey i {
+	box-shadow: inset 0 0 0 2px #e5e5e5;
+	color: #222;
+}
+
+[class*="info-box"]:hover .info-box-icon.hover-grey i:after {
+	background-color: #e5e5e5;
+}
+
+/* Hover dark */
+[class*="info-box"]:hover .info-box-icon.hover-dark i {
+	box-shadow: inset 0 0 0 2px #222;
+	color: #fff;
+}
+
+[class*="info-box"]:hover .info-box-icon.hover-dark i:after {
+	background-color: #222;
+}
+
+/* Hover Colorful */
+[class*="info-box"]:hover .info-box-icon.hover-colorful i {
+	box-shadow: inset 0 0 0 2px #f17663;
+	color: #fff;
+}
+
+[class*="info-box"]:hover .info-box-icon.hover-colorful i:after {
+	background-color: #f17663;
+}
+
+/*	background: -webkit-gradfent(
+	linear,
+	right bottom,
+	left top,
+	color-stop(0, #F17663),
+	color-stop(0.5, #F17663),
+	color-stop(0.5, #FC8B7C)
+	);
+	background: -o-linear-gradient(left top, #F17663 0%, #F17663 50%, #FC8B7C 50%);
+	background: -moz-linear-gradient(left top, #F17663 0%, #F17663 50%, #FC8B7C 50%);
+	background: -webkit-linear-gradient(left top, #F17663 0%, #F17663 50%, #FC8B7C 50%);
+	background: -ms-linear-gradient(left top, #F17663 0%, #F17663 50%, #FC8B7C 50%);
+	background: linear-gradient(to left top, #F17663 0%, #F17663 50%, #FC8B7C 50%);
+*/
+
+/* Scale Control */
+
+/* Info Box Hover Icon "Effect 1" */
+[class*="info-box"]:hover .info-box-icon.effect1 i:after {
+	-webkit-transform: scale(0.87);
+		-ms-transform: scale(0.87);
+			transform: scale(0.87);
+}
+
+[class*="info-box"]:hover .info-box-icon.effect1.x4 i:after,
+[class*="info-box"]:hover .info-box-icon.effect1.x3 i:after {
+	-webkit-transform: scale(0.85);
+		-ms-transform: scale(0.85);
+			transform: scale(0.85);
+}
+
+[class*="info-box"]:hover .info-box-icon.effect1.x2 i:after {
+	-webkit-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+			transform: scale(0.8);
+}
+
+[class*="info-box"]:hover .info-box-icon.effect1.x1 i:after {
+	-webkit-transform: scale(0.75);
+		-ms-transform: scale(0.75);
+			transform: scale(0.75);
+}
+
+/* Info Box Hover Icon "Effect 2" */
+[class*="info-box"]:hover .info-box-icon.effect2 i:after {
+	-webkit-transform: scale(1) !important;
+		-ms-transform: scale(1) !important;
+			transform: scale(1) !important;
+}
+
+
+/**
+ *  [ 3 ] - Info Boxes Types
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Info Box 1
+ ----------------- */
+
+.info-box1 {
+	width: 100%;
+	position: relative;
+}
+
+/* Info Box 1 Content */
+.info-box1 .info-box-icon.x1 + .info-box-content {
+	padding-left: 62px;
+	min-height: 32px;
+}
+
+.info-box1 .info-box-icon.x2 + .info-box-content {
+	padding-left: 78px;
+	min-height: 48px;
+}
+
+.info-box1 .info-box-icon.x3 + .info-box-content {
+	padding-left: 94px;
+	min-height: 64px;
+}
+
+.info-box1 .info-box-icon.x4 + .info-box-content {
+	padding-left: 110px;
+	min-height: 80px;
+}
+
+.info-box1 .info-box-icon.x5 + .info-box-content {
+	padding-left: 126px;
+	min-height: 96px;
+}
+
+.info-box1 .info-box-icon.x6 + .info-box-content {
+	padding-left: 142px;
+	min-height: 112px;
+}
+
+.info-box1 .info-box-icon.x7 + .info-box-content {
+	padding-left: 158px;
+	min-height: 128px;
+}
+
+.info-box1 .info-box-icon.x8 + .info-box-content {
+	padding-left: 174px;
+	min-height: 144px;
+}
+
+.info-box1 .info-box-icon.x9 + .info-box-content {
+	padding-left: 190px;
+	min-height: 160px;
+}
+
+.info-box1 .info-box-icon.x10 + .info-box-content {
+	padding-left: 206px;
+	min-height: 176px;
+}
+
+/* Info Box 1 Right Text */
+.info-box1.text-right .info-box-icon.x1 + .info-box-content {
+	padding-left: 0;
+	padding-right: 62px;
+}
+
+.info-box1.text-right .info-box-icon.x2 + .info-box-content {
+	padding-left: 0;
+	padding-right: 78px;
+}
+
+.info-box1.text-right .info-box-icon.x3 + .info-box-content {
+	padding-left: 0;
+	padding-right: 94px;
+}
+
+.info-box1.text-right .info-box-icon.x4 + .info-box-content {
+	padding-left: 0;
+	padding-right: 110px;
+}
+
+.info-box1.text-right .info-box-icon.x5 + .info-box-content {
+	padding-left: 0;
+	padding-right: 126px;
+}
+
+.info-box1.text-right .info-box-icon.x6 + .info-box-content {
+	padding-left: 0;
+	padding-right: 142px;
+}
+
+.info-box1.text-right .info-box-icon.x7 + .info-box-content {
+	padding-left: 0;
+	padding-right: 158px;
+}
+
+.info-box1.text-right .info-box-icon.x8 + .info-box-content {
+	padding-left: 0;
+	padding-right: 174px;
+}
+
+.info-box1.text-right .info-box-icon.x9 + .info-box-content {
+	padding-left: 0;
+	padding-right: 190px;
+}
+
+.info-box1.text-right .info-box-icon.x10 + .info-box-content {
+	padding-left: 0;
+	padding-right: 206px;
+}
+
+
+
+/* Info Box 1 Icon */
+.info-box1 .info-box-icon {
+	position: absolute;
+}
+
+.info-box1.text-right .info-box-icon {
+	right: 0;
+}
+
+
+/* Info Box 2
+ ----------------- */
+
+.info-box2 .info-box-icon {
+	margin-bottom: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 02 ) - Pricing Table
+ *	-------------------------------------------------------------------------------
+ *  
+ *  Pricing Table divided to the following sections:
+ *
+ *	------
+ *
+ *	   |
+ *	   |-->  [ 1 ] - Pricing Table Settings
+ *	   |-->  [ 2 ] - Pricing Table Column Features
+ *	   |-->  [ 3 ] - General Pricing Table Column
+ *	   |-->  [ 4 ] - Pricing Table Single Column Features
+ *	   |-->  [ 5 ] - Pricing Table Column Footer
+ *	   |-->  [ 6 ] - Free Pricing Table Column
+ *	   |-->  [ 7 ] - Featured Pricing Table Column
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - Pricing Table Settings 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.pricing-table {
+	display: block;
+	position: relative;
+	text-align: center;
+	font-size: 12px;	
+}
+
+.pricing-table .row {
+/*	margin: 0 -2.5px;
+*/}
+
+.pricing-table [class*="col-"] {
+/*	padding: 0 2.5px;
+	margin-right: -1px;	
+*/}
+
+.pricing-table [class*="col-"] + [class*="col-"]:last-child {
+/*	float: left;	
+*/}
+
+.pricing-table i.fa-check, .pricing-table i.fa-remove{
+	font-size: 21px;
+}
+
+/* Pricing Table Icons */
+
+.pricing-table i.fa-check {
+	color: #4a993e;
+	cursor: default;	
+}
+
+.pricing-table i.fa-remove {
+	color: #f93848;
+	cursor: default;	
+}
+
+.pricing-table-column {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	border-radius: 4px;
+	-webkit-transition: all 0.3s;
+			transition: all 0.3s;
+	top: 0;
+	border: 1px solid #ddd;
+}
+
+
+/**
+ *  [ 2 ] - Pricing Table Column Features 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.pricing-table-column-features {
+	border: none;
+	overflow: hidden;
+	display: block;
+	margin-right: -4px;
+}
+
+.pricing-table-column-features ul.single-column-features {
+	border: 1px solid #eaeaea;
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+}
+
+/* Pricing Table Column Features Header */
+
+.pricing-table-column-features .pricing-table-column-header {
+	height: 165px; 
+	background: #fff;
+}
+
+.pricing-table-column-features .pricing-table-column-header h2 {
+	font-size: 30px; 
+	font-weight: 300; 
+	padding: 0 30px; 
+	border: none; 
+	padding: 70px 0 0; 
+	line-height: 36px; 
+	background: #fff; 
+	color: #222; 
+}
+
+.pricing-table-column-features .pricing-table-column-header h2 .colored {
+	display: block;
+}
+
+.two.columns .pricing-table-column-features .pricing-table-column-header h2 {
+	font-size: 24px;
+	line-height: 28px;
+	padding-top: 38px;
+	height: 135px;	
+}
+
+.pricing-table-column:hover {
+	 /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 	*/
+	 /*top: -10px;*/
+}
+
+
+/**
+ *  [ 3 ] - General Pricing Table Column
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Pricing Table Column Header */
+
+.pricing-table-column-header {
+	display: block;
+	overflow: hidden;
+	background: #fff;
+	font-family: "Raleway", sans-serif;
+}
+
+/* Pricing Table Column Title */
+
+.pricing-table-column-header .column-title {
+	font-size: 22px;
+	background: #fff;
+	color: #222;
+	padding: 19px 20px;
+}
+
+/* Pricing Table Column Price */
+
+.pricing-table-column-header .column-price {
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	padding: 21px 20px;
+	color: #222;
+	background: #eee;
+}
+
+.pricing-table-column-header .column-price span {
+	font-weight: 700;
+	color: #f17663;
+	font-size: 22px;
+}
+
+
+/**
+ *  [ 4 ] - Pricing Table Single Column Features
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Pricing Table Single Column Features */
+
+ul.single-column-features {
+	list-style: none outside;
+	display: block;
+	padding: 7px 0 0;
+	font-size: 16px;
+	color: #999;
+	width: 100%;
+	text-align: left;
+}
+
+ul.single-column-features li {
+	padding: 10px 20px;
+	background: #fff;
+	border-bottom: 1px dashed #ccc;
+}
+
+ul.single-column-features li span {
+	float: right;
+}
+
+ul.single-column-features li span img {
+	position: relative;
+	top: -1px;
+}
+
+ul.single-column-features li:last-child {
+
+}
+
+ul.single-column-features li:nth-child(2n) {
+	/*background: rgba(0, 0, 0, .03);	*/
+}
+
+
+/**
+ *  [ 5 ] - Pricing Table Column Footer
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.pricing-table-column-footer {
+	width: 100%;
+	padding: 25px 20px;
+	font-size: 16px;
+	color: #222;
+	font-weight: 700;
+	text-align: left;
+	font-family: "Raleway", sans-serif;
+}
+
+.pricing-table-column-footer a {
+	float: right;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	font-weight: 300;
+	color: #444;
+	border-radius: 5px;
+	padding: 4px 15px;
+	position: relative;
+	top: -5px;
+}
+
+.pricing-table-column-footer a:hover {
+	color: #fff;
+	background: #f17663;
+	border-color: #f17663;
+}
+
+
+
+/**
+ *  [ 6 ] - Free Pricing Table Column
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Free Pricing Table Column Header */
+
+.free-pricing-table-column .pricing-table-column-header {
+
+}
+
+ /* Free Pricing Table Column Title */
+
+.free-pricing-table-column .pricing-table-column-header .column-title {
+
+}
+
+/* Free Pricing Table Column Price */
+
+.free-pricing-table-column .pricing-table-column-header .column-price {
+	color: #fff;
+	background: #5ca74f;
+}
+
+.free-pricing-table-column .pricing-table-column-header .column-price span {
+	color: #fff;
+}
+
+.free-pricing-table-column .pricing-table-column-footer a {
+	color: #fff;
+	background: #5ca74f;
+	border-color: #5ca74f;
+}
+
+
+/**
+ *  [ 7 ] - Featured Pricing Table Column 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Featured Pricing Table Column */
+
+.featured-pricing-table-column {
+	z-index: 1; /* important */	
+}
+
+/* Featured Pricing Table Column Header */
+
+.featured-pricing-table-column .pricing-table-column-header {
+
+}
+
+/* Featured Pricing Table Column Title */
+
+.featured-pricing-table-column .pricing-table-column-header .column-title {
+
+}
+
+/* Featured Pricing Table Column Price */
+
+.featured-pricing-table-column .pricing-table-column-header .column-price {
+	color: #fff;
+	background: #f17663;
+}
+
+.featured-pricing-table-column .pricing-table-column-header .column-price span {
+	color: #fff;
+}
+
+.featured-pricing-table-column .pricing-table-column-footer a {
+	color: #fff;
+	background: #f17663;
+	border-color: #f17663;
+}
+
+
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 03 ) - Social Icons
+ *	-------------------------------------------------------------------------------
+ *  
+ *  Social Icons are divided to the following sections:
+ *
+ *	------
+ *
+ *	   |
+ *	   |-->  [ 1 ] - Social Icons Basic Settings
+ *	   |-->  [ 2 ] - Social Icons Sizes
+ *	   |-->  [ 3 ] - Social Icons Styles
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - Social Icons Basic Settings 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.social-icons {
+	list-style: none outside;
+	display: block;
+	margin-bottom: -5px;
+	font-size: 0;
+	line-height: 0;
+}
+
+.social-icons li {
+	display: inline-block;
+	margin: 0 5px 5px 0;
+	font-size: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.social-icons li:last-child {
+	margin-right: 0;
+}
+
+.social-icons li a {
+	/*color: #444;*/
+	border: 1px solid;
+	font-size: 19px;
+	display: block;
+	position: relative;
+	border-radius: 3px;
+}
+
+.social-icons li a:hover {
+
+}
+
+/**
+ * :before -> is the default icon
+ * :after  -> is the appearing icon in the hover case
+ */
+.social-icons li a i:before, 
+.social-icons li a i:after {
+	color: #444;
+	height: 43px;
+	width: 43px;
+	line-height: 43px;
+	display: block;
+	text-align: center;
+	position: relative;
+	top: 0;
+	visibility: visible;	
+	-webkit-transition: all .2s;
+			transition: all .2s;
+}
+
+.social-icons li a i:after {
+	position: absolute;
+	/*color: #fff;*/
+	opacity: 0;
+	visibility: hidden;
+	top: 12px;
+}
+
+.social-icons li a:hover i:before {
+	top: -12px;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.social-icons li a:hover i:after {
+	opacity: 1 !important;
+	visibility: visible;
+	top: 0;
+}
+
+/* Rounded Social Icons */
+.social-icons.rounded li a {
+	border-radius: 1000px;
+}
+
+/* Disable Social Icons Animation */
+.social-icons.no-animation li a i:after,
+.social-icons.no-animation li a:hover i:before {
+	top: 0 !important;
+}
+
+/* ### Social Icons Values ------ */
+
+/* rss */
+.social-icons li a i.fa-rss:after {
+	content: "\f09e";
+}
+
+/* stack-overflow */
+.social-icons li a i.fa-stack-overflow:after {
+	content: "\f16c";
+}
+
+/* weibo */
+.social-icons li a i.fa-weibo:after {
+	content: "\f18a";
+}
+
+/* youtube */
+.social-icons li a i.fa-youtube:after {
+	content: "\f167";
+}
+
+/* bitcoin */
+.social-icons li a i.fa-bitcoin:after {
+	content: "\f15a";
+}
+
+/* dropbox */
+.social-icons li a i.fa-dropbox:after {
+	content: "\f16b";
+}
+
+/* foursquare */
+.social-icons li a i.fa-foursquare:after {
+	content: "\f180";
+}
+
+/* gittip */
+.social-icons li a i.fa-gittip:after {
+	content: "\f184";
+}
+
+/* instagram */
+.social-icons li a i.fa-instagram:after {
+	content: "\f16d";
+}
+
+/* maxcdn */
+.social-icons li a i.fa-maxcdn:after {
+	content: "\f136";
+}
+
+/* renren */
+.social-icons li a i.fa-renren:after {
+	content: "\f18b";
+}
+
+/* trello */
+.social-icons li a i.fa-trello:after {
+	content: "\f181";
+}
+
+/* pagelines */
+.social-icons li a i.fa-pagelines:after {
+	content: "\f18c";
+}
+
+/* skype */
+.social-icons li a i.fa-skype:after {
+	content: "\f17e";
+}
+
+/* vimeo-square */
+.social-icons li a i.fa-vimeo-square:after {
+	content: "\f194";
+}
+
+/* github */
+.social-icons li a i.fa-github:after {
+	content: "\f09b";
+}
+
+/* google-plus */
+.social-icons li a i.fa-google-plus:after {
+	content: "\f0d5";
+}
+
+/* linkedin */
+.social-icons li a i.fa-linkedin:after {
+	content: "\f0e1";
+}
+
+/* pinterest */
+.social-icons li a i.fa-pinterest:after {
+	content: "\f0d2";
+}
+
+/* stack-exchange */
+.social-icons li a i.fa-stack-exchange:after {
+	content: "\f18d";
+}
+
+/* tumblr */
+.social-icons li a i.fa-tumblr:after {
+	content: "\f173";
+}
+
+/* xing */
+.social-icons li a i.fa-xing:after {
+	content: "\f168";
+}
+
+/* flickr */
+.social-icons li a i.fa-flickr:after {
+	content: "\f16e";
+}
+
+/* bitbucket */
+.social-icons li a i.fa-bitbucket:after {
+	content: "\f171";
+}
+
+/* facebook */
+.social-icons li a i.fa-facebook:after {
+	content: "\f09a";
+}
+
+/* twitter */
+.social-icons li a i.fa-twitter:after {
+	content: "\f099";
+}
+
+/* dribbble */
+.social-icons li a i.fa-dribbble:after {
+	content: "\f17d";
+}
+
+/* yelp */
+.social-icons li a i.fa-yelp:after {
+	content: "\f1e9";
+}
+
+
+/**
+ *  [ 2 ] - Social Icons Sizes
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/**
+ * For clean and colorful icon styles, they have the same size
+ * and different to the default values of sizes
+ */
+
+/* Small size */
+.social-icons.x-small li a {
+	font-size: 14px;
+}
+
+.social-icons.x-small.rounded li a {
+	font-size: 14px;
+}
+
+.social-icons.x-small li a i:before, 
+.social-icons.x-small li a i:after {
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+}
+
+.social-icons.x-small li a i:after {
+	top: 12px;
+}
+
+.social-icons.x-small li a:hover i:before {
+	top: -12px;
+}
+
+.social-icons.x-small li a:hover i:after {
+	top: 0;
+}
+
+/* X-Small size */
+.social-icons.small li a {
+	font-size: 19px;
+}
+
+.social-icons.small.rounded li a {
+	font-size: 17px;
+}
+
+.social-icons.small li a i:before, 
+.social-icons.small li a i:after {
+	height: 42px;
+	width: 42px;
+	line-height: 42px;
+}
+
+.social-icons.small li a i:after {
+	top: 12px;
+}
+
+.social-icons.small li a:hover i:before {
+	top: -12px;
+}
+
+.social-icons.small li a:hover i:after {
+	top: 0;
+}
+
+
+/* Medium size */
+.social-icons.medium li a {
+	font-size: 24px;
+}
+
+.social-icons.medium.rounded li a {
+	font-size: 22px;
+}
+
+.social-icons.medium li a i:before, 
+.social-icons.medium li a i:after {
+	height: 52px;
+	width: 52px;
+	line-height: 52px;
+}
+
+.social-icons.medium li a i:after {
+	top: 16px;
+}
+
+.social-icons.medium li a:hover i:before {
+	top: -16px;
+}
+
+.social-icons.medium li a:hover i:after {
+	top: 0;
+}
+
+/* Large size */
+.social-icons.large li a {
+	font-size: 29px;
+}
+
+.social-icons.large.rounded li a {
+	font-size: 27px;
+}
+
+.social-icons.large li a i:before, 
+.social-icons.large li a i:after {
+	height: 62px;
+	width: 62px;
+	line-height: 62px;
+}
+
+.social-icons.large li a i:after {
+	top: 20px;
+}
+
+.social-icons.large li a:hover i:before {
+	top: -20px;
+}
+
+.social-icons.large li a:hover i:after {
+	top: 0;
+}
+
+/* X-Large size */
+.social-icons.x-large li a {
+	font-size: 34px;
+}
+
+.social-icons.x-large.rounded li a {
+	font-size: 32px;
+}
+
+.social-icons.x-large li a i:before, 
+.social-icons.x-large li a i:after {
+	height: 72px;
+	width: 72px;
+	line-height: 72px;
+}
+
+.social-icons.x-large li a i:after {
+	top: 24px;
+}
+
+.social-icons.x-large li a:hover i:before {
+	top: -24px;
+}
+
+.social-icons.x-large li a:hover i:after {
+	top: 0;
+}
+
+/**
+ *  [ 3 ] - Social Icons Styles
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+/* Clean Social Icons */
+.social-icons.clean {
+	margin-bottom: 0;
+}
+
+.social-icons.clean li {
+	margin: 0;
+}
+
+.social-icons.clean li a {
+	color: #444;
+	border-color: transparent;
+	background: transparent;
+}
+
+.social-icons.clean li a i:before {
+	color: #444;
+}
+
+/* Hover Clean Social Icons */
+.social-icons.hover-clean li a:hover {
+	border-color:transparent;
+	background: transparent !important;
+}
+
+.social-icons.hover-clean li a:hover i:after {
+	color: #444;
+}
+
+/*.social-icons.clean.x-small li a i:before, 
+.social-icons.clean.x-small li a i:after,
+.social-icons.hover-clean.x-small li a i:before, 
+.social-icons.hover-clean.x-small li a i:after {
+	height: 28px;
+	width: 28px;
+	line-height: 28px;
+}
+
+.social-icons.clean.small li a i:before, 
+.social-icons.clean.small li a i:after,
+.social-icons.hover-clean.small li a i:before, 
+.social-icons.hover-clean.small li a i:after {
+	height: 38px;
+	width: 38px;
+	line-height: 38px;
+}
+
+.social-icons.clean.medium li a i:before, 
+.social-icons.clean.medium li a i:after,
+.social-icons.hover-clean.medium li a i:before, 
+.social-icons.hover-clean.medium li a i:after {
+	height: 48px;
+	width: 48px;
+	line-height: 48px;
+}
+
+.social-icons.clean.large li a i:before, 
+.social-icons.clean.large li a i:after,
+.social-icons.hover-clean.large li a i:before, 
+.social-icons.hover-clean.large li a i:after {
+	height: 58px;
+	width: 58px;
+	line-height: 58px;
+}
+
+.social-icons.clean.x-large li a i:before, 
+.social-icons.clean.x-large li a i:after,
+.social-icons.hover-clean.x-large li a i:before, 
+.social-icons.hover-clean.x-large li a i:after {
+	height: 68px;
+	width: 68px;
+	line-height: 68px;
+}
+*/
+
+/* Bordered Social Icons */
+.social-icons.bordered li a {
+	color: #444;
+	border-color: #cfcfcf;
+	background: #fff;
+}
+
+.social-icons.bordered li a i:before {
+	color: #444;
+}
+
+/* Hover Bordered Social Icons */
+.social-icons.hover-bordered li a:hover {
+	border-color: #cfcfcf;
+	background: #fff !important;
+}
+
+.social-icons.hover-bordered li a:hover i:after {
+	color: #444;
+}
+
+
+/* Grey Social Icons */
+.social-icons.grey li a {
+	border-color: transparent;
+	background: #f3f3f3;
+}
+
+.social-icons.grey li a i:before {
+	color: #444;
+}
+
+/* Hover Grey Social Icons */
+.social-icons.hover-grey li a:hover {
+	border-color: transparent;
+	background: #f3f3f3 !important;
+}
+
+.social-icons.hover-grey li a:hover i:after {
+	color: #444;
+}
+
+/* Dark Social Icons */
+.social-icons.dark li a {
+	border-color: transparent;
+	background: #444;
+}
+
+.social-icons.dark li a i:before {
+	color: #fff;
+}
+
+/* Hover Dark Social Icons */
+.social-icons.hover-dark li a:hover {
+	border-color: transparent;
+	background: #444 !important;
+}
+
+.social-icons.hover-dark li a:hover i:after {
+	color: #fff;
+}
+
+
+/* ### Colorful BG Social Icons ----- */
+
+/* Colorful BG Social Icons */
+.social-icons.colorful-BG li a {
+	border-color: transparent;
+}
+
+.social-icons.colorful-BG li a i:before {
+	color: #fff;
+}
+
+/* rss */
+.social-icons.colorful-BG li a.social-icon-rss {
+	background: #ea6d19;
+}
+
+/* stack-overflow */
+.social-icons.colorful-BG li a.social-icon-stack-overflow {
+	background: #ea6d19;
+}
+
+/* weibo */
+.social-icons.colorful-BG li a.social-icon-weibo {
+	background: #cb3332;
+}
+
+/* youtube */
+.social-icons.colorful-BG li a.social-icon-youtube {
+	background: #ad2c27;
+}
+
+/* bitcoin */
+.social-icons.colorful-BG li a.social-icon-bitcoin {
+	background: #f7931b;
+}
+
+/* dropbox */
+.social-icons.colorful-BG li a.social-icon-dropbox {
+	background: #0a6594;
+}
+
+/* foursquare */
+.social-icons.colorful-BG li a.social-icon-foursquare {
+	background: #3170a5;
+}
+
+/* gittip */
+.social-icons.colorful-BG li a.social-icon-gittip {
+	background: #593e34;
+}
+
+/* instagram */
+.social-icons.colorful-BG li a.social-icon-instagram {
+	background: #593e34;
+}
+
+/* maxcdn */
+.social-icons.colorful-BG li a.social-icon-maxcdn {
+	background: #ea6d19;
+}
+
+/* renren */
+.social-icons.colorful-BG li a.social-icon-renren {
+	background: #3170a5;
+}
+
+/* trello */
+.social-icons.colorful-BG li a.social-icon-trello {
+	background: #176280;
+}
+
+/* pagelines */
+.social-icons.colorful-BG li a.social-icon-pagelines {
+	background: #235789;
+}
+
+/* skype */
+.social-icons.colorful-BG li a.social-icon-skype {
+	background: #1ca3db;
+}
+
+/* vimeo-square */
+.social-icons.colorful-BG li a.social-icon-vimeo-square {
+	background: #1ca3db;
+}
+
+/* github */
+.social-icons.colorful-BG li a.social-icon-github {
+	background: #235789;
+}
+
+/* google-plus */
+.social-icons.colorful-BG li a.social-icon-google-plus {
+	background: #9e3023;
+}
+
+/* linkedin */
+.social-icons.colorful-BG li a.social-icon-linkedin {
+	background: #0a6594;
+}
+
+/* pinterest */
+.social-icons.colorful-BG li a.social-icon-pinterest {
+	background: #a9272f;
+}
+
+/* stack-exchange */
+.social-icons.colorful-BG li a.social-icon-stack-exchange {
+	background: #235789;
+}
+
+/* tumblr */
+.social-icons.colorful-BG li a.social-icon-tumblr {
+	background: #3e5a70;
+}
+
+/* xing */
+.social-icons.colorful-BG li a.social-icon-xing {
+	background: #015a60;
+}
+
+/* flickr */
+.social-icons.colorful-BG li a.social-icon-flickr {
+	background: #db458f;
+}
+
+/* bitbucket */
+.social-icons.colorful-BG li a.social-icon-bitbucket {
+	background: #0e4a83;
+}
+
+/* facebook */
+.social-icons.colorful-BG li a.social-icon-facebook {
+	background: #395793;
+}
+
+/* twitter */
+.social-icons.colorful-BG li a.social-icon-twitter {
+	background: #1ca3db;
+}
+
+/* dribbble */
+.social-icons.colorful-BG li a.social-icon-dribbble {
+	background: #ce4b81;
+}
+
+/* yelp */
+.social-icons.colorful-BG li a.social-icon-yelp {
+	background: #d64132;
+}
+
+
+/* ### Hover Colorful BG Social Icons ----- */
+
+/* Hover Colorful BG Social Icons */
+.social-icons.hover-colorful-BG li a:hover {
+	border-color: transparent;
+}
+
+.social-icons.hover-colorful-BG li a:hover i:after {
+	color: #fff;
+}
+
+/* rss */
+.social-icons.hover-colorful-BG li a.social-icon-rss:hover {
+	background: #ea6d19;
+}
+
+/* stack-overflow */
+.social-icons.hover-colorful-BG li a.social-icon-stack-overflow:hover {
+	background: #ea6d19;
+}
+
+/* weibo */
+.social-icons.hover-colorful-BG li a.social-icon-weibo:hover {
+	background: #cb3332;
+}
+
+/* youtube */
+.social-icons.hover-colorful-BG li a.social-icon-youtube:hover {
+	background: #ad2c27;
+}
+
+/* bitcoin */
+.social-icons.hover-colorful-BG li a.social-icon-bitcoin:hover {
+	background: #f7931b;
+}
+
+/* dropbox */
+.social-icons.hover-colorful-BG li a.social-icon-dropbox:hover {
+	background: #0a6594;
+}
+
+/* foursquare */
+.social-icons.hover-colorful-BG li a.social-icon-foursquare:hover {
+	background: #3170a5;
+}
+
+/* gittip */
+.social-icons.hover-colorful-BG li a.social-icon-gittip:hover {
+	background: #593e34;
+}
+
+/* instagram */
+.social-icons.hover-colorful-BG li a.social-icon-instagram:hover {
+	background: #593e34;
+}
+
+/* maxcdn */
+.social-icons.hover-colorful-BG li a.social-icon-maxcdn:hover {
+	background: #ea6d19;
+}
+
+/* renren */
+.social-icons.hover-colorful-BG li a.social-icon-renren:hover {
+	background: #3170a5;
+}
+
+/* trello */
+.social-icons.hover-colorful-BG li a.social-icon-trello:hover {
+	background: #176280;
+}
+
+/* pagelines */
+.social-icons.hover-colorful-BG li a.social-icon-pagelines:hover {
+	background: #235789;
+}
+
+/* skype */
+.social-icons.hover-colorful-BG li a.social-icon-skype:hover {
+	background: #1ca3db;
+}
+
+/* vimeo-square */
+.social-icons.hover-colorful-BG li a.social-icon-vimeo-square:hover {
+	background: #1ca3db;
+}
+
+/* github */
+.social-icons.hover-colorful-BG li a.social-icon-github:hover {
+	background: #235789;
+}
+
+/* google-plus */
+.social-icons.hover-colorful-BG li a.social-icon-google-plus:hover {
+	background: #9e3023;
+}
+
+/* linkedin */
+.social-icons.hover-colorful-BG li a.social-icon-linkedin:hover {
+	background: #0a6594;
+}
+
+/* pinterest */
+.social-icons.hover-colorful-BG li a.social-icon-pinterest:hover {
+	background: #a9272f;
+}
+
+/* stack-exchange */
+.social-icons.hover-colorful-BG li a.social-icon-stack-exchange:hover {
+	background: #235789;
+}
+
+/* tumblr */
+.social-icons.hover-colorful-BG li a.social-icon-tumblr:hover {
+	background: #3e5a70;
+}
+
+/* xing */
+.social-icons.hover-colorful-BG li a.social-icon-xing:hover {
+	background: #015a60;
+}
+
+/* flickr */
+.social-icons.hover-colorful-BG li a.social-icon-flickr:hover {
+	background: #db458f;
+}
+
+/* bitbucket */
+.social-icons.hover-colorful-BG li a.social-icon-bitbucket:hover {
+	background: #0e4a83;
+}
+
+/* facebook */
+.social-icons.hover-colorful-BG li a.social-icon-facebook:hover {
+	background: #395793;
+}
+
+/* twitter */
+.social-icons.hover-colorful-BG li a.social-icon-twitter:hover {
+	background: #1ca3db;
+}
+
+/* dribbble */
+.social-icons.hover-colorful-BG li a.social-icon-dribbble:hover {
+	background: #ce4b81;
+}
+
+/* yelp */
+.social-icons.hover-colorful-BG li a.social-icon-yelp:hover {
+	background: #d64132;
+}
+
+
+/* ### Colorful Icon Social Icons ----- */
+
+/* Colorful Icon Social Icons */
+.social-icons.colorful-icon {
+	margin-bottom: 0;
+}
+
+.social-icons.colorful-icon li {
+	margin: 0;
+}
+
+.social-icons.colorful-icon li a {
+	border-color: transparent;
+	background: transparent;
+}
+
+/* rss */
+.social-icons.colorful-icon li a.social-icon-rss i:before {
+	color: #ea6d19;
+}
+
+/* stack-overflow */
+.social-icons.colorful-icon li a.social-icon-stack-overflow i:before {
+	color: #ea6d19;
+}
+
+/* weibo */
+.social-icons.colorful-icon li a.social-icon-weibo i:before {
+	color: #cb3332;
+}
+
+/* youtube */
+.social-icons.colorful-icon li a.social-icon-youtube i:before {
+	color: #ad2c27;
+}
+
+/* bitcoin */
+.social-icons.colorful-icon li a.social-icon-bitcoin i:before {
+	color: #f7931b;
+}
+
+/* dropbox */
+.social-icons.colorful-icon li a.social-icon-dropbox i:before {
+	color: #0a6594;
+}
+
+/* foursquare */
+.social-icons.colorful-icon li a.social-icon-foursquare i:before {
+	color: #3170a5;
+}
+
+/* gittip */
+.social-icons.colorful-icon li a.social-icon-gittip i:before {
+	color: #593e34;
+}
+
+/* instagram */
+.social-icons.colorful-icon li a.social-icon-instagram i:before {
+	color: #593e34;
+}
+
+/* maxcdn */
+.social-icons.colorful-icon li a.social-icon-maxcdn i:before {
+	color: #ea6d19;
+}
+
+/* renren */
+.social-icons.colorful-icon li a.social-icon-renren i:before {
+	color: #3170a5;
+}
+
+/* trello */
+.social-icons.colorful-icon li a.social-icon-trello i:before {
+	color: #176280;
+}
+
+/* pagelines */
+.social-icons.colorful-icon li a.social-icon-pagelines i:before {
+	color: #235789;
+}
+
+/* skype */
+.social-icons.colorful-icon li a.social-icon-skype i:before {
+	color: #1ca3db;
+}
+
+/* vimeo-square */
+.social-icons.colorful-icon li a.social-icon-vimeo-square i:before {
+	color: #1ca3db;
+}
+
+/* github */
+.social-icons.colorful-icon li a.social-icon-github i:before {
+	color: #235789;
+}
+
+/* google-plus */
+.social-icons.colorful-icon li a.social-icon-google-plus i:before {
+	color: #9e3023;
+}
+
+/* linkedin */
+.social-icons.colorful-icon li a.social-icon-linkedin i:before {
+	color: #0a6594;
+}
+
+/* pinterest */
+.social-icons.colorful-icon li a.social-icon-pinterest i:before {
+	color: #a9272f;
+}
+
+/* stack-exchange */
+.social-icons.colorful-icon li a.social-icon-stack-exchange i:before {
+	color: #235789;
+}
+
+/* tumblr */
+.social-icons.colorful-icon li a.social-icon-tumblr i:before {
+	color: #3e5a70;
+}
+
+/* xing */
+.social-icons.colorful-icon li a.social-icon-xing i:before {
+	color: #015a60;
+}
+
+/* flickr */
+.social-icons.colorful-icon li a.social-icon-flickr i:before {
+	color: #db458f;
+}
+
+/* bitbucket */
+.social-icons.colorful-icon li a.social-icon-bitbucket i:before {
+	color: #0e4a83;
+}
+
+/* facebook */
+.social-icons.colorful-icon li a.social-icon-facebook i:before {
+	color: #395793;
+}
+
+/* twitter */
+.social-icons.colorful-icon li a.social-icon-twitter i:before {
+	color: #1ca3db;
+}
+
+/* dribbble */
+.social-icons.colorful-icon li a.social-icon-dribbble i:before {
+	color: #ce4b81;
+}
+
+/* yelp */
+.social-icons.colorful-icon li a.social-icon-yelp i:before {
+	color: #d64132;
+}
+
+
+/* ### Hover Colorful Icon Social Icons ----- */
+
+/* Hover Colorful Icon Social Icons */
+.social-icons.hover-colorful-icon {
+	margin-bottom: 0;
+}
+
+.social-icons.hover-colorful-icon li a:hover {
+	border-color: transparent;
+	background: transparent;
+}
+
+/* rss */
+.social-icons.hover-colorful-icon li a.social-icon-rss:hover i:after {
+	color: #ea6d19;
+}
+
+/* stack-overflow */
+.social-icons.hover-colorful-icon li a.social-icon-stack-overflow:hover i:after {
+	color: #ea6d19;
+}
+
+/* weibo */
+.social-icons.hover-colorful-icon li a.social-icon-weibo:hover i:after {
+	color: #cb3332;
+}
+
+/* youtube */
+.social-icons.hover-colorful-icon li a.social-icon-youtube:hover i:after {
+	color: #ad2c27;
+}
+
+/* bitcoin */
+.social-icons.hover-colorful-icon li a.social-icon-bitcoin:hover i:after {
+	color: #f7931b;
+}
+
+/* dropbox */
+.social-icons.hover-colorful-icon li a.social-icon-dropbox:hover i:after {
+	color: #0a6594;
+}
+
+/* foursquare */
+.social-icons.hover-colorful-icon li a.social-icon-foursquare:hover i:after {
+	color: #3170a5;
+}
+
+/* gittip */
+.social-icons.hover-colorful-icon li a.social-icon-gittip:hover i:after {
+	color: #593e34;
+}
+
+/* instagram */
+.social-icons.hover-colorful-icon li a.social-icon-instagram:hover i:after {
+	color: #593e34;
+}
+
+/* maxcdn */
+.social-icons.hover-colorful-icon li a.social-icon-maxcdn:hover i:after {
+	color: #ea6d19;
+}
+
+/* renren */
+.social-icons.hover-colorful-icon li a.social-icon-renren:hover i:after {
+	color: #3170a5;
+}
+
+/* trello */
+.social-icons.hover-colorful-icon li a.social-icon-trello:hover i:after {
+	color: #176280;
+}
+
+/* pagelines */
+.social-icons.hover-colorful-icon li a.social-icon-pagelines:hover i:after {
+	color: #235789;
+}
+
+/* skype */
+.social-icons.hover-colorful-icon li a.social-icon-skype:hover i:after {
+	color: #1ca3db;
+}
+
+/* vimeo-square */
+.social-icons.hover-colorful-icon li a.social-icon-vimeo-square:hover i:after {
+	color: #1ca3db;
+}
+
+/* github */
+.social-icons.hover-colorful-icon li a.social-icon-github:hover i:after {
+	color: #235789;
+}
+
+/* google-plus */
+.social-icons.hover-colorful-icon li a.social-icon-google-plus:hover i:after {
+	color: #9e3023;
+}
+
+/* linkedin */
+.social-icons.hover-colorful-icon li a.social-icon-linkedin:hover i:after {
+	color: #0a6594;
+}
+
+/* pinterest */
+.social-icons.hover-colorful-icon li a.social-icon-pinterest:hover i:after {
+	color: #a9272f;
+}
+
+/* stack-exchange */
+.social-icons.hover-colorful-icon li a.social-icon-stack-exchange:hover i:after {
+	color: #235789;
+}
+
+/* tumblr */
+.social-icons.hover-colorful-icon li a.social-icon-tumblr:hover i:after {
+	color: #3e5a70;
+}
+
+/* xing */
+.social-icons.hover-colorful-icon li a.social-icon-xing:hover i:after {
+	color: #015a60;
+}
+
+/* flickr */
+.social-icons.hover-colorful-icon li a.social-icon-flickr:hover i:after {
+	color: #db458f;
+}
+
+/* bitbucket */
+.social-icons.hover-colorful-icon li a.social-icon-bitbucket:hover i:after {
+	color: #0e4a83;
+}
+
+/* facebook */
+.social-icons.hover-colorful-icon li a.social-icon-facebook:hover i:after {
+	color: #395793;
+}
+
+/* twitter */
+.social-icons.hover-colorful-icon li a.social-icon-twitter:hover i:after {
+	color: #1ca3db;
+}
+
+/* dribbble */
+.social-icons.hover-colorful-icon li a.social-icon-dribbble:hover i:after {
+	color: #ce4b81;
+}
+
+/* yelp */
+.social-icons.hover-colorful-icon li a.social-icon-yelp:hover i:after {
+	color: #d64132;
+}
+
+
+
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 04 ) - Divider Spaces
+ *	-------------------------------------------------------------------------------
+ *  
+ *  Divider Spaces are divided to the following sections:
+ *
+ *	------
+ *
+ *	   |
+ *	   |-->  [ 1 ] - For Demo Purpose
+ *	   |-->  [ 2 ] - General Settings
+ *	   |-->  [ 3 ] - Divider Space 75px
+ *	   |-->  [ 4 ] - Divider Space 60px
+ *	   |-->  [ 5 ] - Divider Space 50px
+ *	   |-->  [ 6 ] - Divider Space 40px
+ *	   |-->  [ 7 ] - Divider Space 30px
+ *	   |-->  [ 8 ] - Divider Space 20px
+ *	   |-->  [ 9 ] - Divider Space 15px
+ *	   |-->  [ 10 ] - Divider Space 10px
+ *	   |-->  [ 11 ] - Divider Space with Line
+ *	   |-->  [ 12 ] - Divider Space with 2 Lines
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - For Demo Purpose 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+
+/* Next Line is Just for Demo Purpose */
+
+.divider-space.demo-show-only, 
+.divider-space-75px.demo-show-only, 
+.divider-space-60px.demo-show-only, 
+.divider-space-50px.demo-show-only, 
+.divider-space-40px.demo-show-only, 
+.divider-space-30px.demo-show-only, 
+.divider-space-20px.demo-show-only, 
+.divider-space-15px.demo-show-only, 
+.divider-space-10px.demo-show-only {
+	background: #eee;
+}
+
+
+/**
+ *  [ 2 ] - General Settings 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space,
+.divider-space-75px, 
+.divider-space-60px, 
+.divider-space-50px, 
+.divider-space-40px, 
+.divider-space-30px, 
+.divider-space-20px, 
+.divider-space-15px, 
+.divider-space-10px {
+	display: block;
+	overflow: hidden;
+	clear: both;	
+}
+
+
+/**
+ *  [ 3 ] - Divider Space 75px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-75px {
+	height: 75px;
+}
+
+
+/**
+ *  [ 4 ] - Divider Space 60px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-60px {
+	height: 60px;
+}
+
+
+/**
+ *  [ 5 ] - Divider Space 50px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-50px {
+	height: 50px;
+}
+
+
+/**
+ *  [ 6 ] - Divider Space 40px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+
+.divider-space-40px {
+	height: 40px;
+}
+
+
+
+/**
+ *  [ 7 ] - Divider Space 30px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-30px {
+	height: 30px;
+}
+
+
+/**
+ *  [ 8 ] - Divider Space 20px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-20px {
+	height: 20px;
+}
+
+
+/**
+ *  [ 9 ] - Divider Space 15px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-15px {
+	height: 15px;
+}
+
+
+/**
+ *  [ 10 ] - Divider Space 10px 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-10px {
+	height: 10px;
+}
+
+
+/**
+ *  [ 11 ] - Divider Space with Line 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-container {
+	display: block;
+	position: relative;
+	padding-bottom: 45px;	
+}
+
+.divider-space-with-line {
+	margin-bottom: 70px;
+	border-bottom: 1px solid #ddd;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	top: 60px;
+	clear: both;	
+}
+
+
+/**
+ *  [ 12 ] - Divider Space with Two Lines 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.divider-space-with-two-lines {
+	height: 4px;
+	margin-bottom: 70px;
+	border-bottom: 1px solid #cfcfcf;
+	border-top: 1px solid #cfcfcf;
+	display: block;
+	position: relative;
+	top: 60px;
+	clear: both;	
+}
+
+
+
+
+/**
+ *	-------------------------------------------------------------------------------
+ *	( 05 ) - DropCaps
+ *	-------------------------------------------------------------------------------
+ *  
+ *  BlockQuotes are divided to the following sections:
+ *
+ *	------
+ *
+ *	   |
+ *	   |-->  [ 1 ] - DropCaps Types
+ *	   |-->  [ 2 ] - DropCaps Rounded
+ *  
+ */
+
+
+/**
+ *  [ 1 ] - DropCaps Types 
+ *	~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.dropcap1 {
+	float: left;
+	display: block;
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 32px;
+	margin: -11px 12px -1px 0;
+	color: #222;
+}
+
+.dropcap2, .dropcap3 {
+	float: left;
+	display: block;
+	font-size: 27px;
+	color: #eee;
+	background: #222;
+	width: 45px;
+	height: 45px;
+	line-height: 43px;
+	text-align: center;
+	margin: 5px 21px 0 0;
+	-webkit-border-radius: 3px;
+			border-radius: 3px;
+}
+
+.dropcap3 {
+	background: #eee;
+	color: #444;	
+}
+
+
+/**
+ *  [ 2 ] - DropCaps Rounded
+ *	~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+.rounded-dropcap {
+	width: 50px;
+	height: 50px;
+	line-height: 48px;
+	margin: 2px 15px 0 0;
+	-webkit-border-radius: 1000px;
+			border-radius: 1000px;
+}

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css" />
+		<link type="text/css" href="../css/h5-aura.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-channel-aura.css" rel="stylesheet" />
+		<link type="text/css" href="../css/h5-play-aura.css" rel="stylesheet">
+
+	</head>
+	<style media="screen">
+		.aui-flexView {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.aui-scrollView {
+    width: 100%;
+    height: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+
+.aui-navBar {
+    height: 44px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 102;
+    background: #f6f6f6;
+}
+.aui-navBar-item {
+    height: 44px;
+    min-width: 25%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    padding: 0 0rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #808080;
+    position: relative;
+}
+
+.aui-navBar-item:first-child {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    margin-right: -25%;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.aui-navBar-item:last-child {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.aui-center {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 44px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border: none;
+    float: left;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.icon-return{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAACh0lEQVRoQ+3ZMW8TMRQH8PcOsTBQISExVCIRCwgWFvZ+hZYBpIrEcTYkBsTGlI2VDamL3YEBpWJoR1BJaOlXYEzyDYp0bMRGRjnJoDuWs/1e3EbKeHf55b33vzsb4YJ98IJ54RKce8XZV1gIcQ8AviDiD2vtC631pzZFYQ2WUt611p4CwM0VcqqU2soSXIN1ztdKqTfZgRuw75RSz9tg3bHsWjomlh04NpYVOAWWDbjf7z8oimLipbH7bUopJdvO7L/Hk8+wwyLiCSLe8H6cww4BwGYFTo0lbWkKLBmYCksCrsNaa99rrZ/FmFnS0GrCdrvd3mg0MqEDqu58yVKaAzZZSwshHgLAsX/rcW2csrJVtaNXeIWdIuL16qJU2OgVrsMCwEGn03mSamaThVYTtizLp+PxeJkioJKFFldslJbmjA0O5o4NCm7AHpZluUM5s1FCSwjxCAA++7ceADiczWaPJ5PJL6qAihJaUspdY8w+Il7xLsASG6SlhRA/EfGa91BxNJ/Pd7hVNtiT1mAwOAeADXdCa637Hi0Wi3zBUsptY8wHRLzqwIh/nlbzbWmna0roLEOrmo11QQd9W1oHdFDwOrR3cLCH/uuFn0uQRQE7dMPKJHl6RwNzRUcF/w9N9VIRHVyhazbLDihWP5KAHbphOzQ5OhmYCzopmAM6OZgaTQL20FMAuOUtHESfaTLwCn3HWnuWEk0KpkCTg1OjWYArtDHmKyJu+jMdeh+KDdghh8NhZ7lcfvPRoXcaWYFToNmBY6NZgj20m+nb3pr3W631yzY7GWzBDtXr9TaLojjz0N+VUvezBXvoPQBw0Fda649Zg9vg6o5l3dKhse58l+AY/yqnc/4GvNDoTFOq8FwAAAAASUVORK5CYII=");
+
+}
+
+	</style>
+	<body>
+		<section class="m-navigation-content navigation-fixed">
+			<header class="aui-navBar aui-navBar-fixed" id="aui-header">
+				<a onclick="closeWin()" class="aui-navBar-item">
+					<i class="icon icon-return"></i>
+				</a>
+				<div class="aui-center">
+					<span class="aui-center-title1" id="title">播放中心</span>
+				</div>
+				<a class="aui-navBar-item">
+					<i class="icon icon-sys"></i>
+				</a>
+			</header>
+		</section>
+		<!-- <div id="daoh" class="m-navigation" > -->
+		<!-- 导航置顶 m-navigation-content 追加 navigation-fixed -->
+		<!-- <section class="m-navigation-content">
+				<a class="logo-iqiyi" ></a>
+				<div class="m-user">
+					<div class="header-search">
+						<a onclick="sosuo()" href="javascript:void(0);" class="c-glyphicon c-glyphicon-searchnavigation" ></a>
+					</div>
+					<div class="header-login" >
+						<a class="link-login" >我的</a>
+					</div>
+				</div>
+			</section>
+		</div> -->
+
+		<img height="270px" />
+		<!--<iframe src="http://zhys.123cf.top" width="100%" height="100%"></iframe>-->
+
+
+		<section class="m-video-extendBar iqiyi-down-load-extend">
+			<div class="m-video-pp">
+
+			</div>
+			<div class="m-video-pindaoType hide">电视剧</div>
+
+
+			</div>
+			<div class="m-video-action">
+				<div onclick="toup()" class="video-action-btn iqiyi-down-load">
+					<a class="video-load">
+						<i class="c-playPage-down"></i>
+						<span class="c-info">投屏</span>
+					</a>
+				</div>
+				<!-- 分享弹出层 video-action-btn 追加类名称selected -->
+				<div id="fenxan" onclick="fenx()" class="video-action-btn">
+					<a class="video-collect">
+						<i class="c-playPage-icon c-playPage-share"></i>
+						<span class="c-info">分享</span>
+					</a>
+				</div>
+				<!--更多video-action-btn 追加类 selected -->
+				<div id="gengd" onclick="gengd()" class="video-action-btn">
+					<a class="video-collect ">
+						<i class="c-playPage-icon c-playPage-more "></i>
+						<span class="c-info">更多</span>
+					</a>
+				</div>
+			</div>
+			<div class="m-toast-layer m-player-toast dn"></div>
+		</section>
+		<!--分享-->
+		<div id="fenx" class="m-share-tip" style="display:none">
+			<a onclick="fenxiang('wx')" class="share-item">
+				<i class="c-icon-share c-icon-share-weixin"></i>
+				<span class="c-info">微信好友</span>
+			</a>
+			<a onclick="fenxiang('qq')" class="share-item">
+				<i class="c-icon-share c-icon-share-qq"></i>
+				<span class="c-info">QQ</span>
+			</a>
+
+			<!-- <a onclick="fenxiang(xlwb)" class="share-item">
+				<i class="c-icon-share c-icon-share-sina"></i>
+			<span class="c-info">新浪微博</span>
+			</a> -->
+			<a onclick="fenxiang('fzlj')" class="share-item">
+				<i class="c-icon-share c-icon-share-link"></i>
+				<span class="c-info">复制链接</span>
+			</a>
+		</div>
+
+		<!-- 收藏，举报，问题 -->
+		<div id="fenxgd" class="m-stow-report-faq #if($isNewBar)shortPlay-stowReportFaq#end" style="display:none">
+			<!--已收藏video-action-btn 追加类 selected -->
+			<a onclick="alert('开发中')" class="c-link">
+				<i class="c-extendBar-icon extendBar-stow"></i>
+				<span class="c-info">收藏</span>
+			</a>
+			<a onclick="alert('开发中')" class="c-link">
+				<i class="c-extendBar-icon extendBar-report"></i>
+				<span class="c-info">举报</span>
+			</a>
+			<a onclick="alert('开发中')" class="c-link">
+				<i class="c-extendBar-icon extendBar-faq"></i>
+				<span class="c-info">播放遇到问题</span>
+			</a>
+		</div>
+
+
+
+
+
+		<div class="m-box-items m-box-items-full" id="videoInfo" style="display:block">
+			<div class="m-video-info">
+				<div class="video-title">
+					<h1 id="zming" class="c-title"><a class="c-title-link">-----------</a>第--集 </h1>
+				</div>
+				<div class="video-data">
+					<div id="qj" class="data-info">
+						48集全
+					</div>
+					<div id="zy" class="data-info">
+						主演: 郑元畅,张铭恩,黄梦莹,季晨,熊乃瑾,王闯,朱杰（男）,肖燕,姚橹,李宗翰,赵峥
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="m-box" id="seleInfo">
+			<div class="m-box-items m-box-items-full">
+				<section onclick="xuanji()" class="m-title m-title-anthology">
+					<h3 class="c-title-des">下方选择播放源：</h3>
+					<span class="c-des"> 当前播放源：<em id="xsbfy">---</em> </span>
+				</section>
+			</div>
+		</div>
+		<div id="xuanji1">
+
+
+		</div>
+		<div id="xuanji">
+
+		</div>
+
+
+
+		<!-- <section name="m-tagSearch" class="m-sortList-wrap m-sliding sortList-border">
+			<ul id="shaixuan1" class="m-sortList m-sliding-list" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px) scale(1) translateZ(0px);">
+
+			</ul>
+		</section> -->
+
+
+	</body>
+
+
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/doT.js"></script>
+	<script type="text/javascript">
+		var api_url = localStorage.getItem('api_url');
+		var djapi_url = localStorage.getItem('djapi_url');
+		var namen;
+		var arr1; //
+		var play; //播放参数
+		var xiazai; //下载参数
+		var bianl; //选集变量
+		var img; //图片地址
+		var bfy; //播放源名称
+		var bofang; //播放地址
+		var dqbfy = 0;
+		var boflx; //播放名称
+		//  api.pageParam.url
+		var copy = '';
+		var shama = '';
+
+
+		setInterval(function() {
+
+		}, 100);
+
+		function qhbfy(a) {
+			if (dqbfy == a) {
+				alert('已经在此播放源,不需要切换');
+			} else {
+				var jishu = bfy.split("$$$");
+				var nnma;
+				if (jishu[a] == "qq") {
+					nnma = "腾讯视频";
+				} else if (jishu[a] == "qiyi") {
+					nnma = "爱奇艺";
+				} else if (jishu[a] == "youku") {
+					nnma = "优酷";
+				} else if (jishu[a] == "mgtv") {
+					nnma = "芒果";
+				} else if (jishu[a] == "sohu") {
+					nnma = "搜狐";
+				} else if (jishu[a] == "letv") {
+					nnma = "乐视";
+				} else if (jishu[a] == "pptv") {
+					nnma = "PPTV";
+				} else {
+					nnma = jishu[a];
+				}
+				boflx = jishu[a];
+				$api.byId('xsbfy').innerHTML = nnma; //切换播放源名称
+
+
+				//输出集数
+				var navtjid = $api.byId('xuanji'); //获取显示集数id
+				var yifen = play.split("$$$"); //一次分割
+				var erfen = yifen[a].split("#"); //二次分割获取所有播放列表
+
+				var html = '';
+				var ji = erfen.length; //获取集数长度
+				html += '<section name="m-digit" class="m-album-num clearfix">';
+				for (i = 0; i < ji; i++) {
+					var i1 = i + 1;
+					var fess = erfen[i].split("$");
+					html += "<a class='c-album-item' onclick=\"toBanners('" + erfen[i] + "','" + i + "')\"><span class='num'>" + fess[
+							0] +
+						"</span><div class='c-rt'></div><span class='album-current hide'><i class='c-glyphicon c-glyphicon-albumPlay'></i></span></a>";
+				}
+				html += '</section>';
+				navtjid.innerHTML = html;
+				var slsl = erfen[0].split("$");
+				var xds = $api.byId('zming');
+				xds.innerHTML = "<a  class='c-title-link' glue-node='albumLink'>" + namen + "&nbsp;</a> " + slsl[0];
+				var reg = RegExp(/m3u8/);
+				if (reg.exec(slsl[1])) {
+					playbo = localStorage.getItem('play_url1') + slsl[1];
+				} else {
+					if (boflx == "qq") {
+						playbo = localStorage.getItem('play_url2') + slsl[1];
+					} else if (boflx == "qiyi") {
+						playbo = localStorage.getItem('play_url3') + slsl[1];
+					} else if (boflx == "youku") {
+						playbo = localStorage.getItem('play_url4') + slsl[1];
+					} else if (boflx == "mgtv") {
+						playbo = localStorage.getItem('play_url5') + slsl[1];
+					} else if (boflx == "sohu") {
+						playbo = localStorage.getItem('play_url6') + slsl[1];
+					} else if (boflx == "letv") {
+						playbo = localStorage.getItem('play_url7') + slsl[1];
+					} else if (boflx == "pptv") {
+						playbo = localStorage.getItem('play_url8') + slsl[1];
+					} else {
+						playbo = slsl[1];
+					}
+
+				}
+				//alert(api.pageParam.video);
+				bofang = slsl[1];
+				var browser = api.require('webBrowser');
+				browser.loadUrl({
+					url: playbo
+				});
+
+				dqbfy = a;
+				alert('切换完成');
+
+
+			}
+		}
+		apiready = function() {
+			// var student = new Object();
+			//student.html = api.pageParam.url;
+			//var json = JSON.stringify(student);
+
+			api.ajax({
+				url: api_url + '/login/login/share1.html',
+				method: 'get',
+				data: {
+					values: {
+						uid: localStorage.getItem('user_id'),
+						key:localStorage.getItem('anq_key'),
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					copy = ret.sign;
+					shama = ret.share;
+				} else {
+					alert('获取链接失败');
+				}
+			});
+
+
+
+
+
+			api.ajax({
+				url: djapi_url + 'index.php/ysapp/sosuoid',
+				data: {
+					values: {
+						id: api.pageParam.id,
+					}
+				}
+			}, function(ret, err) {
+				if (ret) {
+					//alert(JSON.stringify(ret[0].vod_play_url));
+					//播放参数划分
+					play = ret[0].vod_play_url; //获取视频播放数据--未分割
+					var jishu = play.split("$$$"); //播放数据分割
+					var arr = jishu[0].split("#"); //每一集分割
+
+					xiazai = ret[0].vod_down_url; //获取视频下载数据--未分割
+					var xz = xiazai.split("$$$"); //下载数据分割
+					arr1 = xz[0].split("#"); //第一集分割
+
+					namen = ret[0].vod_name; //视频名称
+					bfy = ret[0].vod_play_from; //获取播放源名称--未分割
+
+					img = ret[0].vod_pic; //视频图片
+
+					var shs = arr[0].split("$"); //分割第一集名字,图片
+					bofang = shs[1]; //获取第一集播放地址
+					var ming = $api.byId('zming'); //获取显示名称id
+					ming.innerHTML = "<a  class='c-title-link' glue-node='albumLink'>" + ret[0].vod_name + "&nbsp;</a> " + shs[0];
+					var qj = $api.byId('qj'); //显示集数id
+					qj.innerHTML = ret[0].vod_remarks;
+					var zy = $api.byId('zy'); //显示主演id
+					zy.innerHTML = "主演：" + ret[0].vod_actor;
+
+					bianl = 0; //当前播放集数变量   0为第一集以此类推
+
+					var bofangqi = $api.byId('xuanji1');
+					var from1 = ret[0].vod_play_from;
+					var jishu = from1.split("$$$");
+					boflx = jishu[0];
+					$api.byId('xsbfy').innerHTML = jishu[0]; //显示默认播放源
+					var html = '';
+					var ji = jishu.length;
+					html +=
+						'<section name="m-tagSearch" class="m-sortList-wrap m-sliding sortList-border"><ul id="shaixuan1" class="m-sortList m-sliding-list" >';
+					for (i = 0; i < ji; i++) {
+						var nnma;
+						if (jishu[i] == "qq") {
+							nnma = "腾讯视频";
+						} else if (jishu[i] == "qiyi") {
+							nnma = "爱奇艺";
+						} else if (jishu[i] == "youku") {
+							nnma = "优酷";
+						} else if (jishu[i] == "mgtv") {
+							nnma = "芒果";
+						} else if (jishu[i] == "sohu") {
+							nnma = "搜狐";
+						} else if (jishu[i] == "letv") {
+							nnma = "乐视";
+						} else if (jishu[i] == "pptv") {
+							nnma = "PPTV";
+						} else {
+							nnma = jishu[i];
+						}
+
+						html += '<li onclick=\"qhbfy(' + i + ')\" style="pointer-events: auto;"><a class="c-sortlist-item selected">' +
+							nnma + '</a></li>';
+					}
+					html += '</ul></section>';
+					bofangqi.innerHTML = html;
+
+
+
+					var header = $api.byId('aui-header'); //获取导航id
+
+					var reg = RegExp(/m3u8/);
+					if (reg.exec(bofang)) { //判断当前播放视频是否为m3u8是则通过解析播放不是直接播放连接
+						playbo = localStorage.getItem('play_url1') + bofang;
+					} else {
+						if (boflx == "qq") {
+							playbo = localStorage.getItem('play_url2') + bofang;
+						} else if (boflx == "qiyi") {
+							playbo = localStorage.getItem('play_url3') + bofang;
+						} else if (boflx == "youku") {
+							playbo = localStorage.getItem('play_url4') + bofang;
+						} else if (boflx == "mgtv") {
+							playbo = localStorage.getItem('play_url5') + bofang;
+						} else if (boflx == "sohu") {
+							playbo = localStorage.getItem('play_url6') + bofang;
+						} else if (boflx == "letv") {
+							playbo = localStorage.getItem('play_url7') + bofang;
+						} else if (boflx == "pptv") {
+							playbo = localStorage.getItem('play_url8') + bofang;
+						} else {
+							playbo = bofang;
+						}
+
+
+					}
+
+					var browser = api.require('webBrowser');
+					browser.openView({
+						url: playbo,
+						rect: {
+							x: 0,
+							y: $api.dom('#aui-header').offsetHeight,
+							w: 'auto',
+							h: 220
+						}
+					}, function(ret, err) {
+						switch (ret.state) {
+							case 0:
+								break;
+							case 1:
+								break;
+							case 2:
+								break;
+							case 3:
+								break;
+							case 4:
+								break;
+							default:
+								break;
+						}
+					});
+
+					//输出集数
+					var navtjid = $api.byId('xuanji'); //获取显示集数id
+					var html = '';
+					var ji = arr.length;
+					html += '<section name="m-digit" class="m-album-num clearfix">';
+					for (i = 0; i < ji; i++) {
+						var i1 = i + 1;
+						var fess = arr[i].split("$");
+						html += "<a class='c-album-item' onclick=\"toBanners('" + arr[i] + "','" + i + "')\"><span class='num'>" +
+							fess[0] +
+							"</span><div class='c-rt'></div><span class='album-current hide'><i class='c-glyphicon c-glyphicon-albumPlay'></i></span></a>";
+					}
+					html += '</section>';
+					navtjid.innerHTML = html;
+				}
+				//    添加观看记录
+				api.ajax({
+					url: api_url + 'login/login/sosuoid',
+					data: {
+						values: {
+							id: api.pageParam.id,
+							user: localStorage.getItem('user_id'),
+							img: img,
+							title: namen,
+						}
+					}
+				}, function(ret, err) {
+					if (ret) {
+
+					}
+				});
+				//结束//
+
+			});
+
+
+
+		};
+
+		function toup() {
+
+			var reg = RegExp(/m3u8/);
+			if (reg.exec(bofang)) {
+
+			} else {
+				alert('当前视频格式不支持投屏，请选择m3u8格式!');
+				return;
+			}
+
+			var module = api.require('easyVideoPlayer');
+			var param = {
+				msg: '' + bofang
+			};
+			module.playVideo(param);
+		}
+
+		function sosuo() {
+			api.openWin({
+				name: 'so',
+				url: './so.html',
+				pageParam: {
+
+				}
+			});
+
+		}
+
+		function fenxiang(leix) {
+			if (leix == "wx") {
+				var wx = api.require('wx');
+				wx.shareText({
+					apiKey: '',
+					scene: 'timeline',
+					text: '想看【' + namen + '】最新全集？快来下载【汇播影视】APP，全网视频随便看，更有抢先电影观看，下载地址：'+ copy + '，邀请码：' + shama
+				}, function(ret, err) {
+					if (ret.status) {
+						alert('分享成功');
+					} else {
+						alert(err.code);
+					}
+				});
+			} else if (leix == "qq") {
+				var qq = api.require('QQPlus');
+				qq.shareText({
+					text: '想看【' + namen + '】最新全集？快来下载【汇播影视】APP，全网视频随便看，更有抢先电影观看，下载地址：' + copy + '，邀请码：' + shama
+				}, function(ret, err) {
+					if (ret.status) {
+						alert('分享成功');
+					} else {
+						api.alert({
+							msg: JSON.stringify(err)
+						});
+					}
+				});
+			} else if (leix == "fzlj") {
+				var clipBoard = api.require('clipBoard');
+				clipBoard.set({
+					value: '想看【' + namen + '】最新全集？快来下载【汇播影视】APP，全网视频随便看，更有抢先电影观看，下载地址：' + copy + '，邀请码：' + shama
+				}, function(ret, err) {
+					if (ret) {
+						api.toast({
+							msg: '已复制到剪切板',
+							duration: 2000
+						});
+					} else {
+
+					}
+				});
+			};
+
+
+
+		}
+
+		function gengd() {
+			var so = $api.byId('fenxgd');
+			var so1 = $api.byId('gengd');
+
+			var gen = $api.byId('fenx');
+			var gen1 = $api.byId('fenxan');
+			$api.attr(gen, 'style', 'display:none;');
+			$api.attr(gen1, 'class', 'video-action-btn');
+			// alert($api.attr(so,'style'));
+			if ($api.attr(so, 'style') == 'display:none;') {
+				$api.attr(so, 'style', '');
+				so.style = '';
+				$api.attr(so1, 'class', 'video-action-btn selected');
+			} else {
+				$api.attr(so, 'style', 'display:none;');
+				$api.attr(so1, 'class', 'video-action-btn');
+
+			}
+
+		}
+
+		function fenx() {
+			var so = $api.byId('fenx');
+			var so1 = $api.byId('fenxan');
+
+			var gen = $api.byId('fenxgd');
+			var gen1 = $api.byId('gengd');
+			$api.attr(gen, 'style', 'display:none;');
+			$api.attr(gen1, 'class', 'video-action-btn');
+
+			// alert($api.attr(so,'style'));
+			if ($api.attr(so, 'style') == 'display:none;') {
+				$api.attr(so, 'style', '');
+				so.style = '';
+				$api.attr(so1, 'class', 'video-action-btn selected');
+			} else {
+				$api.attr(so, 'style', 'display:none;');
+				$api.attr(so1, 'class', 'video-action-btn');
+
+			}
+
+		}
+
+		function closeWin() {
+			api.closeWin({});
+		}
+
+		function xiazai1() {
+			var xzs = arr1[bianl].split("$");
+			var downloadManager = api.require('downloadManager');
+			downloadManager.enqueue({
+				url: xzs[1],
+				cache: true,
+				allowResume: true,
+				title: namen + xzs[0] + '.mp4',
+				networkTypes: 'all'
+			}, function(ret, err) {
+				if (ret) {
+					alert("下载成功");
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function toBanners(url, id) {
+			var fenge = url.split("$");
+			bianl = id;
+
+
+			var ming = $api.byId('zming');
+			ming.innerHTML = "<a class='c-title-link' glue-node='albumLink'>" + namen + "&nbsp;</a> " + fenge[0];
+
+			var header = $api.byId('aui-header');
+
+			var headerPos = $api.offset(header);
+
+			var reg = RegExp(/m3u8/);
+			if (reg.exec(fenge[1])) {
+				playbo = localStorage.getItem('play_url1') + fenge[1];
+			} else {
+				if (boflx == "qq") {
+					playbo = localStorage.getItem('play_url2') + fenge[1];
+				} else if (boflx == "qiyi") {
+					playbo = localStorage.getItem('play_url3') + fenge[1];
+				} else if (boflx == "youku") {
+					playbo = localStorage.getItem('play_url4') + fenge[1];
+				} else if (boflx == "mgtv") {
+					playbo = localStorage.getItem('play_url5') + fenge[1];
+				} else if (boflx == "sohu") {
+					playbo = localStorage.getItem('play_url6') + fenge[1];
+				} else if (boflx == "letv") {
+					playbo = localStorage.getItem('play_url7') + fenge[1];
+				} else if (boflx == "pptv") {
+					playbo = localStorage.getItem('play_url8') + fenge[1];
+				} else {
+					playbo = fenge[1];
+				}
+
+			}
+			// api.toast({
+			// 	msg: playbo
+			// });
+
+
+			bofang = fenge[1];
+			var browser = api.require('webBrowser');
+			browser.loadUrl({
+				url: playbo
+			});
+		}
+	</script>
+
+</html>

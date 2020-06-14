@@ -1,0 +1,1 @@
+<block s-if="{{$imgurl}}"><view><view class="hb_box"><image class="share_img" src="{{shareimg_url}}"></image></view><view class="hb_sharebox"></view></view></block>

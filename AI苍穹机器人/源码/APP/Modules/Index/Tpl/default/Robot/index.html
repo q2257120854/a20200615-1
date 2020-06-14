@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="pixel-ratio-3 retina android android-5 android-5-0 watch-active-state"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <title>AI机器人</title>
+
+    <link rel="stylesheet" href="/Public/dianyun/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="/Public/dianyun/css/app.css">
+    <link rel="stylesheet" href="/Public/dianyun/css/iconfont.css">
+
+
+</head>
+<body onload="onload()" class="framework7-root">
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-reveal layout-dark">
+</div>
+
+<div class="views">
+    <div class="view view-main">
+        <div class="pages">
+            <link rel="stylesheet" href="/Public/dianyun/css/chat.css">
+            <link rel="stylesheet" href="/Public/dianyun/css/robot.css">
+
+            <div class="page toolbar-fixed">
+                <div class="page-content">
+
+
+
+                    <div class="clearfix">
+                        <div class="swiper-container swiper-1 swiper-container-horizontal swiper-container-android" style="height: 155px;"><div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+                            <div class="swiper-wrapper" style="transform: translate3d(-1230px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide" style="width: 360px; margin-right: 50px;"><a href="" class="external">
+                                    <img src="/Public/dianyun/img/4ead403933285f53a1b930216be06cc5.jpg" style="width:100%; height:100%;">
+                                </a></div>
+                                <div class="swiper-slide" style="width: 360px; margin-right: 50px;"><a href="" class="external">
+                                    <img src="/Public/dianyun/img/71fa20abf3c968b24765f9262cb3e7cd.jpg" style="width:100%; height:100%;">
+                                </a></div>
+                                <div class="swiper-slide swiper-slide-prev" style="width: 360px; margin-right: 50px;"><a href="" class="external">
+                                    <img src="/Public/dianyun/img/45893744d125f23e4b1dfb58cded240c.jpg" style="width:100%; height:100%;">
+                                </a></div>
+                                <div class="swiper-slide swiper-slide-active" style="width: 360px; margin-right: 50px;"><a href="" class="external">
+                                    <img src="/Public/Uploads/20181117/3.jpg" style="width:100%; height:100%;">
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="getworkspanel">
+                        <div class="row">
+                            <div class="col-70">
+                                <div class="center bold" style="margin-top:4px;">AI明细</div>
+                            </div>
+                            <div class="col-30">
+                                <a href="{:U('Robot/robot')}" class="external button button-fill bg-orange">立即领取
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <table cellpadding="0" cellspacing="0" border="0" style="border: none;width:100%;">
+                        <tbody><tr>
+                            <td style="width:49%; vertical-align: top;">
+                                <div class="row machine-stat">
+                                    <div class="col-50">
+                                        <div style="height: 80px; text-align: right; margin: 20px 0px 4px 30px;">
+                                            <img src="/Public/dianyun/img/robot-1.png" style="width:auto; height: 80px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <p><label id="lblMachineCount">{$count}</label>&nbsp;台</p>
+                                        <p>AI机器人</p>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <a href="{:U('Robot/pcontent')}" class="external" id="soonBuy">
+                                        <img src="/Public/dianyun/img/button-buy.png" style="height:30px; width:auto;">
+                                    </a>
+                                </div>
+                            </td>
+                            <td style="width:2%; border-right: solid 1px #a5a5a5; width:1px; height:150px;">&nbsp;
+                            </td>
+                            <td style="width:49%; vertical-align: top;">
+                                <div class="row machine-stat">
+                                    <div class="col-50">
+                                        <div style="height: 80px; margin: 20px 20px 4px 0px;">
+                                            <img src="/Public/dianyun/img/robot-2.png" style="width:auto; height: 64px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-50">
+                                        <p><label id="lblLiuLiang"><if condition="$count eq 0">0<else/>{$minfo.logincount}</if></label>&nbsp;次</p>
+                                        <p>流量数</p>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <a href="{:U('Wallet/award')}" class="external">
+                                        <img src="/Public/dianyun/img/button-view.png" style="height:30px; width:auto;">
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                    <div class="space-10 bg-gray"></div>
+                    <div class="space-20"></div>
+
+                    <div class="rel">
+                        <div style="width:50%;">
+                            <div class="rel" style="margin: 0 15px; text-align: center;">
+                                <img class="robot-main" src="/Public/dianyun/img/speak.gif">
+                                <div style="position: absolute; top:33px; left:0; text-align: center; margin: 0 -15px;z-index:101;">
+                                    <img id="imgListen" class="robot-listen" src="/Public/dianyun/img/listen1.png" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="position: absolute; top:10px;left:45%; right:20px; min-height:100px;z-index:100;">
+                            <div class="chat-message">
+
+                                <div class="send">
+                                    <div class="msg">
+                                        <p onclick="doSpeak(this)"><i class="msg_input"></i><if condition="$count eq 0">您还没有购买AI机器人!<else/>您已有AI机器人了，记得每天来领取收益哦!</if></p>
+                                    </div>
+                                </div></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="toolbar tabbar tabbar-labels">
+                    <div class="toolbar-inner">
+                        <a href="{:U('Index/New/index')}" class="tab-link external">
+                            <img src="/Public/dianyun/img/tab-home-01.png">
+                            <span class="tabbar-label">首页</span>
+                        </a>
+                        <a href="{:U('Index/Robot/index')}" class="tab-link external active">
+                            <img src="/Public/dianyun/img/tab-robot.png">
+                            <span class="tabbar-label">机器人</span>
+                        </a>
+                        <a href="{:U('Index/Task/index')}" class="tab-link external">
+                            <img src="/Public/dianyun/img/tab-coin-01.png">
+                            <span class="tabbar-label">领金币</span>
+                        </a>
+                        <a href="{:U('Index/Wallet/index')}" class="tab-link external">
+                            <img src="/Public/dianyun/img/tab-account-01.png">
+                            <span class="tabbar-label">我的</span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body></html>

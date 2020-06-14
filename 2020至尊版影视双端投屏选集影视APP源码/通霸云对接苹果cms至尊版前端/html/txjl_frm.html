@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的提现记录</title>
+    <style type="text/css">
+        .testx {
+            float: left;
+            width: 100%;
+        }
+
+        .test {
+            background: forestgreen;
+            margin: 2px;
+            width: 100%;
+        }
+
+            .test ul {
+                list-style: none;
+                height: 45px;
+                background: #fff;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            .test li {
+                float: left;
+                width: auto;
+                margin-right: 15px;
+                margin-left: 5px;
+                pabackground: #F8F8FF;
+                color: #008B8B;
+                line-height: 45px;
+                text-align: center;
+            }
+
+        td {
+            width: 25%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: -webkit-center;
+            height: 15px;
+        }
+
+        .tablex {
+            width: 100%;
+        }
+    </style>
+</head>
+<body  >
+    <label id="tishi" style="display:none;text-align: center;font-size: 1.2rem;color: #F96060;margin: 5px;"></label>
+    <!-- <div id="textx" class="testx">
+    </div> -->
+    <div id="neir">
+
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript" src="../script/auitab.js" ></script>
+<script type="text/javascript">
+	var api_url = localStorage.getItem('api_url');
+apiready = function(){
+  load();
+}
+function sjcltm(timex) {
+    var d = new Date(timex * 1000);
+    timex = d.toISOString();
+    var pattern2 = ".000Z";
+    timex = timex.replace(new RegExp(pattern2), "");
+    timex = timex.replace(/T/, " ");
+    timex = timex.substring(0, 10);
+    return (timex);
+}
+
+function sjcl(ztai) {
+    if (ztai == 'ok') {
+        ztai = '<font color=red>' + '已付款' + '</font>';
+    } else if (ztai == 'wait') {
+        ztai = '<font color=green>' + '等待付款..' + '</font>';
+    }
+    return (ztai);
+}
+function load() {
+  var userid = localStorage.getItem('user_id');
+  var student = new Object();
+  student.id = userid;
+  var json = JSON.stringify(student);
+  api.ajax({
+    url: api_url+'appx/tixjl.php',
+    method: 'post',
+    data: {
+        values: {
+            json: json
+          }
+      }
+    }, function(ret, err) {
+      if (ret.code==1) {
+          var show = document.querySelector('#tishi');
+          var neirx = document.querySelector('#neir');
+          show.style.display = 'block';
+          var data = ret.msg;//ajax.responseText;
+          var result = eval("(" + data + ")");
+          var shuchu = '';
+          var moneyx = 0;
+          for (var i = 0; i < result.length; i++) {
+              var qiantb = '<table class="tablex">' + '<tr><th>提现时间</th><th>提现金额</th><th>状态</th></tr>';
+              var houtb = ' </table>';
+              var str = '<tr>' + '<td>' + '<font size=4>' + sjcltm(result[i][0]) + '</font>' + '</td>' +
+                                      '<td>' + result[i][2] + '元</td>' +
+                    '<td>' + sjcl(result[i][1]) + '</td>' + '</tr>';
+              shuchu += str;
+              moneyx = moneyx + Number(result[i][2]);
+          }
+          var shuchu = qiantb  + shuchu  + houtb ;
+          neirx.innerHTML = shuchu ;
+          var con = result.length;
+          localStorage.setItem('tud', con);    
+          if (con == 0) {
+              show.innerHTML = '您有还没有提现记录,努力哦~!';
+          } else {
+              show.innerHTML = '您有' + con+ '笔提现记录  ' + '共获得' + moneyx + '元';
+          }
+      } else {
+          alert(ret.msg);
+          //api.alert({ msg: JSON.stringify(err) });
+      }
+
+    });
+}
+
+
+</script>
+</html>

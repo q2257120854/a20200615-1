@@ -1,0 +1,12 @@
+﻿html,body,form{ margin:0; padding:0; } html{height:100%; width:100%; } body,form{height:auto;}  dl,dt,dd{margin:0; padding:0;} img{border:none;}
+.c-red{ color:#ff0000 !important; } .c-green{ color:#3db734 !important; } .fl{ float:left; } .fr{ float:right; } .hide{ display:none; } .show{ display:block; }
+.c-6gray{ color:#666; } .w_150{ width:150px !important; } .c-qing{color:#1DB69A !important;} .t-cent{ text-align:center !important; } .of_h{ overflow:hidden; } .c-3gray{ color:#333; }
+ul,li{ padding:0; margin:0;} ul li{ list-style-type:none;} a{ text-decoration:none; } .mr_t10{margin-top:10px;} .mr_b10{margin-bottom:10px;} .mr_r15{margin-right:15px;}
+.mr_l15{ margin-left:15px; } .h_per100{ height:100%; } .w_per100{width:100%;} .t-left{ text-align:left !important; }
+.clear {clear: both;} .fw_b{ font-weight:bold; } .fz_14{ font-size:14px; } .fz_12{ font-size:12px;} .ve-a_m{vertical-align:middle;}  
+.bg_f{ background:#fff; } .bg_w{background:#fff;}
+.main{height: auto; width: 1200px; margin-right: auto; margin-left: auto; clear: both; }
+/*span颜色相关*/
+.span_01{ color:#a9a9a9 !important;} .span_02{ color:#ff0000 !important;} .span_03{ color:#ff6600 !important;} .span_04{ color:#ee1100 !important;} .span_05{ color:#009900 !important;}
+.span_06{ color:#00a9ff !important;} .span_07{ color:#ff00ff !important;} .span_09{ color:#0000cc !important;} .span_10{ color:#0094ff !important;}
+.span_11{ color:#236 !important; }
